@@ -61,11 +61,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
+    	System.out.println("CSJM configuring security");
 		http
 			.httpBasic().and()
 			.authorizeRequests()
 				.antMatchers("/static/**", "/css/**", "/js/**").permitAll()
-				.antMatchers("/login", "/index.html", "/home.html", "/login.html", "/account", "/").permitAll()
+				.antMatchers("/login", "/index.html", "/home.html", "/login.html", "/details.html", "/account", "/").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.csrf().disable();

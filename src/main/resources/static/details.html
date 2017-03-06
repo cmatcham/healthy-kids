@@ -1,0 +1,12 @@
+<div ng-show="authenticated">
+<h1>{{controller.child.firstName}} {{controller.child.lastName}} </h1>
+
+<table>
+	<tr>
+		<th></th><th>Sleep</th><th>Nutrition</th><th>Move</th>
+	</tr>
+	<tr ng-repeat="day in controller.days">
+		<td>{{day.name}}</td><td>{{controller.getSleep(day)}}</td><td>{{controller.getNutrition(day)}}</td><td>{{controller.getMovement(day)}}</td>
+	</tr>
+</table>
+</div>

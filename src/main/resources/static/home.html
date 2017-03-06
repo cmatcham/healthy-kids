@@ -1,7 +1,7 @@
 <div ng-show="authenticated">
 <h1>Your children</h1>
     <ul ng-repeat="child in controller.children">
-    	<li>{{child.firstName}} {{child.lastName}}</li>
+    	<li><a href="#/child/{{child.id}}">{{child.firstName}} {{child.lastName}}</a></li>
     </ul>
     
     <div class="col-md-4">

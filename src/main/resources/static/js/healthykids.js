@@ -9,6 +9,10 @@ angular.module('hello', [ 'ngRoute' ])
       templateUrl : 'login.html',
       controller : 'navigation',
       controllerAs: 'controller'
+    }).when('/child/:id' , {
+      templateUrl : 'details.html',
+      controller : 'child',
+      controllerAs: 'controller'
     }).otherwise('/');
 
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -27,9 +31,9 @@ angular.module('hello', [ 'ngRoute' ])
     self.createAccount = createAccount;
     
     function createChild() {
-    	console.log('creating a child');
+    	//TODO get a real dob!
     	$http.put('child', {firstName:self.newChild.firstName, lastName:self.newChild.lastName, dateOfBirth:'01/01/2000'}).then(function(response) {
-    		console.log(response);
+    		self.children.push(response.data);
     	}, function(error) {
     		console.log(error);
     		console.log('error');
@@ -45,6 +49,25 @@ angular.module('hello', [ 'ngRoute' ])
     	});
     };
     
+  })
+  .controller('child', function($rootScope, $http, $location, $routeParams) {
+	  var self = this;
+	  self.days = [
+		  {"name":"Mon", "value":0},
+		  {"name":"Tue", "value":1},
+		  {"name":"Wed", "value":2},
+		  {"name":"Thurs", "value":3},
+		  {"name":"Fri", "value":4},
+		  {"name":"Sat", "value":5},
+		  {"name":"Sun", "value":6}
+		  ];
+	  $http.get('child/'+$routeParams.id).then(function(response) {
+		  console.log(response);
+		  self.child = response.data;
+  	}, function(error) {
+  		console.log(error);
+  		console.log('error');
+  	});
   })
   .controller('navigation', function($rootScope, $http, $location) {
 

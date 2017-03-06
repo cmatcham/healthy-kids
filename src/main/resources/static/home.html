@@ -1,0 +1,38 @@
+<div ng-show="authenticated">
+<h1>Your children</h1>
+    <ul ng-repeat="child in controller.children">
+    	<li>{{child.firstName}} {{child.lastName}}</li>
+    </ul>
+    
+    <div class="col-md-4">
+		<div class="form-group">
+        	<label for="firstName">First name</label>
+			<input type="text" class="form-control" ng-model="controller.newChild.firstName" ng-required="true"/>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+        	<label for="lastName">Last name</label>
+			<input type="text" class="form-control" ng-model="controller.newChild.lastName" ng-required="true"/>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<button class="btn btn-primary" ng-click="controller.createChild()">Add child</button>
+	</div>
+</div>
+<div  ng-show="!authenticated">
+    <h1>Login or sign up below</h1>
+    <div class="control-group">
+		<label class="control-label">Email</label>
+		<div class="controls">
+			<input type="text" class="input-medium form-control" ng-model="controller.newAccount.email" placeholder="Enter email" name="email"/>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Password</label>
+		<div class="controls">
+			<input type="password" class="input-medium form-control" ng-model="controller.newAccount.password" placeholder="Enter password" name="password"/>
+		</div>
+	</div>
+	<button class="btn btn-primary" ng-click="controller.createAccount()">Sign up</button>
+</div>

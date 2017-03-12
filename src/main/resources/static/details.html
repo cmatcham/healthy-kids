@@ -6,7 +6,10 @@
 		<th></th><th>Sleep</th><th>Nutrition</th><th>Move</th>
 	</tr>
 	<tr ng-repeat="day in controller.days">
-		<td>{{day.name}}</td><td>{{controller.getSleep(day)}}</td><td>{{controller.getNutrition(day)}}</td><td>{{controller.getMovement(day)}}</td>
+		<td>{{day.name}}</td>
+		<td>{{controller.getSleep(day)}}</td>
+		<td>{{controller.getNutrition(day)}}</td>
+		<td>{{controller.getMovement(day)}}</td>
 	</tr>
 </table>
 </div>

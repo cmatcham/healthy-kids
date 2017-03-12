@@ -39,7 +39,7 @@ public class MultiSecurityConfig  {
         @Qualifier("healthKidsUserDetailsService")
         UserDetailsService userDetailsService;
     	
-    	@Bean
+    	@Bean(value="jwtAuthenticationProvider")
     	public AuthenticationProvider authenticationProvider() {
     		JwtAuthenticationProvider authenticationProvider = new JwtAuthenticationProvider();
     		authenticationProvider.setUserDetailsService(userDetailsService);
@@ -120,7 +120,7 @@ public class MultiSecurityConfig  {
         }
          
          
-        @Bean
+        @Bean(value="daoAuthenticationProvider")
         public DaoAuthenticationProvider authenticationProvider() {
             DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
             authenticationProvider.setUserDetailsService(userDetailsService);

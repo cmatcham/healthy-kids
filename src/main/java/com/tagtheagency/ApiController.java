@@ -42,16 +42,15 @@ public class ApiController {
 	
 	@RequestMapping("/child/{id}")
 	public ChildDTO getChild(@PathVariable int id) {
-		List<Child> children = manager.getChildren(getAccount());
-		for (Child child : children) {
-			if (child.getId() == id) {
-				List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
-				ChildDTO dto = ChildDTO.convertFrom(child);
-				dto.setAchievements(weeklyAchievements);
-				return dto;
-			}
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
 		}
-		return null;
+
+		List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
+		ChildDTO dto = ChildDTO.convertFrom(child);
+		dto.setAchievements(weeklyAchievements);
+		return dto;
 	}
 	
 	@RequestMapping(value="/child", method = RequestMethod.PUT)

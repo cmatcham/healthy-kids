@@ -7,6 +7,7 @@ public class AccountDTO {
 	private String email;
 	private CharSequence password;
 	private int id;
+	private String token;
 	
 	public String getEmail() {
 		return email;
@@ -25,6 +26,12 @@ public class AccountDTO {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 	public static AccountDTO createFrom(Account account) {
 		AccountDTO dto = new AccountDTO();

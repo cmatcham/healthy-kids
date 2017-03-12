@@ -21,7 +21,11 @@
 	</div>
 </div>
 <div  ng-show="!authenticated">
-    <h1>Login or sign up below</h1>
+    <h1>Sign up below</h1>
+    <p>Already have an account? <a href="#/login">Login here</a>
+    <div class="alert alert-danger" ng-show="controller.error">
+    	{{controller.error}}
+	</div>
     <div class="control-group">
 		<label class="control-label">Email</label>
 		<div class="controls">

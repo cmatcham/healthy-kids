@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.persistence.AccountDAO;
 import com.tagtheagency.healthykids.persistence.AchievementDAO;
 import com.tagtheagency.healthykids.persistence.ChildDAO;
+import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
 @Service
 public class HealthyKidsManagerImpl implements HealthyKidsManager {
@@ -31,13 +33,16 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	@Autowired AchievementDAO achievementDao;
 	
 	@Override
-	public Account createAccount(String email, CharSequence password) {
-		Account account = new Account();
-		account.setEmail(email);
-		account.setPassword(passwordEncoder.encode(password));
-		accountDao.save(account);
-		return account;
-		
+	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
+		try {
+			Account account = new Account();
+			account.setEmail(email);
+			account.setPassword(passwordEncoder.encode(password));
+			accountDao.save(account);
+			return account;
+		} catch (DataIntegrityViolationException e) {
+			throw new DuplicateAccountException();
+		}
 	}
 	
 	@Override

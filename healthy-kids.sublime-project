@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "/Users/iraritchiemeek/Development/Tag/healthy-kids", 
+            "name": "c.t:healthykids:PROJECT"
+        }
+    ], 
+    "settings": {
+        "sublimejava_classpath": [
+            "/Users/iraritchiemeek/Development/Tag/healthy-kids/target/classes", 
+            "/Users/iraritchiemeek/Development/Tag/healthy-kids/target/test-classes"
+        ]
+    }
+}

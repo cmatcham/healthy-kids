@@ -1,0 +1,69 @@
+html, body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	width: 100%;
+	height: 1000px;
+	position: absolute;
+}
+
+@mixin center {
+	top: 50%;
+	left:50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.container {
+	@include center;
+	position: absolute;
+	width: 810px;
+	height: 100%;
+}
+
+header {
+	height: 33.3333%;
+	width: 100%;
+	position: relative;
+}
+
+main {
+	position: relative;
+	width: 100%;
+	height: 66.6666%
+}
+
+.videos-container {
+	@include center;
+	background-color: black;
+	position: absolute;
+	top: 200px;
+	height: 65%;
+	width: 90%;
+}
+
+.logo {
+	position: absolute;
+	background-color: black;
+	top: 15px;
+	width: 130px;
+	height: 60px;
+	margin-left: 5%;
+}
+
+.user-icon {
+	position: absolute;
+	background-color: black;
+	top: 15px;
+	width: 60px;
+	height: 60px;
+	right: 5%;
+}
+
+.tick-chart {
+	@include center;
+	position: absolute;
+	width: 65%;
+	height: 75%;
+	background-color: black;
+}
+

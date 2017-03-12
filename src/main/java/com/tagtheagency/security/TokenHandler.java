@@ -37,11 +37,15 @@ public final class TokenHandler {
     }
 
     public String createTokenForUser(UserDetails user) {
+    	return createTokenForUser(user.getUsername());
+    }
+    
+    public String createTokenForUser(String email) {
     	Date now = new Date();
         Date expiration = new Date(now.getTime() + TimeUnit.HOURS.toMillis(1l));
         return Jwts.builder()
                 .setId(UUID.randomUUID().toString())
-                .setSubject(user.getUsername())
+                .setSubject(email)
                 .setIssuedAt(now)
                 .setExpiration(expiration)
                 .signWith(SignatureAlgorithm.HS512, secret)

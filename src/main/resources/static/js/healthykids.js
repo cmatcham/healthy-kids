@@ -51,13 +51,15 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	//todo put in an http interceptor to redirect to login if token invalid
 
 }) 
-.controller('home', function($http, $rootScope) {
+.controller('home', function($http, $rootScope, $cookies, $location) {
 	var self = this;
 	
 	if ($rootScope.authenticated) {
 		$http.get('api/child/all').then(function(response) {
 			self.children = response.data;
 		});
+	} else {
+		self.children = [];
 	}
 	
 	self.newChild = {};
@@ -77,11 +79,19 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	};
 
 	function createAccount() {
-		console.log('creating an account');
 		$http.post('account', {email:self.newAccount.email, password:self.newAccount.password}).then(function(response) {
-			console.log(response);
+			var token = response.data.token;
+			$rootScope.authenticated = true;
+			$cookies.put('token', token);
+			$http.defaults.headers.common.token = 'Bearer '+token;
+			self.error = null;
+			$location.path("/");
 		}, function(error) {
-			console.log(error);
+			if (error.status === 409) {
+				self.error = 'An account with that email already exists';
+			} else {
+				self.error = "Error: "+error.data.message;
+			}
 		});
 	};
 
@@ -157,7 +167,9 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	self.logout = function() {
 		$http.post('logout', {}).finally(function() {
 			$rootScope.authenticated = false;
+			$cookies.remove('token');
 			$location.path("/");
+			$http.defaults.headers.common.token = 'logged_out';
 		});
 	}
 });

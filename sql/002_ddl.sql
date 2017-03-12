@@ -3,6 +3,7 @@ CREATE TABLE account (
 ,	email VARCHAR
 ,	password VARCHAR
 ,	CONSTRAINT pk_account PRIMARY KEY (account_id)
+,	CONSTRAINT uq_account_email UNIQUE (email)
 );
 
 CREATE SEQUENCE account_seq OWNED BY account.account_id;

@@ -7,12 +7,13 @@ import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
 import com.tagtheagency.healthykids.model.Target;
+import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
 public interface HealthyKidsManager {
 
 
 	
-	public Account createAccount(String email, CharSequence password);
+	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException;
 	
 	public Account findByEmail(String email);
 	

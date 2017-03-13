@@ -13,6 +13,18 @@ html, body {
 	transform: translate(-50%, -50%);
 }
 
+@mixin center-vertical {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin center-horizontal {
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
 .container {
 	@include center;
 	position: absolute;
@@ -65,5 +77,55 @@ main {
 	width: 65%;
 	height: 75%;
 	background-color: black;
+}
+
+.weekdays-row {
+	@include center-vertical;
+	position: absolute;
+	margin: 0 0 0 3%;
+	width: 13%;
+	height: 75%;
+	background-color: black;
+	&__weekday {
+		height: calc(100% / 7);
+		width: 100%;
+		float: left;
+		position: relative;
+		span {
+			@include center;
+			position: absolute;
+			text-align: center;
+			color: white;
+		}
+	}
+}
+
+.daily-goals {
+	@include center-vertical;
+	position: absolute;
+	right: 0;
+	margin: 0 6.5% 0 0;
+	width: 10%;
+	height: 75%;
+	background-color: black;
+}
+
+.weekly-goals {
+	@include center-horizontal;
+	position: absolute;
+	bottom: 0;
+	height: 10%;
+	width: 65%;
+	margin-bottom: 1%;
+	background-color: black;
+}
+
+.activities-names {
+	@include center-horizontal;
+	position: absolute;
+	width: 65%;
+	height: 8%;
+	background-color: black;
+	margin-top: 2%;
 }
 

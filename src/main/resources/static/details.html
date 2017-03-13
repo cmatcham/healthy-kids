@@ -4,17 +4,18 @@
 	<div class="user-icon"></div>
 </header>
 <main>
-	<div class="weekdays-row">
-		<div class="weekdays-row__weekday"><span>Monday</span></div>
-		<div class="weekdays-row__weekday"><span>Tuesday</span></div>
-		<div class="weekdays-row__weekday"><span>Wednesday</span></div>
-		<div class="weekdays-row__weekday"><span>Thursday</span></div>
-		<div class="weekdays-row__weekday"><span>Friday</span></div>
-		<div class="weekdays-row__weekday"><span>Saturday</span></div>
-		<div class="weekdays-row__weekday"><span>Sunday</span></div>
+	<div class="weekdays-column">
+		<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" class="weekdays-column__weekday"><span>{{weekday}}</span></div>
 	</div>
-	<div class="activities-names"></div>
-	<div class="tick-chart"></div>
+	<div class="activities-row">
+		<div ng-repeat="(i, activity) in ['Move', 'Eat', 'Sleep']" class="activities-row__activity"><span>{{activity}}</span></div>
+	</div>
+	<div class="tick-chart">
+		<div ng-repeat="(i, activity) in ['Move', 'Eat', 'Sleep']" class="tick-chart__column tick-chart__column--{{activity | lowercase}}">
+			<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" class="tick-chart__day tick-chart__day--{{weekday | lowercase}}">	
+			</div>
+		</div>
+	</div>
 	<div class="weekly-goals"></div>
 	<div class="daily-goals"></div>
 </main>

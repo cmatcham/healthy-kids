@@ -77,9 +77,19 @@ main {
 	width: 65%;
 	height: 75%;
 	background-color: black;
+	&__column {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+	}
+	&__day {
+		height: calc(100% / 7);
+		float: left;
+		width: 100%;
+	}
 }
 
-.weekdays-row {
+.weekdays-column {
 	@include center-vertical;
 	position: absolute;
 	margin: 0 0 0 3%;
@@ -120,12 +130,23 @@ main {
 	background-color: black;
 }
 
-.activities-names {
+.activities-row {
 	@include center-horizontal;
 	position: absolute;
 	width: 65%;
 	height: 8%;
 	background-color: black;
 	margin-top: 2%;
+	&__activity {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+		span {
+			@include center;
+			display: inline-block;
+			position: relative;
+			color: white;
+		}
+	}
 }
 

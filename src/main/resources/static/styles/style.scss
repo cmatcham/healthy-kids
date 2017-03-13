@@ -81,6 +81,15 @@ main {
 		width: calc(100% / 3);
 		height: 100%;
 		float: left;
+		&--move {
+			background-color: #92D4F5;
+		}
+		&--eat {
+			background-color: #6DEDBE;
+		}
+		&--sleep {
+			background-color: #FD98E2;
+		}
 	}
 	&__day {
 		height: calc(100% / 7);
@@ -118,6 +127,11 @@ main {
 	width: 10%;
 	height: 75%;
 	background-color: black;
+	&__goal {
+		height: calc(100% / 7);
+		width: 100%;
+		float: left;
+	}
 }
 
 .weekly-goals {
@@ -128,6 +142,11 @@ main {
 	width: 65%;
 	margin-bottom: 1%;
 	background-color: black;
+	&__goal {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+	}
 }
 
 .activities-row {

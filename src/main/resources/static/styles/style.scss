@@ -1,4 +1,3 @@
-
 $blue:#92D4F5;  
 $green:#6DEDBE;
 $pink:#FD98E2;
@@ -189,7 +188,6 @@ main {
 			@include center;
 			display: inline-block;
 			position: relative;
-			color: white;
 		}
 	}
 }
@@ -327,7 +325,7 @@ main {
 		width: 100%;
 		height: 10%;
 		float: left;
-		background-color: red;
+		background-color: $pink;
 		&:after { //fix for border radius on top of div
 			display: block;
 			content: "";

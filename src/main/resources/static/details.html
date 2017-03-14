@@ -32,7 +32,7 @@
 		</div>
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in ['Move', 'Eat', 'Sleep']" class="tick-chart__column tick-chart__column--{{activity | lowercase}}">
-				<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" class="tick-chart__day tick-chart__day--{{weekday | lowercase}}">	
+				<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" ng-click="animateDayButton(activity, weekday); calculateDailyGoal(activity, weekday)" class="tick-chart__day tick-chart__day--{{weekday | lowercase}}">	
 				</div>
 			</div>
 		</div>

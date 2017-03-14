@@ -125,6 +125,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 .controller('navigation', function($rootScope, $http, $location, $cookies) {
 
 	var self = this
+	self.active = true
 
 	var authenticate = function(credentials, callback) {
 		console.log("authenticating with credentials ",credentials)
@@ -147,6 +148,15 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 			callback && callback();
 		});
 
+	}
+
+	$rootScope.showChildMenu = function() {
+		self.active = !self.active
+		if (!self.active) {
+			$('.child-menu').hide()
+		} else {
+			$('.child-menu').show()
+		}
 	}
 
 	//authenticate();

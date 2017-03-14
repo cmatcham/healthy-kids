@@ -1,0 +1,341 @@
+
+$blue:#92D4F5;  
+$green:#6DEDBE;
+$pink:#FD98E2;
+
+html, body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	width: 100%;
+	height: 1000px;
+	position: absolute;
+	font-family: 'Open Sans', sans-serif;
+}
+
+@mixin center {
+	top: 50%;
+	left:50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+@mixin center-vertical {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin center-horizontal {
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.container {
+	@include center;
+	position: absolute;
+	width: 810px;
+	height: 100%;
+}
+
+header {
+	z-index: 2;
+	height: 33.3333%;
+	width: 100%;
+	position: relative;
+}
+
+main {
+	z-index: 1;
+	position: relative;
+	width: 100%;
+	height: 66.6666%
+}
+
+.videos-container {
+	@include center;
+	border: 1px solid black;
+	position: absolute;
+	top: 200px;
+	height: 65%;
+	width: 90%;
+	&__video {
+		float: left;
+		&--big {
+			width: 70%;
+			height: 100%;
+		}
+		&--small {
+			width: 30%;
+			height: 50%;
+		}
+	}
+}
+
+.logo {
+	position: absolute;
+	border: 1px solid black;
+	top: 15px;
+	width: 130px;
+	height: 60px;
+	margin-left: 5%;
+}
+
+.user-icon {
+	position: absolute;
+	border: 1px solid black;
+	top: 15px;
+	width: 60px;
+	height: 60px;
+	right: 5%;
+}
+
+.tick-chart {
+	@include center;
+	position: absolute;
+	width: 65%;
+	height: 75%;
+	border: 1px solid black;
+	&__column {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+		&--move {
+			background-color: $blue;
+		}
+		&--eat {
+			background-color: $green;
+		}
+		&--sleep {
+			background-color: $pink;
+		}
+	}
+	&__day {
+		height: calc(100% / 7);
+		width: 100%;
+		&:after {
+			@include center-horizontal;
+			display: block;
+			content:"";
+			width: 90%;
+			position: relative;
+			top: 99%;
+			height: 1px;
+			background-color: white;
+			opacity: 0.5;
+		}
+	}
+}
+
+.weekdays-column {
+	@include center-vertical;
+	position: absolute;
+	margin: 0 0 0 3%;
+	width: 13%;
+	height: 75%;
+	&__weekday {
+		height: calc(100% / 7);
+		width: 100%;
+		float: left;
+		position: relative;
+		span {
+			@include center;
+			position: absolute;
+			text-align: center;
+		}
+	}
+}
+
+.daily-goals {
+	@include center-vertical;
+	position: absolute;
+	right: 0;
+	margin: 0 6.5% 0 0;
+	width: 10%;
+	height: 75%;
+	border: 1px solid black;
+	&__goal {
+		height: calc(100% / 7);
+		width: 100%;
+	}
+}
+
+.weekly-goals {
+	@include center-horizontal;
+	position: absolute;
+	bottom: 0;
+	height: 10%;
+	width: 65%;
+	border: 1px solid black;
+	&__goal {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+	}
+}
+
+.activities-row {
+	@include center-horizontal;
+	position: absolute;
+	width: 65%;
+	height: 8%;
+	border: 1px solid black;
+	margin-top: 2%;
+	&__activity {
+		width: calc(100% / 3);
+		height: 100%;
+		float: left;
+		span {
+			@include center;
+			display: inline-block;
+			position: relative;
+			color: white;
+		}
+	}
+}
+
+.login-form {
+	@include center;
+	position: absolute;
+	width: 55%;
+	height: 600px;
+	overflow: auto;
+	&__header {
+		top: 0;
+		width: 100%;
+		height: 20%;
+		background-color: $green;
+		clear: both;
+		span {
+			position: relative;
+		}
+		span:nth-child(-n+2) {
+			left: 0;
+			float: left;
+			width:55%;
+			height: 50%;
+		}
+		span:nth-child(3) {
+			right: 0;
+			width: 45%;
+			height: 100%;
+		}
+	}
+	form {
+		height: 80%;
+		width: 100%;
+	}
+	input {
+		outline: none;
+		box-sizing: border-box;
+		border: none;
+		-webkit-appearance: none;
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+		font-size: 3em;
+		line-height: calc(100% / 4);
+		text-align: center;
+		width: 100%;
+		height: calc(100% / 4);
+		background-color: $pink;
+	}
+	&__submit {
+		line-height: calc(100% / 4);
+		text-align: center;
+		width: 100%;
+		height: calc(100% / 4);
+		background-color: $blue;
+		color: $pink;
+		&:hover {
+			background-color: $pink;
+			color: $blue;
+
+		}
+		span {
+			@include center;
+			position: relative;
+			display: block;
+		}
+	}
+}
+
+.child-menu {
+	transition-duration: 1s;
+	border-radius: 5px;
+	z-index: 2;
+	position: absolute;
+	right: 0;
+	margin: 95px 40px 0 0;
+	height: 550px;
+	width: 350px;
+	background-color: $blue;
+	&:after {
+		right: 0;
+		content:"";
+		display: inline;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		top: -7px;
+		margin-right: 15px;
+		background-color: inherit;
+		-ms-transform: rotate(45deg); /* IE 9 */
+	    -webkit-transform: rotate(45deg); /* Safari */
+	    transform: rotate(45deg);
+	}
+	&__child {
+		height: calc(90% / 3);
+		width: 100%;
+		float: left;
+		position: relative;
+		box-sizing: border-box;
+		&:after {
+			@include center-horizontal;
+			display: block;
+			content:"";
+			width: 90%;
+			position: absolute;
+			top: 99%;
+			height: 1px;
+			background-color: white;
+			opacity: 0.5;
+		}
+	}
+	&__profile-pic {
+		@include center-vertical;
+		border: 1px solid black;
+		position: absolute;
+		margin-left: 10px;
+		width: 75px;
+		height: 75px;
+	}
+	&__name {
+		@include center-vertical;
+		clear: both;
+		position: relative;
+		height: 75px;
+		width: 100%;
+		padding-left: 95px;
+		font-size: 2em;
+		span {
+			top: -10px;
+			position: absolute;
+		}
+	}
+	&__see-more {
+		border-radius: inherit;
+		width: 100%;
+		height: 10%;
+		float: left;
+		background-color: red;
+		&:after { //fix for border radius on top of div
+			display: block;
+			content: "";
+			width: 100%;
+			height: 10px;
+			top: 0;
+			background-color: inherit; 
+		}
+	}
+}
+

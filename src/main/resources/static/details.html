@@ -1,8 +1,27 @@
-<div ng-show="authenticated">
+<!-- <div ng-show="authenticated"> -->
 	<header>
-		<div class="videos-container"></div>
+		<div class="child-menu">
+			<div class="child-menu__child">
+				<div class="child-menu__profile-pic"></div>
+				<div class="child-menu__name"><span>Child</span></div>
+			</div>
+			<div class="child-menu__child">
+				<div class="child-menu__profile-pic"></div>
+				<div class="child-menu__name"><span>Child</span></div>
+			</div>
+			<div class="child-menu__child">
+				<div class="child-menu__profile-pic"></div>
+				<div class="child-menu__name"><span>Child</span></div>
+			</div>
+			<div class="child-menu__see-more"></div>
+		</div>
+		<div class="videos-container">
+			<div class="videos-container__video videos-container__video--big"></div>
+			<div class="videos-container__video videos-container__video--small"></div>
+			<div class="videos-container__video videos-container__video--small"></div>
+		</div>
 		<div class="logo"></div>
-		<div class="user-icon"></div>
+		<div ng-click="showChildMenu()" class="user-icon"></div>
 	</header>
 	<main>
 		<div class="weekdays-column">
@@ -24,4 +43,4 @@
 			<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" class="daily-goals__goal"></div>
 		</div>
 	</main>
-</div>
+<!-- </div> -->

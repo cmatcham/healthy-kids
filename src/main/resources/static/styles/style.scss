@@ -1,9 +1,15 @@
+
+$blue:#92D4F5;  
+$green:#6DEDBE;
+$pink:#FD98E2;
+
 html, body {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	width: 100%;
 	height: 1000px;
 	position: absolute;
+	font-family: 'Open Sans', sans-serif;
 }
 
 @mixin center {
@@ -33,12 +39,14 @@ html, body {
 }
 
 header {
+	z-index: 2;
 	height: 33.3333%;
 	width: 100%;
 	position: relative;
 }
 
 main {
+	z-index: 1;
 	position: relative;
 	width: 100%;
 	height: 66.6666%
@@ -46,16 +54,27 @@ main {
 
 .videos-container {
 	@include center;
-	background-color: black;
+	border: 1px solid black;
 	position: absolute;
 	top: 200px;
 	height: 65%;
 	width: 90%;
+	&__video {
+		float: left;
+		&--big {
+			width: 70%;
+			height: 100%;
+		}
+		&--small {
+			width: 30%;
+			height: 50%;
+		}
+	}
 }
 
 .logo {
 	position: absolute;
-	background-color: black;
+	border: 1px solid black;
 	top: 15px;
 	width: 130px;
 	height: 60px;
@@ -64,7 +83,7 @@ main {
 
 .user-icon {
 	position: absolute;
-	background-color: black;
+	border: 1px solid black;
 	top: 15px;
 	width: 60px;
 	height: 60px;
@@ -76,19 +95,19 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 75%;
-	background-color: black;
+	border: 1px solid black;
 	&__column {
 		width: calc(100% / 3);
 		height: 100%;
 		float: left;
 		&--move {
-			background-color: #92D4F5;
+			background-color: $blue;
 		}
 		&--eat {
-			background-color: #6DEDBE;
+			background-color: $green;
 		}
 		&--sleep {
-			background-color: #FD98E2;
+			background-color: $pink;
 		}
 	}
 	&__day {
@@ -104,7 +123,7 @@ main {
 	margin: 0 0 0 3%;
 	width: 13%;
 	height: 75%;
-	background-color: black;
+	border: 1px solid black;
 	&__weekday {
 		height: calc(100% / 7);
 		width: 100%;
@@ -114,7 +133,6 @@ main {
 			@include center;
 			position: absolute;
 			text-align: center;
-			color: white;
 		}
 	}
 }
@@ -126,7 +144,7 @@ main {
 	margin: 0 6.5% 0 0;
 	width: 10%;
 	height: 75%;
-	background-color: black;
+	border: 1px solid black;
 	&__goal {
 		height: calc(100% / 7);
 		width: 100%;
@@ -141,7 +159,7 @@ main {
 	height: 10%;
 	width: 65%;
 	margin-bottom: 1%;
-	background-color: black;
+	border: 1px solid black;
 	&__goal {
 		width: calc(100% / 3);
 		height: 100%;
@@ -154,7 +172,7 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 8%;
-	background-color: black;
+	border: 1px solid black;
 	margin-top: 2%;
 	&__activity {
 		width: calc(100% / 3);
@@ -165,6 +183,117 @@ main {
 			display: inline-block;
 			position: relative;
 			color: white;
+		}
+	}
+}
+
+.login-form {
+	@include center;
+	position: absolute;
+	width: 55%;
+	height: 600px;
+	overflow: auto;
+	&__header {
+		top: 0;
+		width: 100%;
+		height: 20%;
+		background-color: $green;
+		clear: both;
+		span {
+			position: relative;
+		}
+		span:nth-child(-n+2) {
+			left: 0;
+			float: left;
+			width:55%;
+			height: 50%;
+		}
+		span:nth-child(3) {
+			right: 0;
+			width: 45%;
+			height: 100%;
+		}
+	}
+	form {
+		height: 80%;
+		width: 100%;
+	}
+	input {
+		outline: none;
+		box-sizing: border-box;
+		border: none;
+		-webkit-appearance: none;
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+		font-size: 3em;
+		line-height: calc(100% / 4);
+		text-align: center;
+		width: 100%;
+		height: calc(100% / 4);
+		background-color: $pink;
+	}
+	&__submit {
+		line-height: calc(100% / 4);
+		text-align: center;
+		width: 100%;
+		height: calc(100% / 4);
+		background-color: $blue;
+		color: $pink;
+		&:hover {
+			background-color: $pink;
+			color: $blue;
+
+		}
+		span {
+			@include center;
+			position: relative;
+			display: block;
+		}
+	}
+}
+
+.child-menu {
+	transition-duration: 1s;
+	border-radius: 5px;
+	z-index: 2;
+	position: absolute;
+	right: 0;
+	margin: 95px 40px 0 0;
+	height: 550px;
+	width: 350px;
+	background-color: $blue;
+	&:after {
+		right: 0;
+		content:"";
+		display: inline;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		top: -7px;
+		margin-right: 15px;
+		background-color: inherit;
+		-ms-transform: rotate(45deg); /* IE 9 */
+	    -webkit-transform: rotate(45deg); /* Safari */
+	    transform: rotate(45deg);
+	}
+	&__child {
+		height: calc(90% / 3);
+		width: 100%;
+		float: left;
+	}
+	&__see-more {
+		border-radius: inherit;
+		width: 100%;
+		height: 10%;
+		float: left;
+		background-color: red;
+		&:after { //fix for border radius on top of div
+			display: block;
+			content: "";
+			width: 100%;
+			height: 10px;
+			top: 0;
+			background-color: inherit; 
 		}
 	}
 }

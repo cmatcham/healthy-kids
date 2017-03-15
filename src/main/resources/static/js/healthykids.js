@@ -157,7 +157,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 
 	$rootScope.showChildMenu = function() {
 		self.active = !self.active
-		if (!self.active) {
+		if (self.active) {
 			$('.child-menu').hide()
 		} else {
 			$('.child-menu').show()
@@ -169,15 +169,15 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		day = day.toLowerCase();
 		switch(activity) {
 		    case 'move':
-		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'blue'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
 		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
 		        break;
 		    case 'eat':
-		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'green'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
 		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
 		        break;
 		    case 'sleep':
-		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'pink'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
 		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
 			    break;
 		}
@@ -188,7 +188,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 			if ($($('.tick-chart__day')[i]).hasClass('.tick-chart__day--active')) {
 				if ($($('.tick-chart__day')[i + 7]).hasClass('.tick-chart__day--active') && $($('.tick-chart__day')[i + 14]).hasClass('.tick-chart__day--active')) {
 					var day = $($('.tick-chart__day')[i])[0].attributes['data-day'].value.toLowerCase()
-					$('.daily-goals__goal--' + day).css({'background-color': 'red'})
+					$('.daily-goals__goal--' + day).addClass('daily-goals__goal--active')
 				}
 			}
 		}
@@ -205,13 +205,21 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 				if($(v).hasClass('.tick-chart__day--active')) {
 					n++
 					if (n==7) {
-						console.log('weekly-goals__goal--' + activity)
-						$('.weekly-goals__goal--' + activity).css({'background-color': 'red'})
+						$('.weekly-goals__goal--' + activity).addClass('weekly-goals__goal--active')
 					}
 				}
 			})
 		}
 	}
+
+	$rootScope.calculateSuperGoal = function() {
+		console.log($('.weekly-goals__goal--active').length)
+		console.log($('.daily-goals__goal--active').length)
+		if ($('.weekly-goals__goal--active').length >= 3 && $('.daily-goals__goal--active').length >= 7)  {
+			$('.super-goal').show()
+		}
+	}
+
 
 
 	//////////

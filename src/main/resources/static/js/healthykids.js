@@ -183,10 +183,15 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		}
 	}
 
-	$rootScope.calculateDailyGoal = function(activity, day) {
+	$rootScope.calculateDailyGoal = function() {
 		for (var i = $('.tick-chart__day').length - 1; i >= 0; i--) {
-			var day = $('.tick-chart__day')[i]
-			console.log($($('.tick-chart__day')[i]))
+			if ($($('.tick-chart__day')[i]).hasClass('.tick-chart__day--active')) {
+				if ($($('.tick-chart__day')[i + 7]).hasClass('.tick-chart__day--active') && $($('.tick-chart__day')[i + 14]).hasClass('.tick-chart__day--active')) {
+					console.log($($('.tick-chart__day')[i])[0].attributes['data-day'].value)
+					var day = $($('.tick-chart__day')[i])[0].attributes['data-day'].value.toLowerCase()
+					$('.daily-goals__goal--' + day).css({'background-color': 'red'})
+				}
+			}
 		}
 	}
 

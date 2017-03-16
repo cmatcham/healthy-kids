@@ -15,6 +15,10 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		templateUrl : 'details.html',
 		controller : 'child',
 		controllerAs: 'controller'
+	}).when('/progress' , {
+		templateUrl : 'progress.html',
+		controller : 'child',
+		controllerAs: 'controller'
 	}).otherwise('/');
 
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -219,7 +223,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 			$('.super-goal').show()
 		}
 	}
-
 
 
 	//////////

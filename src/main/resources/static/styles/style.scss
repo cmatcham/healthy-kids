@@ -1,12 +1,15 @@
-$blue:#92D4F5;  
-$green:#6DEDBE;
-$pink:#FD98E2;
+$purple:#90648A;  
+$blue:#769EAF;
+$green:#B5C180;
+$orange:#DE8A60;
+$red: #DA5853;
+
 
 html, body {
-	margin: 0 0 50px 0;
+	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	width: 100%;
-	height: 1000px;
+	height: 1200px;
 	position: absolute;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -55,7 +58,7 @@ main {
 	@include center;
 	border: 1px solid black;
 	position: absolute;
-	top: 200px;
+	top: 250px;
 	height: 65%;
 	width: 90%;
 	&__video {
@@ -83,10 +86,22 @@ main {
 .user-icon {
 	position: absolute;
 	border: 1px solid black;
-	top: 15px;
 	width: 60px;
 	height: 60px;
-	right: 5%;
+	&--menu {
+		right: 5%;
+		top: 15px;
+		z-index: 2;
+	}
+}
+
+.progress-button {
+	position: absolute;
+	border: 1px solid black;
+	top: 15px;
+	right: 15%;
+	height: 60px;
+	width: 100px;
 }
 
 .tick-chart {
@@ -106,7 +121,7 @@ main {
 			background-color: $green;
 		}
 		&--sleep {
-			background-color: $pink;
+			background-color: $orange;
 		}
 	}
 	&__day {
@@ -157,7 +172,7 @@ main {
 		height: calc(100% / 7);
 		width: 100%;
 		&--active {
-			background-color: red;
+			background-color: $purple;
 		}
 	}
 }
@@ -186,7 +201,7 @@ main {
 	width: 8%;
 	padding-bottom: 8%;
 	border-radius: 50%;
-	background-color: $pink;
+	background-color: $purple;
 	margin: 0 7.5% 0 0;
 	display: none;
 }
@@ -253,7 +268,7 @@ main {
 		text-align: center;
 		width: 100%;
 		height: calc(100% / 4);
-		background-color: $pink;
+		background-color: $purple;
 	}
 	&__submit {
 		line-height: calc(100% / 4);
@@ -261,9 +276,9 @@ main {
 		width: 100%;
 		height: calc(100% / 4);
 		background-color: $blue;
-		color: $pink;
+		color: $purple;
 		&:hover {
-			background-color: $pink;
+			background-color: $purple;
 			color: $blue;
 
 		}
@@ -284,7 +299,7 @@ main {
 	margin: 95px 40px 0 0;
 	height: 550px;
 	width: 350px;
-	background-color: $blue;
+	background-color: $green;
 	&:after {
 		right: 0;
 		content:"";
@@ -343,7 +358,7 @@ main {
 		width: 100%;
 		height: 10%;
 		float: left;
-		background-color: $pink;
+		background-color: $purple;
 		&:after { //fix for border radius on top of div
 			display: block;
 			content: "";
@@ -355,3 +370,33 @@ main {
 	}
 }
 
+.homepage-background-squares {
+	width: 100%;
+	height: 810px;
+	position: absolute;
+	&__square {
+		width: 405px;
+		height: 405px;
+		float: left;
+	}
+	&__square:nth-child(1) {
+		background-color: $purple;
+	}
+	&__square:nth-child(2) {
+		background-color: $blue;
+	}
+	&__square:nth-child(3) {
+		background-color: $green;
+	}
+	&__square:nth-child(4) {
+		background-color: $orange;
+	}
+}
+
+.homepage-background-footer {
+	height: calc(100% - 810px);
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background-color: $red;
+}

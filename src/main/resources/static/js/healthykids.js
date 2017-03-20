@@ -224,6 +224,11 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		}
 	}
 
+	$rootScope.getNumber = function(num) {
+		console.log(num)
+	    return new Array(num);   
+	}
+
 
 	//////////
 	//////////

@@ -1,8 +1,16 @@
-<header>
-	<div class="user-icon user-icon--menu"></div>
-	<div class="user-icon user-icon--header"></div>
-	<div class="user-name user-name--header"></div>
-	<div class="current-streak">
-		<span></span>
+<header id="badges-page"></header>
+<main id="badges-page">
+	<div class="badges-title"><span>My Badges</span></div>
+	<div class="category-badges">
+		<div class="category-badges__badge"><span>12</span></div>
+		<div class="category-badges__badge"><span>24</span></div>
+		<div class="category-badges__badge"><span>17</span></div>
 	</div>
-</header>
+	<div class="total-badge">
+		<div class="total-badge__badge"><span>53</span></div>
+	</div>
+	<div class="stickers">
+		<div ng-repeat="sticker in getNumber(16) track by $index" class="stickers__sticker"></div>
+	</div>
+</main>
+<footer id="badges-page"></footer>

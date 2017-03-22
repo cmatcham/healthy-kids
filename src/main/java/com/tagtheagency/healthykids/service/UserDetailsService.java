@@ -21,13 +21,11 @@ public class UserDetailsService implements org.springframework.security.core.use
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("User details service loading a username "+username);
 		List<Account> accounts = accountDao.findByEmail(username);
 		if (accounts.isEmpty()) {
 			throw new UsernameNotFoundException("Username not found");
 		}
 		Account account = accounts.get(0);
-		System.out.println("Found an account "+account);
 		UserDetails userDetails = new UserDetails() {
 			
 			private static final long serialVersionUID = 1084814500320805342L;

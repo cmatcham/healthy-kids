@@ -18,7 +18,7 @@ public interface HealthyKidsManager {
 	
 	public Account findByEmail(String email);
 	
-	public void setAchievement(Account account, Child child, Target target, Date date) throws UnauthorisedException;
+	public void setAchievement(Account account, Child child, Target target, Date date, boolean set) throws UnauthorisedException;
 
 	public Child createChild(Account account, String firstName, String lastName, Date dateOfBirth);
 

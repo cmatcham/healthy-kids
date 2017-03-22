@@ -32,7 +32,6 @@ public final class TokenHandler {
                 .getBody()
                 .getSubject();
         
-        System.out.println("Token handler handling token "+token);
         return userService.loadUserByUsername(username);
     }
 

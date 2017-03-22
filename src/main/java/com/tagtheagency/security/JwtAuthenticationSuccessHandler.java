@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class JwtAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-    	System.out.println("Hitting JWT on authentication success");
     	// Do do anything specific here
     }
 

@@ -506,6 +506,12 @@ footer#badges-page {
 		width: 100%;
 		height: 40%;
 	}
+	&--med-width {
+		border: 1px solid black;
+		margin: 0 15% 0 15%;
+		width: 70%;
+		height: 15%;
+	}
 }
 
 .category-buttons {
@@ -523,9 +529,33 @@ footer#badges-page {
 	}
 }
 
+.sticker-display {
+	border: 1px solid black;
+	margin: 5% 0 5% 0;
+	height: 30%;
+	width: 100%;
+}
 
-
-
+.social-media-icons {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 5%;
+	width: 70%;
+	margin: 0 15% 0 15%;
+	height: 10%;
+	&__icon {
+		border: 1px solid black;
+		height: 100%;
+		max-width: 115px;
+		flex: 1;
+	}
+}
 
 
 

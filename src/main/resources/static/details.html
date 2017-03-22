@@ -33,21 +33,19 @@
 		</div>
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in controller.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
-				<div ng-repeat="(i, weekday) in controller.days">
-					<div style="height: 85.712px"
-						ng-class="{selected: controller.child.dailyAchievements[weekday.value][activity.value]}"
+				<div ng-repeat="(i, weekday) in controller.days"
+						ng-class="{'tick-chart__day': true, 'selected': controller.child.dailyAchievements[weekday.value][activity.value]}"
 						ng-click="controller.selectAchievement(weekday, activity)" 
 						data-day="{{weekday.name}}">
-					</div>
 				</div>
 			</div>
 		</div>
 		<div class="super-goal"></div>
 		<div class="weekly-goals">
-			<div ng-repeat="(i, activity) in ['Move', 'Eat', 'Sleep']" class="weekly-goals__goal weekly-goals__goal--{{activity | lowercase}}"></div>
+			<div ng-repeat="(i, activity) in controller.targets" ng-class="{'weekly-goals__goal':true, selected:controller.isWeeklyGoal(activity)}"></div>
 		</div>
 		<div class="daily-goals">
-			<div ng-repeat="(i, weekday) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" class="daily-goals__goal daily-goals__goal--{{weekday | lowercase}}"></div>
+			<div ng-repeat="(i, weekday) in controller.days" ng-class="{'daily-goals__goal':true, selected:controller.isDailyGoal(weekday)}"></div>
 		</div>
 	</main>
 <!-- </div> -->

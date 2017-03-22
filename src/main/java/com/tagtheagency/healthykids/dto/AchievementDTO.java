@@ -1,20 +1,23 @@
 package com.tagtheagency.healthykids.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tagtheagency.healthykids.model.Achievement;
 
 public class AchievementDTO {
 
-	private Date date;
+	private String date;
 	protected boolean sleep;
 	protected boolean nutrition;
 	protected boolean movement;
 	
-	public Date getDate() {
+	//@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public boolean isSleep() {
@@ -36,8 +39,9 @@ public class AchievementDTO {
 		this.movement = movement;
 	}
 	public static AchievementDTO convertFrom(Achievement a) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		AchievementDTO dto = new AchievementDTO();
-		dto.date = a.getDate();
+		dto.date = sdf.format(a.getDate());
 		dto.nutrition = a.isNutrition();
 		dto.movement = a.isMovement();
 		dto.sleep = a.isSleep();
@@ -46,11 +50,16 @@ public class AchievementDTO {
 	
 	public static class None extends AchievementDTO {
 		public None(Date date) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			sleep = false;
 			nutrition = false;
 			movement = false;
-			setDate(date);
+			setDate(sdf.format(date));
 		}
+	}
+	@Override
+	public String toString() {
+		return "Date: "+date+"; Movement: "+movement+"; Nutrition: "+nutrition+"; Sleep: "+sleep;
 	}
 	
 	

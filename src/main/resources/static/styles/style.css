@@ -444,6 +444,6 @@ footer#badges-page {
     border-radius: 50%; }
 
 .selected {
-  border: 3px green dashed; }
+  background-color: purple; }
 
 /*# sourceMappingURL=style.css.map */

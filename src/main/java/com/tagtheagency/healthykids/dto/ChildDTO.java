@@ -2,6 +2,7 @@ package com.tagtheagency.healthykids.dto;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,29 +61,37 @@ public class ChildDTO {
 		return dto;
 	}
 	
-	public void setAchievements(List<Achievement> weeklyAchievements) {
+	public void setAchievements(List<Achievement> weeklyAchievements, List<LocalDate> daysOfWeek) {
 		Calendar cal = Calendar.getInstance();
 
 		dailyAchievements = new HashMap<Integer, AchievementDTO>();
 		weeklyAchievements.forEach(a -> {
 			cal.setTime(a.getDate());
 			int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+			dayOfWeek = (dayOfWeek + 5) % 7;
 			dailyAchievements.put(dayOfWeek, AchievementDTO.convertFrom(a));
 		});
-		System.out.println("Padding achievements");
-		padAchievements(7);
+		padAchievements(daysOfWeek);
 	}
 	
-	private void padAchievements(int num) {
-		System.out.println("Padding to "+num);
-		for (int i = 0; i < num; i++) {
+	private void padAchievements(List<LocalDate> daysOfWeek) {
+		for (int i = 0; i < daysOfWeek.size(); i++) {
 			if (dailyAchievements.containsKey(i)) {
-				System.out.println("Contains num "+i);
 				continue;
 			}
-			System.out.println("Doesn't, padding it");
-			dailyAchievements.put(i, new AchievementDTO.None(new Date()));
+			Date date = Date.from(daysOfWeek.get(i).atStartOfDay(ZoneId.systemDefault()).toInstant());
+			dailyAchievements.put(i, new AchievementDTO.None(dateWithoutTime(date)));
 		}
+	}
+	
+	private Date dateWithoutTime(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTime();
 	}
 	
 	

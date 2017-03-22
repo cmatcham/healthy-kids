@@ -51,7 +51,7 @@ public class ApiController {
 		List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
 		List<LocalDate> daysOfWeek = manager.getWeekOf(new Date());
 		ChildDTO dto = ChildDTO.convertFrom(child);
-		dto.setAchievements(weeklyAchievements);
+		dto.setAchievements(weeklyAchievements, daysOfWeek);
 		return dto;
 	}
 	
@@ -69,27 +69,21 @@ public class ApiController {
 	}
 	
 	@RequestMapping(value="/child/{id}/target", method = RequestMethod.POST)
-	public AchievementDTO setTarget(@PathVariable int id, @RequestBody AchievementDTO dto) throws UnauthorisedException {
+	public AchievementDTO setTarget(@PathVariable int id, @RequestBody AchievementDTO dto) throws UnauthorisedException, ParseException {
 		Child child = findChild(id);
 		if (child == null) {
 			return null;
 		}
-		if (dto.isMovement()) {
-			manager.setAchievement(getAccount(), child, Target.MOVEMENT, dto.getDate());
-		}
-		if (dto.isNutrition()) {
-			manager.setAchievement(getAccount(), child, Target.NUTRITION, dto.getDate());
-		}
-		if (dto.isSleep()) {
-			manager.setAchievement(getAccount(), child, Target.SLEEP, dto.getDate());
-		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		manager.setAchievement(getAccount(), child, Target.MOVEMENT, sdf.parse(dto.getDate()), dto.isMovement());
+		manager.setAchievement(getAccount(), child, Target.NUTRITION, sdf.parse(dto.getDate()), dto.isNutrition());
+		manager.setAchievement(getAccount(), child, Target.SLEEP, sdf.parse(dto.getDate()), dto.isSleep());
 		return dto;
 		
 	}
 
 	private Account getAccount() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println("Getting an auth, username is "+auth.getName());
 		return manager.findByEmail(auth.getName());
 	}
 

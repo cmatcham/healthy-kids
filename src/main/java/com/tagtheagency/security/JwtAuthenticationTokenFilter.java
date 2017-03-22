@@ -37,7 +37,6 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
      */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
-    	System.out.println("Attempting JWT authentication");
     	String header = request.getHeader(this.tokenHeader);
 
         final String HEADER_START = "Bearer ";
@@ -48,23 +47,10 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
 
         String authToken = header.substring(HEADER_START.length());
 
-        System.out.println("Attempting Authentication of "+authToken);
         UserDetails user = handler.parseUserFromToken(authToken);
-        System.out.println("Got a user, returning UserAuthentication");
         return new UserAuthentication(user);
-//        JwtAuthenticationToken authRequest = new JwtAuthenticationToken(authToken);
-//
-//        return getAuthenticationManager().authenticate(authRequest);
     }
 
-//    @Override
-//    protected boolean requiresAuthentication(HttpServletRequest request, HttpServletResponse response) {
-//    	boolean def = super.requiresAuthentication(request, response);
-//    	System.out.println("Default impl says "+def);
-//    	String path  = pathHelper.getPathWithinApplication(request);
-//    	System.out.println("Path with app is "+path);
-//    	return path.startsWith("/api/");
-//    }
     
     /**
      * Make sure the rest of the filterchain is satisfied
@@ -77,9 +63,7 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
      * @throws ServletException
      */
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult)
-            throws IOException, ServletException {
-    	System.out.println("JWT successful auth");
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         super.successfulAuthentication(request, response, chain, authResult);
         
         // As this authentication is in HTTP header, after success we need to continue the request normally

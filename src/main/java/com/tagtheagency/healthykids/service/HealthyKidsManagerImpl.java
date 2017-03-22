@@ -66,7 +66,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	}
 	
 	@Override
-	public void setAchievement(Account account, Child child, Target target, Date date) throws UnauthorisedException {
+	public void setAchievement(Account account, Child child, Target target, Date date, boolean set) throws UnauthorisedException {
 		if (!ownedChild(account, child)) {
 			throw new UnauthorisedException("That child does not belong to you!");
 		}
@@ -82,16 +82,15 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		}
 		switch (target) {
 		case MOVEMENT:
-			achievement.setMovement(true);
+			achievement.setMovement(set);
 			break;
 		case NUTRITION:
-			achievement.setNutrition(true);
+			achievement.setNutrition(set);
 			break;
 		case SLEEP:
-			achievement.setSleep(true);
+			achievement.setSleep(set);
 			break;
 		}
-
 		achievementDao.save(achievement);
 		
 		

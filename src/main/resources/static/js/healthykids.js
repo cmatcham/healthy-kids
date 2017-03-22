@@ -102,7 +102,8 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 })
 .controller('child', function($rootScope, $http, $location, $routeParams) {
 	var self = this;
-	self.isSelected = isSelected;
+	self.isDailyGoal = isDailyGoal;
+	self.isWeeklyGoal = isWeeklyGoal;
 	self.selectAchievement = selectAchievement;
 	
 	self.days = [
@@ -120,42 +121,50 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		{'display':'Sleep', 'value':'sleep'}
 	];
 	
-	
-	function isSelected(activity, weekday) {
-		if (typeof self.child === 'undefined') {
-			return false;
-		}
-		return self.child.dailyAchievements[weekday.value];
-	}
-
 	function selectAchievement(weekday, activity) {
-		console.log('selecting ', weekday, activity);
 		if (typeof self.child === 'undefined') {
 			return;
 		}
-		console.log(self.child.dailyAchievements);
 		activity = activity.value;
-		console.log('using activity',activity);
-		
 		var current = self.child.dailyAchievements[weekday.value][activity];
 		self.child.dailyAchievements[weekday.value][activity] = !current;
-		console.log("After selection: ");
-		console.log(self.child.dailyAchievements[weekday.value][activity]);
+		$http.post('api/child/'+$routeParams.id+'/target', self.child.dailyAchievements[weekday.value]).then(function(response) {
+		}, function(error) {
+		});
+	}
+	
+	function isDailyGoal(weekday) {
+		if (typeof self.child === 'undefined') {
+			return false;
+		}
+		var dailyGoals = self.child.dailyAchievements[weekday.value];
+		return dailyGoals.sleep && dailyGoals.nutrition && dailyGoals.movement;
+	}
+	
+	function isWeeklyGoal(activity) {
+		if (typeof self.child === 'undefined') {
+			return false;
+		}
+		var weeklyGoals = self.child.dailyAchievements;
+		for (var key in weeklyGoals) {
+		   if (weeklyGoals.hasOwnProperty(key)) {
+			   if (!weeklyGoals[key][activity.value]) {
+				   return false;
+			   }
+		   }
+		}
+		return true;
 	}
 	
 	$http.get('api/child/'+$routeParams.id).then(function(response) {
 		console.log(response);
 		if (response.data === "") {
-			console.log('no data, forwarding home');
 			$location.path("/");
-
 		} else {
-			console.log('got data');
 			self.child = response.data;
 		}
 	}, function(error) {
 		console.log(error);
-		console.log('error');
 	});
 })
 .directive('target', function() {
@@ -169,8 +178,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	self.active = true
 
 	var authenticate = function(credentials, callback) {
-		console.log("authenticating with credentials ",credentials)
-
 		$http({
 			method:'POST',
 			url: '/login',
@@ -178,8 +185,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 			data: $.param(credentials)
 
 		}).then(function(response) {
-			console.log(response);
-			console.log(response.data);
 			$rootScope.authenticated = true;
 			$cookies.put('token', response.data);
 			$http.defaults.headers.common.token = 'Bearer '+response.data;

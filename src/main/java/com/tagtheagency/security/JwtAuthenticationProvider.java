@@ -27,22 +27,7 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 
     @Override
     protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
-        System.out.println("In retrieve user, username "+username);
-        System.out.println("Authentication: "+authentication);
-        
         return userDetailsService.loadUserByUsername(username);
-//    	U jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
-//        String token = jwtAuthenticationToken.getToken();
-//
-//        JwtUserDto parsedUser = jwtTokenValidator.parseToken(token);
-//
-//        if (parsedUser == null) {
-//            throw new JwtTokenMalformedException("JWT token is not valid");
-//        }
-//
-//        List<GrantedAuthority> authorityList = AuthorityUtils.commaSeparatedStringToAuthorityList(parsedUser.getRole());
-//
-//        return new AuthenticatedUser(parsedUser.getId(), parsedUser.getUsername(), token, authorityList);
     }
 
 	public void setUserDetailsService(UserDetailsService userDetailsService) {

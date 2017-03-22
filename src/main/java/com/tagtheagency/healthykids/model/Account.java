@@ -30,7 +30,7 @@ public class Account {
 		this.id = id;
 	}
 	
-	@Column
+	@Column(unique=true)
 	public String getEmail() {
 		return email;
 	}

@@ -1,7 +1,10 @@
 package com.tagtheagency.healthykids.dto;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +46,10 @@ public class ChildDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public Map<Integer, AchievementDTO> getDailyAchievements() {
+		return dailyAchievements;
+	}
+	
 	public static ChildDTO convertFrom(Child child) {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		ChildDTO dto = new ChildDTO();
@@ -62,7 +69,20 @@ public class ChildDTO {
 			int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 			dailyAchievements.put(dayOfWeek, AchievementDTO.convertFrom(a));
 		});
-		
+		System.out.println("Padding achievements");
+		padAchievements(7);
+	}
+	
+	private void padAchievements(int num) {
+		System.out.println("Padding to "+num);
+		for (int i = 0; i < num; i++) {
+			if (dailyAchievements.containsKey(i)) {
+				System.out.println("Contains num "+i);
+				continue;
+			}
+			System.out.println("Doesn't, padding it");
+			dailyAchievements.put(i, new AchievementDTO.None(new Date()));
+		}
 	}
 	
 	

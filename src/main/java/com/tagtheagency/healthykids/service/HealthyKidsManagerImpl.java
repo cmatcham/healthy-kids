@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -107,6 +108,23 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		Date to = Date.from(sunday.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		
 		return achievementDao.findByChildAndDateBetween(child, from, to);
+	}
+
+	@Override
+	public List<LocalDate> getWeekOf(Date date) {
+		LocalDate today = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+	    LocalDate monday = today.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+	    LocalDate sunday = today.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+
+		List<LocalDate> week = new ArrayList<LocalDate>();
+		week.add(monday);
+		LocalDate instance = monday;
+		while (instance.isBefore(sunday)) {
+			instance = instance.plusDays(1);
+			week.add(instance);
+		}
+		return week;
 	}
 	
 	

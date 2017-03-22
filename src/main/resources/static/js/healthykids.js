@@ -110,15 +110,43 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 })
 .controller('child', function($rootScope, $http, $location, $routeParams) {
 	var self = this;
+	self.isSelected = isSelected;
+	self.selectAchievement = selectAchievement;
+	
 	self.days = [
-		{"name":"Mon", "value":0},
-		{"name":"Tue", "value":1},
-		{"name":"Wed", "value":2},
-		{"name":"Thurs", "value":3},
-		{"name":"Fri", "value":4},
-		{"name":"Sat", "value":5},
-		{"name":"Sun", "value":6}
-		];
+		{"name":"Monday", "value":0},
+		{"name":"Tuesday", "value":1},
+		{"name":"Wednesday", "value":2},
+		{"name":"Thursday", "value":3},
+		{"name":"Friday", "value":4},
+		{"name":"Saturday", "value":5},
+		{"name":"Sunday", "value":6}
+	];
+	self.targets = [
+		{'display':'Move', 'value':'movement'},
+		{'display':'Eat', 'value':'nutrition'},
+		{'display':'Sleep', 'value':'sleep'}
+	];
+	
+	
+	function isSelected(activity, weekday) {
+		if (typeof self.child === 'undefined') {
+			return false;
+		}
+		return self.child.dailyAchievements[weekday.value];
+	}
+
+	function selectAchievement(weekday, activity) {
+		if (typeof self.child === 'undefined') {
+			return;
+		}
+		console.log(self.child.dailyAchievements);
+		activity = activity.value;
+		
+		var current = self.child.dailyAchievements[weekday.value][activity];
+		self.child.dailyAchievements[weekday.value][activity] = !current;
+	}
+	
 	$http.get('api/child/'+$routeParams.id).then(function(response) {
 		console.log(response);
 		if (response.data === "") {
@@ -133,6 +161,11 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		console.log(error);
 		console.log('error');
 	});
+})
+.directive('target', function() {
+	return {
+		templateUrl: 'target.html'
+	};
 })
 .controller('navigation', function($rootScope, $http, $location, $cookies) {
 
@@ -195,6 +228,24 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		}
 	}
 
+	$rootScope.getNumber = function(num) {
+		console.log(activity, day);
+		switch(activity) {
+		    case 'move':
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
+		        break;
+		    case 'eat':
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
+		        break;
+		    case 'sleep':
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})
+		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).addClass('.tick-chart__day--active')
+			    break;
+		}
+	}
+
 	$rootScope.calculateDailyGoal = function() {
 		for (var i = $('.tick-chart__day').length - 1; i >= 0; i--) {
 			if ($($('.tick-chart__day')[i]).hasClass('.tick-chart__day--active')) {
@@ -233,6 +284,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	}
 
 	$rootScope.getNumber = function(num) {
+		console.log(num)
 	    return new Array(num);   
 	}
 

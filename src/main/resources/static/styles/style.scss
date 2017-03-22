@@ -499,6 +499,10 @@ footer#badges-page {
 	}
 }
 
+.selected {
+	border: 3px green dashed;
+}
+
 .copy {
 	font-size: 1.2em;
 	&--full-width {

@@ -7,9 +7,9 @@ import com.tagtheagency.healthykids.model.Achievement;
 public class AchievementDTO {
 
 	private Date date;
-	private boolean sleep;
-	private boolean nutrition;
-	private boolean movement;
+	protected boolean sleep;
+	protected boolean nutrition;
+	protected boolean movement;
 	
 	public Date getDate() {
 		return date;
@@ -44,6 +44,14 @@ public class AchievementDTO {
 		return dto;
 	}
 	
+	public static class None extends AchievementDTO {
+		public None(Date date) {
+			sleep = false;
+			nutrition = false;
+			movement = false;
+			setDate(date);
+		}
+	}
 	
 	
 }

@@ -2,6 +2,7 @@ package com.tagtheagency;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,6 +49,7 @@ public class ApiController {
 		}
 
 		List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
+		List<LocalDate> daysOfWeek = manager.getWeekOf(new Date());
 		ChildDTO dto = ChildDTO.convertFrom(child);
 		dto.setAchievements(weeklyAchievements);
 		return dto;
@@ -56,7 +58,6 @@ public class ApiController {
 	@RequestMapping(value="/child", method = RequestMethod.PUT)
 	//TODO fix exception handling
 	public ChildDTO createChild(@RequestBody ChildDTO child) throws Exception {
-		System.out.println("Trying to create a kid");
 		SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
 		Date birthday;
 		try {

@@ -1,5 +1,6 @@
 package com.tagtheagency.healthykids.service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -24,5 +25,7 @@ public interface HealthyKidsManager {
 	List<Achievement> getWeeklyAchievements(Child child, Date date);
 
 	public List<Child> getChildren(Account account);
+
+	public List<LocalDate> getWeekOf(Date date);
 	
 }

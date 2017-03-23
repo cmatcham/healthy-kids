@@ -1,49 +1,506 @@
-/*
-Error: Invalid CSS after "...px green dashed": expected "{", was ";"
-        on line 504 of src/main/resources/static/styles/style.scss
+html, body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  width: 100%;
+  height: 1200px;
+  position: absolute;
+  font-family: 'Open Sans', sans-serif; }
 
-499: 	}
-500: }
-501: 
-502: .selected {
-503: <<<<<<< Upstream, based on origin/master
-504: 	border: 3px green dashed;
-505: }
-506: 
-507: .copy {
-508: 	font-size: 1.2em;
-509: 	&--full-width {
+span {
+  display: inline-block; }
 
-Backtrace:
-src/main/resources/static/styles/style.scss:504
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1207:in `expected'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1137:in `expected'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1132:in `tok!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:665:in `block'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:685:in `block_child'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:674:in `block_contents'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:666:in `block'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:658:in `ruleset'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:684:in `block_child'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:125:in `stylesheet'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:41:in `parse'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:406:in `_to_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:331:in `block in watch'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...px green dashed\": expected \"{\", was \";\"\A         on line 504 of src/main/resources/static/styles/style.scss\A \A 499: 	}\A 500: }\A 501: \A 502: .selected {\A 503: <<<<<<< Upstream, based on origin/master\A 504: 	border: 3px green dashed;\A 505: }\A 506: \A 507: .copy {\A 508: 	font-size: 1.2em;\A 509: 	&--full-width {"; }
+.container {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  position: absolute;
+  width: 810px;
+  height: 100%;
+  padding: 20px; }
+
+header {
+  z-index: 2;
+  height: 33.3333%;
+  width: 100%;
+  position: relative; }
+
+main {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 66.6666%; }
+
+.chart-videos-container {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  position: absolute;
+  top: 250px;
+  height: 65%;
+  width: 90%; }
+  .chart-videos-container__video {
+    float: left; }
+    .chart-videos-container__video--big {
+      width: 70%;
+      height: 100%; }
+    .chart-videos-container__video--small {
+      width: 30%;
+      height: 50%; }
+
+.logo {
+  position: absolute;
+  border: 1px solid black;
+  top: 15px;
+  width: 130px;
+  height: 60px;
+  margin-left: 5%; }
+
+.user-icon {
+  position: absolute;
+  border: 1px solid black;
+  width: 60px;
+  height: 60px; }
+  .user-icon--menu {
+    right: 5%;
+    top: 15px;
+    z-index: 2; }
+
+.progress-button {
+  position: absolute;
+  border: 1px solid black;
+  top: 15px;
+  right: 15%;
+  height: 60px;
+  width: 100px; }
+
+.tick-chart {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 65%;
+  height: 75%;
+  border: 1px solid black; }
+  .tick-chart__column {
+    width: calc(100% / 3);
+    height: 100%;
+    float: left; }
+    .tick-chart__column--move {
+      background-color: #769EAF; }
+    .tick-chart__column--eat {
+      background-color: #B5C180; }
+    .tick-chart__column--sleep {
+      background-color: #DE8A60; }
+  .tick-chart__day {
+    height: calc(100% / 7);
+    width: 100%; }
+    .tick-chart__day:after {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      display: block;
+      content: "";
+      width: 90%;
+      position: relative;
+      top: 99%;
+      height: 1px;
+      background-color: white;
+      opacity: 0.5; }
+
+.weekdays-column {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  margin: 0 0 0 3%;
+  width: 13%;
+  height: 75%; }
+  .weekdays-column__weekday {
+    height: calc(100% / 7);
+    width: 100%;
+    float: left;
+    position: relative; }
+    .weekdays-column__weekday span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      text-align: center; }
+
+.daily-goals {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  right: 0;
+  margin: 0 6.5% 0 0;
+  width: 10%;
+  height: 75%;
+  border: 1px solid black; }
+  .daily-goals__goal {
+    height: calc(100% / 7);
+    width: 100%; }
+    .daily-goals__goal--active {
+      background-color: #90648A; }
+
+.weekly-goals {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  width: 65%;
+  border: 1px solid black; }
+  .weekly-goals__goal {
+    width: calc(100% / 3);
+    height: 100%;
+    float: left; }
+    .weekly-goals__goal--active {
+      background-color: red; }
+
+.super-goal {
+  position: absolute;
+  right: 0;
+  top: 90%;
+  width: 8%;
+  padding-bottom: 8%;
+  border-radius: 50%;
+  background-color: #90648A;
+  margin: 0 7.5% 0 0;
+  display: none; }
+
+.activities-row {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: absolute;
+  width: 65%;
+  height: 8%;
+  border: 1px solid black;
+  margin-top: 2%; }
+  .activities-row__activity {
+    width: calc(100% / 3);
+    height: 100%;
+    float: left; }
+    .activities-row__activity span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: relative; }
+
+.login-form {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 55%;
+  height: 600px;
+  overflow: auto; }
+  .login-form__header {
+    top: 0;
+    width: 100%;
+    height: 20%;
+    background-color: #B5C180;
+    clear: both; }
+    .login-form__header span {
+      position: relative; }
+    .login-form__header span:nth-child(-n+2) {
+      left: 0;
+      float: left;
+      width: 55%;
+      height: 50%; }
+    .login-form__header span:nth-child(3) {
+      right: 0;
+      width: 45%;
+      height: 100%; }
+  .login-form form {
+    height: 80%;
+    width: 100%; }
+  .login-form input {
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+    -webkit-appearance: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 3em;
+    line-height: calc(100% / 4);
+    text-align: center;
+    width: 100%;
+    height: calc(100% / 4);
+    background-color: #90648A; }
+  .login-form__submit {
+    line-height: calc(100% / 4);
+    text-align: center;
+    width: 100%;
+    height: calc(100% / 4);
+    background-color: #769EAF;
+    color: #90648A; }
+    .login-form__submit:hover {
+      background-color: #90648A;
+      color: #769EAF; }
+    .login-form__submit span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: relative; }
+
+.child-menu {
+  transition-duration: 1s;
+  border-radius: 5px;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  margin: 95px 40px 0 0;
+  height: 550px;
+  width: 350px;
+  background-color: #B5C180; }
+  .child-menu:after {
+    right: 0;
+    content: "";
+    display: inline;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: -7px;
+    margin-right: 15px;
+    background-color: inherit;
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Safari */
+    transform: rotate(45deg); }
+  .child-menu__child {
+    height: calc(90% / 3);
+    width: 100%;
+    float: left;
+    position: relative;
+    box-sizing: border-box; }
+    .child-menu__child:after {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      display: block;
+      content: "";
+      width: 90%;
+      position: absolute;
+      top: 99%;
+      height: 1px;
+      background-color: white;
+      opacity: 0.5; }
+  .child-menu__profile-pic {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: 1px solid black;
+    position: absolute;
+    margin-left: 10px;
+    width: 75px;
+    height: 75px; }
+  .child-menu__name {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    clear: both;
+    position: relative;
+    height: 75px;
+    width: 100%;
+    padding-left: 95px;
+    font-size: 2em; }
+    .child-menu__name span {
+      top: -10px;
+      position: absolute; }
+  .child-menu__see-more {
+    border-radius: inherit;
+    width: 100%;
+    height: 10%;
+    float: left;
+    background-color: #90648A; }
+    .child-menu__see-more:after {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 10px;
+      top: 0;
+      background-color: inherit; }
+
+.homepage-background-squares {
+  width: 100%;
+  height: 810px;
+  position: absolute; }
+  .homepage-background-squares__square {
+    width: 405px;
+    height: 405px;
+    float: left; }
+  .homepage-background-squares__square:nth-child(1) {
+    background-color: #90648A; }
+  .homepage-background-squares__square:nth-child(2) {
+    background-color: #769EAF; }
+  .homepage-background-squares__square:nth-child(3) {
+    background-color: #B5C180; }
+  .homepage-background-squares__square:nth-child(4) {
+    background-color: #DE8A60; }
+
+.homepage-background-footer {
+  height: calc(100% - 810px);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #DA5853; }
+
+header#badges-page {
+  height: 10%;
+  border: 1px solid black; }
+
+main#badges-page {
+  height: 80%;
+  border: 1px solid black; }
+
+footer#badges-page {
+  height: 10%;
+  border: 1px solid black; }
+
+.badges-title {
+  height: 5%; }
+  .badges-title span {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative; }
+
+.category-badges {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  height: 15%;
+  padding: 0 15% 0 15%;
+  align-items: center;
+  justify-content: space-between; }
+  .category-badges__badge {
+    flex: 1;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 0 10px 0 10px;
+    height: 130px;
+    max-width: 130px; }
+    .category-badges__badge span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: relative;
+      font-size: 3em; }
+
+.total-badge {
+  box-sizing: border-box;
+  height: 20%;
+  width: 100%;
+  padding: 10px 0 10px 0; }
+  .total-badge__badge {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative;
+    height: 170px;
+    width: 170px;
+    border: 1px solid black;
+    border-radius: 50%; }
+    .total-badge__badge span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: relative;
+      font-size: 3em; }
+
+.stickers {
+  box-sizing: border-box;
+  height: 60%;
+  width: 100%;
+  padding: 10px 15% 10px 15%; }
+  .stickers__sticker {
+    box-sizing: border-box;
+    margin: 10px 10px 10px 10px;
+    width: calc(100% / 4 - 20px);
+    height: calc(100% / 4 - 20px);
+    float: left;
+    border: 1px solid black;
+    border-radius: 50%; }
+
+.video--full-width {
+  width: 100%;
+  height: 30%;
+  border: 1px solid black; }
+
+.selected {
+  background-color: purple; }
+
+.copy {
+  font-size: 1.2em; }
+  .copy--full-width {
+    border: 1px solid black;
+    width: 100%;
+    height: 40%; }
+  .copy--med-width {
+    border: 1px solid black;
+    margin: 0 15% 0 15%;
+    width: 70%;
+    height: 15%; }
+
+.category-buttons {
+  width: 100%;
+  height: 10%; }
+  .category-buttons__button {
+    width: 25%;
+    height: 100%;
+    float: left;
+    border: 1px solid black; }
+  .category-buttons span {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative; }
+
+.sticker-display {
+  border: 1px solid black;
+  margin: 5% 0 5% 0;
+  height: 30%;
+  width: 100%; }
+
+.social-media-icons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5%;
+  width: 70%;
+  margin: 0 15% 0 15%;
+  height: 10%; }
+  .social-media-icons__icon {
+    border: 1px solid black;
+    height: 100%;
+    max-width: 115px;
+    flex: 1; }
+
+/*# sourceMappingURL=style.css.map */

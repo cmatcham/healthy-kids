@@ -134,14 +134,15 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		if (typeof self.child === 'undefined') {
 			return;
 		}
-		console.log(self.child.dailyAchievements);
 		activity = activity.value;
-		
 		var current = self.child.dailyAchievements[weekday.value][activity];
 		self.child.dailyAchievements[weekday.value][activity] = !current;
+		$http.post('api/child/'+$routeParams.id+'/target', self.child.dailyAchievements[weekday.value]).then(function(response) {
+		}, function(error) {
+		});
 	}
 	
-		function isDailyGoal(weekday) {
+	function isDailyGoal(weekday) {
 		if (typeof self.child === 'undefined') {
 			return false;
 		}

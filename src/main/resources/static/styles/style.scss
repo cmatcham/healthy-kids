@@ -14,10 +14,13 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+<<<<<<< HEAD
 span {
 	display: inline-block;
 }
 
+=======
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 @mixin center {
 	top: 50%;
 	left:50%;
@@ -39,11 +42,17 @@ span {
 
 .container {
 	@include center;
+<<<<<<< HEAD
 	box-sizing: border-box;
 	position: absolute;
 	width: 810px;
 	height: 100%;
 	padding: 20px;
+=======
+	position: absolute;
+	width: 810px;
+	height: 100%;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 }
 
 header {
@@ -60,7 +69,11 @@ main {
 	height: 66.6666%
 }
 
+<<<<<<< HEAD
 .chart-videos-container {
+=======
+.videos-container {
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 	@include center;
 	border: 1px solid black;
 	position: absolute;
@@ -225,6 +238,10 @@ main {
 		float: left;
 		span {
 			@include center;
+<<<<<<< HEAD
+=======
+			display: inline-block;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 			position: relative;
 		}
 	}
@@ -290,6 +307,10 @@ main {
 		span {
 			@include center;
 			position: relative;
+<<<<<<< HEAD
+=======
+			display: block;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 		}
 	}
 }
@@ -424,6 +445,10 @@ footer#badges-page {
 	height: 5%;
 	span {
 		@include center;
+<<<<<<< HEAD
+=======
+		display: inline-block;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 		position: relative;
 	}
 }
@@ -449,6 +474,10 @@ footer#badges-page {
 		max-width: 130px;
 		span {
 			@include center;
+<<<<<<< HEAD
+=======
+			display: inline-block;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 			position: relative;
 			font-size: 3em;
 		}
@@ -469,6 +498,10 @@ footer#badges-page {
 		border-radius: 50%;
 		span {
 			@include center;
+<<<<<<< HEAD
+=======
+			display: inline-block;
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 			position: relative;
 			font-size: 3em;
 		}
@@ -491,6 +524,7 @@ footer#badges-page {
 	}
 }
 
+<<<<<<< HEAD
 .video {
 	&--full-width {
 		width: 100%;
@@ -564,3 +598,8 @@ footer#badges-page {
 
 
 
+=======
+.selected {
+	background-color: purple;
+}
+>>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f

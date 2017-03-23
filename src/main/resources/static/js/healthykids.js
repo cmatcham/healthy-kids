@@ -19,7 +19,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		templateUrl : 'progress.html',
 		controller : 'child',
 		controllerAs: 'controller'
-<<<<<<< HEAD
 	}).when('/category-info' , {
 		templateUrl : 'category-info.html',
 		controller : 'home',
@@ -28,8 +27,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		templateUrl : 'sticker.html',
 		controller : 'child',
 		controllerAs: 'controller'
-=======
->>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 	}).otherwise('/');
 
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -113,10 +110,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 })
 .controller('child', function($rootScope, $http, $location, $routeParams) {
 	var self = this;
-<<<<<<< HEAD
-	
-=======
->>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
+
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.selectAchievement = selectAchievement;
@@ -135,11 +129,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		{'display':'Eat', 'value':'nutrition'},
 		{'display':'Sleep', 'value':'sleep'}
 	];
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
 	function selectAchievement(weekday, activity) {
 		if (typeof self.child === 'undefined') {
 			return;
@@ -232,10 +222,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	$rootScope.animateDayButton = function(activity, day) {
 		activity = activity.toLowerCase();
 		day = day.toLowerCase();
-<<<<<<< HEAD
-=======
-		console.log(activity, day);
->>>>>>> 847331148ecbb23ec3d3c2363b1a0164fd3b910f
+
 		switch(activity) {
 		    case 'move':
 		        $('.tick-chart__column--' + activity + ' .tick-chart__day--' + day).css({'background-color': 'black'})

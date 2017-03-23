@@ -19,6 +19,14 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		templateUrl : 'progress.html',
 		controller : 'child',
 		controllerAs: 'controller'
+	}).when('/category-info' , {
+		templateUrl : 'category-info.html',
+		controller : 'home',
+		controllerAs: 'controller'
+	}).when('/sticker' , {
+		templateUrl : 'sticker.html',
+		controller : 'child',
+		controllerAs: 'controller'
 	}).otherwise('/');
 
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -225,7 +233,6 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 	}
 
 	$rootScope.getNumber = function(num) {
-		console.log(num)
 	    return new Array(num);   
 	}
 

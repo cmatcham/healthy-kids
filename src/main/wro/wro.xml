@@ -7,4 +7,13 @@
     <js>webjar:angularjs/@angularjs.version@/angular-route.min.js</js>
     <js>webjar:angularjs/@angularjs.version@/angular-cookies.min.js</js>
    </group>
+   <group name="healthykids">
+    <js>file:@project.basedir@/src/main/resources/static/app/healthyKids.js</js>
+    <js>file:@project.basedir@/src/main/resources/static/app/services/services.js</js>
+    <js>file:@project.basedir@/src/main/resources/static/app/child/script.js</js>
+    <js>file:@project.basedir@/src/main/resources/static/app/home/script.js</js>
+    <js>file:@project.basedir@/src/main/resources/static/app/login/loginController.js</js>
+<!--     <js>file:@project.basedir@/src/main/resources/static/app/directives/directives.js</js>-->
+     <js>file:@project.basedir@/src/main/resources/static/app/directives/childMenu.directive.js</js>
+   </group>
 </groups>

@@ -2,16 +2,16 @@
 	<div class="user-icon user-icon--menu" ng-click="showChildMenu()"></div>
 	<div class="homepage-background-squares">
 		<div class="homepage-background-squares__square">	
-		    <ul ng-repeat="child in controller.children">
+		    <ul ng-repeat="child in vm.children">
 		    	<li><a href="#/child/{{child.id}}">{{child.firstName}} {{child.lastName}}</a></li>
 		    </ul>
 		</div>
 		<div class="homepage-background-squares__square">
 			<h1>New Child</h1>
 			<form>
-				<input placeholder="First Name" type="text" class="form-control" ng-model="controller.newChild.firstName" ng-required="true"/>
-				<input placeholder="Last Name" type="text" class="form-control" ng-model="controller.newChild.lastName" ng-required="true"/>
-				<button class="btn btn-primary" ng-click="controller.createChild()">Add child</button>
+				<input placeholder="First Name" type="text" class="form-control" ng-model="vm.newChild.firstName" ng-required="true"/>
+				<input placeholder="Last Name" type="text" class="form-control" ng-model="vm.newChild.lastName" ng-required="true"/>
+				<button class="btn btn-primary" ng-click="vm.createChild()">Add child</button>
 			</form>
 		</div>
 		<div class="homepage-background-squares__square"></div>
@@ -29,11 +29,11 @@
 	<div class="col-md-4">
 		<div class="form-group">
         	<label for="lastName">Last name</label>
-			<input type="text" class="form-control" ng-model="controller.newChild.lastName" ng-required="true"/>
+			<input type="text" class="form-control" ng-model="vm.newChild.lastName" ng-required="true"/>
 		</div>
 	</div>
 	<div class="col-md-4">
-		<button class="btn btn-primary" ng-click="controller.createChild()">Add child</button>
+		<button class="btn btn-primary" ng-click="vm.createChild()">Add child</button>
 	</div> -->
 <!-- </div> -->
 <div  ng-show="!authenticated">
@@ -44,28 +44,28 @@
 	        <span><a href="#/login">Sign in</a></span>
 	    </div>
 	    <form>
-	    	<input type="email" placeholder="Email" ng-model="controller.newAccount.email">
+	    	<input type="email" placeholder="Email" ng-model="vm.newAccount.email">
 	    	<input type="password" placeholder="Password">
-	    	<input type="password" placeholder="Confirm Password" ng-model="controller.newAccount.password">
+	    	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
 	    </form>
-	    <div class="login-form__submit" ng-click="controller.createAccount()">
+	    <div class="login-form__submit" ng-click="vm.createAccount()">
 	    	<span>Sign Up</span>
 	    </div>
     </div>
-    <div class="alert alert-danger" ng-show="controller.error">
-    	{{controller.error}}
+    <div class="alert alert-danger" ng-show="vm.error">
+    	{{vm.error}}
 	</div>
     <!-- <div class="control-group">
 		<label class="control-label">Email</label>
 		<div class="controls">
-			<input type="text" class="input-medium form-control" ng-model="controller.newAccount.email" placeholder="Enter email" name="email"/>
+			<input type="text" class="input-medium form-control" ng-model="vm.newAccount.email" placeholder="Enter email" name="email"/>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Password</label>
 		<div class="controls">
-			<input type="password" class="input-medium form-control" ng-model="controller.newAccount.password" placeholder="Enter password" name="password"/>
+			<input type="password" class="input-medium form-control" ng-model="vm.newAccount.password" placeholder="Enter password" name="password"/>
 		</div>
 	</div>
-	<button class="btn btn-primary" ng-click="controller.createAccount()">Sign up</button> -->
+	<button class="btn btn-primary" ng-click="vm.createAccount()">Sign up</button> -->
 </div>

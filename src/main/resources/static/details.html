@@ -1,51 +1,36 @@
 <!-- <div ng-show="authenticated"> -->
 	<header>
-		<div class="child-menu">
-			<div class="child-menu__child">
-				<div class="child-menu__profile-pic"></div>
-				<div class="child-menu__name"><span>Child</span></div>
-			</div>
-			<div class="child-menu__child">
-				<div class="child-menu__profile-pic"></div>
-				<div class="child-menu__name"><span>Child</span></div>
-			</div>
-			<div class="child-menu__child">
-				<div class="child-menu__profile-pic"></div>
-				<div class="child-menu__name"><span>Child</span></div>
-			</div>
-			<div class="child-menu__see-more"></div>
-		</div>
 		<div class="videos-container">
 			<div class="videos-container__video videos-container__video--big"></div>
 			<div class="videos-container__video videos-container__video--small"></div>
 			<div class="videos-container__video videos-container__video--small"></div>
 		</div>
 		<div class="logo"></div>
-		<div ng-click="showChildMenu()" class="user-icon user-icon--menu"></div>
+		<child-menu/>
 		<div class="progress-button"><a href="#/progress">Progress</a></div>
 	</header>
 	<main>
 		<div class="weekdays-column">
-			<div ng-repeat="(i, weekday) in controller.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
+			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>
 		<div class="activities-row">
-			<div ng-repeat="(i, activity) in controller.targets" class="activities-row__activity"><span>{{activity.display}}</span></div>
+			<div ng-repeat="(i, activity) in vm.targets" class="activities-row__activity"><span>{{activity.display}}</span></div>
 		</div>
 		<div class="tick-chart">
-			<div ng-repeat="(i, activity) in controller.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
-				<div ng-repeat="(i, weekday) in controller.days"
-						ng-class="{'tick-chart__day': true, 'selected': controller.child.dailyAchievements[weekday.value][activity.value]}"
-						ng-click="controller.selectAchievement(weekday, activity)" 
+			<div ng-repeat="(i, activity) in vm.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
+				<div ng-repeat="(i, weekday) in vm.days"
+						ng-class="{'tick-chart__day': true, 'selected': vm.child.dailyAchievements[weekday.value][activity.value]}"
+						ng-click="vm.selectAchievement(weekday, activity)" 
 						data-day="{{weekday.name}}">
 				</div>
 			</div>
 		</div>
 		<div class="super-goal"></div>
 		<div class="weekly-goals">
-			<div ng-repeat="(i, activity) in controller.targets" ng-class="{'weekly-goals__goal':true, selected:controller.isWeeklyGoal(activity)}"></div>
+			<div ng-repeat="(i, activity) in vm.targets" ng-class="{'weekly-goals__goal':true, selected:vm.isWeeklyGoal(activity)}"></div>
 		</div>
 		<div class="daily-goals">
-			<div ng-repeat="(i, weekday) in controller.days" ng-class="{'daily-goals__goal':true, selected:controller.isDailyGoal(weekday)}"></div>
+			<div ng-repeat="(i, weekday) in vm.days" ng-class="{'daily-goals__goal':true, selected:vm.isDailyGoal(weekday)}"></div>
 		</div>
 	</main>
 <!-- </div> -->

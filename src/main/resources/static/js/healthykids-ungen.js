@@ -1,7 +1,5 @@
-angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
+var app = angular.module('healthyKids', [ 'ngRoute' , 'ngCookies', 'healthyKids.services' ])
 .config(function($routeProvider, $httpProvider) {
-
-	console.log('configging this is where I would check the cookie state');
 
 	$routeProvider.when('/', {
 		templateUrl : 'home.html',
@@ -181,13 +179,14 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		templateUrl: 'target.html'
 	};
 })
-.controller('navigation', function($rootScope, $http, $location, $cookies) {
+.controller('login', function($rootScope, $http, $location, $cookies, $accountService) {
 
 	var self = this
 	self.active = true
 
 	var authenticate = function(credentials, callback) {
-		$http({
+		$accountService.authenticate(credentials);
+/*		$http({
 			method:'POST',
 			url: '/login',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -201,7 +200,7 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
 		}, function() {
 			$rootScope.authenticated = false;
 			callback && callback();
-		});
+		});*/
 
 	}
 
@@ -320,3 +319,4 @@ angular.module('healthyKids', [ 'ngRoute' , 'ngCookies' ])
             });
 		}
 	})*/
+

@@ -25,3 +25,4 @@ nbdist/
 /bin/
 
 .sass-cache/
+phantomjsdriver.log

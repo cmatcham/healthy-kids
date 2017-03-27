@@ -10,6 +10,8 @@ function ChildController($routeParams, childService) {
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.selectAchievement = selectAchievement;
 	
+	self.getDayObject = getDayObject;
+	
 	self.days = [
 		{"name":"Monday", "value":0},
 		{"name":"Tuesday", "value":1},
@@ -58,6 +60,13 @@ function ChildController($routeParams, childService) {
 		   }
 		}
 		return true;
+	}
+	
+	function getDayObject(day) {
+		return self.days.filter(function(el) {
+			console.log(el.name, day, el.name === day);
+			return el.name === day;
+		})[0];
 	}
 	
 	function activate() {

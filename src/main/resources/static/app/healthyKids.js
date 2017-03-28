@@ -29,6 +29,10 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'sticker.html',
 		controller : 'child',
 		controllerAs: 'vm'
+	}).when('/child/:id/rewards' , {
+		templateUrl : 'rewards.html',
+		controller : 'child',
+		controllerAs: 'vm'
 	}).otherwise('/');
 	
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

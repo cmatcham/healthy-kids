@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tagtheagency.healthykids.dto.AchievementDTO;
 import com.tagtheagency.healthykids.dto.ChildDTO;
+import com.tagtheagency.healthykids.dto.RewardDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
@@ -55,7 +57,7 @@ public class ApiController {
 
 		List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
 		List<LocalDate> daysOfWeek = manager.getWeekOf(new Date());
-		ChildDTO dto = ChildDTO.convertFrom(child);
+		ChildDTO dto = ChildDTO.convertFrom(child, true);
 		dto.setAchievements(weeklyAchievements, daysOfWeek);
 		return dto;
 	}
@@ -71,6 +73,17 @@ public class ApiController {
 			throw new Exception("Invalid date");
 		}
 		return ChildDTO.convertFrom(manager.createChild(getAccount(), child.getFirstName(), child.getLastName(), birthday));	
+	}
+	
+	@RequestMapping(value="/child/{id}/reward", method = RequestMethod.PUT) 
+	public ChildDTO addCustomReward(@PathVariable int id, @RequestBody List<RewardDTO> rewards) {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		Map<Integer, String> rewardMap = rewards.stream().collect(Collectors.toMap(RewardDTO::getId, RewardDTO::getReward));
+		manager.addCustomReward(child, rewardMap);
+		return ChildDTO.convertFrom(child, true);
 	}
 	
 	@RequestMapping(value="/child/{id}/target", method = RequestMethod.POST)
@@ -112,7 +125,6 @@ public class ApiController {
 		Account account = getAccount();
 		for (Child child : manager.getChildren(account)) {
 			if (child.getId() == id) {
-				System.out.println("Manager found a child, its sticker is "+child.getSticker());
 				return child;
 			}
 		}

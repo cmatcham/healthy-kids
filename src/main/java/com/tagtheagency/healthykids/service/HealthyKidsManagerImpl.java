@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,12 @@ import org.springframework.stereotype.Service;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Reward;
 import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.persistence.AccountDAO;
 import com.tagtheagency.healthykids.persistence.AchievementDAO;
 import com.tagtheagency.healthykids.persistence.ChildDAO;
+import com.tagtheagency.healthykids.persistence.RewardDAO;
 import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
 @Service
@@ -43,6 +46,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	@Autowired AccountDAO accountDao;
 	@Autowired ChildDAO childDao;
 	@Autowired AchievementDAO achievementDao;
+	@Autowired RewardDAO rewardDao;
 	
 	@Override
 	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
@@ -193,6 +197,31 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	public void setSticker(Child child, String sticker) {
 		child.setSticker(sticker);
 		childDao.save(child);
+	
+	}
+	
+	@Override
+	public void addCustomReward(Child child, Map<Integer, String> rewards) {
+		List<Reward> currentRewards = child.getCustomRewards();
+		rewards.keySet().forEach(key -> {
+			if (key < 0 && currentRewards.size() >= 3) {
+				return;
+			}
+			if (key < 0) {
+				Reward reward = new Reward();
+				reward.setChild(child);
+				reward.setReward(rewards.get(key));
+				rewardDao.save(reward);
+				currentRewards.add(reward);
+				return;
+			}
+			Reward reward = rewardDao.findOne(key);
+			if (reward.getChild().getId() != child.getId()) {
+				return;
+			}
+			reward.setReward(rewards.get(key));
+			rewardDao.save(reward);
+		});
 	
 	}
 	

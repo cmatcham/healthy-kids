@@ -1,0 +1,23 @@
+<child-menu/>
+<ul>
+	<li><a href="#/child/{{vm.child.id}}">Achievements</a></li>
+	<li><a href="#/child/{{vm.child.id}}/sticker">Edit child</a></li>
+</ul>
+
+<div id="ministryNutritionReward"><h1>Ministry approved nutrition reward</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non dui quis lorem ultrices aliquet. Nulla molestie mauris a neque convallis egestas. Aenean enim tortor, egestas eget ullamcorper eu, laoreet id risus. Nulla erat purus, bibendum tincidunt scelerisque vitae, faucibus quis arcu. Etiam nec laoreet urna. Nam vitae euismod orci, vel tempus justo. Quisque imperdiet elit eros, ac hendrerit nunc molestie vitae. </p>
+</div>
+<div id="ministryNutritionReward"><h1>Ministry approved movement reward</h1>
+<p>Vivamus lacinia eros maximus lacus sollicitudin sollicitudin eget in diam. Morbi aliquam convallis nisi a faucibus. Nulla pulvinar metus ac ligula fringilla, a suscipit augue dignissim. Donec aliquam lobortis finibus. Donec non orci congue, accumsan velit a, ullamcorper dui. Mauris bibendum rhoncus lacinia. Sed euismod nec velit vel interdum. </p>
+</div>
+<div id="ministryNutritionReward"><h1>Ministry approved sleep reward</h1>
+<p>Nulla arcu erat, fringilla in suscipit a, lobortis eget augue. Aliquam lacus lorem, sodales quis magna at, laoreet mattis nisl. Suspendisse libero dui, viverra non ipsum eu, sagittis auctor nibh. Etiam nec nibh tempus, iaculis est nec, luctus ex. Pellentesque luctus urna non mattis luctus. Sed bibendum mi eget ligula ullamcorper fringilla. Sed convallis nibh sollicitudin, posuere nulla et, ullamcorper elit. </p>
+</div>
+<h2>Add up to three of your own rewards</h2>
+<div ng-show="vm.child.customRewards.length > 0">{{vm.child.customRewards[0].reward}}</div>
+<div ng-show="vm.child.customRewards.length > 1">{{vm.child.customRewards[1].reward}}</div>
+<div ng-show="vm.child.customRewards.length > 2">{{vm.child.customRewards[2].reward}}</div>
+<div ng-hide="vm.child.customRewards.length > 0"><input ng-model="vm.customRewards[0]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
+<div ng-hide="vm.child.customRewards.length > 1"><input ng-model="vm.customRewards[1]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
+<div ng-hide="vm.child.customRewards.length > 2"><input ng-model="vm.customRewards[2]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
+<input type="submit" ng-click="vm.updateRewards()" value="save rewards"/>

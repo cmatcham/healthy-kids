@@ -10,10 +10,12 @@ function ChildController($routeParams, childService) {
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.selectAchievement = selectAchievement;
 	self.setSticker = setSticker;
+	self.updateRewards = updateRewards;
 	
 	self.getDayObject = getDayObject;
 	
 	self.stickers = [];
+	self.customRewards = ['','',''];
 	
 	self.days = [
 		{"name":"Monday", "value":0},
@@ -80,6 +82,24 @@ function ChildController($routeParams, childService) {
 				child.sticker = sticker;
 			}
 		});
+	}
+	
+	function updateRewards() {
+		console.log('updating rewards', self.customRewards);
+		console.log(self.child.customRewards);
+		console.log(self.child.customRewards.length );
+		for (var i = 0; i < 3; i++) {
+			if (self.customRewards[i] !== '') {
+				self.child.customRewards[i] = {id:-1,reward:self.customRewards[i]};
+			}
+		}
+		console.log('calling service set');
+		childService.setRewards(self.child.id, self.child.customRewards).then(function(data) {
+			console.log('set rewards .then');
+			console.log(data);
+		}, function(error) {});
+		console.log(self.child.customRewards);
+
 	}
 	
 	function activate() {

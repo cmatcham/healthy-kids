@@ -9,9 +9,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Reward;
 
 public class ChildDTO {
 
@@ -20,6 +22,7 @@ public class ChildDTO {
 	private String dateOfBirth;
 	private String sticker;
 	private int id;
+	private List<RewardDTO> customRewards;
 	
 	private Map<Integer, AchievementDTO> dailyAchievements;
 	
@@ -59,15 +62,29 @@ public class ChildDTO {
 		return dailyAchievements;
 	}
 	
+	public List<RewardDTO> getCustomRewards() {
+		return customRewards;
+	}
+	
+	public void setCustomRewards(List<Reward> customRewards) {
+		this.customRewards = customRewards.stream().map(RewardDTO::createFrom).collect(Collectors.toList());
+	}
+	
 	public static ChildDTO convertFrom(Child child) {
+		return convertFrom(child, false);
+	}
+	
+	public static ChildDTO convertFrom(Child child, boolean populateRewards) {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		ChildDTO dto = new ChildDTO();
 		dto.setFirstName(child.getFirstName());
 		dto.setLastName(child.getLastName());
 		dto.setDateOfBirth(formatter.format(child.getDateOfBirth()));
 		dto.setId(child.getId());
-		System.out.println("Sticker from the child is "+child.getSticker());
 		dto.setSticker(child.getSticker());
+		if (populateRewards) {
+			dto.setCustomRewards(child.getCustomRewards());
+		}
 		return dto;
 	}
 	

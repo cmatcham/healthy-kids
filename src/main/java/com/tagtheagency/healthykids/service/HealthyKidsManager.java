@@ -3,6 +3,7 @@ package com.tagtheagency.healthykids.service;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
@@ -31,5 +32,7 @@ public interface HealthyKidsManager {
 	public List<String> getStickers();
 
 	public void setSticker(Child child, String sticker);
+
+	public void addCustomReward(Child child, Map<Integer, String> rewards);
 	
 }

@@ -28,6 +28,7 @@ public class Child {
 	private String sticker;
 	private Date dateOfBirth;
 	private List<Achievement> achievements;
+	private List<Reward> customRewards;
 	
 	@Id
 	@GeneratedValue
@@ -86,6 +87,15 @@ public class Child {
 	
 	public void setAchievements(List<Achievement> achievements) {
 		this.achievements = achievements;
+	}
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="child")
+	public List<Reward> getCustomRewards() {
+		return customRewards;
+	}
+	
+	public void setCustomRewards(List<Reward> rewards) {
+		this.customRewards = rewards;
 	}
 	
 	@Column(name="sticker")

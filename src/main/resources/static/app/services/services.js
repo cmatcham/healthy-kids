@@ -48,7 +48,9 @@ function childService($http) {
 	return {
 		getChild: getChild,
 		getChildren: getChildren,
-		setAchievement: setAchievement
+		setAchievement: setAchievement,
+		getStickers: getStickers,
+		setSticker: setSticker
 	};
 	
 	function getChild(id) {
@@ -82,6 +84,19 @@ function childService($http) {
 				.then(function(response) {}, function(error) {});
 	}
 	
+	function getStickers() {
+		return $http.get('api/stickers').then(
+				function(response) {
+					return response.data;
+				},
+				function (error) {
+					//
+				}
+			);
+	}
 	
-
+	function setSticker(childId, sticker) {
+		return $http.post('api/child/'+childId+'/sticker', sticker)
+		.then(function(response) {}, function(error) {});
+	}
 }

@@ -9,8 +9,11 @@ function ChildController($routeParams, childService) {
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.selectAchievement = selectAchievement;
+	self.setSticker = setSticker;
 	
 	self.getDayObject = getDayObject;
+	
+	self.stickers = [];
 	
 	self.days = [
 		{"name":"Monday", "value":0},
@@ -69,15 +72,29 @@ function ChildController($routeParams, childService) {
 		})[0];
 	}
 	
+	function setSticker(sticker) {
+		self.child.sticker = sticker;
+		childService.setSticker(self.child.id, sticker);
+		self.children.forEach(function(child) {
+			if (child.id === self.child.id) {
+				child.sticker = sticker;
+			}
+		});
+	}
+	
 	function activate() {
 		childService.getChildren().then(function(data) {
 			self.children = data;
 		});
-		return childService.getChild($routeParams.id)
+		childService.getChild($routeParams.id)
 			.then(function(data) {
 				self.child = data;
 			});
-		
+		childService.getStickers()
+		.then(function(data) {
+			self.stickers = data;
+		});
+	
 	}
 
 

@@ -28,4 +28,8 @@ public interface HealthyKidsManager {
 
 	public List<LocalDate> getWeekOf(Date date);
 	
+	public List<String> getStickers();
+
+	public void setSticker(Child child, String sticker);
+	
 }

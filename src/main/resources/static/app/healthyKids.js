@@ -17,7 +17,7 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'details.html',
 		controller : 'child',
 		controllerAs: 'vm'
-	}).when('/progress' , {
+	}).when('/child/:id/progress' , {
 		templateUrl : 'progress.html',
 		controller : 'child',
 		controllerAs: 'vm'
@@ -25,7 +25,7 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'category-info.html',
 		controller : 'home',
 		controllerAs: 'vm'
-	}).when('/sticker' , {
+	}).when('/child/:id/sticker' , {
 		templateUrl : 'sticker.html',
 		controller : 'child',
 		controllerAs: 'vm'

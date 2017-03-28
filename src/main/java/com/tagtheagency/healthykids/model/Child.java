@@ -25,6 +25,7 @@ public class Child {
 	private Account account;
 	private String firstName;
 	private String lastName;
+	private String sticker;
 	private Date dateOfBirth;
 	private List<Achievement> achievements;
 	
@@ -87,5 +88,13 @@ public class Child {
 		this.achievements = achievements;
 	}
 	
+	@Column(name="sticker")
+	public String getSticker() {
+		return sticker;
+	}
+	
+	public void setSticker(String sticker) {
+		this.sticker = sticker;
+	}
 }
 

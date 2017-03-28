@@ -18,6 +18,10 @@ span {
 	display: inline-block;
 }
 
+[ng-click] {
+	cursor: pointer;
+}
+
 @mixin center {
 	top: 50%;
 	left:50%;
@@ -300,7 +304,7 @@ main {
 	z-index: 2;
 	position: absolute;
 	right: 0;
-	margin: 75px 0px 0 0;
+	margin: 10px 0px 0 0;
 	height: 550px;
 	width: 350px;
 	background-color: $green;

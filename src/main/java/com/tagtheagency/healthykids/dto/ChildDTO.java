@@ -18,6 +18,7 @@ public class ChildDTO {
 	private String firstName;
 	private String lastName;
 	private String dateOfBirth;
+	private String sticker;
 	private int id;
 	
 	private Map<Integer, AchievementDTO> dailyAchievements;
@@ -47,6 +48,13 @@ public class ChildDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getSticker() {
+		return sticker;
+	}
+	public void setSticker(String sticker) {
+		this.sticker = sticker;
+	}
+	
 	public Map<Integer, AchievementDTO> getDailyAchievements() {
 		return dailyAchievements;
 	}
@@ -58,6 +66,8 @@ public class ChildDTO {
 		dto.setLastName(child.getLastName());
 		dto.setDateOfBirth(formatter.format(child.getDateOfBirth()));
 		dto.setId(child.getId());
+		System.out.println("Sticker from the child is "+child.getSticker());
+		dto.setSticker(child.getSticker());
 		return dto;
 	}
 	

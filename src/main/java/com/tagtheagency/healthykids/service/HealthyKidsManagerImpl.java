@@ -1,13 +1,24 @@
 package com.tagtheagency.healthykids.service;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -146,5 +157,43 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		return childDao.findByAccount(account);
 	}
 	
+	@Override
+	public List<String> getStickers() {
+		//FIXME - get this by scanning directory within the jar.. somehow!
+		
+		List<String> files = new ArrayList<>();
+		try {
+			System.out.println(getClass());
+			
+			URI uri = getClass().getResource("/static/stickers").toURI();
+			Path myPath;
+			if (uri.getScheme().equals("jar")) {
+				FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
+				myPath = fileSystem.getPath("/static/stickers");
+			} else {
+				myPath = Paths.get(uri);
+			}
+			Stream<Path> walk = Files.walk(myPath, 1);
+			for (Iterator<Path> it = walk.iterator(); it.hasNext();){
+				String filename = it.next().toFile().getName();
+				if (filename.equals("stickers")) {
+					continue;
+				}
+				files.add(filename);
+			}
+		} catch (URISyntaxException | IOException e) {
+			e.printStackTrace();
+			return Collections.emptyList();
+		}
+        
+		return files;
+	}
+	
+	@Override
+	public void setSticker(Child child, String sticker) {
+		child.setSticker(sticker);
+		childDao.save(child);
+	
+	}
 	
 }

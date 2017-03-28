@@ -1,7 +1,8 @@
 <div ng-click="vm.showChildMenu = !vm.showChildMenu" class="user-icon user-icon--menu">
+<img ng-src="stickers/{{vm.child.sticker || 'default.png'}}" style="width:60px;height:60px;"/>
 <div class="child-menu" ng-show="vm.showChildMenu" >
 	<div class="child-menu__child" ng-repeat="(i, child) in vm.children | limitTo : 3">
-		<div class="child-menu__profile-pic"><img src="http://lorempixel.com/75/75/abstract/?{{i}}"/></div>
+		<div class="child-menu__profile-pic"><img ng-src="stickers/{{child.sticker || 'default.png'}}"/></div>
 		<div class="child-menu__name"><span><a href="#/child/{{child.id}}">{{child.firstName}} {{child.lastName}}</a></span></div>
 	</div>
 	<div class="child-menu__see-more"><a href="#/">See more</a></div>

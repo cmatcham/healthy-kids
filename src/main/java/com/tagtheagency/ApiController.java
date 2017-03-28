@@ -36,6 +36,11 @@ public class ApiController {
 		return getAccount();
 	}
 	
+	@RequestMapping("/stickers")
+	public List<String> getStickers() {
+		return manager.getStickers();
+	}
+	
 	@RequestMapping("/child/all")
 	public List<ChildDTO> children() {
 		return manager.getChildren(getAccount()).stream().map(ChildDTO::convertFrom).collect(Collectors.toList());
@@ -81,6 +86,17 @@ public class ApiController {
 		return dto;
 		
 	}
+	
+	@RequestMapping(value="/child/{id}/sticker", method = RequestMethod.POST)
+	public ChildDTO setSticker(@PathVariable int id, @RequestBody String sticker) throws UnauthorisedException, ParseException {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		manager.setSticker(child, sticker);
+		return ChildDTO.convertFrom(child);
+		
+	}
 
 	private Account getAccount() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -96,6 +112,7 @@ public class ApiController {
 		Account account = getAccount();
 		for (Child child : manager.getChildren(account)) {
 			if (child.getId() == id) {
+				System.out.println("Manager found a child, its sticker is "+child.getSticker());
 				return child;
 			}
 		}

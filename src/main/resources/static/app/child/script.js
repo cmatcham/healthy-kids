@@ -8,6 +8,7 @@ function ChildController($routeParams, childService) {
 
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
+	self.isSuperGoal = isSuperGoal;
 	self.selectAchievement = selectAchievement;
 	self.setSticker = setSticker;
 	self.updateRewards = updateRewards;
@@ -85,6 +86,22 @@ function ChildController($routeParams, childService) {
 		   }
 		}
 		return true;
+	}
+	
+	function isSuperGoal() {
+		console.log('checking super goal');
+		if (typeof self.child === 'undefined') {
+			return false;
+		}
+		var isGoal = true;
+		self.days.forEach(function(day) {
+			if (!self.isDailyGoal(day)) {
+				console.log('false for day ', day);
+				isGoal = false;
+			}
+		});
+		console.log('returning ',isGoal);
+		return isGoal;
 	}
 	
 	function getDayObject(day) {

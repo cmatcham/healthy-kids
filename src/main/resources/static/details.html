@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="super-goal"></div>
+		<div class="super-goal" ng-class="{selected:vm.isSuperGoal()}"></div>
 		<div class="weekly-goals">
 			<div ng-repeat="(i, activity) in vm.targets" ng-class="{'weekly-goals__goal':true, selected:vm.isWeeklyGoal(activity)}"></div>
 		</div>

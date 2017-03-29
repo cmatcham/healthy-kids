@@ -14,10 +14,8 @@
 <p>Nulla arcu erat, fringilla in suscipit a, lobortis eget augue. Aliquam lacus lorem, sodales quis magna at, laoreet mattis nisl. Suspendisse libero dui, viverra non ipsum eu, sagittis auctor nibh. Etiam nec nibh tempus, iaculis est nec, luctus ex. Pellentesque luctus urna non mattis luctus. Sed bibendum mi eget ligula ullamcorper fringilla. Sed convallis nibh sollicitudin, posuere nulla et, ullamcorper elit. </p>
 </div>
 <h2>Add up to three of your own rewards</h2>
-<div ng-show="vm.child.customRewards.length > 0">{{vm.child.customRewards[0].reward}}</div>
-<div ng-show="vm.child.customRewards.length > 1">{{vm.child.customRewards[1].reward}}</div>
-<div ng-show="vm.child.customRewards.length > 2">{{vm.child.customRewards[2].reward}}</div>
-<div ng-hide="vm.child.customRewards.length > 0"><input ng-model="vm.customRewards[0]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
-<div ng-hide="vm.child.customRewards.length > 1"><input ng-model="vm.customRewards[1]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
-<div ng-hide="vm.child.customRewards.length > 2"><input ng-model="vm.customRewards[2]" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
+<div ng-show="vm.child.customRewards.length > 0"><textarea style="width:100%;" ng-model="vm.child.customRewards[0].reward"/></div>
+<div ng-show="vm.child.customRewards.length > 1"><textarea style="width:100%;" ng-model="vm.child.customRewards[1].reward"/></div>
+<div ng-show="vm.child.customRewards.length > 2"><textarea style="width:100%;" ng-model="vm.child.customRewards[2].reward"/></div>
+<div ng-show="vm.child.customRewards.length < 3"><input ng-model="vm.newCustomReward" type="text" style="width:100%; margin: 5px 0; font-size:large;" placeholder="Add a customised reward here"/></div>
 <input type="submit" ng-click="vm.updateRewards()" value="save rewards"/>

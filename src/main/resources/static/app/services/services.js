@@ -104,6 +104,10 @@ function childService($http) {
 	function setRewards(childId, rewards) {
 		console.log('services setting rewards');
 		return $http.put('api/child/'+childId+'/reward', rewards)
-		.then(function(response) {}, function(error) {});
+		.then(function(response) {
+			return response.data;
+		}, function(error) {
+			return error;
+		});
 	}
 }

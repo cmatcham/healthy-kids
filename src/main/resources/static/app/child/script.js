@@ -15,7 +15,7 @@ function ChildController($routeParams, childService) {
 	self.getDayObject = getDayObject;
 	
 	self.stickers = [];
-	self.customRewards = ['','',''];
+	self.newCustomReward = '';
 	
 	self.days = [
 		{"name":"Monday", "value":0},
@@ -85,20 +85,20 @@ function ChildController($routeParams, childService) {
 	}
 	
 	function updateRewards() {
-		console.log('updating rewards', self.customRewards);
+		//first update any that are already set
 		console.log(self.child.customRewards);
-		console.log(self.child.customRewards.length );
-		for (var i = 0; i < 3; i++) {
-			if (self.customRewards[i] !== '') {
-				self.child.customRewards[i] = {id:-1,reward:self.customRewards[i]};
-			}
+		console.log(self.child.customRewards[0]);
+		console.log(self.child.customRewards[1]);
+
+		if (self.newCustomReward !== '' && self.child.customRewards.length < 3) {
+			self.child.customRewards.push({id:-1, reward:self.newCustomReward});
+			self.newCustomReward = '';
 		}
-		console.log('calling service set');
+		
 		childService.setRewards(self.child.id, self.child.customRewards).then(function(data) {
-			console.log('set rewards .then');
 			console.log(data);
-		}, function(error) {});
-		console.log(self.child.customRewards);
+			self.child.customRewards = data.customRewards;
+		});
 
 	}
 	

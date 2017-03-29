@@ -82,6 +82,10 @@ public class Achievement {
 	public void setSleep(boolean sleep) {
 		this.sleep = sleep;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "S: "+sleep+"; N: "+nutrition+"; M: "+movement;
+	}
 }
 

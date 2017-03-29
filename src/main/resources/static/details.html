@@ -20,7 +20,7 @@
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in vm.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
 				<div ng-repeat="(i, weekday) in vm.days"
-						ng-class="{'tick-chart__day': true, 'selected': vm.child.dailyAchievements[weekday.value][activity.value]}"
+						ng-class="{'tick-chart__day': true, 'selected': vm.achievements[weekday.value][activity.value]}"
 						ng-click="vm.selectAchievement(weekday, activity)" 
 						data-day="{{weekday.name}}">
 				</div>
@@ -34,4 +34,8 @@
 			<div ng-repeat="(i, weekday) in vm.days" ng-class="{'daily-goals__goal':true, selected:vm.isDailyGoal(weekday)}"></div>
 		</div>
 	</main>
+	<div class="navigation">
+		<p ng-show="vm.week == 'this'" ng-click="vm.changeWeek('last')">Last week &lt;&lt;</p>
+		<p ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</p>
+	</div>
 <!-- </div> -->

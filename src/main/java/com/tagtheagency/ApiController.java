@@ -3,6 +3,7 @@ package com.tagtheagency;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -56,9 +57,13 @@ public class ApiController {
 		}
 
 		List<Achievement> weeklyAchievements = manager.getWeeklyAchievements(child, new Date());
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -7);
 		List<LocalDate> daysOfWeek = manager.getWeekOf(new Date());
 		ChildDTO dto = ChildDTO.convertFrom(child, true);
 		dto.setAchievements(weeklyAchievements, daysOfWeek);
+		List<Achievement> lastWeeklyAchievements = manager.getWeeklyAchievements(child, cal.getTime());
+		dto.setLastWeekAchievements(lastWeeklyAchievements, manager.getWeekOf(cal.getTime()));
 		return dto;
 	}
 	

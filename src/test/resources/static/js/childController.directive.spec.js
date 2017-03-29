@@ -32,8 +32,10 @@ describe('Unit testing child controller', function() {
 		expect(controller.isDailyGoal(mondayObject)).toBe(false);
 		
 		controller.child = { "dailyAchievements":{"0":{"sleep":false,"nutrition":true,"movement":true}}};
+		controller.changeWeek('this');
 		expect(controller.isDailyGoal(mondayObject)).toBe(false);
 		controller.child = { "dailyAchievements":{"0":{"sleep":true,"nutrition":true,"movement":true}}};
+		controller.changeWeek('this');
 		expect(controller.isDailyGoal(mondayObject)).toBe(true);
 		
 		
@@ -46,12 +48,14 @@ describe('Unit testing child controller', function() {
 		expect(controller.isWeeklyGoal(testActivity)).toBe(false);
 		
 		controller.child = { "dailyAchievements":{"0":{"sleep":true,"nutrition":true,"movement":true}}};
+		controller.changeWeek('this');
 
 		var achievements = {};
 		for (var i = 0; i < 7; i++) {
 			achievements[i] = {"sleep":true,"nutrition":false,"movement":true};
 		}
 		controller.child = { "dailyAchievements":achievements};
+		controller.changeWeek('this');
 		expect(controller.isWeeklyGoal(testActivity)).toBe(true);
 		expect(controller.isWeeklyGoal({'value':'nutrition'})).toBe(false);
 		

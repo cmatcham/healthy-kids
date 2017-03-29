@@ -11,11 +11,16 @@ function ChildController($routeParams, childService) {
 	self.selectAchievement = selectAchievement;
 	self.setSticker = setSticker;
 	self.updateRewards = updateRewards;
+	self.changeWeek = changeWeek;
 	
 	self.getDayObject = getDayObject;
 	
 	self.stickers = [];
 	self.newCustomReward = '';
+
+	self.week = 'this';
+	self.achievements = {};
+
 	
 	self.days = [
 		{"name":"Monday", "value":0},
@@ -34,21 +39,36 @@ function ChildController($routeParams, childService) {
 	
 	activate();
 	
+	/**
+	 * Change the week that we are viewing/editing.
+	 * The view should always refer to this controller's 'achievements' object - this method
+	 * will switch that to the correct week.
+	 */
+	function changeWeek(which) {
+		self.week = which;
+		if (which === 'this') {
+			self.achievements = self.child.dailyAchievements;
+		} else if (which === 'last') {
+			self.achievements = self.child.lastWeekDailyAchievements;
+		} 
+		
+	}
+	
 	function selectAchievement(weekday, activity) {
 		if (typeof self.child === 'undefined') {
 			return;
 		}
 		activity = activity.value;
-		var current = self.child.dailyAchievements[weekday.value][activity];
-		self.child.dailyAchievements[weekday.value][activity] = !current;
-		childService.setAchievement(self.child.id, self.child.dailyAchievements[weekday.value]);
+		var current = self.achievements[weekday.value][activity];
+		self.achievements[weekday.value][activity] = !current;
+		childService.setAchievement(self.child.id, self.achievements[weekday.value]);
 	}
 	
 	function isDailyGoal(weekday) {
 		if (typeof self.child === 'undefined') {
 			return false;
 		}
-		var dailyGoals = self.child.dailyAchievements[weekday.value];
+		var dailyGoals = self.achievements[weekday.value];
 		return dailyGoals.sleep && dailyGoals.nutrition && dailyGoals.movement;
 	}
 	
@@ -56,7 +76,7 @@ function ChildController($routeParams, childService) {
 		if (typeof self.child === 'undefined') {
 			return false;
 		}
-		var weeklyGoals = self.child.dailyAchievements;
+		var weeklyGoals = self.achievements;
 		for (var key in weeklyGoals) {
 		   if (weeklyGoals.hasOwnProperty(key)) {
 			   if (!weeklyGoals[key][activity.value]) {
@@ -69,7 +89,6 @@ function ChildController($routeParams, childService) {
 	
 	function getDayObject(day) {
 		return self.days.filter(function(el) {
-			console.log(el.name, day, el.name === day);
 			return el.name === day;
 		})[0];
 	}
@@ -85,18 +104,12 @@ function ChildController($routeParams, childService) {
 	}
 	
 	function updateRewards() {
-		//first update any that are already set
-		console.log(self.child.customRewards);
-		console.log(self.child.customRewards[0]);
-		console.log(self.child.customRewards[1]);
-
 		if (self.newCustomReward !== '' && self.child.customRewards.length < 3) {
 			self.child.customRewards.push({id:-1, reward:self.newCustomReward});
 			self.newCustomReward = '';
 		}
 		
 		childService.setRewards(self.child.id, self.child.customRewards).then(function(data) {
-			console.log(data);
 			self.child.customRewards = data.customRewards;
 		});
 
@@ -109,6 +122,7 @@ function ChildController($routeParams, childService) {
 		childService.getChild($routeParams.id)
 			.then(function(data) {
 				self.child = data;
+				self.achievements = self.child.dailyAchievements;
 			});
 		childService.getStickers()
 		.then(function(data) {

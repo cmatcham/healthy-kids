@@ -121,7 +121,6 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 
 		Date from = Date.from(monday.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date to = Date.from(sunday.atStartOfDay(ZoneId.systemDefault()).toInstant());
-		
 		return achievementDao.findByChildAndDateBetween(child, from, to);
 	}
 
@@ -174,7 +173,6 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		
 		List<String> files = new ArrayList<>();
 		try {
-			System.out.println(getClass());
 			
 			URI uri = getClass().getResource("/static/stickers").toURI();
 			Path myPath;

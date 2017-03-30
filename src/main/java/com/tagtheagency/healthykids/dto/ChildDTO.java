@@ -25,6 +25,7 @@ public class ChildDTO {
 	private List<RewardDTO> customRewards;
 	
 	private Map<Integer, AchievementDTO> dailyAchievements;
+	private Map<Integer, AchievementDTO> lastWeekDailyAchievements;
 	
 	
 	public String getFirstName() {
@@ -60,6 +61,10 @@ public class ChildDTO {
 	
 	public Map<Integer, AchievementDTO> getDailyAchievements() {
 		return dailyAchievements;
+	}
+	
+	public Map<Integer, AchievementDTO> getLastWeekDailyAchievements() {
+		return lastWeekDailyAchievements;
 	}
 	
 	public List<RewardDTO> getCustomRewards() {
@@ -119,6 +124,29 @@ public class ChildDTO {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTime();
+	}
+	public void setLastWeekAchievements(List<Achievement> lastWeeklyAchievements, List<LocalDate> weekOf) {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -7);
+
+		lastWeekDailyAchievements = new HashMap<Integer, AchievementDTO>();
+		lastWeeklyAchievements.forEach(a -> {
+			cal.setTime(a.getDate());
+			int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+			dayOfWeek = (dayOfWeek + 5) % 7;
+			lastWeekDailyAchievements.put(dayOfWeek, AchievementDTO.convertFrom(a));
+		});
+		padLastWeekAchievements(weekOf);
+	}
+	
+	private void padLastWeekAchievements(List<LocalDate> daysOfWeek) {
+		for (int i = 0; i < daysOfWeek.size(); i++) {
+			if (lastWeekDailyAchievements.containsKey(i)) {
+				continue;
+			}
+			Date date = Date.from(daysOfWeek.get(i).atStartOfDay(ZoneId.systemDefault()).toInstant());
+			lastWeekDailyAchievements.put(i, new AchievementDTO.None(dateWithoutTime(date)));
+		}
 	}
 	
 	

@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -163,7 +164,13 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	
 	@Override
 	public List<String> getStickers() {
-		//FIXME - get this by scanning directory within the jar.. somehow!
+		//TODO - below code works locally, but fails on Heroku.
+		//need to figure out how Heroku file system works.
+		//for now just hardcode
+		return Arrays.asList("abstract1.jpg", "abstract2.jpg", "abstract3.jpg", "abstract4.jpg", 
+				"pattern2.png", "pattern3.png", "pattern4.png", "pattern1.png", 
+				"default.png");
+		/*
 		
 		List<String> files = new ArrayList<>();
 		try {
@@ -190,7 +197,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 			return Collections.emptyList();
 		}
         
-		return files;
+		return files;*/
 	}
 	
 	@Override

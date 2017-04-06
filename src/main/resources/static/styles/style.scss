@@ -43,11 +43,12 @@ span {
 
 .container {
 	@include center;
+	// border: 1px solid black;
 	box-sizing: border-box;
 	position: absolute;
 	width: 810px;
 	height: 100%;
-	padding: 20px;
+	// padding: 20px;
 }
 
 header {
@@ -64,7 +65,7 @@ main {
 	height: 66.6666%
 }
 
-.chart-videos-container {
+.videos-container {
 	@include center;
 	border: 1px solid black;
 	position: absolute;

@@ -1,17 +1,11 @@
 <!-- <div ng-show="authenticated"> -->
-	<!-- <header>
-		<div class="videos-container">
-			<div class="videos-container__video videos-container__video--big"></div>
-			<div class="videos-container__video videos-container__video--small"></div>
-			<div class="videos-container__video videos-container__video--small"></div>
-		</div>
-		<div class="logo"></div>
-		<child-menu/>
-		<div class="progress-button"><a href="#/progress">Progress</a></div>
-		<a href="#/child/{{vm.child.id}}/sticker">Edit child</a>
-	</header> -->
 	<header-partial/>
 	<main>
+	<div class="videos-container">
+		<div class="videos-container__video videos-container__video--big"></div>
+		<div class="videos-container__video videos-container__video--small"></div>
+		<div class="videos-container__video videos-container__video--small"></div>
+	</div>
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>

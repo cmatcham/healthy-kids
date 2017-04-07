@@ -1,9 +1,15 @@
+
+
 $red:#EC3F4E;  
 $yellow:#FFD33E;
 $blue:#00B8B1;
 $green:#80C536;
 $purple:#7251A0;
 
+@font-face {
+    font-family: 'KGShePersisted';
+    src: url('../fonts/KGShePersisted.otf'); 
+}
 
 html, body {
 	margin: 0 0 0 0;
@@ -12,6 +18,10 @@ html, body {
 	height: 1200px;
 	position: absolute;
 	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color: white;
 }
 
 span {
@@ -52,12 +62,39 @@ span {
 }
 
 header {
+	// font-family: 'KGShePersisted';
+	color: white;
 	background-color: $red;
 	z-index: 2;
 	height: 7%;
-	padding-bottom: 3%;
+	margin-bottom: 3%;
 	width: 100%;
 	position: relative;
+}
+
+.header-button {
+	font-size: 1.5em;
+	width: 30%;
+	height: 100%;
+	float: left;
+	position: relative;
+	span {
+		display: inline-block;
+		@include center;
+		position: relative;
+	}
+	&:nth-child(1):after, &:nth-child(2):after {
+		@include center-vertical;
+		display: inline-block;
+		background-color: white;
+		content: "";
+		height: 70%;
+		width: 4px;
+		border-radius: 5px;
+		right: 0;
+		position: absolute;
+
+	}
 }
 
 main {
@@ -98,6 +135,7 @@ main {
 
 .user-icon {
 	position: absolute;
+	border-radius: 10px;
 	border: 1px solid black;
 	width: 60px;
 	height: 60px;

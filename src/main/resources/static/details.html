@@ -18,6 +18,7 @@
 						ng-class="{'tick-chart__day': true, 'selected': vm.achievements[weekday.value][activity.value]}"
 						ng-click="vm.selectAchievement(weekday, activity)" 
 						data-day="{{weekday.name}}">
+					<div class="tick-chart__checkbox tick-chart__checkbox--{{activity.value}}"></div>
 				</div>
 			</div>
 		</div>

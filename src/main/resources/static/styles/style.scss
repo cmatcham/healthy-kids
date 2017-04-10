@@ -5,6 +5,7 @@ $yellow:#FFD33E;
 $blue:#00B8B1;
 $green:#80C536;
 $purple:#7251A0;
+$white:#F0FFFF;
 
 @font-face {
     font-family: 'KGShePersisted';
@@ -53,7 +54,7 @@ span {
 
 .container {
 	@include center;
-	// border: 1px solid black;
+	background-color: $white;
 	box-sizing: border-box;
 	position: absolute;
 	width: 810px;
@@ -136,7 +137,6 @@ main {
 .user-icon {
 	position: absolute;
 	border-radius: 10px;
-	border: 1px solid black;
 	width: 60px;
 	height: 60px;
 	&--menu {
@@ -165,29 +165,26 @@ main {
 		width: calc(100% / 3);
 		height: 100%;
 		float: left;
-		&--move {
-			background-color: $purple;
-		}
-		&--eat {
-			background-color: $green;
-		}
-		&--sleep {
-			background-color: $blue;
-		}
 	}
 	&__day {
 		height: calc(100% / 7);
 		width: 100%;
-		&:after {
-			@include center-horizontal;
-			display: block;
-			content:"";
-			width: 90%;
-			position: relative;
-			top: 99%;
-			height: 1px;
-			background-color: white;
-			opacity: 0.5;
+	}
+	&__checkbox {
+		@include center;
+		border-radius: 5px;
+		width: 60px;
+		height: 60px;
+		position: relative;
+		border: 2px solid;
+		&--movement {
+			border-color: $purple;
+		}
+		&--nutrition {
+			border-color: $green;
+		}
+		&--sleep {
+			border-color: $blue;
 		}
 	}
 }
@@ -199,14 +196,17 @@ main {
 	width: 13%;
 	height: 75%;
 	&__weekday {
+		font-size: 1.2em;
+		color: $red;
 		height: calc(100% / 7);
 		width: 100%;
 		float: left;
 		position: relative;
 		span {
-			@include center;
+			@include center-vertical;
+			float: left;
 			position: absolute;
-			text-align: center;
+			text-align: left;
 		}
 	}
 }

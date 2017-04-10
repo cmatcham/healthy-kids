@@ -6,6 +6,7 @@ $blue:#00B8B1;
 $green:#80C536;
 $purple:#7251A0;
 $white:#F0FFFF;
+$grey:#B4B4B4;
 
 @font-face {
     font-family: 'KGShePersisted';
@@ -50,6 +51,27 @@ span {
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
+}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
 .container {
@@ -160,7 +182,6 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 75%;
-	border: 1px solid black;
 	&__column {
 		width: calc(100% / 3);
 		height: 100%;
@@ -234,13 +255,31 @@ main {
 	margin: 0 6.5% 0 0;
 	width: 10%;
 	height: 75%;
-	border: 1px solid black;
 	&__goal {
 		height: calc(100% / 7);
 		width: 100%;
-		&--active {
-			background-color: $purple;
-		}
+	}
+	&__checkbox {
+		@include center;
+		border-radius: 5px;
+		width: 60px;
+		height: 60px;
+		position: relative;
+		border: 2px solid $grey;
+	}
+	&__tick {
+		@include center;
+		position: relative;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		// background-color: $grey;
+		background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+		background-size: 30px 1000px;
+		-webkit-animation: rainbow 10s ease infinite;
+		-z-animation: rainbow 10s ease infinite;
+		-o-animation: rainbow 10s ease infinite;
+		animation: rainbow 10s ease infinite;
 	}
 }
 
@@ -277,15 +316,24 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 8%;
-	border: 1px solid black;
 	margin-top: 2%;
 	&__activity {
+		font-size: 1.5em;
 		width: calc(100% / 3);
 		height: 100%;
 		float: left;
 		span {
 			@include center;
 			position: relative;
+		}
+		&--movement {
+			color: $purple;
+		}
+		&--nutrition {
+			color: $green;
+		}
+		&--sleep {
+			color: $blue;
 		}
 	}
 }

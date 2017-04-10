@@ -14,11 +14,10 @@
 		</div>
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in vm.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
-				<div ng-repeat="(i, weekday) in vm.days"
-						ng-class="{'tick-chart__day': true, 'selected': vm.achievements[weekday.value][activity.value]}"
-						ng-click="vm.selectAchievement(weekday, activity)" 
-						data-day="{{weekday.name}}">
-					<div class="tick-chart__checkbox tick-chart__checkbox--{{activity.value}}"></div>
+				<div ng-repeat="(i, weekday) in vm.days" class="tick-chart__day" ng-click="vm.selectAchievement(weekday, activity)"  data-day="{{weekday.name}}">
+					<div class="tick-chart__checkbox tick-chart__checkbox--{{activity.value}}" ng-class="{'tick-chart__checkbox--selected': vm.achievements[weekday.value][activity.value]}">
+						<div class="tick-chart__tick tick-chart__tick--{{activity.value}}" ng-show="vm.achievements[weekday.value][activity.value]"></div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -187,6 +187,22 @@ main {
 			border-color: $blue;
 		}
 	}
+	&__tick {
+		@include center;
+		position: relative;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		&--movement {
+			background-color: $purple;
+		}
+		&--nutrition {
+			background-color: $green;
+		}
+		&--sleep {
+			background-color: $blue;
+		}
+	}
 }
 
 .weekdays-column {
@@ -599,8 +615,4 @@ footer#badges-page {
 		max-width: 115px;
 		flex: 1;
 	}
-}
-
-.selected {
-	background-color: purple;
 }

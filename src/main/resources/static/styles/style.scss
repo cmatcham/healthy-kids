@@ -10,7 +10,7 @@ $grey:#B4B4B4;
 
 @font-face {
     font-family: 'KGShePersisted';
-    src: url('../fonts/KGShePersisted.otf'); 
+    src: url('../fonts/KGShePersisted.ttf') format('truetype'); 
 }
 
 html, body {
@@ -318,6 +318,7 @@ main {
 	height: 8%;
 	margin-top: 2%;
 	&__activity {
+		font-family: 'KGShePersisted';
 		font-size: 1.5em;
 		width: calc(100% / 3);
 		height: 100%;

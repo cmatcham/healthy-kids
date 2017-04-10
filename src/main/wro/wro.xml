@@ -15,5 +15,6 @@
     <js>file:@project.basedir@/src/main/resources/static/app/login/loginController.js</js>
 <!--     <js>file:@project.basedir@/src/main/resources/static/app/directives/directives.js</js>-->
      <js>file:@project.basedir@/src/main/resources/static/app/directives/childMenu.directive.js</js>
+     <js>file:@project.basedir@/src/main/resources/static/app/directives/header.directive.js</js>
    </group>
 </groups>

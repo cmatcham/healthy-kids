@@ -1,16 +1,11 @@
 <!-- <div ng-show="authenticated"> -->
-	<header>
-		<div class="videos-container">
-			<div class="videos-container__video videos-container__video--big"></div>
-			<div class="videos-container__video videos-container__video--small"></div>
-			<div class="videos-container__video videos-container__video--small"></div>
-		</div>
-		<div class="logo"></div>
-		<child-menu/>
-		<div class="progress-button"><a href="#/progress">Progress</a></div>
-		<a href="#/child/{{vm.child.id}}/sticker">Edit child</a>
-	</header>
+	<header-partial/>
 	<main>
+	<!-- <div class="videos-container">
+		<div class="videos-container__video videos-container__video--big"></div>
+		<div class="videos-container__video videos-container__video--small"></div>
+		<div class="videos-container__video videos-container__video--small"></div>
+	</div> -->
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>
@@ -19,10 +14,10 @@
 		</div>
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in vm.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
-				<div ng-repeat="(i, weekday) in vm.days"
-						ng-class="{'tick-chart__day': true, 'selected': vm.achievements[weekday.value][activity.value]}"
-						ng-click="vm.selectAchievement(weekday, activity)" 
-						data-day="{{weekday.name}}">
+				<div ng-repeat="(i, weekday) in vm.days" class="tick-chart__day" ng-click="vm.selectAchievement(weekday, activity)"  data-day="{{weekday.name}}">
+					<div class="tick-chart__checkbox tick-chart__checkbox--{{activity.value}}" ng-class="{'tick-chart__checkbox--selected': vm.achievements[weekday.value][activity.value]}">
+						<div class="tick-chart__tick tick-chart__tick--{{activity.value}}" ng-show="vm.achievements[weekday.value][activity.value]"></div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -23,7 +23,11 @@
 		</div>
 		<div class="super-goal" ng-class="{selected:vm.isSuperGoal()}"></div>
 		<div class="weekly-goals">
-			<div ng-repeat="(i, activity) in vm.targets" ng-class="{'weekly-goals__goal':true, selected:vm.isWeeklyGoal(activity)}"></div>
+			<div ng-repeat="(i, activity) in vm.targets" class="weekly-goals__goal">
+				<div class="weekly-goals__checkbox">
+					<div class="weekly-goals__tick" ng-show="vm.isWeeklyGoal(activity)"></div>
+				</div>
+			</div>
 		</div>
 		<div class="daily-goals">
 			<div ng-repeat="(i, weekday) in vm.days" class="daily-goals__goal">

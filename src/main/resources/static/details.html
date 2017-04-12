@@ -6,6 +6,7 @@
 		<div class="videos-container__video videos-container__video--small"></div>
 		<div class="videos-container__video videos-container__video--small"></div>
 	</div> -->
+		<div class="videos-button"></div>
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>
@@ -15,8 +16,8 @@
 		<div class="tick-chart">
 			<div ng-repeat="(i, activity) in vm.targets" class="tick-chart__column tick-chart__column--{{activity.display | lowercase}}">
 				<div ng-repeat="(i, weekday) in vm.days" class="tick-chart__day" ng-click="vm.selectAchievement(weekday, activity)"  data-day="{{weekday.name}}">
-					<div class="tick-chart__checkbox tick-chart__checkbox--{{activity.value}}" ng-class="{'tick-chart__checkbox--selected': vm.achievements[weekday.value][activity.value]}">
-						<div class="tick-chart__tick tick-chart__tick--{{activity.value}}" ng-show="vm.achievements[weekday.value][activity.value]"></div>
+					<div class="checkbox checkbox--day checkbox--{{activity.value}}">
+						<div class="tick tick--{{activity.value}}" ng-show="vm.achievements[weekday.value][activity.value]"></div>
 					</div>
 				</div>
 			</div>
@@ -24,15 +25,15 @@
 		<div class="super-goal" ng-class="{selected:vm.isSuperGoal()}"></div>
 		<div class="weekly-goals">
 			<div ng-repeat="(i, activity) in vm.targets" class="weekly-goals__goal">
-				<div class="weekly-goals__checkbox">
-					<div class="weekly-goals__tick" ng-show="vm.isWeeklyGoal(activity)"></div>
+				<div class="checkbox checkbox--goals">
+					<div class="tick tick--goals" ng-show="vm.isWeeklyGoal(activity)"></div>
 				</div>
 			</div>
 		</div>
 		<div class="daily-goals">
 			<div ng-repeat="(i, weekday) in vm.days" class="daily-goals__goal">
-				<div class="daily-goals__checkbox">
-					<div class="daily-goals__tick" ng-show="vm.isDailyGoal(weekday)"></div>
+				<div class="checkbox checkbox--goals">
+					<div class="tick tick--goals" ng-show="vm.isDailyGoal(weekday)"></div>
 				</div>
 			</div>
 		</div>

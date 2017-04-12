@@ -37,9 +37,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="week-nav">
+			<span ng-show="vm.week == 'this'" ng-click="vm.changeWeek('last')">&lt;&lt; Last week</span>
+			<span ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</span>
+		</div>
 	</main>
-	<div class="navigation">
+<!-- 	<div class="navigation">
 		<p ng-show="vm.week == 'this'" ng-click="vm.changeWeek('last')">Last week &lt;&lt;</p>
 		<p ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</p>
-	</div>
+	</div> -->
 <!-- </div> -->

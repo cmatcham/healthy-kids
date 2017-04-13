@@ -18,8 +18,6 @@ function HomeController($http, $rootScope, $cookies, $location, childService) {
 		}
 	}
 	
-	
-	
 	self.newChild = {};
 	self.newAccount = {};
 

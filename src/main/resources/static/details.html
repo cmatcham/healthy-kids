@@ -1,12 +1,14 @@
 <!-- <div ng-show="authenticated"> -->
 	<header-partial/>
 	<main>
-	<!-- <div class="videos-container">
-		<div class="videos-container__video videos-container__video--big"></div>
-		<div class="videos-container__video videos-container__video--small"></div>
-		<div class="videos-container__video videos-container__video--small"></div>
-	</div> -->
-		<div class="videos-button"></div>
+		<div class="videos-container">
+			<!-- <div class="videos-container__video videos-container__video--big"></div>
+			<div class="videos-container__video videos-container__video--small"></div>
+			<div class="videos-container__video videos-container__video--small"></div> -->
+		</div>
+		<div class="videos-button" ng-click="displayVideosSection()">
+			<img src="./imgs/white-arrow.png">
+		</div>
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>
@@ -42,8 +44,4 @@
 			<span ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</span>
 		</div>
 	</main>
-<!-- 	<div class="navigation">
-		<p ng-show="vm.week == 'this'" ng-click="vm.changeWeek('last')">Last week &lt;&lt;</p>
-		<p ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</p>
-	</div> -->
 <!-- </div> -->

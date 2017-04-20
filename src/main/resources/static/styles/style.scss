@@ -250,9 +250,7 @@ main {
 	height: 60px;
 	position: relative;
 	background-color: white;
-	&--goals {
-
-	}
+	background-size: cover;
 	&--day {
 		border: 2px solid;
 	}
@@ -264,6 +262,12 @@ main {
 	}
 	&--sleep {
 		border-color: $blue;
+	}
+	&--weekly-goal {
+		background-image: url('../imgs/weekly-goal.png');
+	}
+	&--selected {
+		background-image: url("");
 	}
 }
 
@@ -302,6 +306,7 @@ main {
 			border-radius: 50%;
 		}
 	}
+
 }
 
 .weekdays-column {
@@ -371,8 +376,24 @@ main {
 	@include center-horizontal;
 	position: absolute;
 	width: 65%;
-	height: 8%;
-	margin-top: 15%;
+	height: 15%;
+	margin-top: 5%;
+	&__image {
+		height: 65%;
+		width: 100%;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		&--sleep {
+			background-image: url('../imgs/sleep.png');
+		}
+		&--nutrition {
+			background-image: url('../imgs/nutrition.png');
+		}
+		&--movement {
+			background-image: url('../imgs/movement.png');
+		}
+	}
 	&__activity {
 		font-family: 'KGShePersisted';
 		font-size: 3em;
@@ -380,8 +401,9 @@ main {
 		height: 100%;
 		float: left;
 		span {
-			@include center;
+			@include center-horizontal;
 			position: relative;
+			bottom: 0;
 		}
 		&--movement {
 			color: $purple;

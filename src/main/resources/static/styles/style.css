@@ -7,7 +7,7 @@ html, body {
   width: 100%;
   height: 1200px;
   position: absolute;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'KGShePersisted', sans-serif; }
 
 a {
   color: white; }
@@ -51,6 +51,7 @@ span {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   background-color: #F0FFFF;
   box-sizing: border-box;
   position: absolute;
@@ -58,11 +59,11 @@ span {
   height: 100%; }
 
 header {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   color: white;
   background-color: #EC3F4E;
   z-index: 2;
   height: 7%;
-  margin-bottom: 3%;
   width: 100%;
   position: relative; }
 
@@ -83,6 +84,7 @@ header {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     display: inline-block;
     background-color: white;
     content: "";
@@ -98,16 +100,58 @@ main {
   width: 100%;
   height: 90%; }
 
+.videos-button {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 25%;
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  background-color: #EC3F4E;
+  background-size: 80%;
+  background-position: 50% 120%;
+  cursor: pointer;
+  background-repeat: no-repeat; }
+  .videos-button:after {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    top: -5px;
+    left: 15px;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    content: '\276E';
+    font-size: 3em;
+    position: absolute;
+    display: inline-block;
+    -ms-transform: rotate(-90deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-90deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-90deg); }
+  .videos-button img {
+    display: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 65%;
+    height: 80%;
+    width: 80%;
+    position: relative; }
+
 .videos-container {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  border: 1px solid black;
+  z-index: 2;
+  background-color: #EC3F4E;
   position: absolute;
-  top: 250px;
-  height: 65%;
-  width: 90%; }
+  top: 0;
+  height: 3%;
+  width: 100%; }
   .videos-container__video {
     float: left; }
     .videos-container__video--big {
@@ -150,7 +194,7 @@ main {
   transform: translate(-50%, -50%);
   position: absolute;
   width: 65%;
-  height: 75%; }
+  height: 60%; }
   .tick-chart__column {
     width: calc(100% / 3);
     height: 100%;
@@ -158,37 +202,67 @@ main {
   .tick-chart__day {
     height: calc(100% / 7);
     width: 100%; }
-  .tick-chart__checkbox {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    width: 60px;
-    height: 60px;
-    position: relative;
+
+.checkbox {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 25%;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  background-color: white; }
+  .checkbox--day {
     border: 2px solid; }
-    .tick-chart__checkbox--movement {
-      border-color: #7251A0; }
-    .tick-chart__checkbox--nutrition {
-      border-color: #80C536; }
-    .tick-chart__checkbox--sleep {
-      border-color: #00B8B1; }
-  .tick-chart__tick {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: relative;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px; }
-    .tick-chart__tick--movement {
-      background-color: #7251A0; }
-    .tick-chart__tick--nutrition {
-      background-color: #80C536; }
-    .tick-chart__tick--sleep {
-      background-color: #00B8B1; }
+  .checkbox--movement {
+    border-color: #7251A0; }
+  .checkbox--nutrition {
+    border-color: #80C536; }
+  .checkbox--sleep {
+    border-color: #00B8B1; }
+
+.tick {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px; }
+  .tick--day {
+    border: 2px solid; }
+  .tick--movement {
+    background-color: #7251A0; }
+  .tick--nutrition {
+    background-color: #80C536; }
+  .tick--sleep {
+    background-color: #00B8B1; }
+  .tick--goals {
+    height: 40px;
+    width: 40px;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 45px 1000px;
+    -webkit-animation: rainbow 10s ease infinite;
+    -z-animation: rainbow 10s ease infinite;
+    -o-animation: rainbow 10s ease infinite;
+    animation: rainbow 10s ease infinite; }
+    .tick--goals:after {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 50%; }
 
 .weekdays-column {
   top: 50%;
@@ -197,9 +271,9 @@ main {
   position: absolute;
   margin: 0 0 0 3%;
   width: 13%;
-  height: 75%; }
+  height: 60%; }
   .weekdays-column__weekday {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #EC3F4E;
     height: calc(100% / 7);
     width: 100%;
@@ -209,9 +283,9 @@ main {
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
-      float: left;
       position: absolute;
-      text-align: left; }
+      text-align: right;
+      right: 0; }
 
 .daily-goals {
   top: 50%;
@@ -221,45 +295,19 @@ main {
   right: 0;
   margin: 0 6.5% 0 0;
   width: 10%;
-  height: 75%; }
+  height: 60%; }
   .daily-goals__goal {
     height: calc(100% / 7);
     width: 100%; }
-  .daily-goals__checkbox {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    width: 60px;
-    height: 60px;
-    position: relative;
-    border: 2px solid #B4B4B4; }
-  .daily-goals__tick {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: relative;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-    background-size: 30px 1000px;
-    -webkit-animation: rainbow 10s ease infinite;
-    -z-animation: rainbow 10s ease infinite;
-    -o-animation: rainbow 10s ease infinite;
-    animation: rainbow 10s ease infinite; }
 
 .weekly-goals {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   height: 10%;
-  width: 65%;
-  border: 1px solid black; }
+  width: 65%; }
   .weekly-goals__goal {
     width: calc(100% / 3);
     height: 100%;
@@ -268,10 +316,11 @@ main {
       background-color: red; }
 
 .super-goal {
+  display: none;
   position: absolute;
   right: 0;
-  top: 90%;
   width: 8%;
+  bottom: 12%;
   padding-bottom: 8%;
   border-radius: 50%;
   background-color: #7251A0;
@@ -284,10 +333,10 @@ main {
   position: absolute;
   width: 65%;
   height: 8%;
-  margin-top: 2%; }
+  margin-top: 15%; }
   .activities-row__activity {
     font-family: 'KGShePersisted';
-    font-size: 1.5em;
+    font-size: 3em;
     width: calc(100% / 3);
     height: 100%;
     float: left; }
@@ -607,5 +656,20 @@ footer#badges-page {
     height: 100%;
     max-width: 115px;
     flex: 1; }
+
+.week-nav {
+  width: 100%;
+  height: 5%;
+  background-color: #EC3F4E;
+  bottom: 0;
+  position: absolute; }
+  .week-nav span {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 0 0 15px;
+    font-size: 1.3em;
+    color: white;
+    position: relative; }
 
 /*# sourceMappingURL=style.css.map */

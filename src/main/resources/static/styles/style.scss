@@ -266,6 +266,9 @@ main {
 	&--weekly-goal {
 		background-image: url('../imgs/weekly-goal.png');
 	}
+	&--daily-goal {
+		background-image: url('../imgs/daily-goal.png');
+	}
 	&--selected {
 		background-image: url("");
 	}
@@ -377,9 +380,9 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 15%;
-	margin-top: 5%;
+	margin-top: 7%;
 	&__image {
-		height: 65%;
+		height: 60%;
 		width: 100%;
 		background-size: contain;
 		background-position: center;
@@ -482,6 +485,7 @@ main {
 }
 
 .child-menu {
+	top: 65px;
 	transition-duration: 1s;
 	border-radius: 5px;
 	z-index: 2;
@@ -490,7 +494,7 @@ main {
 	margin: 10px 0px 0 0;
 	height: 550px;
 	width: 350px;
-	background-color: $green;
+	background-color: $purple;
 	&:after {
 		right: 0;
 		content:"";
@@ -501,8 +505,8 @@ main {
 		top: -7px;
 		margin-right: 15px;
 		background-color: inherit;
-		-ms-transform: rotate(45deg); /* IE 9 */
-	    -webkit-transform: rotate(45deg); /* Safari */
+		-ms-transform: rotate(45deg); 
+	    -webkit-transform: rotate(45deg); 
 	    transform: rotate(45deg);
 	}
 	&__child {

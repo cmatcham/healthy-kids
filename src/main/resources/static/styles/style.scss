@@ -425,10 +425,11 @@ main {
 }
 
 .login-form {
-	@include center;
+	@include center-horizontal;
+	top: 150px;
 	position: absolute;
 	width: 55%;
-	height: 600px;
+	height: 440px;
 	background-color: white;
 	&__text {		
 		color: $red;
@@ -473,6 +474,7 @@ main {
 		width: 85%;
 		height: 60px;
 		background-color: $yellow;
+		font-family: 'KGShePersisted';
 	}
 	input::placeholder {
 		color: black;
@@ -498,6 +500,26 @@ main {
 			@include center;
 			position: absolute;
 		}
+	}
+}
+
+.homepage-text {
+	@include center-horizontal;
+	position: absolute;
+	width: 85%;
+	top: 620px;
+	color: white;
+	&__title {
+		@include center-horizontal;
+		position: relative;
+		font-size: 5.2em;
+		display: inline-block;
+	}
+	&__sub {
+		@include center-horizontal;
+		position: relative;
+		display: inline-block;
+		font-size: 3em;
 	}
 }
 

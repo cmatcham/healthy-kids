@@ -467,29 +467,36 @@ main {
 		border: none;
 		-webkit-appearance: none;
 		margin: 5px 0 5px 0;
-		padding: 0 0 0 0;
-		font-size: 3em;
+		padding: 0 0 0 10px;
+		font-size: 1.6em;
 		line-height: calc(100% / 4);
-		text-align: center;
 		width: 85%;
 		height: 60px;
 		background-color: $yellow;
 	}
+	input::placeholder {
+		color: black;
+		font-family: 'KGShePersisted';
+	}
 	&__submit {
+		@include center-horizontal;
+		position: relative;
 		line-height: calc(100% / 4);
+		border-radius: 10px;
+		margin: 25px 0 0 0;
 		text-align: center;
-		width: 100%;
-		height: calc(100% / 4);
+		width: 85%;
+		height: 60px;
 		background-color: $blue;
-		color: $purple;
+		color: $white;
+		transition-duration: 1s;
 		&:hover {
-			background-color: $purple;
-			color: $blue;
-
+			background-color: $red;
+			color: $yellow;
 		}
 		span {
 			@include center;
-			position: relative;
+			position: absolute;
 		}
 	}
 }

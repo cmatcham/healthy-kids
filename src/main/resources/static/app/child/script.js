@@ -6,6 +6,7 @@ ChildController.$inject = ['$routeParams', 'childService'];
 function ChildController($routeParams, childService) {
 	var self = this;
 
+	self.displayVideosSection = displayVideosSection
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.isSuperGoal = isSuperGoal;
@@ -54,6 +55,10 @@ function ChildController($routeParams, childService) {
 		} 
 		
 	}
+
+	function displayVideosSection() {
+		$('.videos-container').animate({height: '500px'})
+	}
 	
 	function selectAchievement(weekday, activity) {
 		if (typeof self.child === 'undefined') {
@@ -89,18 +94,15 @@ function ChildController($routeParams, childService) {
 	}
 	
 	function isSuperGoal() {
-		console.log('checking super goal');
 		if (typeof self.child === 'undefined') {
 			return false;
 		}
 		var isGoal = true;
 		self.days.forEach(function(day) {
 			if (!self.isDailyGoal(day)) {
-				console.log('false for day ', day);
 				isGoal = false;
 			}
 		});
-		console.log('returning ',isGoal);
 		return isGoal;
 	}
 	

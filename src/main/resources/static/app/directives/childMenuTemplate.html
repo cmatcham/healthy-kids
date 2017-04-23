@@ -5,6 +5,6 @@
 		<div class="child-menu__profile-pic"><img ng-src="stickers/{{child.sticker || 'default.png'}}"/></div>
 		<div class="child-menu__name"><span><a href="#/child/{{child.id}}">{{child.firstName}} {{child.lastName}}</a></span></div>
 	</div>
-	<div class="child-menu__see-more"><a href="#/">See more</a></div>
+	<div class="child-menu__see-more"><a href="#/">See more</a><span style="float:right" ng-click="logout()">Logout</span></div>
 </div>
 </div>

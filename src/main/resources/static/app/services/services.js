@@ -39,6 +39,13 @@ function accountService($http, $location, $rootScope, $cookies) {
 				$rootScope.authenticated = false;
 			});
 	
+		},
+		
+		logout: function() {
+			$rootScope.authenticated = false;
+			$cookies.put('token', '');
+			$http.defaults.headers.common.token = 'Bearer Invalid';
+			$location.path("/");
 		}
 	}
 	

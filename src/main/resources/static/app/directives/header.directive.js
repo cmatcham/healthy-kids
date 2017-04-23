@@ -4,10 +4,7 @@ angular.module('healthyKids')
 function headerPartial() {
 
 	var directive = {
-        templateUrl: './app/directives/headerTemplate.html'/*,
-        controller: ChildMenuController,
-        controllerAs: 'vm',
-        bindToController: true */
+        templateUrl: './app/directives/headerTemplate.html'
     };
     
 	return directive;

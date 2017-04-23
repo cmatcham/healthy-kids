@@ -1,22 +1,17 @@
 angular.module('healthyKids')
-	.directive('childMenu', childMenu);
+	.directive('childMenu', ['accountService',childMenu]);
 
-function childMenu() {
+function childMenu(accountService) {
 
 	var directive = {
-        templateUrl: './app/directives/childMenuTemplate.html'/*,
-        controller: ChildMenuController,
-        controllerAs: 'vm',
-        bindToController: true */
+        templateUrl: './app/directives/childMenuTemplate.html',
+        link: function (scope, element, attrs) {
+            scope.logout = function () {
+                accountService.logout();
+            }
+        }
     };
     
 	return directive;
 
 }
-
-/*ChildMenuController.$inject = ['childService'];
-
-function ChildMenuController(childService) {
-	var vm = self;
-	vm.showChildMenu = false;
-}*/

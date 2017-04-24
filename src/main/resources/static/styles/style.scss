@@ -507,8 +507,9 @@ main {
 	@include center-horizontal;
 	position: absolute;
 	width: 85%;
-	top: 620px;
+	top: 900px;
 	color: white;
+	transition-duration: 1s;
 	&__title {
 		@include center-horizontal;
 		position: relative;
@@ -612,6 +613,9 @@ main {
 		width: 405px;
 		height: 405px;
 		float: left;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 50%;
 	}
 	&__square:nth-child(1) {
 		background-color: $purple;
@@ -624,6 +628,22 @@ main {
 	}
 	&__square:nth-child(4) {
 		background-color: $yellow;
+	}
+	&__square--splash:nth-child(1) {
+		background-image: url('../imgs/movement-white.png');
+	}
+	&__square--splash:nth-child(2) {
+		background-image: url('../imgs/sleep-white.png');
+	}
+	&__square--splash:nth-child(3) {
+		background-image: url('../imgs/nutrition-white.png');
+	}
+	&__square--splash:nth-child(4) {
+		background-image: url('../imgs/two-kids.png');
+	}
+	&--splash {
+		z-index: 2;
+		top: 0;
 	}
 }
 

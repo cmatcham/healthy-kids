@@ -22,7 +22,13 @@
 </div>
 
 <div ng-show="!authenticated">
-	<div class="login-form">
+	<div class="homepage-background-squares homepage-background-squares--splash">
+		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+	</div>
+	<div class="login-form" ng-init="vm.landingScreen()">
 	    <div class="login-form__header">
 	    <div class="login-form__text">    	
 	        <span>Join</span>

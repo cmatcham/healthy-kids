@@ -23,6 +23,7 @@ function HomeController($http, $rootScope, $cookies, $location, childService) {
 
 	self.createChild = createChild;
 	self.createAccount = createAccount;
+	self.landingScreen = landingScreen;
 
 	function createChild() {
 		//TODO get a real dob!
@@ -33,6 +34,14 @@ function HomeController($http, $rootScope, $cookies, $location, childService) {
 			console.log('error');
 		});
 	};
+
+	function landingScreen() {
+		console.log('splash')
+		setTimeout(function(){
+			$('.homepage-background-squares--splash').fadeOut()
+			$('.homepage-text').css({top: '620px'})
+		}, 4000);
+	}
 
 	function createAccount() {
 		$http.post('account', {email:self.newAccount.email, password:self.newAccount.password}).then(function(response) {

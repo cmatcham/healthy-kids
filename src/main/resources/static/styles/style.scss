@@ -431,6 +431,9 @@ main {
 	width: 55%;
 	height: 440px;
 	background-color: white;
+	&--login {
+		height: 350px;
+	}
 	&__text {		
 		color: $red;
 		font-size: 1.5em;
@@ -503,7 +506,7 @@ main {
 	}
 }
 
-.homepage-text {
+.title-text {
 	@include center-horizontal;
 	position: absolute;
 	width: 85%;
@@ -521,6 +524,9 @@ main {
 		position: relative;
 		display: inline-block;
 		font-size: 3em;
+	}
+	&--login-page {
+		top: 540px;
 	}
 }
 

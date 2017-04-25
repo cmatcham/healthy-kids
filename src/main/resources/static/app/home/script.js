@@ -39,7 +39,7 @@ function HomeController($http, $rootScope, $cookies, $location, childService) {
 		console.log('splash')
 		setTimeout(function(){
 			$('.homepage-background-squares--splash').fadeOut()
-			$('.homepage-text').css({top: '620px'})
+			$('.title-text').css({top: '620px'})
 		}, 4000);
 	}
 

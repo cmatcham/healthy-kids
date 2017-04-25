@@ -1,5 +1,22 @@
+<div class="home-bg"></div>
 <div class="alert alert-danger" ng-show="vm.error">
     There was a problem logging in. Please try again.
+</div>
+<div class="login-form login-form--login">
+    <div class="login-form__header">
+    <div class="login-form__text">      
+        <span><a href="#/login">Sign in</a></span>
+    </div>
+    </div>
+    <form>
+        <input type="email" placeholder="Email" ng-model="vm.credentials.username">
+        <input type="password" placeholder="Password" ng-model="vm.credentials.password">
+        <div class="login-form__submit" ng-click="vm.createAccount()">
+            <span></span>
+            <span></span>
+            <span>Log In</span>
+        </div>
+    </form>
 </div>
 <form role="form" ng-submit="vm.login()">
     <div class="form-group">
@@ -12,3 +29,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<div class="title-text title-text--login-page">
+    <div class="title-text__title">Healthy Kids</div>
+    <br>
+    <div class="title-text__sub">move&middot;eat&middot;sleep</div>
+</div>

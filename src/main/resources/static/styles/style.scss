@@ -175,7 +175,8 @@ main {
 .home-bg {
 	height: 100%;
 	width: 100%;
-	background-color: $red;
+	background-color: $blue;
+	position: absolute;
 }
 
 .videos-container {
@@ -426,6 +427,8 @@ main {
 
 .login-form {
 	@include center-horizontal;
+	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	border-radius: 5px;
 	top: 150px;
 	position: absolute;
 	width: 55%;
@@ -433,6 +436,9 @@ main {
 	background-color: white;
 	&--login {
 		height: 350px;
+	}
+	&--hidden {
+		display: none;
 	}
 	&__text {		
 		color: $red;
@@ -465,6 +471,7 @@ main {
 	}
 	input {
 		@include center-horizontal;
+		box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		outline: none;
 		box-sizing: border-box;
@@ -485,6 +492,7 @@ main {
 	}
 	&__submit {
 		@include center-horizontal;
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		line-height: calc(100% / 4);
 		border-radius: 10px;

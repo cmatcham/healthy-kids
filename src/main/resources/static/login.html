@@ -5,20 +5,21 @@
 <div class="login-form login-form--login">
     <div class="login-form__header">
     <div class="login-form__text">      
+        <span></span>
+        <span></span>
         <span><a href="#/login">Sign in</a></span>
     </div>
     </div>
-    <form>
+    <form class="login-form__form" ng-submit="vm.login()">
         <input type="email" placeholder="Email" ng-model="vm.credentials.username">
         <input type="password" placeholder="Password" ng-model="vm.credentials.password">
-        <div class="login-form__submit" ng-click="vm.createAccount()">
-            <span></span>
-            <span></span>
+        <div class="login-form__submit" ng-click="vm.login()">
             <span>Log In</span>
         </div>
     </form>
 </div>
-<form role="form" ng-submit="vm.login()">
+
+<!-- <form class="login-form login-form--hidden" role="form" ng-submit="vm.login()">
     <div class="form-group">
         <label for="username">Username:</label> <input type="text"
             class="form-control" id="username" name="username" ng-model="vm.credentials.username"/>
@@ -27,8 +28,9 @@
         <label for="password">Password:</label> <input type="password"
             class="form-control" id="password" name="password" ng-model="vm.credentials.password"/>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <button type="submit" class="">Submit</button>
+</form> -->
+
 <div class="title-text title-text--login-page">
     <div class="title-text__title">Healthy Kids</div>
     <br>

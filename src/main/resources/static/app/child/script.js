@@ -6,7 +6,7 @@ ChildController.$inject = ['$routeParams', 'childService'];
 function ChildController($routeParams, childService) {
 	var self = this;
 
-	self.displayVideosSection = displayVideosSection
+	self.displayInfoSection = displayInfoSection
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.isSuperGoal = isSuperGoal;
@@ -57,13 +57,12 @@ function ChildController($routeParams, childService) {
 		
 	}
 
-	function displayVideosSection() {
+	function displayInfoSection() {
 		self.infoOpen = !self.infoOpen
-		console.log(self.infoOpen)
 		if (self.infoOpen) {
-			$('.videos-container').animate({height: '950px'})
+			$('.info-container').animate({height: '1000px'})
 		} else {
-			$('.videos-container').animate({height: '35px'})
+			$('.info-container').animate({height: '35px'})
 		}
 	}
 	

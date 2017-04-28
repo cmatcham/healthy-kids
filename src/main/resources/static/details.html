@@ -1,8 +1,17 @@
 <!-- <div ng-show="authenticated"> -->
 	<header-partial/>
 	<main>
-		<div class="videos-container">
-			<div class="videos-button" ng-click="vm.displayVideosSection()"></div>
+		<div class="info-container">
+			<div class="info-tabs">	
+				<div class="info-tabs__behind-tabs">
+					<div></div>
+					<div></div>
+				</div>		
+				<div class="info-tabs__tab info-tabs__tab--move"></div>
+				<div class="info-tabs__tab info-tabs__tab--eat"></div>
+				<div class="info-tabs__tab info-tabs__tab--sleep"></div>
+			</div>
+			<div class="info-button" ng-click="vm.displayInfoSection()"></div>
 		</div>
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>

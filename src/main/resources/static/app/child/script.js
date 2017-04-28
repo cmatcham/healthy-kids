@@ -19,6 +19,7 @@ function ChildController($routeParams, childService) {
 	
 	self.stickers = [];
 	self.newCustomReward = '';
+	self.infoOpen = false
 
 	self.week = 'this';
 	self.achievements = {};
@@ -57,7 +58,13 @@ function ChildController($routeParams, childService) {
 	}
 
 	function displayVideosSection() {
-		$('.videos-container').animate({height: '500px'})
+		self.infoOpen = !self.infoOpen
+		console.log(self.infoOpen)
+		if (self.infoOpen) {
+			$('.videos-container').animate({height: '950px'})
+		} else {
+			$('.videos-container').animate({height: '35px'})
+		}
 	}
 	
 	function selectAchievement(weekday, activity) {

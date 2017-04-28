@@ -1,9 +1,9 @@
 angular.module('healthyKids')
 .controller('home', HomeController);
 
-HomeController.$inject = ['$http', '$rootScope', '$cookies', '$location', 'childService'];
+HomeController.$inject = ['$http', '$rootScope', '$cookies', '$location', 'childService', 'accountService'];
 
-function HomeController($http, $rootScope, $cookies, $location, childService) {
+function HomeController($http, $rootScope, $cookies, $location, childService, accountService) {
 	var self = this;
 	
 	activate();
@@ -24,6 +24,11 @@ function HomeController($http, $rootScope, $cookies, $location, childService) {
 	self.createChild = createChild;
 	self.createAccount = createAccount;
 	self.landingScreen = landingScreen;
+	self.logout = logout;
+
+	function logout() {
+		accountService.logout()
+	}
 
 	function createChild() {
 		//TODO get a real dob!

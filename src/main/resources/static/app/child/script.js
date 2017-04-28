@@ -60,8 +60,10 @@ function ChildController($routeParams, childService) {
 	function displayInfoSection() {
 		self.infoOpen = !self.infoOpen
 		if (self.infoOpen) {
+			$('.info-inner').show()
 			$('.info-container').animate({height: '1000px'})
 		} else {
+			$('.info-inner').hide()
 			$('.info-container').animate({height: '35px'})
 		}
 	}

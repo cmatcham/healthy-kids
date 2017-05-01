@@ -1,6 +1,13 @@
 @font-face {
   font-family: 'KGShePersisted';
   src: url("../fonts/KGShePersisted.ttf") format("truetype"); }
+a {
+  color: inherit;
+  text-decoration: none; }
+
+a:visited {
+  color: inherit; }
+
 html, body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
@@ -8,9 +15,6 @@ html, body {
   height: 1200px;
   position: absolute;
   font-family: 'KGShePersisted', sans-serif; }
-
-a {
-  color: white; }
 
 span {
   display: inline-block; }
@@ -100,21 +104,61 @@ main {
   width: 100%;
   height: 90%; }
 
-.videos-button {
+.info-inner {
+  display: none; }
+
+.info-tabs {
+  height: 125px;
+  width: 100%; }
+  .info-tabs__behind-tabs {
+    width: 100%;
+    height: 125px;
+    position: absolute; }
+    .info-tabs__behind-tabs div:nth-child(1) {
+      position: absolute;
+      height: 30px;
+      width: 100%;
+      z-index: 1;
+      background-color: #EC3F4E; }
+    .info-tabs__behind-tabs div:nth-child(2) {
+      position: absolute;
+      width: 100%;
+      height: 35px;
+      bottom: -10px;
+      z-index: 3;
+      background-color: #00B8B1; }
+  .info-tabs__tab {
+    padding: 0 5px 0 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: calc(33.3333% - 10px);
+    border-radius: 25px;
+    float: left; }
+    .info-tabs__tab--move {
+      background-color: #7251A0; }
+    .info-tabs__tab--eat {
+      background-color: #80C536; }
+    .info-tabs__tab--sleep {
+      background-color: #00B8B1; }
+
+.info-button {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  bottom: -25px;
   z-index: 1;
   border-radius: 25%;
   width: 60px;
   height: 40px;
   position: absolute;
-  background-color: #EC3F4E;
+  background-color: #00B8B1;
   background-size: 80%;
   background-position: 50% 120%;
   cursor: pointer;
   background-repeat: no-repeat; }
-  .videos-button:after {
+  .info-button:after {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     top: -5px;
     left: 15px;
@@ -130,34 +174,32 @@ main {
     -webkit-transform: rotate(-90deg);
     /* Chrome, Safari, Opera */
     transform: rotate(-90deg); }
-  .videos-button img {
-    display: none;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    top: 65%;
-    height: 80%;
-    width: 80%;
-    position: relative; }
 
-.videos-container {
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.home-bg {
+  height: 100%;
+  width: 100%;
   background-color: #EC3F4E;
+  position: absolute; }
+
+.info-container {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  border-radius: 5px;
+  background-color: #00B8B1;
   position: absolute;
-  top: 0;
-  height: 3%;
+  top: -10px;
+  padding-top: 10px;
+  height: 35px;
   width: 100%; }
-  .videos-container__video {
+  .info-container__video {
     float: left; }
-    .videos-container__video--big {
+    .info-container__video--big {
       width: 70%;
       height: 100%; }
-    .videos-container__video--small {
+    .info-container__video--small {
       width: 30%;
       height: 50%; }
 
@@ -213,7 +255,8 @@ main {
   width: 60px;
   height: 60px;
   position: relative;
-  background-color: white; }
+  background-color: white;
+  background-size: cover; }
   .checkbox--day {
     border: 2px solid; }
   .checkbox--movement {
@@ -222,6 +265,12 @@ main {
     border-color: #80C536; }
   .checkbox--sleep {
     border-color: #00B8B1; }
+  .checkbox--weekly-goal {
+    background-image: url("../imgs/weekly-goal.png"); }
+  .checkbox--daily-goal {
+    background-image: url("../imgs/daily-goal.png"); }
+  .checkbox--selected {
+    background-image: url(""); }
 
 .tick {
   top: 50%;
@@ -332,8 +381,20 @@ main {
   transform: translateX(-50%);
   position: absolute;
   width: 65%;
-  height: 8%;
-  margin-top: 15%; }
+  height: 15%;
+  margin-top: 7%; }
+  .activities-row__image {
+    height: 60%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
+    .activities-row__image--sleep {
+      background-image: url("../imgs/sleep.png"); }
+    .activities-row__image--nutrition {
+      background-image: url("../imgs/nutrition.png"); }
+    .activities-row__image--movement {
+      background-image: url("../imgs/movement.png"); }
   .activities-row__activity {
     font-family: 'KGShePersisted';
     font-size: 3em;
@@ -341,11 +402,11 @@ main {
     height: 100%;
     float: left; }
     .activities-row__activity span {
-      top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      position: relative; }
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      position: relative;
+      bottom: 0; }
     .activities-row__activity--movement {
       color: #7251A0; }
     .activities-row__activity--nutrition {
@@ -354,65 +415,119 @@ main {
       color: #00B8B1; }
 
 .login-form {
-  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  top: 150px;
   position: absolute;
   width: 55%;
-  height: 600px;
-  overflow: auto; }
+  height: 440px;
+  background-color: white; }
+  .login-form--login {
+    height: 350px; }
+  .login-form--hidden {
+    display: none; }
+  .login-form__text {
+    color: #EC3F4E;
+    font-size: 1.5em; }
+    .login-form__text span {
+      display: block;
+      position: absolute;
+      bottom: 0; }
+    .login-form__text span:nth-child(1) {
+      bottom: 30px; }
+    .login-form__text span:nth-child(3) {
+      right: 120px; }
+    .login-form__text span#sign-in {
+      left: 0; }
   .login-form__header {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: relative;
     top: 0;
-    width: 100%;
+    width: 85%;
     height: 20%;
-    background-color: #80C536;
     clear: both; }
-    .login-form__header span {
-      position: relative; }
-    .login-form__header span:nth-child(-n+2) {
-      left: 0;
-      float: left;
-      width: 55%;
-      height: 50%; }
-    .login-form__header span:nth-child(3) {
-      right: 0;
-      width: 45%;
-      height: 100%; }
   .login-form form {
     height: 80%;
     width: 100%; }
   .login-form input {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
     outline: none;
     box-sizing: border-box;
     border: none;
     -webkit-appearance: none;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    font-size: 3em;
+    margin: 5px 0 5px 0;
+    padding: 0 0 0 10px;
+    font-size: 1.6em;
     line-height: calc(100% / 4);
-    text-align: center;
-    width: 100%;
-    height: calc(100% / 4);
-    background-color: #7251A0; }
+    width: 85%;
+    height: 60px;
+    background-color: #FFD33E;
+    font-family: 'KGShePersisted'; }
+  .login-form input::placeholder {
+    color: black;
+    font-family: 'KGShePersisted'; }
   .login-form__submit {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
     line-height: calc(100% / 4);
+    border-radius: 10px;
+    margin: 25px 0 0 0;
     text-align: center;
-    width: 100%;
-    height: calc(100% / 4);
+    width: 85%;
+    height: 60px;
     background-color: #00B8B1;
-    color: #7251A0; }
+    color: #F0FFFF;
+    transition-duration: 1s; }
     .login-form__submit:hover {
-      background-color: #7251A0;
-      color: #00B8B1; }
+      background-color: #EC3F4E;
+      color: #FFD33E; }
     .login-form__submit span {
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      position: relative; }
+      position: absolute; }
+
+.title-text {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: absolute;
+  width: 85%;
+  top: 900px;
+  color: white;
+  transition-duration: 1s; }
+  .title-text__title {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: relative;
+    font-size: 5.2em;
+    display: inline-block; }
+  .title-text__sub {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: relative;
+    display: inline-block;
+    font-size: 3em; }
+  .title-text--login-page {
+    top: 540px; }
 
 .child-menu {
+  top: 65px;
   transition-duration: 1s;
   border-radius: 5px;
   z-index: 2;
@@ -421,7 +536,7 @@ main {
   margin: 10px 0px 0 0;
   height: 550px;
   width: 350px;
-  background-color: #80C536; }
+  background-color: #7251A0; }
   .child-menu:after {
     right: 0;
     content: "";
@@ -433,9 +548,7 @@ main {
     margin-right: 15px;
     background-color: inherit;
     -ms-transform: rotate(45deg);
-    /* IE 9 */
     -webkit-transform: rotate(45deg);
-    /* Safari */
     transform: rotate(45deg); }
   .child-menu__child {
     height: calc(90% / 3);
@@ -498,7 +611,10 @@ main {
   .homepage-background-squares__square {
     width: 405px;
     height: 405px;
-    float: left; }
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%; }
   .homepage-background-squares__square:nth-child(1) {
     background-color: #7251A0; }
   .homepage-background-squares__square:nth-child(2) {
@@ -507,6 +623,17 @@ main {
     background-color: #80C536; }
   .homepage-background-squares__square:nth-child(4) {
     background-color: #FFD33E; }
+  .homepage-background-squares__square--splash:nth-child(1) {
+    background-image: url("../imgs/movement-white.png"); }
+  .homepage-background-squares__square--splash:nth-child(2) {
+    background-image: url("../imgs/sleep-white.png"); }
+  .homepage-background-squares__square--splash:nth-child(3) {
+    background-image: url("../imgs/nutrition-white.png"); }
+  .homepage-background-squares__square--splash:nth-child(4) {
+    background-image: url("../imgs/two-kids.png"); }
+  .homepage-background-squares--splash {
+    z-index: 2;
+    top: 0; }
 
 .homepage-background-footer {
   height: calc(100% - 810px);

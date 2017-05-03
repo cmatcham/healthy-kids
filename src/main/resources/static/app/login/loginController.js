@@ -7,21 +7,16 @@ function loginController($rootScope, $http, $location, $cookies, accountService)
 	self.active = true;
 	self.login = login;
 	self.credentials = {};
-	self.submitForm = submitForm;
 
 	var authenticate = function(credentials, callback) {
 		accountService.authenticate(credentials);
-	}
-
-	function submitForm() {
-		$('.login-form__form').submit()
 	}
 	
 	self.credentials = {};
 	function login() {
 		authenticate(self.credentials, function() {
 			if ($rootScope.authenticated) {
-				$location.path("/");
+				$location.path("/child-select");
 				self.error = false;
 			} else {
 				$location.path("/login");

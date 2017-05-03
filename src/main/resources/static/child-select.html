@@ -1,0 +1,13 @@
+<div class="home-bg"></div>
+<div class="child-select-inner">
+	<div class="child-select-button child-select-button--add"><span>Add Child</span></div>
+	<div ng-repeat="child in vm.children" class="child-select-button">
+		<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
+		<div class="child-select-button__edit"><span>Edit</span></div>
+	</div>
+</div>
+<div class="title-text title-text--child-select">
+	<div class="title-text__title">Healthy Kids</div>
+	<br>
+	<div class="title-text__sub">move&middot;eat&middot;sleep</div>
+</div>

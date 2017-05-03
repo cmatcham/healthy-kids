@@ -139,7 +139,59 @@ main {
 	z-index: 1;
 	position: relative;
 	width: 100%;
-	height: 90%;
+	height: 100%;
+}
+
+.child-select-inner {
+	@include center-horizontal;
+	top: 150px;
+	position: absolute;
+	width: 55%;
+	height: 440px;
+	// background-color: white;
+	border-radius: 5px;
+}
+
+.child-select-button {
+	@include center-horizontal;
+	cursor: pointer;
+	position: relative;
+	width: 90%;
+	margin: 10px 0 10px 0;
+	height: 60px;
+	background-color: $yellow;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	overflow: hidden;
+	transition-duration: 1s;
+	color: $white;
+	font-size: 2em;
+	span {
+		@include center;
+		position: absolute;
+		text-align: center;
+	}
+	&--add {
+		margin: 0 0 30px 0;
+	}
+	&__edit {
+		width: 15%;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		z-index: 2;
+		box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+		background-color: rgba(0,0,0,0.1);
+		transition-duration: 1s;
+		span {
+			@include center;
+			position: absolute;
+			font-size: 0.6em;
+		}
+	}
+	&:hover {
+		box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+	}
 }
 
 .info-inner {
@@ -587,6 +639,9 @@ main {
 		font-size: 3em;
 	}
 	&--login-page {
+		top: 540px;
+	}
+	&--child-select {
 		top: 540px;
 	}
 }

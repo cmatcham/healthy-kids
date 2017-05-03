@@ -33,6 +33,10 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'rewards.html',
 		controller : 'child',
 		controllerAs: 'vm'
+	}).when('/child-select' , {
+		templateUrl : 'child-select.html',
+		controller : 'child',
+		controllerAs: 'vm'
 	}).otherwise('/');
 	
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

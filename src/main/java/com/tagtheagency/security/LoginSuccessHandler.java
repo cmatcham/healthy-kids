@@ -31,7 +31,7 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
     	String token = tokenHandler.createTokenForUser(auth);
     	
     	Cookie tokenCookie = new Cookie("access_token",token);
-        tokenCookie.setPath("/");
+        tokenCookie.setPath("/child-select");
         tokenCookie.setSecure(true);
         tokenCookie.setHttpOnly(true);
         response.addCookie(tokenCookie);

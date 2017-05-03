@@ -14,6 +14,7 @@ function ChildController($routeParams, childService) {
 	self.setSticker = setSticker;
 	self.updateRewards = updateRewards;
 	self.changeWeek = changeWeek;
+	self.changeInfoTab = changeInfoTab;
 	
 	self.getDayObject = getDayObject;
 	
@@ -55,6 +56,24 @@ function ChildController($routeParams, childService) {
 			self.achievements = self.child.lastWeekDailyAchievements;
 		} 
 		
+	}
+
+	function changeInfoTab(activity) {
+		var color = ''
+		switch(activity) {
+		    case 'movement':
+		        color = '#7251A0'
+		        break;
+		    case 'nutrition':
+		        color = '#80C536'
+		        break;
+		    case 'sleep':
+		        color = '#00B8B1'
+		        break;
+		}
+		$('.info-container').css({'background-color': color})
+		$('.info-tabs__behind-tabs > div:nth-child(2)').css({'background-color': color})
+		$('.info-button').css({'background-color': color})
 	}
 
 	function displayInfoSection() {

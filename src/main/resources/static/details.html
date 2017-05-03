@@ -7,10 +7,10 @@
 					<div class="info-tabs__behind-tabs">
 						<div></div>
 						<div></div>
-					</div>		
-					<div class="info-tabs__tab info-tabs__tab--move"></div>
-					<div class="info-tabs__tab info-tabs__tab--eat"></div>
-					<div class="info-tabs__tab info-tabs__tab--sleep"></div>
+					</div>	
+					<div ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity.value)">
+						<div class="info-tabs__image info-tabs__image--{{activity.value}}"></div>
+					</div>	
 				</div>
 			</div>
 			<div class="info-button" ng-click="vm.displayInfoSection()"></div>

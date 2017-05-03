@@ -230,14 +230,36 @@ main {
 		width: calc(33.3333% - 10px);
 		border-radius: 25px;
 		float: left;
-		&--move {
+		&--movement {
 			background-color: $purple;
 		}
-		&--eat {
+		&--nutrition {
 			background-color: $green;
 		}
 		&--sleep {
 			background-color: $blue;
+		}
+	}
+	&__image {
+		@include center-horizontal;
+		top: 10px;
+		position: relative;
+		max-width: 70%;
+		max-height: 70%;
+		height: 70%;
+		width: 70%;
+		z-index: 3;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		&--sleep {
+			background-image: url('../imgs/sleep-white.png');
+		}
+		&--nutrition {
+			background-image: url('../imgs/nutrition-white.png');
+		}
+		&--movement {
+			background-image: url('../imgs/movement-white.png');
 		}
 	}
 }

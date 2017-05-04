@@ -34,7 +34,7 @@ function accountService($http, $location, $rootScope, $cookies) {
 				$rootScope.authenticated = true;
 				$cookies.put('token', response.data);
 				$http.defaults.headers.common.token = 'Bearer '+response.data;
-				$location.path("/");
+				$location.path("/child-select");
 			}, function() {
 				$rootScope.authenticated = false;
 			});

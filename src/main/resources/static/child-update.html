@@ -1,0 +1,13 @@
+<div class="child-update-bg"></div>
+<div class="child-form">
+	<form class="child-form__form child-form__form--new">
+		<input placeholder="Name" type="text" ng-model="vm.newChild.firstName" ng-required="true"/>
+		<input placeholder="Age" type="number" class="form-control" min="1" max="100" ng-model="vm.newChild.age"/>
+		<button ng-click="vm.createChild()">Add child</button>
+	</form>
+</div>
+<div class="title-text title-text--child-update">
+	<div class="title-text__title">Healthy Kids</div>
+	<br>
+	<div class="title-text__sub">move&middot;eat&middot;sleep</div>
+</div>

@@ -301,6 +301,26 @@ main {
 	position: absolute;
 }
 
+.child-update-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url('../imgs/children-big.png');
+	background-size: cover;
+	background-color: $yellow;
+}
+
+.child-form {
+	@include center-horizontal;
+	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	border-radius: 5px;
+	top: 150px;
+	position: absolute;
+	width: 48%;
+	height: 440px;
+	background-color: white;
+}
+
 .info-container {
 	@include center-horizontal;
 	box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -665,6 +685,9 @@ main {
 	}
 	&--child-select {
 		top: 540px;
+	}
+	&--child-update {
+		top: 640px;
 	}
 }
 

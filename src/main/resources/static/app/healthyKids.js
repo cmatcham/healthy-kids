@@ -37,6 +37,10 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'child-select.html',
 		controller : 'child',
 		controllerAs: 'vm'
+	}).when('/child-update' , {
+		templateUrl : 'child-update.html',
+		controller : 'child',
+		controllerAs: 'vm'
 	}).otherwise('/');
 	
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

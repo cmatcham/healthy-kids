@@ -1,9 +1,11 @@
 <div class="child-update-bg"></div>
 <div class="child-form">
+	<div class="child-form__icon"></div>
 	<form class="child-form__form child-form__form--new">
-		<input placeholder="Name" type="text" ng-model="vm.newChild.firstName" ng-required="true"/>
-		<input placeholder="Age" type="number" class="form-control" min="1" max="100" ng-model="vm.newChild.age"/>
-		<button ng-click="vm.createChild()">Add child</button>
+		<input class="child-form__input" placeholder="Name" type="text" ng-model="vm.newChild.firstName" ng-required="true"/>
+		<input class="child-form__input" placeholder="Age" type="number" min="1" max="100" ng-model="vm.newChild.age"/>
+		<div class="child-form__input child-form__input--sticker" ><span>Pick a Sticker!</span></div>
+		<div class="child-form__input child-form__input--submit" ng-click="vm.createChild()"><span>Save</span></div>
 	</form>
 </div>
 <div class="title-text title-text--child-update">

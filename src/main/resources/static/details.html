@@ -8,9 +8,14 @@
 						<div></div>
 						<div></div>
 					</div>	
-					<div ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity.value)">
+					<div ng-init="vm.changeInfoTab(vm.targets[2])" ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
 						<div class="info-tabs__image info-tabs__image--{{activity.value}}"></div>
-					</div>	
+					</div>
+				</div>
+				<div class="info-container__title">{{vm.current_activity.display}}</div>
+				<div class="info-container__video"></div>
+				<div class="info-container__text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</div>
 			</div>
 			<div class="info-button" ng-click="vm.displayInfoSection()"></div>

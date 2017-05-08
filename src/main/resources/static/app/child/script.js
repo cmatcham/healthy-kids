@@ -1,9 +1,9 @@
 angular.module('healthyKids')
 	.controller('child', ChildController);
 
-ChildController.$inject = ['$routeParams', 'childService'];
+ChildController.$inject = ['$routeParams', 'childService', 'accountService'];
 
-function ChildController($routeParams, childService) {
+function ChildController($routeParams, childService, accountService) {
 	var self = this;
 
 	self.displayInfoSection = displayInfoSection
@@ -25,6 +25,8 @@ function ChildController($routeParams, childService) {
 	self.week = 'this';
 	self.achievements = {};
 	self.current_actvity
+
+	self.logout = logout;
 
 	
 	self.days = [
@@ -49,6 +51,12 @@ function ChildController($routeParams, childService) {
 	 * The view should always refer to this controller's 'achievements' object - this method
 	 * will switch that to the correct week.
 	 */
+
+	function logout() {
+		console.log('???')
+		accountService.logout()
+	}
+
 	function changeWeek(which) {
 		self.week = which;
 		if (which === 'this') {

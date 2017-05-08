@@ -409,9 +409,9 @@ main {
 		margin: 10px 0 0 0;
 		position: relative;
 		font-size: 1.2em;
-		// text-align: center;
 		height: 100px;
 		width: 90%;
+		line-height: 25px;
 	}
 	h2 {
 		@include center-horizontal;
@@ -429,7 +429,8 @@ main {
 			overflow: scroll;
 		}
 		li {
-			margin: 0 0 5px 0;
+			line-height: 20px;
+			margin: 0 0 8px 0;
 		}
 	}
 }

@@ -404,15 +404,33 @@ main {
 		background-color: white;
 		opacity: 0.6;
 	}
+	&__caption {
+		@include center-horizontal;
+		margin: 10px 0 0 0;
+		position: relative;
+		font-size: 1.2em;
+		// text-align: center;
+		height: 100px;
+		width: 90%;
+	}
+	h2 {
+		@include center-horizontal;
+		display: inline-block;
+		position: relative;
+		margin: 10px 0 10px 0;
+		font-size: 2.3em;
+	}
 	&__text {
 		@include center-horizontal;
-		margin: 20px 0 0 0;
 		position: relative;
-		font-size: 1.5em;
-		text-align: center;
-		height: 450px;
 		width: 90%;
-
+		ul {
+			height: 180px;
+			overflow: scroll;
+		}
+		li {
+			margin: 0 0 5px 0;
+		}
 	}
 }
 

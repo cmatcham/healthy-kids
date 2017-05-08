@@ -8,14 +8,36 @@
 						<div></div>
 						<div></div>
 					</div>	
-					<div ng-init="vm.changeInfoTab(vm.targets[2])" ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
+					<div ng-init="vm.changeInfoTab(vm.targets[1])" ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
 						<div class="info-tabs__image info-tabs__image--{{activity.value}}"></div>
 					</div>
 				</div>
 				<div class="info-container__title">{{vm.current_activity.display}}</div>
 				<div class="info-container__video"></div>
+				<div class="info-container__caption">
+					Meal times in the Amosa household are special times for everyone to spend time with each other. With nine people to feed, Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they all enjoy.
+				</div>
+				<h2>Tips for eating well</h2>
 				<div class="info-container__text">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<p>Here are some tips to help you make sure that your child gets to enjoy food that eats tastes good and is good for their bodies.</p>
+					<ul>
+						<li>Shared meal times create a regular time for catching up on what everyone is doing. Whenever you can, eat meals together as a family. Keep the TV and other screens turned off.</li>
+						<li>Give your child a great start to the day with a healthy breakfast. Good breakfast choices are grainy cereals like wheat biscuits, porridge, and wholegrain toast with fruit and milk.</li>
+						<li>Children are smaller than adults so don’t need to eat as much. Have a smaller plate or bowl for your child. A special bowl with a picture can be a great encouragement for a fussy eater.</li>
+						<li>It’s best to let children serve themselves. Children are better than we think at working out how much food they need to get through the day.</li>
+						<li>Children’s tastes can change, so keep trying new foods. The three-year-old who hates broccoli may turn into the four-year-old who loves it!</li>
+						<li>Children don’t need sugary drinks. Water and low-fat plain milk are the best drinks. And tap water is free!</li>
+						<li>With their little tummies, children need to eat small amounts and often throughout the day. Choose healthy snacks like fruit, vegetables, nuts, popcorn, low-fat yoghurt, crackers and cheese.</li>
+						<li>Aim for five servings of vegetables and fruit every day.</li>
+						<li>Buy fruit and vegetables when they’re in season here in New Zealand. They’re cheaper and fresher than out-of-season food that has come from overseas.</li>
+						<li>Canned and frozen fruit and vegetables are just as good as fresh.</li>
+						<li>Wholegrain food will keep your child fuller for longer. Try brown rice, pasta, and bread.</li>
+						<li>Sandwiches, filled rolls, or savoury bread cases are tasty options for lunch.</li>
+						<li>Use margarine instead of butter, and spread it thinly.</li>
+						<li>Choose low-fat options, like reduced-fat unsweetened yoghurt, light coconut milk or light evaporated milk.</li>
+						<li>Try making your own ‘fast food’ at home. Your child could help choose what goes into their burgers, on their pizzas, or the best flavours for your delicious homemade wedges!</li>
+						<li>Reward your child and give comfort with hugs and praise instead of food treats like sweets.</li>
+					</ul>
 				</div>
 			</div>
 			<div class="info-button" ng-click="vm.displayInfoSection()"></div>

@@ -1,17 +1,6 @@
-<child-menu/>
-	<ul>
-		<li><a href="#/child/{{vm.child.id}}">Achievements</a></li>
-		<li><a href="#/child/{{vm.child.id}}/sticker">Edit child</a></li>
-	</ul>
-
+<header-partial/>
 <div class="sticker-display">
 	<div ng-repeat="sticker in vm.stickers">
 		<img style="float:left; margin:5px;" ng-src="stickers/{{sticker}}" ng-click="vm.setSticker(sticker)"/>
 	</div>
-</div>
-<div class="copy copy--med-width"></div>
-<div class="social-media-icons">
-	<div class="social-media-icons__icon"><span>Facebook</span></div>
-	<div class="social-media-icons__icon"><span>Twitter</span></div>
-	<div class="social-media-icons__icon"><span>Instagram</span></div>
 </div>

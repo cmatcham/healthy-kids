@@ -8,6 +8,8 @@ $purple:#7251A0;
 $white:#F0FFFF;
 $grey:#B4B4B4;
 
+$chart-height: 45%;
+
 @font-face {
     font-family: 'KGShePersisted';
     src: url('../fonts/KGShePersisted.ttf') format('truetype'); 
@@ -450,6 +452,8 @@ main {
 	width: 60px;
 	height: 60px;
 	&--menu {
+		background-color: rgba(0,0,0,0.2);
+		box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 		right: 5%;
 		top: 15px;
 		z-index: 2;
@@ -468,11 +472,46 @@ main {
 	width: 100px;
 }
 
+.selected-goals {
+	@include center-horizontal;
+	position: absolute;
+	top: 80px;
+	width: 65%;
+	height: 190px;
+	&__goal {
+		span {
+			@include center;
+			position: relative;
+			font-size: 1.7em;
+		}
+		background-color: white;
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		margin: 5px 0 5px 0;
+		height: calc(100% / 3 - 10px);
+		width: 100%;
+		border-radius: 5px;
+		color: white;
+		&--movement {
+			background-color: $purple;
+			// border: 3px solid $purple;
+		}
+		&--nutrition {
+			background-color: $green;
+			// border: 3px solid $green;
+		}
+		&--sleep {
+			background-color: $blue;
+			// border: 3px solid $blue;
+		}
+	}
+}
+
 .tick-chart {
-	@include center;
+	@include center-horizontal;
+	top: 460px;
 	position: absolute;
 	width: 65%;
-	height: 60%;
+	height: $chart-height;
 	&__column {
 		width: calc(100% / 3);
 		height: 100%;
@@ -555,11 +594,12 @@ main {
 }
 
 .weekdays-column {
-	@include center-vertical;
+	// @include center-vertical;
+	top: 460px;
 	position: absolute;
 	margin: 0 0 0 3%;
 	width: 13%;
-	height: 60%;
+	height: $chart-height;
 	&__weekday {
 		font-size: 1.4em;
 		color: $red;
@@ -577,12 +617,13 @@ main {
 }
 
 .daily-goals {
-	@include center-vertical;
+	// @include center-vertical;
+	top: 460px;
 	position: absolute;
 	right: 0;
 	margin: 0 6.5% 0 0;
 	width: 10%;
-	height: 60%;
+	height: $chart-height;
 	&__goal {
 		height: calc(100% / 7);
 		width: 100%;
@@ -592,7 +633,7 @@ main {
 .weekly-goals {
 	@include center-horizontal;
 	position: absolute;
-	bottom: 10%;
+	bottom: 7%;
 	height: 10%;
 	width: 65%;
 	&__goal {
@@ -622,7 +663,7 @@ main {
 	position: absolute;
 	width: 65%;
 	height: 15%;
-	margin-top: 7%;
+	top: 23%;
 	&__image {
 		height: 60%;
 		width: 100%;

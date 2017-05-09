@@ -23,12 +23,12 @@ public class Child {
 
 	private int id;
 	private Account account;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String sticker;
-	private Date dateOfBirth;
+	private Integer age;
 	private List<Achievement> achievements;
 	private List<Reward> customRewards;
+	private List<Goal> customGoals;
 	
 	@Id
 	@GeneratedValue
@@ -51,7 +51,7 @@ public class Child {
 		this.account = account;
 	}
 	
-	@Column(name="date_of_birth")
+/*	@Column(name="date_of_birth")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	public Date getDateOfBirth() {
@@ -61,24 +61,34 @@ public class Child {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+*/
 	
-	@Column(name="first_name")
-	public String getFirstName() {
-		return firstName;
+	@Column(name="age")
+	public Integer getAge() {
+		return age;
 	}
 	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 	
-	@Column(name="last_name")
+	@Column(name="name")
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+/*	@Column(name="last_name")
 	public String getLastName() {
 		return lastName;
 	}
 	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
+	}*/
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="child")
 	public List<Achievement> getAchievements() {
@@ -98,6 +108,11 @@ public class Child {
 		this.customRewards = rewards;
 	}
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="child")
+	public List<Goal> getCustomGoals() {
+		return customGoals;
+	}
+	
 	@Column(name="sticker")
 	public String getSticker() {
 		return sticker;
@@ -105,6 +120,9 @@ public class Child {
 	
 	public void setSticker(String sticker) {
 		this.sticker = sticker;
+	}
+	public void setCustomGoals(List<Goal> customGoals) {
+		this.customGoals = customGoals;
 	}
 }
 

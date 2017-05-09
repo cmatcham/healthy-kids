@@ -70,14 +70,14 @@ public class ApiController {
 	@RequestMapping(value="/child", method = RequestMethod.PUT)
 	//TODO fix exception handling
 	public ChildDTO createChild(@RequestBody ChildDTO child) throws Exception {
-		SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
-		Date birthday;
-		try {
-			birthday = dateParser.parse(child.getDateOfBirth());
-		} catch (ParseException e) {
-			throw new Exception("Invalid date");
-		}
-		return ChildDTO.convertFrom(manager.createChild(getAccount(), child.getFirstName(), child.getLastName(), birthday));	
+//		SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
+//		Date birthday;
+//		try {
+//			birthday = dateParser.parse(child.getDateOfBirth());
+//		} catch (ParseException e) {
+//			throw new Exception("Invalid date");
+//		}
+		return ChildDTO.convertFrom(manager.createChild(getAccount(), child.getFirstName(), child.getAge()));	
 	}
 	
 	@RequestMapping(value="/child/{id}/reward", method = RequestMethod.PUT) 

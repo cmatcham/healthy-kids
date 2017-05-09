@@ -63,12 +63,11 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	}
 	
 	@Override
-	public Child createChild(Account account, String firstName, String lastName, Date dateOfBirth) {
+	public Child createChild(Account account, String firstName, int age) {
 		Child child = new Child();
 		child.setAccount(account);
-		child.setFirstName(firstName);
-		child.setLastName(lastName);
-		child.setDateOfBirth(dateOfBirth);
+		child.setName(firstName);
+		child.setAge(age);
 		return childDao.save(child);
 	}
 	

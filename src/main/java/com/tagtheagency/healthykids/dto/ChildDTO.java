@@ -1,9 +1,7 @@
 package com.tagtheagency.healthykids.dto;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,16 +11,17 @@ import java.util.stream.Collectors;
 
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Goal;
 import com.tagtheagency.healthykids.model.Reward;
 
 public class ChildDTO {
 
 	private String firstName;
-	private String lastName;
-	private String dateOfBirth;
+	private Integer age;
 	private String sticker;
 	private int id;
 	private List<RewardDTO> customRewards;
+	private List<GoalDTO> customGoals;
 	
 	private Map<Integer, AchievementDTO> dailyAchievements;
 	private Map<Integer, AchievementDTO> lastWeekDailyAchievements;
@@ -34,18 +33,24 @@ public class ChildDTO {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastName() {
-		return lastName;
+	public Integer getAge() {
+		return age;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+//	public String getLastName() {
+//		return lastName;
+//	}
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
+//	public String getDateOfBirth() {
+//		return dateOfBirth;
+//	}
+//	public void setDateOfBirth(String dateOfBirth) {
+//		this.dateOfBirth = dateOfBirth;
+//	}
 	public int getId() {
 		return id;
 	}
@@ -80,17 +85,23 @@ public class ChildDTO {
 	}
 	
 	public static ChildDTO convertFrom(Child child, boolean populateRewards) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		ChildDTO dto = new ChildDTO();
-		dto.setFirstName(child.getFirstName());
-		dto.setLastName(child.getLastName());
-		dto.setDateOfBirth(formatter.format(child.getDateOfBirth()));
+		dto.setFirstName(child.getName());
+		dto.setAge(child.getAge());
+//		dto.setLastName(child.getLastName());
+//		dto.setDateOfBirth(formatter.format(child.getDateOfBirth()));
 		dto.setId(child.getId());
 		dto.setSticker(child.getSticker());
 		if (populateRewards) {
 			dto.setCustomRewards(child.getCustomRewards());
+			dto.setCustomGoals(child.getCustomGoals());
 		}
 		return dto;
+	}
+	
+	private void setCustomGoals(List<Goal> customGoals) {
+		this.customGoals = customGoals.stream().map(GoalDTO::createFrom).collect(Collectors.toList());
 	}
 	
 	public void setAchievements(List<Achievement> weeklyAchievements, List<LocalDate> daysOfWeek) {

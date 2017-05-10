@@ -297,6 +297,55 @@ main {
 	}
 }
 
+.rewards {
+	@include center;
+	width: 90%;
+	height: 90%;
+	position: relative;
+	color: red;
+	h2 {
+
+	}
+	&__recommended {
+		height: 40%;
+		width: 100%;
+	}
+	&__custom {
+		margin: 80px 0 0 0;
+		height: 40%;
+		width: 100%;
+	}
+	&__image {
+		height: 120px;
+		width: 120px;
+		border: 2px solid $red;
+		border-radius: 5px;
+		position: absolute;
+	}
+	&__reward {
+		margin: 10px 0 10px 0;
+		height: calc(100% / 3 - 20px);
+		width: 100%;
+		span {
+			@include center-vertical;
+			position: relative;
+			display: block;
+			width: calc(100% - 150px);
+			left: 150px;
+			font-size: 1.3em;
+		}
+		&--nutrition {
+			color: $green;
+		}
+		&--sleep {
+			color: $blue;
+		}
+		&--movement {
+			color: $purple;
+		}
+	}
+}
+
 .home-bg {
 	height: 100%;
 	width: 100%;

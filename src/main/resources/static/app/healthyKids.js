@@ -33,6 +33,10 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'rewards.html',
 		controller : 'child',
 		controllerAs: 'vm'
+	}).when('/child/:id/goals' , {
+		templateUrl : 'goals.html',
+		controller : 'child',
+		controllerAs: 'vm'
 	}).when('/child-select' , {
 		templateUrl : 'child-select.html',
 		controller : 'child',

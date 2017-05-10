@@ -1,6 +1,5 @@
 package com.tagtheagency.healthykids.model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,10 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="child")
@@ -72,7 +67,7 @@ public class Child {
 		this.age = age;
 	}
 	
-	@Column(name="name")
+	@Column(name="first_name")
 	public String getName() {
 		return name;
 	}

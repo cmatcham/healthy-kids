@@ -27,14 +27,17 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.tagtheagency.healthykids.dto.GoalDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Goal;
 import com.tagtheagency.healthykids.model.Reward;
 import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.persistence.AccountDAO;
 import com.tagtheagency.healthykids.persistence.AchievementDAO;
 import com.tagtheagency.healthykids.persistence.ChildDAO;
+import com.tagtheagency.healthykids.persistence.GoalDAO;
 import com.tagtheagency.healthykids.persistence.RewardDAO;
 import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
@@ -48,6 +51,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	@Autowired ChildDAO childDao;
 	@Autowired AchievementDAO achievementDao;
 	@Autowired RewardDAO rewardDao;
+	@Autowired GoalDAO goalDao;
 	
 	@Override
 	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
@@ -225,6 +229,41 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 			rewardDao.save(reward);
 		});
 	
+	}
+	
+	@Override
+	public int addCustomGoal(Child child, GoalDTO goalDto) {
+		Goal goal = new Goal();
+		goal.setChild(child);
+		goal.setSelected(goalDto.isSelected());
+		goal.setTarget(goalDto.getTarget());
+		goal.setGoal(goalDto.getGoal());
+		goalDao.save(goal);
+		child.getCustomGoals().add(goal);
+		return goal.getId();
+	}
+	
+	@Override
+	public void editCustomGoal(Child child, GoalDTO goalDto) {
+		Goal goal = goalDao.findOne(goalDto.getId());
+		if (goal == null || child.getId() != goal.getChild().getId()) {
+			return;
+		}
+		goal.setSelected(goalDto.isSelected());
+		goal.setTarget(goalDto.getTarget());
+		goal.setGoal(goalDto.getGoal());
+		goalDao.save(goal);
+		
+		if (goal.isSelected()) {
+			for (Goal other : goalDao.findByChildAndTarget(child, goal.getTarget())) {
+				if (other.getId() != goal.getId()) {
+					continue;
+				}
+				other.setSelected(false);
+				goalDao.save(other);
+			}
+		}
+		
 	}
 	
 }

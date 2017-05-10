@@ -79,7 +79,7 @@ public class ApiController {
 //		} catch (ParseException e) {
 //			throw new Exception("Invalid date");
 //		}
-		return ChildDTO.convertFrom(manager.createChild(getAccount(), child.getFirstName(), child.getAge()));	
+		return ChildDTO.convertFrom(manager.createChild(getAccount(), child.getFirstName(), child.getAge(), child.getSticker()));	
 	}
 	
 	@RequestMapping(value="/child/{id}/reward", method = RequestMethod.PUT) 
@@ -109,6 +109,17 @@ public class ApiController {
 		return goal;
 	}
 
+	@RequestMapping(value="/child/{id}/update", method = RequestMethod.POST)
+	public ChildDTO updateChild(@PathVariable int id, @RequestBody ChildDTO dto) throws Exception {
+		if (id < 0) {
+			return createChild(dto);
+		}
+		Child child = findChild(dto.getId());
+		if (child == null) {
+			return null;
+		}
+		return ChildDTO.convertFrom(manager.updateChild(child, dto.getFirstName(), dto.getAge(), dto.getSticker()));
+	}
 	
 	@RequestMapping(value="/child/{id}/target", method = RequestMethod.POST)
 	public AchievementDTO setTarget(@PathVariable int id, @RequestBody AchievementDTO dto) throws UnauthorisedException, ParseException {

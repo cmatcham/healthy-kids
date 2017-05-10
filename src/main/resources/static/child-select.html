@@ -3,7 +3,7 @@
 	<div class="child-select-button child-select-button--add"><a href="#/child-update"><span>Add Child</span></a></div>
 	<div ng-repeat="child in vm.children" class="child-select-button">
 		<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
-		<div class="child-select-button__edit"><span>Edit</span></div>
+		<div class="child-select-button__edit"><a href="#/child/{{child.id}}/update"><span>Edit</span></a></div>
 	</div>
 </div>
 <div class="title-text title-text--child-select">

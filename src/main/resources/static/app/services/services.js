@@ -53,6 +53,7 @@ function accountService($http, $location, $rootScope, $cookies) {
 
 function childService($http) {
 	return {
+		updateChild: updateChild, 
 		getChild: getChild,
 		getChildren: getChildren,
 		setAchievement: setAchievement,
@@ -86,6 +87,14 @@ function childService($http) {
 			}
 		);
 
+	}
+	
+	function updateChild(child) {
+		if (!child.id) {
+			child.id = -1;
+		}
+		return $http.post('api/child/'+child.id+'/update', child)
+		.then(function(response) {return response.data;}, function(error) {});
 	}
 	
 	function setAchievement(childId, achievement) {

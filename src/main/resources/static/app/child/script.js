@@ -33,9 +33,12 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.week = 'this';
 	self.achievements = {};
 	self.current_actvity
+
+	self.newChild = {};
 	
 	self.showAddGoalModal = false;
 
+	self.createChild = createChild;
 	self.logout = logout;
 
 	
@@ -260,14 +263,25 @@ function ChildController($routeParams, childService, accountService, $location) 
 			return 'Unknown target '+target;
 		}
 	}
+
+	function createChild() {
+		childService.updateChild(self.newChild).then(function(data) {
+			console.log(data);
+			$location.path('/child/'+data.id);
+		});
+	}
 	
 	function activate() {
 		childService.getChildren().then(function(data) {
 			self.children = data;
 		});
+		if (!$routeParams.id) {
+			return;
+		}
 		childService.getChild($routeParams.id)
 			.then(function(data) {
 				self.child = data;
+				self.newChild = self.child;
 				self.achievements = self.child.dailyAchievements;
 			});
 		childService.getStickers()

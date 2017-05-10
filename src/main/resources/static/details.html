@@ -42,6 +42,17 @@
 			</div>
 			<div class="info-button" ng-click="vm.displayInfoSection()"></div>
 		</div>
+		<div class="selected-goals">
+			<div class="selected-goals__goal selected-goals__goal--nutrition">
+				<span>Eat 5 pieces of Apple</span>
+			</div>
+			<div class="selected-goals__goal selected-goals__goal--movement">
+				<span>Do 12 star jumps</span>
+			</div>
+			<div class="selected-goals__goal selected-goals__goal--sleep">
+				<span>Be in bed by 8:15</span>
+			</div>
+		</div>
 		<div class="weekdays-column">
 			<div ng-repeat="(i, weekday) in vm.days" class="weekdays-column__weekday"><span>{{weekday.name}}</span></div>
 		</div>

@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tagtheagency.healthykids.dto.AchievementDTO;
 import com.tagtheagency.healthykids.dto.ChildDTO;
+import com.tagtheagency.healthykids.dto.GoalDTO;
 import com.tagtheagency.healthykids.dto.RewardDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Goal;
 import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.service.HealthyKidsManager;
 import com.tagtheagency.healthykids.service.UnauthorisedException;
@@ -90,6 +92,23 @@ public class ApiController {
 		manager.addCustomReward(child, rewardMap);
 		return ChildDTO.convertFrom(child, true);
 	}
+
+	@RequestMapping(value="/child/{id}/goal", method = RequestMethod.PUT) 
+	public GoalDTO addCustomGoal(@PathVariable int id, @RequestBody GoalDTO goal) {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		
+		if (goal.getId() < 0) {
+			goal.setId(manager.addCustomGoal(child, goal));
+		} else {
+			manager.editCustomGoal(child, goal);
+		}
+
+		return goal;
+	}
+
 	
 	@RequestMapping(value="/child/{id}/target", method = RequestMethod.POST)
 	public AchievementDTO setTarget(@PathVariable int id, @RequestBody AchievementDTO dto) throws UnauthorisedException, ParseException {

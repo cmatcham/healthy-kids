@@ -160,5 +160,8 @@ public class ChildDTO {
 		}
 	}
 	
+	public List<GoalDTO> getCustomGoals() {
+		return customGoals;
+	}
 	
 }

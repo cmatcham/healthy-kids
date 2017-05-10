@@ -1,0 +1,29 @@
+<header-partial/>
+<div></div>
+<div class="activities-row__activity--sleep" id="ministryNutritionReward"><h1>Suggested sleep goal</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non dui quis lorem ultrices aliquet.  </p>
+</div>
+<div class="activities-row__activity--movement" id="ministryNutritionReward"><h1>Suggested movement goal</h1>
+<p>Vivamus lacinia eros maximus lacus sollicitudin sollicitudin eget in diam. Morbi aliquam convallis nisi a faucibus. </p>
+</div>
+<div class="activities-row__activity--nutrition" id="ministryNutritionReward"><h1>Suggested nutrition goal</h1>
+<p>Nulla arcu erat, fringilla in suscipit a, lobortis eget augue. Aliquam lacus lorem, sodales quis magna at, laoreet mattis nisl. </p>
+</div>
+<div>
+
+</div>
+<h2>Add your own goals <span ng-click="vm.addGoal()">+</span></h2>
+<div ng-repeat="goal in vm.child.customGoals | orderBy: 'id'">
+	<p class="activities-row__activity--{{goal.target | lowercase}}">{{goal.goal}} <button ng-click="vm.editGoal(goal)">edit</button></p>
+</div>
+
+<modal-dialog show="vm.showAddGoalModal" width="550px" height="350px">
+	<h2>Add a goal</h2>
+	<p>You can create goals specifically tailored to this child</p>
+	<p><input type="text" id="newGoalGoal" style="width:100%" ng-model="vm.editingGoal.goal"/><p>
+	<p><input type="radio" name="newGoalTarget" ng-model="vm.editingGoal.target" value="MOVEMENT" id="newGoalTargetMovement"><label for="newGoalTargetMovement"><img src="../../../imgs/movement.png" width="100px" /></label>
+	<input type="radio" name="newGoalTarget" ng-model="vm.editingGoal.target" value="SLEEP" id="newGoalTargetSleep"><label for="newGoalTargetSleep"><img src="../../../imgs/sleep.png" width="100px" /></label>
+	<input type="radio" name="newGoalTarget" ng-model="vm.editingGoal.target" value="NUTRITION" id="newGoalTargetNutrition"><label for="newGoalTargetNutrition"><img src="../../../imgs/nutrition.png" width="100px" /></label></p>
+	<p><input type="checkbox" name="newGoalSelected" id="newGoalSelected" ng-model="vm.editingGoal.selected"><label for="newGoalSelected">Make this goal your target</label></p>	
+	<p><input type="submit" value="save" ng-click="vm.saveGoal()"/></p>
+</modal-dialog>

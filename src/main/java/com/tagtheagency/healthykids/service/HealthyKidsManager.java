@@ -5,9 +5,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.tagtheagency.healthykids.dto.GoalDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
+import com.tagtheagency.healthykids.model.Goal;
 import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
@@ -34,5 +36,9 @@ public interface HealthyKidsManager {
 	public void setSticker(Child child, String sticker);
 
 	public void addCustomReward(Child child, Map<Integer, String> rewards);
-	
+
+	public int addCustomGoal(Child child, GoalDTO goal);
+
+	public void editCustomGoal(Child child, GoalDTO goal);
+
 }

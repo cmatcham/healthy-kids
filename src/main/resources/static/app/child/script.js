@@ -16,6 +16,12 @@ function ChildController($routeParams, childService, accountService) {
 	self.changeWeek = changeWeek;
 	self.changeInfoTab = changeInfoTab;
 	
+	self.addGoal = addGoal;
+	self.saveGoal = saveGoal;
+	self.editGoal = editGoal;
+	self.editingGoal = {id:-1, target:'MOVEMENT'};
+	
+	
 	self.getDayObject = getDayObject;
 	
 	self.stickers = [];
@@ -25,6 +31,8 @@ function ChildController($routeParams, childService, accountService) {
 	self.week = 'this';
 	self.achievements = {};
 	self.current_actvity
+	
+	self.showAddGoalModal = false;
 
 	self.logout = logout;
 
@@ -169,6 +177,39 @@ function ChildController($routeParams, childService, accountService) {
 			self.child.customRewards = data.customRewards;
 		});
 
+	}
+	
+	/**
+	 * Open a modal dialog to 
+	 */
+	function addGoal() {
+		self.editingGoal = {id:-1,target:'MOVEMENT'};
+		self.showAddGoalModal = true;
+	}
+	
+	function saveGoal() {
+		console.log(self.editingGoal);
+		self.showAddGoalModal = false;
+		childService.setGoal(self.child.id, self.editingGoal).then(function(data) {
+			if (self.editingGoal.id < 0) {
+				self.child.customGoals.push(data);
+			} else {
+				var goal = self.child.customGoals.find(function(goal) {return goal.id == self.editingGoal.id});
+				goal.target = self.editingGoal.target;
+				goal.selected = self.editingGoal.selected;
+				goal.goal = self.editingGoal.goal;
+			}
+		});
+	}
+	
+	function editGoal(goal) {
+		console.log('editing ',goal);
+		var edit = self.editingGoal;
+		edit.id= goal.id;
+		edit.target = goal.target;
+		edit.goal = goal.goal;
+		edit.selected = goal.selected;
+		self.showAddGoalModal = true;
 	}
 	
 	function activate() {

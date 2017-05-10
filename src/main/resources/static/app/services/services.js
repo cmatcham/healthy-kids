@@ -58,7 +58,8 @@ function childService($http) {
 		setAchievement: setAchievement,
 		getStickers: getStickers,
 		setSticker: setSticker,
-		setRewards: setRewards
+		setRewards: setRewards,
+		setGoal: setGoal
 	};
 	
 	function getChild(id) {
@@ -110,6 +111,15 @@ function childService($http) {
 	
 	function setRewards(childId, rewards) {
 		return $http.put('api/child/'+childId+'/reward', rewards)
+		.then(function(response) {
+			return response.data;
+		}, function(error) {
+			return error;
+		});
+	}
+	
+	function setGoal(childId, goal) {
+		return $http.put('api/child/'+childId+'/goal', goal)
 		.then(function(response) {
 			return response.data;
 		}, function(error) {

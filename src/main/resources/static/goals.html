@@ -1,20 +1,28 @@
 <header-partial/>
-<div></div>
-<div class="activities-row__activity--sleep" id="ministryNutritionReward"><h1>Suggested sleep goal</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non dui quis lorem ultrices aliquet.  </p>
-</div>
-<div class="activities-row__activity--movement" id="ministryNutritionReward"><h1>Suggested movement goal</h1>
-<p>Vivamus lacinia eros maximus lacus sollicitudin sollicitudin eget in diam. Morbi aliquam convallis nisi a faucibus. </p>
-</div>
-<div class="activities-row__activity--nutrition" id="ministryNutritionReward"><h1>Suggested nutrition goal</h1>
-<p>Nulla arcu erat, fringilla in suscipit a, lobortis eget augue. Aliquam lacus lorem, sodales quis magna at, laoreet mattis nisl. </p>
-</div>
-<div>
-
-</div>
+<div class="rewards">
+	<div class="rewards__recommended">
+		<h2>Recommended goals</h2>
+		<div class="rewards__reward rewards__reward--nutrition">
+			<div class="rewards__image rewards__image--nutrition"></div>
+			<span style="float:right; width:200px;" ng-show="vm.selectedGoalId('NUTRITION') == -1">[Selected*]</span>
+			<span>Eat three different vegetables for dinner. </span>
+		</div>
+		<div class="rewards__reward rewards__reward--movement">
+			<div class="rewards__image rewards__image--movement"></div>
+			<span style="float:right; width:200px;" ng-show="vm.selectedGoalId('MOVEMENT') == -1">[Selected*]</span>
+			<span>Play outside for half an hour.</span>
+		</div>
+		<div class="rewards__reward rewards__reward--sleep">
+			<div class="rewards__image rewards__image--sleep"></div>
+			<span style="float:right; width:200px;" ng-show="vm.selectedGoalId('SLEEP') == -1">[Selected*]</span>
+			<span>Be in bed by 7.</span>
+		</div>
+	</div>
 <h2>Add your own goals <span ng-click="vm.addGoal()">+</span></h2>
 <div ng-repeat="goal in vm.child.customGoals | orderBy: 'id'">
+	<span style="float:right;" ng-show="goal.selected">[Selected*]</span>
 	<p class="activities-row__activity--{{goal.target | lowercase}}">{{goal.goal}} <button ng-click="vm.editGoal(goal)">edit</button></p>
+</div>
 </div>
 
 <modal-dialog show="vm.showAddGoalModal" width="550px" height="350px">

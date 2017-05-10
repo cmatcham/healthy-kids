@@ -1,13 +1,5 @@
 package com.tagtheagency.healthykids.service;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -15,12 +7,9 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -256,7 +245,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		
 		if (goal.isSelected()) {
 			for (Goal other : goalDao.findByChildAndTarget(child, goal.getTarget())) {
-				if (other.getId() != goal.getId()) {
+				if (other.getId() == goal.getId()) {
 					continue;
 				}
 				other.setSelected(false);

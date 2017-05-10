@@ -248,6 +248,57 @@ main {
     /* Chrome, Safari, Opera */
     transform: rotate(-90deg); }
 
+.rewards {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  position: relative;
+  color: red; }
+  .rewards h2 {
+    font-size: 2em;
+    margin: 0 0 0 0; }
+  .rewards__recommended {
+    height: 40%;
+    width: 100%; }
+  .rewards__custom {
+    margin: 80px 0 0 0;
+    height: 40%;
+    width: 100%; }
+  .rewards__image {
+    margin: 15px 30px 15px 0;
+    height: 90px;
+    width: 90px;
+    border-radius: 5px;
+    position: absolute; }
+    .rewards__image--nutrition {
+      background-color: #80C536; }
+    .rewards__image--sleep {
+      background-color: #00B8B1; }
+    .rewards__image--movement {
+      background-color: #7251A0; }
+  .rewards__reward {
+    margin: 10px 0 10px 0;
+    height: calc(100% / 3 - 20px);
+    width: 100%; }
+    .rewards__reward span {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      position: relative;
+      display: block;
+      width: calc(100% - 150px);
+      left: 150px;
+      font-size: 1.3em; }
+    .rewards__reward--nutrition {
+      color: #80C536; }
+    .rewards__reward--sleep {
+      color: #00B8B1; }
+    .rewards__reward--movement {
+      color: #7251A0; }
+
 .home-bg {
   height: 100%;
   width: 100%;
@@ -406,6 +457,8 @@ main {
   width: 60px;
   height: 60px; }
   .user-icon--menu {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
     right: 5%;
     top: 15px;
     z-index: 2;
@@ -421,14 +474,44 @@ main {
   height: 60px;
   width: 100px; }
 
-.tick-chart {
-  top: 50%;
+.selected-goals {
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: absolute;
+  top: 80px;
+  width: 65%;
+  height: 190px; }
+  .selected-goals__goal {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 5px 0 5px 0;
+    height: calc(100% / 3 - 10px);
+    width: 100%;
+    border-radius: 5px;
+    color: white; }
+    .selected-goals__goal span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: relative;
+      font-size: 1.7em; }
+    .selected-goals__goal--movement {
+      background-color: #7251A0; }
+    .selected-goals__goal--nutrition {
+      background-color: #80C536; }
+    .selected-goals__goal--sleep {
+      background-color: #00B8B1; }
+
+.tick-chart {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 460px;
   position: absolute;
   width: 65%;
-  height: 60%; }
+  height: 45%; }
   .tick-chart__column {
     width: calc(100% / 3);
     height: 100%;
@@ -506,13 +589,11 @@ main {
       border-radius: 50%; }
 
 .weekdays-column {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 460px;
   position: absolute;
   margin: 0 0 0 3%;
   width: 13%;
-  height: 60%; }
+  height: 45%; }
   .weekdays-column__weekday {
     font-size: 1.4em;
     color: #EC3F4E;
@@ -529,14 +610,12 @@ main {
       right: 0; }
 
 .daily-goals {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 460px;
   position: absolute;
   right: 0;
   margin: 0 6.5% 0 0;
   width: 10%;
-  height: 60%; }
+  height: 45%; }
   .daily-goals__goal {
     height: calc(100% / 7);
     width: 100%; }
@@ -546,7 +625,7 @@ main {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   position: absolute;
-  bottom: 10%;
+  bottom: 7%;
   height: 10%;
   width: 65%; }
   .weekly-goals__goal {
@@ -574,7 +653,7 @@ main {
   position: absolute;
   width: 65%;
   height: 15%;
-  margin-top: 7%; }
+  top: 23%; }
   .activities-row__image {
     height: 60%;
     width: 100%;

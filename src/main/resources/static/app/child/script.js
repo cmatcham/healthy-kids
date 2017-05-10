@@ -1,9 +1,9 @@
 angular.module('healthyKids')
 	.controller('child', ChildController);
 
-ChildController.$inject = ['$routeParams', 'childService', 'accountService'];
+ChildController.$inject = ['$routeParams', 'childService', 'accountService', '$location'];
 
-function ChildController($routeParams, childService, accountService) {
+function ChildController($routeParams, childService, accountService, $location) {
 	var self = this;
 
 	self.displayInfoSection = displayInfoSection
@@ -20,7 +20,9 @@ function ChildController($routeParams, childService, accountService) {
 	self.saveGoal = saveGoal;
 	self.editGoal = editGoal;
 	self.editingGoal = {id:-1, target:'MOVEMENT'};
-	
+	self.selectedGoal = selectedGoal;
+	self.selectedGoalId = selectedGoalId;
+	self.viewGoalsScreen = viewGoalsScreen;
 	
 	self.getDayObject = getDayObject;
 	
@@ -210,6 +212,53 @@ function ChildController($routeParams, childService, accountService) {
 		edit.goal = goal.goal;
 		edit.selected = goal.selected;
 		self.showAddGoalModal = true;
+	}
+	
+	/**
+	 * Set the route to the goals page
+	 */
+	function viewGoalsScreen() {
+		$location.path('/child/'+self.child.id+'/goals');
+	}
+	
+	function selectedGoal(target) {
+		if (self.child == null) {
+			return '';
+		}
+		var selectedGoal = self.child.customGoals.find(function(goal) {return goal.target == target && goal.selected});
+		if (selectedGoal == null) {
+			return getDefaultGoal(target);
+		} else {
+			return selectedGoal.goal;
+		}
+	}
+	
+	/**
+	 * Return the id of the selected goal for this target, or -1 if there is not one (ie. to use the default).
+	 */
+	function selectedGoalId(target) {
+		if (self.child == null) {
+			return -1;
+		}
+		var selectedGoal = self.child.customGoals.find(function(goal) {return goal.target == target && goal.selected});
+		if (selectedGoal == null) {
+			return -1;
+		} else {
+			return selectedGoal.id;
+		}
+	}
+	
+	function getDefaultGoal(target) {
+		//TODO move this into a config file somewhere, rather than hardcoding!
+		if (target === 'MOVEMENT') {
+			return 'Do 12 star jumps';
+		} else if (target === 'NUTRITION') {
+			return 'Eat 5 pieces of apple';
+		} else if (target === 'SLEEP') {
+			return 'Be in bed by 7pm';
+		} else {
+			return 'Unknown target '+target;
+		}
 	}
 	
 	function activate() {

@@ -1,10 +1,10 @@
 
+$red:#EE2A7B;  
+$yellow:#FFCB05;
+$blue:#00B8B0;
+$green:#82C341;
+$purple:#7352A2;
 
-$red:#EC3F4E;  
-$yellow:#FFD33E;
-$blue:#00B8B1;
-$green:#80C536;
-$purple:#7251A0;
 $white:#F0FFFF;
 $grey:#B4B4B4;
 
@@ -92,7 +92,7 @@ span {
 
 .container {
 	@include center;
-	text-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 	background-color: $white;
 	box-sizing: border-box;
 	position: absolute;
@@ -101,7 +101,7 @@ span {
 }
 
 header {
-	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	color: white;
 	background-color: $red;
 	z-index: 2;
@@ -113,7 +113,7 @@ header {
 
 .header-button {
 	font-size: 1.5em;
-	width: 25%;
+	width: 20%;
 	height: 100%;
 	float: left;
 	position: relative;
@@ -122,9 +122,9 @@ header {
 		@include center;
 		position: relative;
 	}
-	&:nth-child(1):after, &:nth-child(2):after {
+	&:nth-child(1):after, &:nth-child(2):after, &:nth-child(3):after {
 		@include center-vertical;
-		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		display: inline-block;
 		background-color: white;
 		content: "";
@@ -163,7 +163,7 @@ main {
 	height: 60px;
 	background-color: $yellow;
 	border-radius: 5px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 	overflow: hidden;
 	// transition-duration: 1s;
 	color: $white;
@@ -183,7 +183,7 @@ main {
 		position: absolute;
 		right: 0;
 		z-index: 2;
-		box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+		// box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 		background-color: rgba(0,0,0,0.1);
 		transition-duration: 1s;
 		span {
@@ -226,7 +226,7 @@ main {
 	}
 	&__tab {
 		padding: 0 5px 0 5px;
-		box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+		// box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 		position: relative;
 		z-index: 2;
 		height: 100%;
@@ -281,7 +281,7 @@ main {
 	cursor: pointer;
 	background-repeat: no-repeat;
 	&:after {
-		text-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 		top: -5px;
 		left: 15px;
 		line-height: 60px;
@@ -302,7 +302,7 @@ main {
 	width: 90%;
 	height: 90%;
 	position: relative;
-	color: red;
+	color: $red;
 	h2 {
 		font-size: 2em;
 		margin: 0 0 0 0;
@@ -374,7 +374,7 @@ main {
 
 .child-form {
 	@include center-horizontal;
-	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	border-radius: 5px;
 	top: 150px;
 	position: absolute;
@@ -392,13 +392,13 @@ main {
 	}
 	input::placeholder {
 		color: white;
-		text-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 		font-family: 'KGShePersisted';
 	}
 	&__input {
 		@include center-horizontal;
-		box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
-		text-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		outline: none;
 		box-sizing: border-box;
@@ -438,7 +438,7 @@ main {
 
 .info-container {
 	@include center-horizontal;
-	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	z-index: 2;
 	border-radius: 5px;
 	background-color: $blue;
@@ -480,17 +480,19 @@ main {
 		position: relative;
 		margin: 10px 0 10px 0;
 		font-size: 2.3em;
+		color: black;
 	}
 	&__text {
 		@include center-horizontal;
 		position: relative;
 		width: 90%;
+		color: black;
 		ul {
 			height: 180px;
 			overflow: scroll;
 		}
 		li {
-			line-height: 20px;
+			line-height: 30px;
 			margin: 0 0 8px 0;
 		}
 	}
@@ -512,7 +514,7 @@ main {
 	height: 60px;
 	&--menu {
 		background-color: rgba(0,0,0,0.2);
-		box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 		right: 5%;
 		top: 15px;
 		z-index: 2;
@@ -544,7 +546,7 @@ main {
 			font-size: 1.7em;
 		}
 		background-color: white;
-		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		margin: 5px 0 5px 0;
 		height: calc(100% / 3 - 10px);
 		width: 100%;
@@ -584,7 +586,7 @@ main {
 
 .checkbox {
 	@include center;
-	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	border-radius: 25%;
 	width: 60px;
 	height: 60px;
@@ -616,7 +618,7 @@ main {
 
 .tick {
 	@include center;
-	box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 	position: relative;
 	border-radius: 50%;
 	height: 30px;
@@ -639,7 +641,7 @@ main {
 		@include rainbow-animate;
 		&:after {
 			@include center;
-			box-shadow: 0 1px 3px rgba(0,0,0,.3);
+			// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 			content: "";
 			position: relative;
 			display: inline-block;
@@ -764,7 +766,7 @@ main {
 
 .login-form {
 	@include center-horizontal;
-	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	border-radius: 5px;
 	top: 150px;
 	position: absolute;
@@ -811,7 +813,7 @@ main {
 	}
 	input {
 		@include center-horizontal;
-		box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		outline: none;
 		box-sizing: border-box;
@@ -832,7 +834,7 @@ main {
 	}
 	&__submit {
 		@include center-horizontal;
-		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		line-height: calc(100% / 4);
 		border-radius: 10px;
@@ -1019,22 +1021,19 @@ main {
 	background-color: $red;
 }
 
-header#badges-page {
+header#progress-page {
 	height: 10%;
-	border: 1px solid black;
 }
 
-main#badges-page {
+main#progress-page {
 	height: 80%;
-	border: 1px solid black;
 }
 
-footer#badges-page {
+footer#progress-page {
 	height: 10%;
-	border: 1px solid black;
 }
 
-.badges-title {
+.progress-title {
 	height: 5%;
 	span {
 		@include center;
@@ -1042,7 +1041,7 @@ footer#badges-page {
 	}
 }
 
-.category-badges {
+.category-progress {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -1057,7 +1056,6 @@ footer#badges-page {
 		flex: 1;
 		position: relative;
 		border-radius: 50%;
-		border: 1px solid black;
 		margin: 0 10px 0 10px;
 		height: 130px;
 		max-width: 130px;
@@ -1218,7 +1216,7 @@ footer#badges-page {
 	-moz-transform: translate(-50%, -50%);
 
 	background-color: #fff;
-	box-shadow: 4px 4px 80px #000;
+	// box-shadow: 4px 4px 80px #000;
 	
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;

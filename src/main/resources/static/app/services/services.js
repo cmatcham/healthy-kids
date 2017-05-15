@@ -56,6 +56,7 @@ function childService($http) {
 		updateChild: updateChild, 
 		getChild: getChild,
 		getChildren: getChildren,
+		getSummary: getSummary, 
 		setAchievement: setAchievement,
 		getStickers: getStickers,
 		setSticker: setSticker,
@@ -87,6 +88,17 @@ function childService($http) {
 			}
 		);
 
+	}
+	
+	function getSummary(child) {
+		return $http.get('api/child/'+child.id+'/summary').then(
+				function(response) {
+					return response.data;
+				},
+				function (error) {
+					//
+				}
+			);
 	}
 	
 	function updateChild(child) {

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.tagtheagency.healthykids.dto.GoalDTO;
+import com.tagtheagency.healthykids.dto.SummaryDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
@@ -42,5 +43,7 @@ public interface HealthyKidsManager {
 	public int addCustomGoal(Child child, GoalDTO goal);
 
 	public void editCustomGoal(Child child, GoalDTO goal);
+	
+	public SummaryDTO getSummary(Child child);
 
 }

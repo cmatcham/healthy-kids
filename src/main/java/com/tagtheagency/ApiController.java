@@ -22,6 +22,7 @@ import com.tagtheagency.healthykids.dto.AchievementDTO;
 import com.tagtheagency.healthykids.dto.ChildDTO;
 import com.tagtheagency.healthykids.dto.GoalDTO;
 import com.tagtheagency.healthykids.dto.RewardDTO;
+import com.tagtheagency.healthykids.dto.SummaryDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
@@ -143,6 +144,16 @@ public class ApiController {
 		}
 		manager.setSticker(child, sticker);
 		return ChildDTO.convertFrom(child);
+		
+	}
+	
+	@RequestMapping(value="/child/{id}/summary", method = RequestMethod.GET)
+	public SummaryDTO getSummary(@PathVariable int id) throws UnauthorisedException {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		return manager.getSummary(child);
 		
 	}
 

@@ -25,6 +25,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.selectedGoal = selectedGoal;
 	self.selectedGoalId = selectedGoalId;
 	self.viewGoalsScreen = viewGoalsScreen;
+	self.getSummary = getSummary;
+	self.getTotalSummary = getTotalSummary;
 	
 	self.getDayObject = getDayObject;
 	
@@ -203,6 +205,22 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	}
 	
+	function getSummary(activity) {
+		if (typeof self.summary === 'undefined') {
+			return;
+		}
+		if (activity.value === 'movement') {
+			return self.summary.totalMovement;
+		} else if (activity.value === 'sleep') {
+			return self.summary.totalSleep;
+		} else if (activity.value === 'nutrition') {
+			return self.summary.totalNutrition;
+		}
+	}
+	function getTotalSummary() {
+		return self.summary.totalMovement + self.summary.totalSleep + self.summary.totalNutrition;
+	}
+	
 	/**
 	 * Open a modal dialog to 
 	 */
@@ -308,7 +326,11 @@ function ChildController($routeParams, childService, accountService, $location) 
 		.then(function(data) {
 			self.stickers = data;
 		});
-	
+
+		childService.getSummary({id:$routeParams.id})
+			.then(function(data) {
+				self.summary = data;
+			});
 	}
 
 

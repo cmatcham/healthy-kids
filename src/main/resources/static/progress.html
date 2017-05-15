@@ -2,8 +2,10 @@
 <main id="progress-page">
 	<div class="progress-title"><span>My progress</span></div>
 	<div class="category-progress">
-		<div ng-repeat="(i, activity) in vm.targets" class="category-progress__badge category-progress__badge--{{activity.value}}"></div>
+		<div ng-repeat="(i, activity) in vm.targets" class="category-progress__badge category-progress__badge--{{activity.value}}">
+			<span>{{vm.getSummary(activity)}}</span>
+		</div>
 	</div>
-	<div class="category-progress__badge category-progress__badge--total"><span>43</span></div>
+	<div class="category-progress__badge category-progress__badge--total"><span>{{vm.getTotalSummary()}}</span></div>
 </main>
 <footer id="progress-page"></footer>

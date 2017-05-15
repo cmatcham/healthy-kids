@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.tagtheagency.healthykids.dto.GoalDTO;
+import com.tagtheagency.healthykids.dto.SummaryDTO;
 import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
@@ -262,6 +263,15 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 			}
 		}
 		
+	}
+	
+	@Override
+	public SummaryDTO getSummary(Child child) {
+		SummaryDTO dto = new SummaryDTO();
+		dto.setTotalMovement(achievementDao.getTotalMovement(child.getId()));
+		dto.setTotalNutrition(achievementDao.getTotalNutrition(child.getId()));
+		dto.setTotalSleep(achievementDao.getTotalSleep(child.getId()));
+		return dto;
 	}
 	
 }

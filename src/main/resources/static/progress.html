@@ -1,15 +1,8 @@
-<header>
-	<child-menu/>
-	<div class="progress-link"></div>
-	<div class="rewards-link"></div>
-	<div class="chart-link"></div>
-</header>
+<header-partial/>
 <main id="progress-page">
 	<div class="progress-title"><span>My progress</span></div>
 	<div class="category-progress">
-		<div class="category-progress__badge category-progress__badge--movement"><span>12</span></div>
-		<div class="category-progress__badge category-progress__badge--nutrition"><span>7</span></div>
-		<div class="category-progress__badge category-progress__badge--sleep"><span>24</span></div>
+		<div ng-repeat="(i, activity) in vm.targets" class="category-progress__badge category-progress__badge--{{activity.value}}"></div>
 	</div>
 	<div class="category-progress__badge category-progress__badge--total"><span>43</span></div>
 </main>

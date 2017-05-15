@@ -86,13 +86,13 @@ function ChildController($routeParams, childService, accountService, $location) 
 		var color = ''
 		switch(activity.value) {
 		    case 'movement':
-		        color = '#7251A0' //Change!!
+		        color = '#7352A2' //Change!!
 		        break;
 		    case 'nutrition':
-		        color = '#80C536'
+		        color = '#82C341'
 		        break;
 		    case 'sleep':
-		        color = '#00B8B1'
+		        color = '#00B8B0'
 		        break;
 		}
 		$('.info-container').css({'background-color': color})
@@ -304,10 +304,10 @@ function ChildController($routeParams, childService, accountService, $location) 
 				self.achievements = self.child.dailyAchievements;
 			});
 
-		// childService.getStickers()
-		// .then(function(data) {
-		// 	self.stickers = data;
-		// });
+		childService.getStickers()
+		.then(function(data) {
+			self.stickers = data;
+		});
 	
 	}
 

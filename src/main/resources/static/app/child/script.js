@@ -86,7 +86,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		var color = ''
 		switch(activity.value) {
 		    case 'movement':
-		        color = '#7352A2' //Change!!
+		        color = '#7352A2'
 		        break;
 		    case 'nutrition':
 		        color = '#82C341'

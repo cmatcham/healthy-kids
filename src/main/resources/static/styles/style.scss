@@ -1106,34 +1106,30 @@ footer#progress-page {
 	&__badge {
 		flex: 1;
 		position: relative;
-		border-radius: 50%;
+		border-radius: 5px;
 		margin: 0 10px 0 10px;
 		height: 130px;
 		max-width: 130px;
-		span {
-			@include center;
-			position: relative;
-			font-size: 3em;
+		&--movement {
+			background-color: $purple;
 		}
-	}
-}
-
-.total-badge {
-	box-sizing: border-box;
-	height: 20%;
-	width: 100%;
-	padding: 10px 0 10px 0;
-	&__badge {
-		@include center;
-		position: relative;
-		height: 170px;
-		width: 170px;
-		border: 1px solid black;
-		border-radius: 50%;
+		&--nutrition {
+			background-color: $green;
+		}
+		&--sleep {
+			background-color: $blue;
+		}
+		&--total {
+			@include center-horizontal;
+			position: relative;
+			background-color: $red;
+			margin: 10px 0 0 0;
+		}
 		span {
 			@include center;
+			color: white;
 			position: relative;
-			font-size: 3em;
+			font-size: 4em;
 		}
 	}
 }

@@ -220,6 +220,9 @@ function ChildController($routeParams, childService, accountService, $location) 
 		}
 	}
 	function getTotalSummary() {
+		if (typeof self.summary === 'undefined') {
+			return;
+		}
 		return self.summary.totalMovement + self.summary.totalSleep + self.summary.totalNutrition;
 	}
 	

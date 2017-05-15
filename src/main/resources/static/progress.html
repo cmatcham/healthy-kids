@@ -1,11 +1,14 @@
 <header-partial/>
 <main id="progress-page">
-	<div class="progress-title"><span>My progress</span></div>
 	<div class="category-progress">
 		<div ng-repeat="(i, activity) in vm.targets" class="category-progress__badge category-progress__badge--{{activity.value}}">
-			<span>{{vm.getSummary(activity)}}</span>
+			<div class="category-progress__image category-progress__image--{{activity.value}}"></div>
+			<div class="category-progress__number category-progress__number--{{activity.value}}"><span>{{vm.getSummary(activity)}}</span></div>
 		</div>
 	</div>
-	<div class="category-progress__badge category-progress__badge--total"><span>{{vm.getTotalSummary()}}</span></div>
+	<div class="category-progress__badge category-progress__badge--total">
+		<div class="category-progress__image category-progress__image--total"></div>
+		<div class="category-progress__number category-progress__number--total"><span>{{vm.getTotalSummary()}}</span></div>
+	</div>
 </main>
 <footer id="progress-page"></footer>

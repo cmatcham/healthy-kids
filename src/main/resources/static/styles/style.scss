@@ -1084,14 +1084,6 @@ footer#progress-page {
 	height: 10%;
 }
 
-.progress-title {
-	height: 5%;
-	span {
-		@include center;
-		position: relative;
-	}
-}
-
 .category-progress {
 	display: -webkit-box;
 	display: -moz-box;
@@ -1099,17 +1091,34 @@ footer#progress-page {
 	display: -moz-flex;
 	display: -webkit-flex;
 	display: flex;
-	height: 15%;
+	height: 30%;
 	padding: 0 15% 0 15%;
 	align-items: center;
 	justify-content: space-between;
-	&__badge {
-		flex: 1;
-		position: relative;
-		border-radius: 5px;
-		margin: 0 10px 0 10px;
+	&__image {
+		height: 70px;
+		width: 100%;
+		top: 0;
+		position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		&--sleep {
+			background-image: url('../imgs/sleep.png');
+		}
+		&--nutrition {
+			background-image: url('../imgs/nutrition.png');
+		}
+		&--movement {
+			background-image: url('../imgs/movement.png');
+		}
+	}
+	&__number {
+		width: 130px;
 		height: 130px;
-		max-width: 130px;
+		bottom: 0px;
+		position: absolute;
+		border-radius: 5px;
 		&--movement {
 			background-color: $purple;
 		}
@@ -1120,9 +1129,18 @@ footer#progress-page {
 			background-color: $blue;
 		}
 		&--total {
+			background-color: $red;
+		}
+	}
+	&__badge {
+		flex: 1;
+		position: relative;
+		margin: 0 10px 0 10px;
+		height: 200px;
+		max-width: 130px;
+		&--total {
 			@include center-horizontal;
 			position: relative;
-			background-color: $red;
 			margin: 10px 0 0 0;
 		}
 		span {

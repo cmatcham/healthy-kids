@@ -12,8 +12,10 @@
 				<div></div>
 				<div></div>
 			</div>
-			<div class="sticker-select">
-				<div class="child-form__sticker"></div>
+			<div class="sticker-select" ng-init=vm.getStickers()>
+				<div class="sticker-select__sticker" ng-repeat="sticker in vm.stickers">
+					<img ng-src="stickers/{{sticker}}" ng-click="vm.setSticker(sticker)"/>
+				</div>
 			</div>
 		</div>
 		<div class="child-form__input child-form__input--submit" ng-click="vm.createChild()"><span>Save</span></div>

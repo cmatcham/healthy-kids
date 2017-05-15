@@ -8,6 +8,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	self.displayInfoSection = displayInfoSection
 	self.displayStickerSelect = displayStickerSelect
+	self.getStickers = getStickers
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.isSuperGoal = isSuperGoal;
@@ -110,12 +111,20 @@ function ChildController($routeParams, childService, accountService, $location) 
 		}
 	}
 
+	function getStickers() {
+		childService.getStickers()
+		.then(function(data) {
+			self.stickers = data;
+		});
+	}
+
 	function displayStickerSelect() { // Refactor into general fn
 		self.stickerSelect = !self.stickerSelect
 		if (self.stickerSelect) {
-			$('.sticker-select').show()
-			$('.sticker-select').animate({height: '200px'})
+			$('.sticker-select__sticker').show()
+			$('.sticker-select').animate({height: '250px'})
 		} else {
+			$('.sticker-select__sticker').hide()
 			$('.sticker-select').animate({height: '0px'})
 		}
 	}
@@ -294,10 +303,11 @@ function ChildController($routeParams, childService, accountService, $location) 
 				self.newChild = self.child;
 				self.achievements = self.child.dailyAchievements;
 			});
-		childService.getStickers()
-		.then(function(data) {
-			self.stickers = data;
-		});
+
+		// childService.getStickers()
+		// .then(function(data) {
+		// 	self.stickers = data;
+		// });
 	
 	}
 

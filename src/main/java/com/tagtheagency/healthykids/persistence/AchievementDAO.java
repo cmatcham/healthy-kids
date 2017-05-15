@@ -25,5 +25,7 @@ public interface AchievementDAO extends CrudRepository<Achievement, Long>{
 
 	@Query(value = "SELECT count(movement) FROM achievement a WHERE a.child_id = :childId AND movement = true", nativeQuery=true)
 	public long getTotalMovement(@Param("childId") int childId);
+	
+	void deleteByChild(Child child);
 
 }

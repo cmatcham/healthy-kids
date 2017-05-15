@@ -11,5 +11,5 @@ import com.tagtheagency.healthykids.model.Child;
 public interface ChildDAO extends CrudRepository<Child, Long>{
 
 	List<Child> findByAccount(Account account);
-
+	
 }

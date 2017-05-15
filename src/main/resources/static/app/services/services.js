@@ -61,7 +61,8 @@ function childService($http) {
 		getStickers: getStickers,
 		setSticker: setSticker,
 		setRewards: setRewards,
-		setGoal: setGoal
+		setGoal: setGoal,
+		deleteChild: deleteChild
 	};
 	
 	function getChild(id) {
@@ -92,6 +93,17 @@ function childService($http) {
 	
 	function getSummary(child) {
 		return $http.get('api/child/'+child.id+'/summary').then(
+				function(response) {
+					return response.data;
+				},
+				function (error) {
+					//
+				}
+			);
+	}
+	
+	function deleteChild(child) {
+		return $http.delete('api/child/'+child.id).then(
 				function(response) {
 					return response.data;
 				},

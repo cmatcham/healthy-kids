@@ -965,15 +965,6 @@ main#progress-page {
 footer#progress-page {
   height: 10%; }
 
-.progress-title {
-  height: 5%; }
-  .progress-title span {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: relative; }
-
 .category-progress {
   display: -webkit-box;
   display: -moz-box;
@@ -981,29 +972,49 @@ footer#progress-page {
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
-  height: 15%;
+  height: 30%;
   padding: 0 15% 0 15%;
   align-items: center;
   justify-content: space-between; }
+  .category-progress__image {
+    height: 70px;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+    .category-progress__image--sleep {
+      background-image: url("../imgs/sleep.png"); }
+    .category-progress__image--nutrition {
+      background-image: url("../imgs/nutrition.png"); }
+    .category-progress__image--movement {
+      background-image: url("../imgs/movement.png"); }
+  .category-progress__number {
+    width: 130px;
+    height: 130px;
+    bottom: 0px;
+    position: absolute;
+    border-radius: 5px; }
+    .category-progress__number--movement {
+      background-color: #7352A2; }
+    .category-progress__number--nutrition {
+      background-color: #82C341; }
+    .category-progress__number--sleep {
+      background-color: #00B8B0; }
+    .category-progress__number--total {
+      background-color: #EE2A7B; }
   .category-progress__badge {
     flex: 1;
     position: relative;
-    border-radius: 5px;
     margin: 0 10px 0 10px;
-    height: 130px;
+    height: 200px;
     max-width: 130px; }
-    .category-progress__badge--movement {
-      background-color: #7352A2; }
-    .category-progress__badge--nutrition {
-      background-color: #82C341; }
-    .category-progress__badge--sleep {
-      background-color: #00B8B0; }
     .category-progress__badge--total {
       left: 50%;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
       position: relative;
-      background-color: #EE2A7B;
       margin: 10px 0 0 0; }
     .category-progress__badge span {
       top: 50%;

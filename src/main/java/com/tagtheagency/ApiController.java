@@ -147,6 +147,16 @@ public class ApiController {
 		
 	}
 	
+	@RequestMapping(value="/child/{id}", method = RequestMethod.DELETE)
+	public List<ChildDTO> deleteChild(@PathVariable int id) {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		manager.delete(child);
+		return children();
+	}
+	
 	@RequestMapping(value="/child/{id}/summary", method = RequestMethod.GET)
 	public SummaryDTO getSummary(@PathVariable int id) throws UnauthorisedException {
 		Child child = findChild(id);

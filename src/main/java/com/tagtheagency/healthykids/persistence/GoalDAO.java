@@ -12,4 +12,6 @@ import com.tagtheagency.healthykids.model.Target;
 public interface GoalDAO extends CrudRepository<Goal, Integer>{
 
 	List<Goal> findByChildAndTarget(Child child, Target target);
+	
+	void deleteByChild(Child child);
 }

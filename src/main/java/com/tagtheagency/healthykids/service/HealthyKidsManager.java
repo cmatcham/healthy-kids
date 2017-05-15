@@ -46,4 +46,6 @@ public interface HealthyKidsManager {
 	
 	public SummaryDTO getSummary(Child child);
 
+	public void delete(Child child);
+
 }

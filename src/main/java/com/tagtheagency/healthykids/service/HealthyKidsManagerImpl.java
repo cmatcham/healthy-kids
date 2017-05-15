@@ -7,9 +7,12 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -273,5 +276,14 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		dto.setTotalSleep(achievementDao.getTotalSleep(child.getId()));
 		return dto;
 	}
+	
+	@Override
+	@Transactional
+	public void delete(Child child) {
+		goalDao.deleteByChild(child);
+		rewardDao.deleteByChild(child);
+		achievementDao.deleteByChild(child);
+		childDao.delete(child);
+	}	
 	
 }

@@ -28,6 +28,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.getSummary = getSummary;
 	self.getTotalSummary = getTotalSummary;
 	
+	self.deleteChild = deleteChild;
+	
 	self.getDayObject = getDayObject;
 	
 	self.stickers = [];
@@ -331,6 +333,14 @@ function ChildController($routeParams, childService, accountService, $location) 
 			.then(function(data) {
 				self.summary = data;
 			});
+	}
+	
+	function deleteChild(id) {
+		//NOTE WELL, assumes all relevant checks have been done, not reversible!
+		childService.deleteChild({id:id}).then(function(data) {
+			self.children = data;
+			$location.path('/child-select/');
+		});
 	}
 
 

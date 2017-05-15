@@ -7,6 +7,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	var self = this;
 
 	self.displayInfoSection = displayInfoSection
+	self.displayStickerSelect = displayStickerSelect
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
 	self.isSuperGoal = isSuperGoal;
@@ -66,7 +67,6 @@ function ChildController($routeParams, childService, accountService, $location) 
 	 */
 
 	function logout() {
-		console.log('???')
 		accountService.logout()
 	}
 
@@ -85,7 +85,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		var color = ''
 		switch(activity.value) {
 		    case 'movement':
-		        color = '#7251A0'
+		        color = '#7251A0' //Change!!
 		        break;
 		    case 'nutrition':
 		        color = '#80C536'
@@ -107,6 +107,16 @@ function ChildController($routeParams, childService, accountService, $location) 
 		} else {
 			$('.info-inner').hide()
 			$('.info-container').animate({height: '35px'})
+		}
+	}
+
+	function displayStickerSelect() { // Refactor into general fn
+		self.stickerSelect = !self.stickerSelect
+		if (self.stickerSelect) {
+			$('.sticker-select').show()
+			$('.sticker-select').animate({height: '200px'})
+		} else {
+			$('.sticker-select').animate({height: '0px'})
 		}
 	}
 	

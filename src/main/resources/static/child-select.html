@@ -1,6 +1,6 @@
 <div class="home-bg"></div>
 <div class="child-select-inner">
-	<div class="child-select-button child-select-button--add"><a href="#/child-update"><span>Add Child</span></a></div>
+	<a href="#/child-update"><div class="child-select-button child-select-button--add"><span>Add Child</span></div></a>
 	<div ng-repeat="child in vm.children" class="child-select-button">
 		<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
 		<div class="child-select-button__edit"><a href="#/child/{{child.id}}/update"><span>Edit</span></a></div>

@@ -667,6 +667,39 @@ main {
 	}
 }
 
+.congrats-popup {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.6);
+	position: absolute;
+	z-index: 3;
+	&__inner {
+		@include center-horizontal;
+		position: relative;
+		height: 500px;
+		width: 500px;
+		top: 300px;
+		background-color: white;
+		border-radius: 5px;
+	}
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 5px 10px 0 0;
+		display: inline-block;
+		cursor: pointer;
+		span {
+			opacity: 0.5;
+			font-size: 2em;
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+	}
+
+}
+
 .tick {
 	@include center;
 	// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);

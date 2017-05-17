@@ -8,6 +8,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	self.displayInfoSection = displayInfoSection
 	self.displayStickerSelect = displayStickerSelect
+	self.displayCongrats = displayCongrats
 	self.getStickers = getStickers
 	self.isDailyGoal = isDailyGoal;
 	self.isWeeklyGoal = isWeeklyGoal;
@@ -35,6 +36,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.stickers = [];
 	self.newCustomReward = '';
 	self.infoOpen = false
+	self.congratsOpen = false
 
 	self.week = 'this';
 	self.achievements = {};
@@ -112,6 +114,15 @@ function ChildController($routeParams, childService, accountService, $location) 
 		} else {
 			$('.info-inner').hide()
 			$('.info-container').animate({height: '35px'})
+		}
+	}
+
+	function displayCongrats() {
+		self.congratsOpen = !self.congratsOpen
+		if (self.congratsOpen) {
+			$('.congrats-popup').fadeIn()
+		} else {
+			$('.congrats-popup').fadeOut()
 		}
 	}
 

@@ -336,8 +336,16 @@ main {
 		margin: 10px 0 10px 0;
 		height: calc(100% / 3 - 20px);
 		width: 100%;
-		span {
+		span, textarea {
 			@include center-vertical;
+			font-family: 'KGShePersisted';
+			outline: none;
+			box-sizing: border-box;
+			border: none;
+			-webkit-appearance: none;
+			color: inherit;
+			background-color: inherit;
+			resize: none;
 			position: relative;
 			display: block;
 			width: calc(100% - 150px);
@@ -673,6 +681,7 @@ main {
 	background-color: rgba(0,0,0,0.6);
 	position: absolute;
 	z-index: 3;
+	display: none;
 	&__inner {
 		@include center-horizontal;
 		position: relative;

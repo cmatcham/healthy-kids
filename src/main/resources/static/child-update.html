@@ -1,6 +1,6 @@
 <div class="child-update-bg"></div>
 <div class="child-form">
-	<div class="child-form__icon"></div>
+	<div class="child-form__icon" style="background-image: url('stickers/{{vm.child.sticker || 'sticker1.png'}}');"></div>
 	<form class="child-form__form child-form__form--new">
 		<input class="child-form__input" placeholder="Name" type="text" ng-model="vm.newChild.firstName" ng-required="true"/>
 		<input class="child-form__input" placeholder="Age" type="number" min="1" max="100" ng-model="vm.newChild.age"/>

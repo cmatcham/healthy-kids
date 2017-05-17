@@ -6,8 +6,8 @@ angular
 function config($routeProvider, $httpProvider) {
 
 	$routeProvider.when('/', {
-		templateUrl : 'home.html',
-		controller : 'home',
+		templateUrl : 'child-select.html',
+		controller : 'child',
 		controllerAs: 'vm'
 	}).when('/login', {
 		templateUrl : 'login.html',

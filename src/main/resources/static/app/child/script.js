@@ -197,13 +197,13 @@ function ChildController($routeParams, childService, accountService, $location) 
 	}
 	
 	function setSticker(sticker) {
-		self.child.sticker = sticker;
-		childService.setSticker(self.child.id, sticker);
-		self.children.forEach(function(child) {
-			if (child.id === self.child.id) {
-				child.sticker = sticker;
-			}
-		});
+		self.newChild.sticker = sticker;
+		// childService.setSticker(self.child.id, sticker);
+		// self.children.forEach(function(child) {
+		// 	if (child.id === self.child.id) {
+		// 		child.sticker = sticker;
+		// 	}
+		// });
 	}
 	
 	function updateRewards() {

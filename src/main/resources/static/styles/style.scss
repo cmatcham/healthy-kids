@@ -152,6 +152,7 @@ main {
 	height: 380px;
 	// background-color: white;
 	border-radius: 5px;
+	overflow: scroll;
 }
 
 .child-select-button {
@@ -185,7 +186,6 @@ main {
 		z-index: 2;
 		// box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 		background-color: rgba(0,0,0,0.1);
-		transition-duration: 1s;
 		span {
 			@include center;
 			position: absolute;
@@ -193,7 +193,7 @@ main {
 		}
 	}
 	&:hover {
-		border: 2px solid black;
+		color: $red;
 	}
 }
 
@@ -390,10 +390,12 @@ main {
 	height: 410px;
 	background-color: $white;
 	&__icon {
+		@include center-horizontal;
+		background-position: center;
+		background-size: contain;
 		width: 75px;
 		height: 75px;
 		border: 2px solid $yellow;
-		@include center-horizontal;
 		position: relative;
 		border-radius: 5px;
 		margin: 10px 0 10px 0;
@@ -572,7 +574,7 @@ main {
 	width: 60px;
 	height: 60px;
 	&--menu {
-		background-color: rgba(0,0,0,0.2);
+		background-color: rgba(256,256,256,0.2);
 		// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
 		right: 5%;
 		top: 15px;
@@ -980,17 +982,20 @@ main {
 }
 
 .child-menu {
-	top: 65px;
+	top: 75px;
 	transition-duration: 1s;
 	border-radius: 5px;
 	z-index: 2;
 	position: absolute;
 	right: 0;
 	margin: 10px 0px 0 0;
-	height: 550px;
+	height: 370px;
 	width: 350px;
 	background-color: $red;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	&:after {
+		// overflow: visible;
 		right: 0;
 		content:"";
 		display: inline;
@@ -999,7 +1004,7 @@ main {
 		position: absolute;
 		top: -7px;
 		margin-right: 15px;
-		background-color: inherit;
+		background-color: $red;
 		-ms-transform: rotate(45deg); 
 	    -webkit-transform: rotate(45deg); 
 	    transform: rotate(45deg);
@@ -1024,7 +1029,10 @@ main {
 	}
 	&__profile-pic {
 		@include center-vertical;
-		border: 1px solid black;
+		border-radius: 5px;
+		background-color: rgba(256,256,256,0.2);
+		background-size: contain;
+		background-repeat: no-repeat;
 		position: absolute;
 		margin-left: 10px;
 		width: 75px;
@@ -1042,25 +1050,7 @@ main {
 		width: 100%;
 		padding-left: 95px;
 		font-size: 2em;
-		span {
-			top: -10px;
-			position: absolute;
-		}
-	}
-	&__see-more {
-		border-radius: inherit;
-		width: 100%;
-		height: 10%;
-		float: left;
-		background-color: $purple;
-		&:after { //fix for border radius on top of div
-			display: block;
-			content: "";
-			width: 100%;
-			height: 10px;
-			top: 0;
-			background-color: inherit; 
-		}
+
 	}
 }
 

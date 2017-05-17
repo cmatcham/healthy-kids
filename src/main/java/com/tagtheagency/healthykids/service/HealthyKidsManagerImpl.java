@@ -171,7 +171,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		//TODO - below code works locally, but fails on Heroku.
 		//need to figure out how Heroku file system works.
 		//for now just hardcode
-		return Arrays.asList("sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png", "sticker9.png", "sticker10.png", "sticker11.png");
+		return Arrays.asList("sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png", "sticker9.png", "sticker10.png", "sticker11.png", "sticker12.png");
 		/*
 		
 		List<String> files = new ArrayList<>();

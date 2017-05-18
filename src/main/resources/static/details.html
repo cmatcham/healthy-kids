@@ -8,7 +8,7 @@
 						<div></div>
 						<div></div>
 					</div>	
-					<div ng-init="vm.changeInfoTab(vm.targets[1])" ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
+					<div ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
 						<div class="info-tabs__image info-tabs__image--{{activity.value}}"></div>
 					</div>
 				</div>
@@ -40,7 +40,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="info-button" ng-click="vm.displayInfoSection()"></div>
+			<div class="info-button" ng-click="vm.displayInfoSection(); vm.changeInfoTab(vm.targets[0])"></div>
 		</div>
 		<div class="selected-goals">
 			<div class="selected-goals__goal selected-goals__goal--nutrition">

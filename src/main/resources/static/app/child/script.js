@@ -125,6 +125,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 			$('.info-container').animate({height: '1150px'})
 		} else {
 			$('.info-inner').hide()
+			// $('.info-container, .info-button').css({'background-color': '#FFCB05'})
 			$('.info-container').animate({height: '35px'})
 		}
 	}

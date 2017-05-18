@@ -90,7 +90,7 @@
 			<span ng-show="vm.week == 'this'" ng-click="vm.changeWeek('last')">&lt;&lt; Last week</span>
 			<span ng-show="vm.week == 'last'" ng-click="vm.changeWeek('this')">This week &gt;&gt;</span>
 		</div>
-		<div class="congrats-popup" ng-init="vm.displayCongrats()">
+		<div class="congrats-popup">
 			<div class="congrats-popup__inner">
 				<div class="congrats-popup__close" ng-click="vm.displayCongrats()"><span>X</span>
 				<p>{{vm.congratulations}}</div>

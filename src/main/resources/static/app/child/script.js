@@ -117,12 +117,13 @@ function ChildController($routeParams, childService, accountService, $location) 
 		}
 	}
 
-	function displayCongrats() {
-		self.congratsOpen = !self.congratsOpen
+	function displayCongrats(which) {
+		self.congratsOpen = !self.congratsOpen;
 		if (self.congratsOpen) {
-			$('.congrats-popup').fadeIn()
+			$('.congrats-popup').fadeIn();
+			self.congratulations = which;
 		} else {
-			$('.congrats-popup').fadeOut()
+			$('.congrats-popup').fadeOut();
 		}
 	}
 
@@ -152,6 +153,13 @@ function ChildController($routeParams, childService, accountService, $location) 
 		var current = self.achievements[weekday.value][activity];
 		self.achievements[weekday.value][activity] = !current;
 		childService.setAchievement(self.child.id, self.achievements[weekday.value]);
+		if (self.isSuperGoal()) {
+			displayCongrats('super');
+		} else if (self.isWeeklyGoal({'value':activity})) {
+			displayCongrats('weekly')
+		} else if (self.isDailyGoal(weekday)) {
+			displayCongrats('daily');
+		}
 	}
 	
 	function isDailyGoal(weekday) {

@@ -109,7 +109,8 @@ main {
   position: absolute;
   width: 55%;
   height: 380px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  overflow: scroll; }
 
 .child-select-button {
   left: 50%;
@@ -140,8 +141,7 @@ main {
     position: absolute;
     right: 0;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition-duration: 1s; }
+    background-color: rgba(0, 0, 0, 0.1); }
     .child-select-button__edit span {
       top: 50%;
       left: 50%;
@@ -150,7 +150,7 @@ main {
       position: absolute;
       font-size: 0.6em; }
   .child-select-button:hover {
-    border: 2px solid black; }
+    color: #EE2A7B; }
 
 .info-inner {
   display: none; }
@@ -276,10 +276,18 @@ main {
     margin: 10px 0 10px 0;
     height: calc(100% / 3 - 20px);
     width: 100%; }
-    .rewards__reward span {
+    .rewards__reward span, .rewards__reward textarea {
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
+      font-family: 'KGShePersisted';
+      outline: none;
+      box-sizing: border-box;
+      border: none;
+      -webkit-appearance: none;
+      color: inherit;
+      background-color: inherit;
+      resize: none;
       position: relative;
       display: block;
       width: calc(100% - 150px);
@@ -317,12 +325,14 @@ main {
   height: 410px;
   background-color: #F0FFFF; }
   .child-form__icon {
-    width: 75px;
-    height: 75px;
-    border: 2px solid #FFCB05;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    background-position: center;
+    background-size: contain;
+    width: 75px;
+    height: 75px;
+    border: 2px solid #FFCB05;
     position: relative;
     border-radius: 5px;
     margin: 10px 0 10px 0; }
@@ -501,7 +511,7 @@ main {
   width: 60px;
   height: 60px; }
   .user-icon--menu {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     right: 5%;
     top: 15px;
     z-index: 2;
@@ -587,6 +597,36 @@ main {
     background-image: url("../imgs/daily-goal.png"); }
   .checkbox--selected {
     background-image: url(""); }
+
+.congrats-popup {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: 3;
+  display: none; }
+  .congrats-popup__inner {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: relative;
+    height: 500px;
+    width: 500px;
+    top: 300px;
+    background-color: white;
+    border-radius: 5px; }
+  .congrats-popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 10px 0 0;
+    display: inline-block;
+    cursor: pointer; }
+    .congrats-popup__close span {
+      opacity: 0.5;
+      font-size: 2em; }
+      .congrats-popup__close span:hover {
+        opacity: 0.9; }
 
 .tick {
   top: 50%;
@@ -838,16 +878,18 @@ main {
     top: 700px; }
 
 .child-menu {
-  top: 65px;
+  top: 75px;
   transition-duration: 1s;
   border-radius: 5px;
   z-index: 2;
   position: absolute;
   right: 0;
   margin: 10px 0px 0 0;
-  height: 550px;
+  height: 370px;
   width: 350px;
-  background-color: #EE2A7B; }
+  background-color: #EE2A7B;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .child-menu:after {
     right: 0;
     content: "";
@@ -857,7 +899,7 @@ main {
     position: absolute;
     top: -7px;
     margin-right: 15px;
-    background-color: inherit;
+    background-color: #EE2A7B;
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
@@ -883,7 +925,10 @@ main {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
     margin-left: 10px;
     width: 75px;
@@ -901,22 +946,6 @@ main {
     width: 100%;
     padding-left: 95px;
     font-size: 2em; }
-    .child-menu__name span {
-      top: -10px;
-      position: absolute; }
-  .child-menu__see-more {
-    border-radius: inherit;
-    width: 100%;
-    height: 10%;
-    float: left;
-    background-color: #7352A2; }
-    .child-menu__see-more:after {
-      display: block;
-      content: "";
-      width: 100%;
-      height: 10px;
-      top: 0;
-      background-color: inherit; }
 
 .homepage-background-squares {
   width: 100%;

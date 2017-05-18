@@ -322,14 +322,17 @@ main {
 		width: 90px;
 		border-radius: 5px;
 		position: absolute;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
 		&--nutrition {
-			background-color: $green;
+			border: 2px solid $green;
 		}
 		&--sleep {
-			background-color: $blue;
+			border: 2px solid $blue;
 		}
 		&--movement {
-			background-color: $purple;
+			border: 2px solid $purple;
 		}
 	}
 	&__reward {

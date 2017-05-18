@@ -19,6 +19,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeWeek = changeWeek;
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
+	self.randomStar = randomStar;
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
@@ -91,6 +92,11 @@ function ChildController($routeParams, childService, accountService, $location) 
 	function randomTrophy() {
 		var trophies = ['Trophies-1.png', 'Trophies-2.png', 'Trophies-3.png', 'Trophies-4.png']
 		return trophies[Math.floor(Math.random() * trophies.length)]
+	}
+
+	function randomStar() {
+		var stars = ['Stars-1.png', 'Stars-2.png', 'Stars-3.png', 'Stars-4.png', 'Stars-5.png']
+		return stars[Math.floor(Math.random() * stars.length)]
 	}
 
 	function changeInfoTab(activity) {

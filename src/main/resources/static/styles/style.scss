@@ -881,6 +881,19 @@ main {
 	}
 }
 
+.home-intro {
+	@include center-horizontal;
+	width: 80%;
+	height: 250px;
+	position: relative;
+	top: 290px;
+	p {
+		font-size: 1.3em;
+		color: white;
+		font-family: 'Verdana';
+	}
+}
+
 .login-form {
 	@include center-horizontal;
 	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -911,6 +924,7 @@ main {
 		}
 		span:nth-child(3) {
 			right: 120px;
+			text-decoration: underline;
 		}
 		span#sign-in {
 			left: 0;

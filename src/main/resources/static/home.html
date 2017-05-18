@@ -15,6 +15,27 @@
 <div class="home-intro">
 	<p>Helen and Amos transformed their own lives when they changed how they cared for their bodies. Now they do that for their kids, making sure that healthy eating, movement, and sleep are just part of their family’s routine.</p>
 </div>
+<div class="info-container info-container--home" ng-init="vm.changeInfoTab(vm.targets[0])">
+	<div class="info-inner info-inner--home">
+		<div class="info-tabs">	
+			<div class="info-tabs__behind-tabs info-tabs__behind-tabs--home">
+				<div></div>
+				<div></div>
+			</div>	
+			<div ng-repeat="(i, activity) in vm.targets" class="info-tabs__tab info-tabs__tab--{{activity.value}}" ng-click="vm.changeInfoTab(activity)">
+				<div class="info-tabs__image info-tabs__image--{{activity.value}}"></div>
+			</div>
+		</div>
+		<div class="info-container__title">{{vm.current_activity.display}}</div>
+		<div class="info-container__video"></div>
+		<div class="info-container__caption">
+			Meal times in the Amosa household are special times for everyone to spend time with each other. With nine people to feed, Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they all enjoy.
+		</div>
+		<h2>Tips for eating well</h2>
+		<div class="info-container__text">
+		</div>
+	</div>
+</div>
 
 <div class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin">Sign up</span></div>
 <div ng-show="vm.showLogin" class="login-form" ng-init="vm.landingScreen()">

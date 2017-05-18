@@ -24,9 +24,15 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	self.createChild = createChild;
 	self.createAccount = createAccount;
 	self.landingScreen = landingScreen;
+	self.changeInfoTab = changeInfoTab;
 	self.logout = logout;
 
 	self.showLogin = false
+	self.targets = [
+		{'display':'Eat', 'value':'nutrition'},
+		{'display':'Move', 'value':'movement'},
+		{'display':'Sleep', 'value':'sleep'}
+	];
 
 	function logout() {
 		accountService.logout()
@@ -41,6 +47,25 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 			console.log('error');
 		});
 	};
+
+	function changeInfoTab(activity) {
+		self.current_activity = activity
+		var color = ''
+		switch(activity.value) {
+		    case 'movement':
+		        color = '#7352A2'
+		        break;
+		    case 'nutrition':
+		        color = '#82C341'
+		        break;
+		    case 'sleep':
+		        color = '#00B8B0'
+		        break;
+		}
+		$('.info-container').css({'background-color': color})
+		$('.info-tabs__behind-tabs > div:nth-child(2)').css({'background-color': color})
+		$('.info-button').css({'background-color': color})
+	}
 
 	function landingScreen() {
 		setTimeout(function(){

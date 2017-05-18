@@ -199,6 +199,9 @@ main {
 
 .info-inner {
 	display: none;
+	&--home {
+		display: inline;
+	}
 }
 
 .info-tabs {
@@ -512,6 +515,11 @@ main {
 	height: 35px;
 	width: 100%;
 	color: white;
+	&--home {
+		top: 420px;
+		height: 725px;
+		padding-top: 0px;
+	}
 	&__title {
 		@include center-horizontal;
 		display: inline-block;

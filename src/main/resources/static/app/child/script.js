@@ -62,8 +62,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 		{"name":"Sunday", "value":6}
 	];
 	self.targets = [
-		{'display':'Move', 'value':'movement'},
 		{'display':'Eat', 'value':'nutrition'},
+		{'display':'Move', 'value':'movement'},
 		{'display':'Sleep', 'value':'sleep'}
 	];
 	

@@ -684,6 +684,24 @@ main {
 	position: absolute;
 	z-index: 3;
 	display: none;
+	h1 {
+		text-align: center;
+		color: $red;
+		font-size: 3em;
+		margin: 0 0 0 0;
+		position: relative;
+		z-index: 2;
+	}
+	&__image {
+		@include center-horizontal;
+		position: absolute; 
+		width: 300px;
+		height: 300px;
+		top: 70px;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 	&__inner {
 		@include center-horizontal;
 		position: relative;
@@ -700,6 +718,7 @@ main {
 		margin: 5px 10px 0 0;
 		display: inline-block;
 		cursor: pointer;
+		z-index: 3;
 		span {
 			opacity: 0.5;
 			font-size: 2em;

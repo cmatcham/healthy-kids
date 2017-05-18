@@ -18,6 +18,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.updateRewards = updateRewards;
 	self.changeWeek = changeWeek;
 	self.changeInfoTab = changeInfoTab;
+	self.randomTrophy = randomTrophy;
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
@@ -87,6 +88,11 @@ function ChildController($routeParams, childService, accountService, $location) 
 		
 	}
 
+	function randomTrophy() {
+		var trophies = ['Trophies-1.png', 'Trophies-2.png', 'Trophies-3.png', 'Trophies-4.png']
+		return trophies[Math.floor(Math.random() * trophies.length)]
+	}
+
 	function changeInfoTab(activity) {
 		self.current_activity = activity
 		var color = ''
@@ -121,6 +127,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		self.congratsOpen = !self.congratsOpen;
 		if (self.congratsOpen) {
 			$('.congrats-popup').fadeIn();
+			self.randomTrophy()
 			self.congratulations = which;
 		} else {
 			$('.congrats-popup').fadeOut();

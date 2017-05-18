@@ -26,6 +26,8 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	self.landingScreen = landingScreen;
 	self.logout = logout;
 
+	self.showLogin = false
+
 	function logout() {
 		accountService.logout()
 	}
@@ -41,11 +43,11 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	};
 
 	function landingScreen() {
-		console.log('splash')
 		setTimeout(function(){
 			$('.homepage-background-squares--splash').fadeOut()
-			$('.title-text').css({top: '620px'})
-		}, 4000);
+			$('.week-nav--home').fadeIn()
+			$('.title-text').css({top: '30px'})
+		}, 1000);
 	}
 
 	function createAccount() {

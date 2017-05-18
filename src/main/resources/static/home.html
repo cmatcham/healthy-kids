@@ -1,57 +1,34 @@
 <div class="home-bg"></div>
-<div ng-show="authenticated">
-	<div class="user-icon user-icon--menu" ng-click="showChildMenu()"></div>
-	<div class="homepage-background-squares">
-		<div class="homepage-background-squares__square">	
-		    <ul ng-repeat="child in vm.children">
-		    	<li><a href="#/child/{{child.id}}">{{child.firstName}} {{child.lastName}}</a></li>
-		    </ul>
-		</div>
-		<div class="homepage-background-squares__square">
-			<h1>New Child</h1>
-			<form>
-				<input placeholder="First Name" type="text" class="form-control" ng-model="vm.newChild.firstName" ng-required="true"/>
-				<input placeholder="Last Name" type="text" class="form-control" ng-model="vm.newChild.lastName" ng-required="true"/>
-				<button class="btn btn-primary" ng-click="vm.createChild()">Add child</button>
-			</form>
-			<button ng-click="vm.logout()">Logout</button>
-		</div>
-		<div class="homepage-background-squares__square"></div>
-		<div class="homepage-background-squares__square"></div>
-	</div>
-	<div class="homepage-background-footer"></div>
+<div class="title-text">
+	<div class="title-text__welcome">Welcome to</div>
+	<div class="title-text__title">Healthy Kids</div>
+	<br>
+	<div class="title-text__sub">eat&middot;move&middot;sleep</div>
 </div>
-
-<div ng-show="!authenticated">
-	<div class="homepage-background-squares homepage-background-squares--splash">
-		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
-		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
-		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
-		<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
-	</div>
-	<div class="login-form" ng-init="vm.landingScreen()">
-	    <div class="login-form__header">
-	    <div class="login-form__text">    	
-	        <span>Join</span>
-	        <span>Already a member?</span>
-	        <span><a href="#/login">Sign in</a></span>
-	    </div>
-	    </div>
-	    <form>
-	    	<input type="email" placeholder="Email" ng-model="vm.newAccount.email">
-	    	<input type="password" placeholder="Password">
-	    	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
-		    <div class="login-form__submit" ng-click="vm.createAccount()">
-		    	<span>Join Now</span>
-		    </div>
-	    </form>
+<div class="homepage-background-squares homepage-background-squares--splash">
+	<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+	<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+	<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+	<div class="homepage-background-squares__square homepage-background-squares__square--splash"></div>
+</div>
+<div class="week-nav week-nav--home"></div>
+<div ng-show="showLogin" class="login-form" ng-init="vm.landingScreen()">
+    <div class="login-form__header">
+    <div class="login-form__text">    	
+        <span>Join</span>
+        <span>Already a member?</span>
+        <span><a href="#/login">Sign in</a></span>
     </div>
-    <div class="title-text">
-    	<div class="title-text__title">Healthy Kids</div>
-    	<br>
-    	<div class="title-text__sub">eat&middot;move&middot;sleep</div>
     </div>
-    <div class="alert alert-danger" ng-show="vm.error">
-    	{{vm.error}}
-	</div>
+    <form>
+    	<input type="email" placeholder="Email" ng-model="vm.newAccount.email">
+    	<input type="password" placeholder="Password">
+    	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
+	    <div class="login-form__submit" ng-click="vm.createAccount()">
+	    	<span>Join Now</span>
+	    </div>
+    </form>
+</div>
+<div class="alert alert-danger" ng-show="vm.error">
+	{{vm.error}}
 </div>

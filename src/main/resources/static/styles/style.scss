@@ -885,7 +885,7 @@ main {
 	@include center-horizontal;
 	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 	border-radius: 5px;
-	top: 150px;
+	top: 330px;
 	position: absolute;
 	width: 55%;
 	height: 440px;
@@ -977,7 +977,7 @@ main {
 	@include center-horizontal;
 	position: absolute;
 	width: 85%;
-	top: 120px;
+	top: 900px;
 	color: white;
 	transition-duration: 1s;
 	&__welcome {
@@ -1312,6 +1312,12 @@ footer#progress-page {
 	&--home {
 		display: none;
 		background-color: $yellow;
+		span {
+			@include center;
+			position: relative;
+			color: $red;
+			text-decoration: underline;
+		}
 	}
 }
 

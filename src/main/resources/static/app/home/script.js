@@ -28,6 +28,7 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	self.logout = logout;
 
 	self.showLogin = false
+	self.landingScreenOpen = true
 	self.targets = [
 		{'display':'Eat', 'value':'nutrition'},
 		{'display':'Move', 'value':'movement'},
@@ -69,6 +70,7 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 
 	function landingScreen() {
 		setTimeout(function(){
+			self.landingScreenOpen = false
 			$('.homepage-background-squares--splash').fadeOut()
 			$('.week-nav--home').fadeIn()
 			$('.title-text').css({top: '30px'})

@@ -515,6 +515,7 @@ main {
 	height: 35px;
 	width: 100%;
 	color: white;
+	font-family: 'Verdana';
 	&--home {
 		top: 420px;
 		height: 725px;
@@ -1002,6 +1003,7 @@ main {
 	top: 900px;
 	color: white;
 	transition-duration: 1s;
+	z-index: 5;
 	&__welcome {
 		color: $yellow;
 		text-align: center;
@@ -1127,6 +1129,13 @@ main {
 	&__square:nth-child(4) {
 		background-color: $yellow;
 	}
+	&__bottom {
+		position: absolute;
+		height: 390px;
+		width: 100%;
+		top: 100%;
+		background-color: $red;
+	}
 	&__square--splash:nth-child(1) {
 		background-image: url('../imgs/movement-white.png');
 	}
@@ -1140,7 +1149,7 @@ main {
 		background-image: url('../imgs/two-kids.png');
 	}
 	&--splash {
-		z-index: 2;
+		z-index: 3;
 		top: 0;
 	}
 }
@@ -1335,6 +1344,7 @@ footer#progress-page {
 		display: none;
 		background-color: $yellow;
 		span {
+			font-size: 1.8em;
 			@include center;
 			position: relative;
 			color: $red;

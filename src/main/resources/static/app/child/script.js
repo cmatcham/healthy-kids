@@ -114,6 +114,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		        break;
 		}
 		$('.info-container').css({'background-color': color})
+		$('.info-container h2, .info-container__text').css({'color': color})
 		$('.info-tabs__behind-tabs > div:nth-child(2)').css({'background-color': color})
 		$('.info-button').css({'background-color': color})
 	}

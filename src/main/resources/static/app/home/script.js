@@ -78,18 +78,21 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	}
 
 	function createAccount() {
+		console.log('click')
 		$http.post('account', {email:self.newAccount.email, password:self.newAccount.password}).then(function(response) {
 			var token = response.data.token;
 			$rootScope.authenticated = true;
 			$cookies.put('token', token);
 			$http.defaults.headers.common.token = 'Bearer '+token;
 			self.error = null;
-			$location.path("/");
+			$location.path("/child-select");
 		}, function(error) {
 			if (error.status === 409) {
 				self.error = 'An account with that email already exists';
+				console.log(self.error)
 			} else {
 				self.error = "Error: "+error.data.message;
+				console.log(self.error)
 			}
 		});
 	};

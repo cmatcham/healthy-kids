@@ -903,6 +903,16 @@ main {
 	}
 }
 
+.disclaimer {
+	@include center-horizontal;
+	color: white;
+	position: absolute;
+	width: 55%;
+	height: 150px;
+	font-family: 'Verdana';
+	top: 850px;
+}
+
 .login-form {
 	@include center-horizontal;
 	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -910,8 +920,12 @@ main {
 	top: 330px;
 	position: absolute;
 	width: 55%;
-	height: 440px;
+	height: 500px;
 	background-color: white;
+	background-image: url('../imgs/two-kids.png');
+	background-size: 180px 180px;
+	background-position: 5% 125%;
+	background-repeat: no-repeat;
 	&--login {
 		height: 350px;
 	}
@@ -934,6 +948,7 @@ main {
 		span:nth-child(3) {
 			right: 120px;
 			text-decoration: underline;
+			color: $blue;
 		}
 		span#sign-in {
 			left: 0;

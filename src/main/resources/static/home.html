@@ -28,8 +28,14 @@
 			</div>
 		</div>
 		<div class="info-container__video"></div>
-		<div class="info-container__caption">
-			Meal times in the Amosa household are special times for everyone to spend time with each other. With nine people to feed, Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they all enjoy.
+		<div class="info-container__caption" ng-show="vm.current_activity.value=='nutrition'">
+			Meal times in the Amosa household are special family times. Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they enjoy.
+		</div>
+		<div class="info-container__caption" ng-show="vm.current_activity.value=='movement'">
+			Helen and Amos love getting out with their kids, be it a game in the park or a bike ride to the shops. But they’ve also found lots of fun ways for their kids to be active indoors.
+		</div>
+		<div class="info-container__caption" ng-show="vm.current_activity.value=='sleep'">
+			Helen and Amos believe that the way children go to sleep is the way they wake up. They’ve set up routines to make sure their children go to bed feeling safe, comfortable, and relaxed.
 		</div>
 	</div>
 </div>

@@ -20,7 +20,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
 	self.randomStar = randomStar;
-	self.setGoals = setGoals
+	self.setGoals = setGoals;
+	self.goals = {nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
 
 	self.nutritionGoal = ""
 	self.movementGoal = ""
@@ -55,8 +56,6 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	self.createChild = createChild;
 	self.logout = logout;
-
-	self.goals = {}
 
 	self.days = [
 		{"name":"Monday", "value":0},

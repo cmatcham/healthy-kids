@@ -144,12 +144,23 @@ main {
 	height: 100%;
 }
 
+.child-select-text {
+	@include center-horizontal;
+	top: 330px;
+	width: 75%;
+	height: 150px;
+	color: white;
+	font-family: 'Verdana';
+	position: absolute;
+	font-size: 1.2em;
+}
+
 .child-select-inner {
 	@include center-horizontal;
-	top: 150px;
+	top: 570px;
 	position: absolute;
 	width: 55%;
-	height: 380px;
+	height: 600px;
 	// background-color: white;
 	border-radius: 5px;
 	overflow: scroll;
@@ -177,6 +188,7 @@ main {
 	}
 	&--add {
 		margin: 0 0 30px 0;
+		background-color: $blue;
 	}
 	&__edit {
 		width: 15%;
@@ -927,7 +939,7 @@ main {
 	background-position: 5% 125%;
 	background-repeat: no-repeat;
 	&--login {
-		height: 350px;
+		height: 450px;
 	}
 	&--hidden {
 		display: none;
@@ -1037,13 +1049,13 @@ main {
 		font-size: 3em;
 	}
 	&--login-page {
-		top: 540px;
+		top: 50px;
 	}
 	&--child-select {
-		top: 540px;
+		top: 50px;
 	}
 	&--child-update {
-		top: 700px;
+		top: 50px;
 	}
 }
 

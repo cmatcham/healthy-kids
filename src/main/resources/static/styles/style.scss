@@ -321,6 +321,31 @@ main {
 	h2 {
 		font-size: 2em;
 		margin: 0 0 0 0;
+		display: inline-block;
+	}
+	&__select {
+		cursor: pointer;
+		position: relative;
+		top: -13px;
+		margin: 0 0 0 20px;
+		height: 40px;
+		width: 100px;
+		border: 2px solid $red;
+		display: inline-block;
+		border-radius: 5px;
+		span {
+			@include center;
+			position: relative;
+			font-size: 1.1em;
+		}
+		&:hover {
+			background-color: $red;
+			color: $white;
+		}
+		&--active {
+			background-color: $red;
+			color: $white;
+		}
 	}
 	&__recommended {
 		height: 40%;
@@ -643,9 +668,10 @@ main {
 		span {
 			@include center;
 			position: relative;
-			font-size: 1.7em;
+			font-size: 1.2em;
 		}
 		background-color: white;
+		overflow: scroll;
 		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		margin: 5px 0 5px 0;
 		height: calc(100% / 3 - 10px);

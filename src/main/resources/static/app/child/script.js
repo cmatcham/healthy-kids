@@ -20,6 +20,11 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
 	self.randomStar = randomStar;
+	self.setGoals = setGoals
+
+	self.nutritionGoal = ""
+	self.movementGoal = ""
+	self.sleepGoal = ""
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
@@ -51,7 +56,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.createChild = createChild;
 	self.logout = logout;
 
-	
+	self.goals = {}
+
 	self.days = [
 		{"name":"Monday", "value":0},
 		{"name":"Tuesday", "value":1},
@@ -61,6 +67,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		{"name":"Saturday", "value":5},
 		{"name":"Sunday", "value":6}
 	];
+
 	self.targets = [
 		{'display':'Eat', 'value':'nutrition'},
 		{'display':'Move', 'value':'movement'},
@@ -266,6 +273,17 @@ function ChildController($routeParams, childService, accountService, $location) 
 	function addGoal() {
 		self.editingGoal = {id:-1,target:'MOVEMENT'};
 		self.showAddGoalModal = true;
+	}
+
+	function setGoals(which) {
+		if (which == 'custom') {
+			self.customGoals = true
+			self.goals = {nutrition:self.nutritionGoal, movement:self.movementGoal, sleep:self.sleepGoal};
+
+		} else {
+			self.customGoals = false
+			self.goals = {nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
+		}
 	}
 	
 	function saveGoal() {

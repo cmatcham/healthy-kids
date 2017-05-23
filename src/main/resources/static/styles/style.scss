@@ -12,7 +12,9 @@ $chart-height: 45%;
 
 @font-face {
     font-family: 'KGShePersisted';
-    src: url('../fonts/KGShePersisted.ttf') format('truetype'); 
+    // src: url('../fonts/KGShePersisted.ttf') format('truetype');
+   	src:  url('../fonts/KGShePersisted.woff2') format('woff2'),
+   	      url('../fonts/KGShePersisted.woff') format('woff');
 }
 
 a  {
@@ -612,7 +614,6 @@ main {
 		font-size: 1.2em;
 		ul {
 			height: 180px;
-			overflow: scroll;
 			overflow-y: scroll;
 			margin: 0 0 0 0;
 			padding: 0 0 0 20px;
@@ -672,7 +673,7 @@ main {
 			font-size: 1.2em;
 		}
 		background-color: white;
-		overflow: scroll;
+		overflow-y: scroll;
 		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		margin: 5px 0 5px 0;
 		height: calc(100% / 3 - 10px);

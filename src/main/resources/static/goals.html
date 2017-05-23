@@ -3,7 +3,7 @@
 	<div class="rewards__recommended">
 		<h2>Suggested goals</h2>
 		<!-- <div class="rewards__select"><span>Select</span></div> -->
-		<div class="rewards__select rewards__select--active" ng-click="vm.setGoals('default')"><span>Selected</span></div>
+		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomGoals}" ng-click="vm.setGoals('default')"><span>Select{{vm.useCustomGoals ? "" : "ed"}}</span></div>
 		<div class="rewards__reward rewards__reward--nutrition">
 			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
 			<span>Eat three different vegetables for dinner.</span>
@@ -19,18 +19,18 @@
 	</div>
 	<div class="rewards__custom">
 		<h2>My goals</h2>
-		<div class="rewards__select" ng-click="vm.setGoals('custom')"><span>Select</span></div>
+		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomGoals}" ng-click="vm.setGoals('custom')"><span>Select{{vm.useCustomGoals ? "ed" : ""}}</span></div>
 		<div class="rewards__reward rewards__reward--nutrition">
 			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.nutritionGoal"></textarea>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['nutrition'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 		<div class="rewards__reward rewards__reward--movement">
 			<div class="rewards__image rewards__image--movement"  style="background-image: url('imgs/Stars-3.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.movementGoal"></textarea>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['movement'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 		<div class="rewards__reward rewards__reward--sleep">
 			<div class="rewards__image rewards__image--sleep"  style="background-image: url('imgs/Stars-2.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.sleepGoal"></textarea>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['sleep'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 	</div>
 </div>

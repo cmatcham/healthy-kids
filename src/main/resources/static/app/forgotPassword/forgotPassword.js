@@ -13,14 +13,18 @@ function forgotPasswordController($rootScope, $http, $location, $cookies, accoun
 	self.instructions = "Forget your password? Enter your email address to reset it.";
 	
 	function sendCode() {
-		self.step2 = true;
-		self.step1 = false;
-		self.instructions = "Code sent to your email. Please enter it here with a new password.";
 		
 		accountService.resetPassword(self.credentials.username).then(function(data) {
-			console.log('data',data);
+			if (data.code) {
+				self.step2 = true;
+				self.step1 = false;
+				self.instructions = "Code sent to your email. Please enter it here with a new password.";
+			} else {
+				self.instructions = "There doesn't seem to be an account with that email.";
+			}
 		}, function(error) {
 			console.log('error',error);
+			self.instructions = "There was an error sending an email. Please try again.";
 		});
 		
 	}

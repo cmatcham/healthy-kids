@@ -1,5 +1,6 @@
 package com.tagtheagency.healthykids.service;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +54,8 @@ public interface HealthyKidsManager {
 	 * and return the local reset code
 	 * @param account
 	 * @return
+	 * @throws IOException 
 	 */
-	public String createResetCode(Account account);
+	public String createResetCode(Account account) throws IOException;
 
 }

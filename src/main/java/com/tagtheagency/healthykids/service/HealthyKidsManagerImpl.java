@@ -1,5 +1,8 @@
 package com.tagtheagency.healthykids.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -49,6 +52,8 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	@Autowired RewardDAO rewardDao;
 	@Autowired GoalDAO goalDao;
 	@Autowired PasswordResetDAO passwordResetDao;
+	
+	@Autowired NotificationService emailer;
 	
 	@Override
 	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
@@ -291,7 +296,8 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	}	
 
 	@Override
-	public String createResetCode(Account account) {
+	@Transactional
+	public String createResetCode(Account account) throws IOException {
 		passwordResetDao.deleteByEmail(account.getEmail());
 		PasswordReset reset = new PasswordReset();
 		reset.setEmail(account.getEmail());
@@ -299,11 +305,24 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 
 		reset.setLocalCode(gen.nextSessionId());
 		reset.setRemoteCode(gen.nextSessionId());
-		
+
 		passwordResetDao.save(reset);
+
+		StringWriter writer = new StringWriter();
+		PrintWriter printer = new PrintWriter(writer);
 		
-		System.out.println(reset.getLocalCode());
-		System.out.println(reset.getRemoteCode());
+		printer.println("Somebody (hopefully you) has requested asked to reset your password on the healthy kids application.");
+		printer.println();
+		printer.println("Please copy the following code into the field where requested, and choose a new password.");
+		printer.println();
+		printer.println(reset.getRemoteCode());
+		printer.println();
+		printer.println("If you have any questions please contact...");
+		printer.close();
+		printer.flush();
+		
+		emailer.sendEmail(account.getEmail(), "service@healthykids.co.nz", "Password reset code", writer.getBuffer().toString(), null);
+		
 		return reset.getLocalCode();
 		
 	}

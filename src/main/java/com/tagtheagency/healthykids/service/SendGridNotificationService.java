@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.sendgrid.*;
 
-@Service
+//@Service
 public class SendGridNotificationService implements NotificationService {
 
 	@Override

@@ -1,5 +1,6 @@
 package com.tagtheagency;
 
+import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class HealthyKids{
 	}
 
 	@RequestMapping(value="/resetCode", method = RequestMethod.POST)
-	public ResetDTO getResetCode(@RequestBody ResetDTO email) {
+	public ResetDTO getResetCode(@RequestBody ResetDTO email) throws IOException {
 		Account account = manager.findByEmail(email.email);
 		if (account == null) {
 			return null;
@@ -47,6 +48,7 @@ public class HealthyKids{
 		ResetDTO dto = new ResetDTO();
 		dto.code = localCode;
 		return dto;
+	
 	}
 
 	@RequestMapping(value="/resetPassword", method = RequestMethod.POST)

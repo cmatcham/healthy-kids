@@ -9,6 +9,10 @@ function config($routeProvider, $httpProvider) {
 		templateUrl : 'home.html',
 		controller : 'home',
 		controllerAs: 'vm'
+	}).when('/forgotPassword', {
+		templateUrl : 'forgotPassword.html',
+		controller : 'forgotPassword',
+		controllerAs: 'vm'
 	}).when('/login', {
 		templateUrl : 'login.html',
 		controller : 'login',

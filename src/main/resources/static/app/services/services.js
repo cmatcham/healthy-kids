@@ -1,8 +1,8 @@
 angular.module('healthyKids')
-	.factory('accountService', ['$http', '$location', '$rootScope', '$cookies', accountService])
+	.factory('accountService', ['$http', '$location', '$rootScope', '$cookies', '$q', accountService])
 	.factory('childService', ['$http', childService]);
 
-function accountService($http, $location, $rootScope, $cookies) {
+function accountService($http, $location, $rootScope, $cookies, $q) {
 
 	return {
 		createAccount: function(email, password) {
@@ -46,6 +46,17 @@ function accountService($http, $location, $rootScope, $cookies) {
 			$cookies.put('token', '');
 			$http.defaults.headers.common.token = 'Bearer Invalid';
 			$location.path("/");
+		}, 
+		
+		resetPassword: function(email) {
+			console.log('resetting email',email);
+			var deferred = $q.defer();
+			$http.post('resetCode', {email:email}).then(function(response) {
+				deferred.resolve(response.data);
+			}, function(error) {
+				deferred.reject("Error: "+error.data.message);
+			});
+			return deferred.promise;
 		}
 	}
 	

@@ -16,6 +16,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,14 @@ import com.tagtheagency.healthykids.model.Account;
 import com.tagtheagency.healthykids.model.Achievement;
 import com.tagtheagency.healthykids.model.Child;
 import com.tagtheagency.healthykids.model.Goal;
+import com.tagtheagency.healthykids.model.PasswordReset;
 import com.tagtheagency.healthykids.model.Reward;
 import com.tagtheagency.healthykids.model.Target;
 import com.tagtheagency.healthykids.persistence.AccountDAO;
 import com.tagtheagency.healthykids.persistence.AchievementDAO;
 import com.tagtheagency.healthykids.persistence.ChildDAO;
 import com.tagtheagency.healthykids.persistence.GoalDAO;
+import com.tagtheagency.healthykids.persistence.PasswordResetDAO;
 import com.tagtheagency.healthykids.persistence.RewardDAO;
 import com.tagtheagency.healthykids.service.exception.DuplicateAccountException;
 
@@ -45,6 +48,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	@Autowired AchievementDAO achievementDao;
 	@Autowired RewardDAO rewardDao;
 	@Autowired GoalDAO goalDao;
+	@Autowired PasswordResetDAO passwordResetDao;
 	
 	@Override
 	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
@@ -285,5 +289,22 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 		achievementDao.deleteByChild(child);
 		childDao.delete(child);
 	}	
-	
+
+	@Override
+	public String createResetCode(Account account) {
+		passwordResetDao.deleteByEmail(account.getEmail());
+		PasswordReset reset = new PasswordReset();
+		reset.setEmail(account.getEmail());
+		TokenIdentifierGenerator gen = new TokenIdentifierGenerator();
+
+		reset.setLocalCode(gen.nextSessionId());
+		reset.setRemoteCode(gen.nextSessionId());
+		
+		passwordResetDao.save(reset);
+		
+		System.out.println(reset.getLocalCode());
+		System.out.println(reset.getRemoteCode());
+		return reset.getLocalCode();
+		
+	}
 }

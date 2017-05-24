@@ -138,7 +138,7 @@ public class MultiSecurityConfig  {
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
             	.antMatchers("/static/**", "/css/**", "/js/**", "/styles/**", "/stickers/**", "/fonts/**", "/imgs/**").permitAll()
-            	.antMatchers("/login", "/account", "/*.html", "/app/**/*.html", "/").permitAll()
+            	.antMatchers("/login", "/account", "/resetPassword", "/resetCode", "/*.html", "/app/**/*.html", "/").permitAll()
                 .anyRequest().authenticated()
             .and().formLogin().successHandler(loginSuccessHandler)
             	.failureHandler(loginFailureHandler)

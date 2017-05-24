@@ -48,4 +48,12 @@ public interface HealthyKidsManager {
 
 	public void delete(Child child);
 
+	/**
+	 * Mark this account as a candidate for a password reset. Generate token key-pairs,
+	 * and return the local reset code
+	 * @param account
+	 * @return
+	 */
+	public String createResetCode(Account account);
+
 }

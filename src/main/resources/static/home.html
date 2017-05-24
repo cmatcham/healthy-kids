@@ -7,14 +7,15 @@
 	<div class="homepage-background-squares__bottom"></div>
 </div>
 
-<div class="title-text">
+<div class="title-text title-text--homepage">
 	<div class="title-text__welcome">Welcome to</div>
 	<div class="title-text__title">Healthy Kids</div>
 	<br>
 	<div class="title-text__sub">eat&middot;move&middot;sleep</div>
 </div>
 <div class="home-intro" ng-hide="vm.showLogin">
-	<p>Helen and Amos transformed their own lives when they changed how they cared for their bodies. Now they do that for their kids, making sure that healthy eating, movement, and sleep are just part of their family’s routine.</p>
+	<p>Are you interested in making some changes that will help you and your family feel better and have more fun together? Then Healthy Kids is for you. It will help you and your children make lots of little changes that will end up making a big change for your whole family. It’s free, easy, and anyone can play. Would you like to <span class="home-intro__disclaimer" ng-click="vm.showDisclaimer = true">learn more</span>?</p>
+	<div class="home-intro__disclaimer-popup" ng-show="vm.showDisclaimer"></div>
 </div>
 <div class="info-container info-container--home" ng-hide="vm.showLogin" ng-init="vm.changeInfoTab(vm.targets[0])">
 	<div class="info-inner info-inner--home">
@@ -28,19 +29,13 @@
 			</div>
 		</div>
 		<div class="info-container__video"></div>
-		<div class="info-container__caption" ng-show="vm.current_activity.value=='nutrition'">
-			Meal times in the Amosa household are special family times. Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they enjoy.
-		</div>
-		<div class="info-container__caption" ng-show="vm.current_activity.value=='movement'">
-			Helen and Amos love getting out with their kids, be it a game in the park or a bike ride to the shops. But they’ve also found lots of fun ways for their kids to be active indoors.
-		</div>
-		<div class="info-container__caption" ng-show="vm.current_activity.value=='sleep'">
-			Helen and Amos believe that the way children go to sleep is the way they wake up. They’ve set up routines to make sure their children go to bed feeling safe, comfortable, and relaxed.
+		<div class="info-container__caption">
+			Helen and Amos transformed their own lives when they changed how they cared for their bodies. Now they do that for their kids, making sure that healthy eating, movement, and sleep are just part of their family’s routine.
 		</div>
 	</div>
 </div>
 
-<div class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin">Sign up</span></div>
+<div class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin">Join now or log in</span></div>
 <div ng-show="vm.showLogin" class="login-form" ng-init="vm.landingScreen()">
     <div class="login-form__header">
     <div class="login-form__text">    	
@@ -54,7 +49,7 @@
     	<input type="password" placeholder="Password">
     	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
 	    <div class="login-form__submit" ng-click="vm.createAccount()">
-	    	<span>Join Now</span>
+	    	<span>Sign up</span>
 	    </div>
     </form>
 </div>

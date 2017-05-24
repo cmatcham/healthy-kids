@@ -36,6 +36,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.viewGoalsScreen = viewGoalsScreen;
 	self.getSummary = getSummary;
 	self.getTotalSummary = getTotalSummary;
+	self.selectHeaderButton = selectHeaderButton;
 	
 	self.deleteChild = deleteChild;
 	
@@ -45,6 +46,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.newCustomReward = '';
 	self.infoOpen = false
 	self.congratsOpen = false
+	self.showDisclaimer = false;
 
 	self.week = 'this';
 	self.achievements = {};
@@ -91,8 +93,13 @@ function ChildController($routeParams, childService, accountService, $location) 
 			self.achievements = self.child.dailyAchievements;
 		} else if (which === 'last') {
 			self.achievements = self.child.lastWeekDailyAchievements;
-		} 
-		
+		} 	
+	}
+
+	function selectHeaderButton(event) {
+		console.log(event)
+		$($(event.currentTarget)[0]).addClass('header-button--selected')
+		$($(event.currentTarget)[0]).append("<div class='header-button__selected-bg'></div>")
 	}
 
 	function randomTrophy() {

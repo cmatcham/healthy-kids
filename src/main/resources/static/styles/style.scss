@@ -119,7 +119,13 @@ header {
 	height: 100%;
 	float: left;
 	position: relative;
+	&--selected {
+		span {
+			color: $red;
+		}
+	}
 	span {
+		z-index: 2;
 		display: inline-block;
 		@include center;
 		position: relative;
@@ -136,6 +142,15 @@ header {
 		right: 0;
 		position: absolute;
 
+	}
+	&__selected-bg {
+		@include center;
+		height: 60%;
+		width: 80%;
+		position: absolute;
+		z-index: 1;
+		background-color: $white;
+		border-radius: 5px;
 	}
 }
 
@@ -950,11 +965,24 @@ main {
 	width: 80%;
 	height: 250px;
 	position: relative;
-	top: 290px;
+	top: 260px;
+	z-index: 3;
 	p {
-		font-size: 1.3em;
+		font-size: 1.2em;
 		color: white;
 		font-family: 'Verdana';
+	}
+	&__disclaimer {
+		display: inline-block;
+		text-decoration: underline;
+	}
+	&__disclaimer-popup {
+		@include center;
+		position: absolute;
+		width: 450px;
+		height: 450px;
+		background-color: $white;
+		border-radius: 5px;
 	}
 }
 
@@ -1091,6 +1119,11 @@ main {
 		display: inline-block;
 		font-size: 3em;
 	}
+	&--homepage {
+		div {
+			margin-bottom: -10px;
+		}
+	}
 	&--login-page {
 		top: 50px;
 	}
@@ -1219,7 +1252,7 @@ main {
 		background-image: url('../imgs/two-kids.png');
 	}
 	&--splash {
-		z-index: 3;
+		z-index: 4;
 		top: 0;
 	}
 }

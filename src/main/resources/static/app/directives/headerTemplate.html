@@ -1,7 +1,7 @@
 <header>
-	<div class="header-button header-button--goals"><a href="#/child/{{vm.child.id}}/goals"><span>My goals</span></a></div>
-	<div class="header-button header-button--rewards"><a href="#/child/{{vm.child.id}}/rewards"><span>My rewards</span></a></div>
-	<div class="header-button header-button--profile"><a href="#/child/{{vm.child.id}}"><span>My week</span></a></div>
-	<div class="header-button header-button--badges"><a href="#/child/{{vm.child.id}}/progress"><span>My progress</span></a></div>
+	<div ng-click="vm.selectHeaderButton() vm.currentPage = 'goals'" class="header-button header-button--goals"><a href="#/child/{{vm.child.id}}/goals"><span>My goals</span></a></div>
+	<div ng-click="vm.selectHeaderButton() vm.currentPage = 'rewards'" class="header-button header-button--rewards"><a href="#/child/{{vm.child.id}}/rewards"><span>My rewards</span></a></div>
+	<div ng-click="vm.selectHeaderButton() vm.currentPage = 'profile'" class="header-button header-button--profile"><a href="#/child/{{vm.child.id}}"><span>My week</span></a></div>
+	<div ng-click="vm.selectHeaderButton() vm.currentPage = 'badges'" class="header-button header-button--badges"><a href="#/child/{{vm.child.id}}/progress"><span>My progress</span></a></div>
 	<child-menu/>
 </header>

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'KGShePersisted';
-  src: url("../fonts/KGShePersisted.ttf") format("truetype"); }
+  src: url("../fonts/KGShePersisted.woff2") format("woff2"), url("../fonts/KGShePersisted.woff") format("woff"); }
 a {
   color: inherit;
   text-decoration: none; }
@@ -551,7 +551,6 @@ main {
     font-size: 1.2em; }
     .info-container__text ul {
       height: 180px;
-      overflow: scroll;
       overflow-y: scroll;
       margin: 0 0 0 0;
       padding: 0 0 0 20px; }
@@ -599,7 +598,7 @@ main {
   height: 190px; }
   .selected-goals__goal {
     background-color: white;
-    overflow: scroll;
+    overflow-y: scroll;
     margin: 5px 0 5px 0;
     height: calc(100% / 3 - 10px);
     width: 100%;

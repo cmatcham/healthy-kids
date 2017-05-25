@@ -20,17 +20,27 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
 	self.randomStar = randomStar;
+	
+	
+	/**
+	 * Goals
+	 * setGoals: function to set whether to use custom or default goals
+	 * goals: object holding default values
+	 * customGoals: object holding custom values
+	 * updateGoals: function to persist changes to database
+	 */
 	self.setGoals = setGoals;
 	self.goals = {nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
-
-	self.nutritionGoal = ""
-	self.movementGoal = ""
-	self.sleepGoal = ""
+	self.customGoals = {nutrition:"", movement:"", sleep:""}
+	self.useCustomGoals = false;
+	
+	
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
 	self.editGoal = editGoal;
 	self.editingGoal = {id:-1, target:'MOVEMENT'};
+	self.updateGoals = updateGoals;
 	self.selectedGoal = selectedGoal;
 	self.selectedGoalId = selectedGoalId;
 	self.viewGoalsScreen = viewGoalsScreen;
@@ -283,17 +293,14 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	function setGoals(which) {
 		if (which == 'custom') {
-			self.customGoals = true
-			self.goals = {nutrition:self.nutritionGoal, movement:self.movementGoal, sleep:self.sleepGoal};
-
+			self.useCustomGoals = true;
 		} else {
-			self.customGoals = false
-			self.goals = {nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
+			self.useCustomGoals = false
 		}
+		updateGoals();
 	}
 	
 	function saveGoal() {
-		console.log(self.editingGoal);
 		self.showAddGoalModal = false;
 		childService.setGoal(self.child.id, self.editingGoal).then(function(data) {
 			if (self.editingGoal.id < 0) {
@@ -308,7 +315,6 @@ function ChildController($routeParams, childService, accountService, $location) 
 	}
 	
 	function editGoal(goal) {
-		console.log('editing ',goal);
 		var edit = self.editingGoal;
 		edit.id= goal.id;
 		edit.target = goal.target;
@@ -363,10 +369,39 @@ function ChildController($routeParams, childService, accountService, $location) 
 			return 'Unknown target '+target;
 		}
 	}
+	
+	/**
+	 * Triggered on blur from editing goals.  Propagates the edited goals to the server
+	 */
+	function updateGoals() {
+		var goals = self.customGoals;
+		
+		self.targets.forEach(function(target) {
+			goals[target.value].selected = self.useCustomGoals;
+			
+			childService.setGoal(self.child.id, goals[target.value]).then(function(data) {
+				if (self.editingGoal.id < 0) {
+					goals[target.value] = data;
+				} 
+			});
+		});
+		
+		
+	}
+	
+	function getCustomGoal(target) {
+		if (self.child == null) {
+			return {id:-1, target:target.toUpperCase(), selected: false, goal:""}
+		}
+		var customGoal = goals.find(function(goal) {return goal.target == target.toUpperCase()});
+		if (typeof(customGoal) === 'undefined') {
+			customGoal = {id:-1, target:target.toUpperCase(), selected: self.customGoal, goal:""};
+		} 
+		return customGoal;
+	} 
 
 	function createChild() {
 		childService.updateChild(self.newChild).then(function(data) {
-			console.log(data);
 			$location.path('/child/' + data.id);
 		});
 	}
@@ -383,6 +418,19 @@ function ChildController($routeParams, childService, accountService, $location) 
 				self.child = data;
 				self.newChild = self.child;
 				self.achievements = self.child.dailyAchievements;
+				
+				//Load custom goals into lookup map
+				self.customGoals = {};
+				self.targets.forEach(function(target) {
+					var customGoal = self.child.customGoals.find(function(goal) {return goal.target == target.value.toUpperCase()});
+					if (typeof(customGoal) === 'undefined') {
+						customGoal = {id:-1, target:target.value.toUpperCase(), goal:""};
+					} 
+					self.customGoals[target.value] = customGoal;
+					if (self.customGoals[target.value].selected) {
+						self.useCustomGoals = true;
+					}
+				});
 			});
 
 		childService.getStickers()

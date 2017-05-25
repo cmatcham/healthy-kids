@@ -15,7 +15,9 @@
 </div>
 <div class="home-intro" ng-hide="vm.showLogin">
 	<p>Are you interested in making some changes that will help you and your family feel better and have more fun together? Then Healthy Kids is for you. It will help you and your children make lots of little changes that will end up making a big change for your whole family. It’s free, easy, and anyone can play. Would you like to <span class="home-intro__disclaimer" ng-click="vm.showDisclaimer = true">learn more</span>?</p>
-	<div class="home-intro__disclaimer-popup" ng-show="vm.showDisclaimer"></div>
+	<div class="disclaimer-popup" ng-show="vm.showDisclaimer">
+		<div class="disclaimer-popup__close" ng-click="vm.showDisclaimer = false"><span>X</span></div>
+	</div>
 </div>
 <div class="info-container info-container--home" ng-hide="vm.showLogin" ng-init="vm.changeInfoTab(vm.targets[0])">
 	<div class="info-inner info-inner--home">

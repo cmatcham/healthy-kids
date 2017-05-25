@@ -571,8 +571,8 @@ main {
 	width: 100%;
 	color: white;
 	&--home {
-		top: 420px;
-		height: 725px;
+		top: 490px;
+		height: 655px;
 		padding-top: 0px;
 	}
 	&__grey-bg {
@@ -976,13 +976,31 @@ main {
 		display: inline-block;
 		text-decoration: underline;
 	}
-	&__disclaimer-popup {
-		@include center;
+}
+
+.disclaimer-popup {
+	@include center-horizontal;
+	position: absolute;
+	top: 50px;
+	width: 450px;
+	height: 450px;
+	background-color: $white;
+	border-radius: 5px;
+	&__close {
 		position: absolute;
-		width: 450px;
-		height: 450px;
-		background-color: $white;
-		border-radius: 5px;
+		top: 0;
+		right: 0;
+		margin: 5px 10px 0 0;
+		display: inline-block;
+		cursor: pointer;
+		z-index: 3;
+		span {
+			opacity: 0.5;
+			font-size: 2em;
+			&:hover {
+				opacity: 0.9;
+			}
+		}
 	}
 }
 

@@ -57,6 +57,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.infoOpen = false
 	self.congratsOpen = false
 	self.showDisclaimer = false;
+	self.currentSticker = 'sticker1.png'
 
 	self.week = 'this';
 	self.achievements = {};
@@ -243,6 +244,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	}
 	
 	function setSticker(sticker) {
+		self.currentSticker = sticker
 		self.newChild.sticker = sticker;
 		// childService.setSticker(self.child.id, sticker);
 		// self.children.forEach(function(child) {

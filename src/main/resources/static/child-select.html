@@ -1,7 +1,7 @@
 <div class="home-bg"></div>
-<div class="child-select-text"><span>The Healthy Kids game lets you set goals for how you and your family eat, move, and sleep. You can decide on how you will reward yourselves for reaching your goals, and you can track everyone’s progress over time. If you want, you can tell other people about it.</span></div>
+<div class="child-select-text"><span>You can use this page to add profiles for as many people in your family as you would like. This means you can track each person to see how they’re meeting their goals for eating, moving and sleeping.<br>Your child can choose a sticker for their profile.</span></div>
 <div class="child-select-inner">
-	<a href="#/child-update"><div class="child-select-button child-select-button--add"><span>Add User</span></div></a>
+	<a href="#/child-update"><div class="child-select-button child-select-button--add"><span>Add user</span></div></a>
 	<div ng-repeat="child in vm.children" class="child-select-button">
 		<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
 		<div class="child-select-button__edit"><a href="#/child/{{child.id}}/update"><span>Edit</span></a></div>

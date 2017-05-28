@@ -979,13 +979,26 @@ main {
 }
 
 .disclaimer-popup {
-	@include center-horizontal;
+	top: 0;
+	z-index: 10;
 	position: absolute;
-	top: 50px;
-	width: 450px;
-	height: 450px;
-	background-color: $white;
-	border-radius: 5px;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	&__inner {	
+		@include center-horizontal;
+		padding: 50px 10px 0 10px;
+		position: absolute;
+		top: 280px;
+		width: 430px;
+		height: 400px;
+		background-color: $white;
+		border-radius: 5px;
+	}
+	p {
+		font-size: 1.2em;
+		font-family: 'Verdana';
+	}
 	&__close {
 		position: absolute;
 		top: 0;

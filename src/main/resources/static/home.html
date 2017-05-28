@@ -15,7 +15,12 @@
 </div>
 <div class="home-intro" ng-hide="vm.showLogin">
 	<p>Are you interested in making some changes that will help you and your family feel better and have more fun together? Then Healthy Kids is for you. It will help you and your children make lots of little changes that will end up making a big change for your whole family. It’s free, easy, and anyone can play. Would you like to <span class="home-intro__disclaimer" ng-click="vm.showDisclaimer = true">learn more</span>?</p>
-	<div class="disclaimer-popup" ng-show="vm.showDisclaimer">
+</div>
+<div class="disclaimer-popup" ng-show="vm.showDisclaimer">
+	<div class="disclaimer-popup__inner">		
+		<p>The Healthy Kids game lets you set goals for how you and your family eat, move, and sleep. You can decide on how you will reward yourselves for reaching your goals, and you can track everyone’s progress over time. If you want, you can share your family’s success with other people about it.</p>
+		<p>Only you will be able to track and share your family’s progress. Logging in is only so you can record your family’s data.</p>
+		<p>Would you and your family like to play the Healthy Kids game? Then join or sign in now.</p>
 		<div class="disclaimer-popup__close" ng-click="vm.showDisclaimer = false"><span>X</span></div>
 	</div>
 </div>

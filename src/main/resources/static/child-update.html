@@ -14,7 +14,7 @@
 			</div>
 			<div class="sticker-select" ng-init=vm.getStickers()>
 				<div class="sticker-select__sticker" ng-repeat="sticker in vm.stickers">
-					<img ng-src="stickers/{{sticker}}" ng-click="vm.setSticker(sticker)"/>
+					<img ng-src="stickers/{{sticker}}" ng-click="vm.setSticker(sticker); vm.displayStickerSelect()"/>
 				</div>
 			</div>
 		</div>

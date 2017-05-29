@@ -370,7 +370,7 @@ main {
 		width: 100%;
 	}
 	&__custom {
-		margin: 80px 0 0 0;
+		margin: -200px 0 0 0;
 		height: 40%;
 		width: 100%;
 	}
@@ -379,6 +379,13 @@ main {
 		width: 100%;
 		&:nth-child(2) {
 			margin: 80px 0 0 0;
+		}
+	}
+	&__text {
+		margin: 0 0 30px 0;
+		p {
+			font-size: 1.3em;
+			color: black;
 		}
 	}
 	&__image {
@@ -399,7 +406,7 @@ main {
 		&--movement {
 			border: 2px solid $purple;
 		}
-		&--goal {
+		&--reward {
 			border: 2px solid $red;
 			background-image: url('../imgs/two-kids.png');
 		}

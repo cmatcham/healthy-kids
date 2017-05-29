@@ -1,6 +1,6 @@
 <header-partial/>
 <div class="rewards">
-	<div class="rewards__recommended">
+	<div class="rewards__goals">
 		<h2>Possible goals</h2>
 		<!-- <div class="rewards__select"><span>Select</span></div> -->
 		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomGoals}" ng-click="vm.setGoals('default')"><span>Select{{vm.useCustomGoals ? "" : "ed"}}</span></div>
@@ -55,7 +55,7 @@
 			<!-- <span>Be in bed by 7.</span> -->
 		</div>
 	</div>
-	<div class="rewards__custom">
+	<div class="rewards__goals">
 		<h2>My goals</h2>
 		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomGoals}" ng-click="vm.setGoals('custom')"><span>Select{{vm.useCustomGoals ? "ed" : ""}}</span></div>
 		<div class="rewards__reward rewards__reward--nutrition">

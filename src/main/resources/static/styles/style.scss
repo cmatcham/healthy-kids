@@ -374,6 +374,13 @@ main {
 		height: 40%;
 		width: 100%;
 	}
+	&__goals {
+		height: 40%;
+		width: 100%;
+		&:nth-child(2) {
+			margin: 80px 0 0 0;
+		}
+	}
 	&__image {
 		margin: 15px 30px 15px 0; 
 		height: 90px;
@@ -391,6 +398,10 @@ main {
 		}
 		&--movement {
 			border: 2px solid $purple;
+		}
+		&--goal {
+			border: 2px solid $red;
+			background-image: url('../imgs/two-kids.png');
 		}
 	}
 	&__reward {

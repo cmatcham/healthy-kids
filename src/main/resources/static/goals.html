@@ -1,27 +1,56 @@
 <header-partial/>
 <div class="rewards">
 	<div class="rewards__recommended">
-		<h2>Suggested goals</h2>
+		<h2>Possible goals</h2>
 		<!-- <div class="rewards__select"><span>Select</span></div> -->
 		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomGoals}" ng-click="vm.setGoals('default')"><span>Select{{vm.useCustomGoals ? "" : "ed"}}</span></div>
 		<div class="rewards__reward rewards__reward--nutrition">
 			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
 			<select>
-				<option value="volvo">Eat three different vegetables for dinner.</option>
+				<option>Eat either wheat biscuits, porridge, or wholegrain toast for breakfast</option>
+				<option>Try a new porridge topping, like fruit, yoghurt, or nuts</option>
+				<option>Drink milk with breakfast and dinner</option>
+				<option>Drink only water between meal times</option>
+				<option>Try a new type of vegetable or fruit</option>
+				<option>Try a new sandwich filling, like hummus or avocado with sliced veggies or lean chicken</option>
+				<option>Choose the vegetables for dinner</option>
+				<option>Sit together with the family for dinner</option>
+				<option>Serve my own dinner and eat it all</option>
+				<option>Eat three sorts of vegetables at dinner time</option>
 			</select>
 			<!-- <span>Eat three different vegetables for dinner.</span> -->
 		</div>
 		<div class="rewards__reward rewards__reward--movement">
 			<div class="rewards__image rewards__image--movement" style="background-image: url('imgs/Stars-3.png');"></div>
 			<select>
-				<option value="volvo">Play outside for half an hour.</option>
+				<option>Play an active game</option>
+				<option>Learn a new outdoor game</option>
+				<option>Learn a new indoor game</option>
+				<option>Go for a walk</option>
+				<option>Ride a bike or scooter</option>
+				<option>Play outside</option>
+				<option>Go to a new place</option>
+				<option>Make up a new dance</option>
+				<option>Play at the park</option>
+				<option>Watch less television</option>
+				<option>Spend no more than an hour looking at screens, like television or a computer</option>
 			</select>
 			<!-- <span>Play outside for half an hour.</span> -->
 		</div>
 		<div class="rewards__reward rewards__reward--sleep">
 			<div class="rewards__image rewards__image--sleep" style="background-image: url('imgs/Stars-2.png');"></div>
 			<select>
-				<option value="volvo">Be in bed by 7.</option>
+				<option>Start quiet time one hour before bedtime</option>
+				<option>Start getting ready for bed at 6:30 pm</option>
+				<option>Turn off the television and iPad by 6 pm</option>
+				<option>Plan and keep to a bedtime routine</option>
+				<option>Plan and keep to a bedtime routine</option>
+				<option>Use a timer to know when to start getting ready for bed and when it’s time to turn off the light</option>
+				<option>Read two stories and sing one song</option>
+				<option>Eat crackers or fruit if hungry before bed – but then brush teeth!</option>
+				<option>Have a drink of water if thirsty before bed</option>
+				<option>Put the light out at 7 pm</option>
+				<option>Stay in bed</option>
 			</select>
 			<!-- <span>Be in bed by 7.</span> -->
 		</div>

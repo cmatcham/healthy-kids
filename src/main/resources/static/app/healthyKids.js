@@ -57,7 +57,7 @@ function config($routeProvider, $httpProvider) {
 		return {
 			'responseError': function(response) {
 				console.log('intercepted a bad response, with status ', response.status);
-				if (response.status === 401 || response.status === 500){			
+				if (response.status === 401) {			
 					$cookies.remove('token');
 					$location.path("/");
 					$rootScope.authenticated = false;

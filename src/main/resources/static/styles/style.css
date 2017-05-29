@@ -75,7 +75,10 @@ header {
   height: 100%;
   float: left;
   position: relative; }
+  .header-button--selected span {
+    color: #EE2A7B; }
   .header-button span {
+    z-index: 2;
     display: inline-block;
     top: 50%;
     left: 50%;
@@ -94,6 +97,17 @@ header {
     border-radius: 5px;
     right: 0;
     position: absolute; }
+  .header-button__selected-bg {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 60%;
+    width: 80%;
+    position: absolute;
+    z-index: 1;
+    background-color: #F0FFFF;
+    border-radius: 5px; }
 
 main {
   z-index: 1;
@@ -300,6 +314,11 @@ main {
     margin: 80px 0 0 0;
     height: 40%;
     width: 100%; }
+  .rewards__goals {
+    height: 40%;
+    width: 100%; }
+    .rewards__goals:nth-child(2) {
+      margin: 80px 0 0 0; }
   .rewards__image {
     margin: 15px 30px 15px 0;
     height: 90px;
@@ -315,11 +334,14 @@ main {
       border: 2px solid #00B8B0; }
     .rewards__image--movement {
       border: 2px solid #7352A2; }
+    .rewards__image--goal {
+      border: 2px solid #EE2A7B;
+      background-image: url("../imgs/two-kids.png"); }
   .rewards__reward {
     margin: 10px 0 10px 0;
     height: calc(100% / 3 - 20px);
     width: 100%; }
-    .rewards__reward span, .rewards__reward textarea {
+    .rewards__reward select, .rewards__reward textarea {
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
@@ -489,8 +511,8 @@ main {
   width: 100%;
   color: white; }
   .info-container--home {
-    top: 420px;
-    height: 725px;
+    top: 490px;
+    height: 655px;
     padding-top: 0px; }
   .info-container__grey-bg {
     width: 100%;
@@ -516,8 +538,11 @@ main {
     width: 90%;
     height: 400px;
     border-radius: 5px;
-    background-color: white;
-    opacity: 0.6; }
+    background-color: white; }
+    .info-container__video iframe {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px; }
   .info-container__caption {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -852,11 +877,50 @@ main {
   width: 80%;
   height: 250px;
   position: relative;
-  top: 290px; }
+  top: 260px;
+  z-index: 3; }
   .home-intro p {
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: white;
     font-family: 'Verdana'; }
+  .home-intro__disclaimer {
+    display: inline-block;
+    text-decoration: underline; }
+
+.disclaimer-popup {
+  top: 0;
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .disclaimer-popup__inner {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    padding: 50px 10px 0 10px;
+    position: absolute;
+    top: 280px;
+    width: 430px;
+    height: 400px;
+    background-color: #F0FFFF;
+    border-radius: 5px; }
+  .disclaimer-popup p {
+    font-size: 1.2em;
+    font-family: 'Verdana'; }
+  .disclaimer-popup__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 10px 0 0;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 3; }
+    .disclaimer-popup__close span {
+      opacity: 0.5;
+      font-size: 2em; }
+      .disclaimer-popup__close span:hover {
+        opacity: 0.9; }
 
 .disclaimer {
   left: 50%;
@@ -902,6 +966,9 @@ main {
       color: #00B8B0; }
     .login-form__text span#sign-in {
       left: 0; }
+    .login-form__text span.error {
+      left: 0;
+      bottom: 30px; }
   .login-form__header {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -986,6 +1053,8 @@ main {
     position: relative;
     display: inline-block;
     font-size: 3em; }
+  .title-text--homepage div {
+    margin-bottom: -10px; }
   .title-text--login-page {
     top: 50px; }
   .title-text--child-select {
@@ -1097,7 +1166,7 @@ main {
   .homepage-background-squares__square--splash:nth-child(4) {
     background-image: url("../imgs/two-kids.png"); }
   .homepage-background-squares--splash {
-    z-index: 3;
+    z-index: 4;
     top: 0; }
 
 .homepage-background-footer {

@@ -48,8 +48,12 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	
 	@Override
 	public Account createAccount(String email, CharSequence password) throws DuplicateAccountException {
+		Account account = findByEmail(email);
+		if (account != null) {
+			throw new DuplicateAccountException();
+		}
 		try {
-			Account account = new Account();
+			account = new Account();
 			account.setEmail(email);
 			account.setPassword(passwordEncoder.encode(password));
 			accountDao.save(account);

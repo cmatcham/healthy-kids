@@ -9,7 +9,9 @@ function loginController($rootScope, $http, $location, $cookies, accountService)
 	self.credentials = {};
 
 	var authenticate = function(credentials, callback) {
-		accountService.authenticate(credentials);
+		accountService.authenticate(credentials).then(function(success) {
+			self.error = !success;
+		});
 	}
 	
 	self.credentials = {};
@@ -19,7 +21,6 @@ function loginController($rootScope, $http, $location, $cookies, accountService)
 				$location.path("/child-select");
 				self.error = false;
 			} else {
-				$location.path("/login");
 				self.error = true;
 			}
 		});

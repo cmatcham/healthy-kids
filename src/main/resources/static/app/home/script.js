@@ -20,6 +20,8 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	
 	self.newChild = {};
 	self.newAccount = {};
+	
+	self.confirmPassword = '';
 
 	self.createChild = createChild;
 	self.createAccount = createAccount;
@@ -78,7 +80,11 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	}
 
 	function createAccount() {
-		console.log('click')
+		if (self.confirmPassword !== self.newAccount.password) {
+			console.log(self.confirmPassword, self.newAccount.password);
+			self.error = 'Passwords do not match!';
+			return;
+		}
 		$http.post('account', {email:self.newAccount.email, password:self.newAccount.password}).then(function(response) {
 			var token = response.data.token;
 			$rootScope.authenticated = true;
@@ -87,9 +93,13 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 			self.error = null;
 			$location.path("/child-select");
 		}, function(error) {
+			console.log('Error: ',error);
+			console.log('Error.status ', error.status);
 			if (error.status === 409) {
-				self.error = 'An account with that email already exists';
+				self.error = 'An account with that email already exists. Click below to sign in.';
 				console.log(self.error)
+			} else if (error.status === 400) {
+				self.error = 'Please use a valid email address';
 			} else {
 				self.error = "Error: "+error.data.message;
 				console.log(self.error)

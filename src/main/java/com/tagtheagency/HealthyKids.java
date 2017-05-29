@@ -1,5 +1,7 @@
 package com.tagtheagency;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,8 +29,14 @@ public class HealthyKids{
 	}
 
 	@RequestMapping(value="/account", method = RequestMethod.POST)
-	public AccountDTO create(@RequestBody AccountDTO details) throws DuplicateAccountException {
+	public AccountDTO create(@RequestBody AccountDTO details, HttpServletResponse response) throws DuplicateAccountException {
+		if (details.getEmail() == null || details.getEmail().isEmpty()) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			return null;
+		}
+		System.out.println("Controller creating account");
 		AccountDTO account = AccountDTO.createFrom(manager.createAccount(details.getEmail(), details.getPassword()));
+		System.out.println("Which didn't throw excaption, so sret a token");
 		account.setToken(tokenHandler.createTokenForUser(account.getEmail()));
 		
 		return account;

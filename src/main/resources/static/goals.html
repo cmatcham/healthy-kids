@@ -6,15 +6,24 @@
 		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomGoals}" ng-click="vm.setGoals('default')"><span>Select{{vm.useCustomGoals ? "" : "ed"}}</span></div>
 		<div class="rewards__reward rewards__reward--nutrition">
 			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
-			<span>Eat three different vegetables for dinner.</span>
+			<select>
+				<option value="volvo">Eat three different vegetables for dinner.</option>
+			</select>
+			<!-- <span>Eat three different vegetables for dinner.</span> -->
 		</div>
 		<div class="rewards__reward rewards__reward--movement">
 			<div class="rewards__image rewards__image--movement" style="background-image: url('imgs/Stars-3.png');"></div>
-			<span>Play outside for half an hour.</span>
+			<select>
+				<option value="volvo">Play outside for half an hour.</option>
+			</select>
+			<!-- <span>Play outside for half an hour.</span> -->
 		</div>
 		<div class="rewards__reward rewards__reward--sleep">
 			<div class="rewards__image rewards__image--sleep" style="background-image: url('imgs/Stars-2.png');"></div>
-			<span>Be in bed by 7.</span>
+			<select>
+				<option value="volvo">Be in bed by 7.</option>
+			</select>
+			<!-- <span>Be in bed by 7.</span> -->
 		</div>
 	</div>
 	<div class="rewards__custom">

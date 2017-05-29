@@ -397,7 +397,7 @@ main {
 		margin: 10px 0 10px 0;
 		height: calc(100% / 3 - 20px);
 		width: 100%;
-		span, textarea {
+		select, textarea {
 			@include center-vertical;
 			font-family: 'KGShePersisted';
 			outline: none;

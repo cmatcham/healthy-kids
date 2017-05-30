@@ -410,7 +410,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 
 	function createChild() {
 		childService.updateChild(self.newChild).then(function(data) {
-			$location.path('/child/' + data.id);
+			$location.path('/child-select');
 		});
 	}
 	

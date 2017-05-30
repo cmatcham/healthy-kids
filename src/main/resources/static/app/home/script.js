@@ -27,6 +27,7 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 	self.createAccount = createAccount;
 	self.landingScreen = landingScreen;
 	self.changeInfoTab = changeInfoTab;
+	self.scrollTop = scrollTop;
 	self.logout = logout;
 
 	self.showLogin = false
@@ -50,6 +51,10 @@ function HomeController($http, $rootScope, $cookies, $location, childService, ac
 			console.log('error');
 		});
 	};
+
+	function scrollTop() {
+		window.scrollTo(0, 0);
+	}
 
 	function changeInfoTab(activity) {
 		self.current_activity = activity

@@ -1,5 +1,5 @@
 <header-partial/>
-<main id="progress-page">
+<main id="progress-page" ng-init="vm.currentPage = 'badges'">
 	<div class="category-progress">
 		<div ng-repeat="(i, activity) in vm.targets" class="category-progress__badge category-progress__badge--{{activity.value}}">
 			<div class="category-progress__image category-progress__image--{{activity.value}}"></div>

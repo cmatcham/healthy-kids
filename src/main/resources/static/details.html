@@ -1,7 +1,7 @@
 <!-- <div ng-show="authenticated"> -->
 	<header-partial/>
 	<main>
-		<div class="info-container">
+		<div class="info-container" ng-init="vm.currentPage = 'profile'; vm.selectHeaderButton(); vm.scrollTop()">
 			<div class="info-inner">
 				<div class="info-tabs">	
 					<div class="info-tabs__behind-tabs">

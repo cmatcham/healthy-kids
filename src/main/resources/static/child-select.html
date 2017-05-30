@@ -1,10 +1,17 @@
 <div class="home-bg"></div>
 <div class="child-select-text"><span>You can use this page to add profiles for as many people in your family as you would like. This means you can track each person to see how they’re meeting their goals for eating, moving and sleeping.<br>Your child can choose a sticker for their profile.</span></div>
 <div class="child-select-inner">
-	<a href="#/child-update"><div class="child-select-button child-select-button--add"><span>Add user</span></div></a>
+	<a href="#/child-update"><div class="child-select-button child-select-button--add">
+		<div class="child-select-button__name child-select-button__name--add"><span>Add user</span></div>
+	</div></a>
 	<div ng-repeat="child in vm.children" class="child-select-button">
-		<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
-		<div class="child-select-button__edit"><a href="#/child/{{child.id}}/update"><span>Edit</span></a></div>
+		<div class="child-select-button__sticker" style="background-image: url('stickers/{{child.sticker || 'sticker1.png'}}');"></div>
+		<div class="child-select-button__name">
+			<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
+		</div>
+		<div class="child-select-button__edit">
+			<a href="#/child/{{child.id}}/update"><span>Edit</span></a>
+		</div>
 	</div>
 </div>
 <div class="title-text title-text--child-select">

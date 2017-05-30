@@ -188,42 +188,68 @@ main {
 	@include center-horizontal;
 	cursor: pointer;
 	position: relative;
-	width: 90%;
+	width: 100%;
 	margin: 10px 0 10px 0;
 	height: 60px;
-	background-color: $yellow;
-	border-radius: 5px;
 	// box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 	overflow: hidden;
-	// transition-duration: 1s;
 	color: $white;
 	font-size: 2em;
-	// box-sizing: border-box;
-	span {
-		@include center;
-		position: absolute;
-		text-align: center;
+	border-radius: 5px;
+	&__sticker {
+		height: 100%;
+		width: 60px;
+		border: 2px solid $yellow;
+		border-radius: 5px;
+		position: relative;
+		float: left;
+		box-sizing: border-box;
+		margin: 0 5px 0 0;
+		background-size: contain;
+		background-color: rgba(0,0,0,0.2);
+	}
+	&__name {
+		border-radius: 5px;
+		float: left;
+		position: relative;
+		width: 55%;
+		height: 100%;
+		background-color: $yellow;
+		span {
+			@include center;
+			position: absolute;
+			text-align: center;
+		}
+		&--add {
+			@include center-horizontal;
+			background-color: $blue;
+		}
+		&:hover {
+			color: $red;
+		}
 	}
 	&--add {
 		margin: 0 0 30px 0;
 		background-color: $blue;
 	}
 	&__edit {
-		width: 15%;
-		height: 100%;
-		position: absolute;
-		right: 0;
-		z-index: 2;
+		width: 60px;
+		height: 60px;
+		// position: absolute;
+		float: left;
+		// z-index: 2;
 		// box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 		background-color: rgba(0,0,0,0.1);
+		margin: 0 0 0 5px;
+		border: 2px solid $yellow;
+		border-radius: 5px;
+		box-sizing: border-box;
+
 		span {
 			@include center;
-			position: absolute;
+			position: relative;
 			font-size: 0.6em;
 		}
-	}
-	&:hover {
-		color: $red;
 	}
 }
 

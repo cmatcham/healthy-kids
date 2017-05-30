@@ -212,7 +212,7 @@ main {
 		border-radius: 5px;
 		float: left;
 		position: relative;
-		width: 55%;
+		width: 85%;
 		height: 100%;
 		background-color: $yellow;
 		span {
@@ -234,9 +234,10 @@ main {
 	}
 	&__edit {
 		width: 60px;
-		height: 60px;
-		// position: absolute;
-		float: left;
+		height: 28px;
+		position: absolute;
+		right: 5px;
+		margin: 0 0 4px 0;
 		// z-index: 2;
 		// box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 		background-color: rgba(0,0,0,0.1);
@@ -244,11 +245,35 @@ main {
 		border: 2px solid $yellow;
 		border-radius: 5px;
 		box-sizing: border-box;
-
 		span {
 			@include center;
-			position: relative;
-			font-size: 0.6em;
+			position: absolute;
+			font-size: 0.5em;
+		}
+		&:hover {
+			color: $red;
+		}
+	}
+	&__delete {
+		top: calc(100% - 30px);
+		width: 60px;
+		height: 28px;
+		position: absolute;
+		right: 5px;
+		// z-index: 2;
+		// box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+		background-color: rgba(0,0,0,0.1);
+		margin: 0 0 0 5px;
+		border: 2px solid $yellow;
+		border-radius: 5px;
+		box-sizing: border-box;
+		span {
+			@include center;
+			position: absolute;
+			font-size: 0.5em;
+		}
+		&:hover {
+			color: $red;
 		}
 	}
 }

@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<div class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin">Join now or log in</span></div>
+<div class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin; vm.scrollTop()">Join now or log in</span></div>
 <div ng-show="vm.showLogin" class="login-form" ng-init="vm.landingScreen()">
     <div class="login-form__header">
     <div class="login-form__text">    	
@@ -55,7 +55,7 @@
     <form>
     	<input type="email" placeholder="Email" ng-model="vm.newAccount.email">
     	<input type="password" placeholder="Password" ng-model="vm.confirmPassword">
-    	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
+    	<input type="password" placeholder="Confirm password" ng-model="vm.newAccount.password">
 	    <div class="login-form__submit" ng-click="vm.createAccount()">
 	    	<span>Sign up</span>
 	    </div>

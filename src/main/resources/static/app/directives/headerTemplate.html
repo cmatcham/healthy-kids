@@ -1,7 +1,7 @@
 <header ng-init="vm.selectHeaderButton()">
-	<div ng-click="vm.currentPage = 'goals'; vm.selectHeaderButton()" class="header-button header-button--goals"><a href="#/child/{{vm.child.id}}/goals"><span>My goals</span></a></div>
-	<div ng-click="vm.currentPage = 'rewards'; vm.selectHeaderButton()" class="header-button header-button--rewards"><a href="#/child/{{vm.child.id}}/rewards"><span>My rewards</span></a></div>
-	<div ng-click="vm.currentPage = 'profile'; vm.selectHeaderButton()" class="header-button header-button--profile"><a href="#/child/{{vm.child.id}}"><span>My week</span></a></div>
-	<div ng-click=" vm.currentPage = 'badges'; vm.selectHeaderButton()" class="header-button header-button--badges"><a href="#/child/{{vm.child.id}}/progress"><span>My progress</span></a></div>
+	<div class="header-button header-button--goals"><a href="#/child/{{vm.child.id}}/goals"><span ng-click="vm.currentPage = 'goals'; vm.selectHeaderButton()">My goals</span></a></div>
+	<div class="header-button header-button--rewards"><a href="#/child/{{vm.child.id}}/rewards" ng-click="vm.currentPage = 'rewards'; vm.selectHeaderButton()"><span>My rewards</span></a></div>
+	<div class="header-button header-button--profile"><a href="#/child/{{vm.child.id}}" ng-click="vm.currentPage = 'profile'; vm.selectHeaderButton()"><span>My week</span></a></div>
+	<div class="header-button header-button--badges"><a href="#/child/{{vm.child.id}}/progress" ng-click=" vm.currentPage = 'badges'; vm.selectHeaderButton()"><span>My progress</span></a></div>
 	<child-menu/>
 </header>

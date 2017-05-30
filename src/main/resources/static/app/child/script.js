@@ -48,6 +48,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.getSummary = getSummary;
 	self.getTotalSummary = getTotalSummary;
 	self.selectHeaderButton = selectHeaderButton;
+	self.scrollTop = scrollTop;
 	
 	self.deleteChild = deleteChild;
 	
@@ -108,21 +109,14 @@ function ChildController($routeParams, childService, accountService, $location) 
 		} 	
 	}
 
+	function scrollTop() {
+		window.scrollTo(0, 0);
+	}
+
 	function selectHeaderButton() {
 		console.log('.header-button--' + self.currentPage)
 		$('.header-button--' + self.currentPage).addClass('header-button--selected')
 		$('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
-		// switch(self.currentPage) {
-		//     case 'goals':
-		//         $('.header-button--goals' + self.currentPage).addClass('header-button--selected')
-		//         $('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
-		//         break;
-		//     case n:
-		//         code block
-		//         break;
-		//     default:
-		//         code block
-		// }
 	}
 
 	function randomTrophy() {

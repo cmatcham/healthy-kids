@@ -311,7 +311,7 @@ main {
     height: 40%;
     width: 100%; }
   .rewards__custom {
-    margin: 80px 0 0 0;
+    margin: -200px 0 0 0;
     height: 40%;
     width: 100%; }
   .rewards__goals {
@@ -319,6 +319,11 @@ main {
     width: 100%; }
     .rewards__goals:nth-child(2) {
       margin: 80px 0 0 0; }
+  .rewards__text {
+    margin: 0 0 30px 0; }
+    .rewards__text p {
+      font-size: 1.3em;
+      color: black; }
   .rewards__image {
     margin: 15px 30px 15px 0;
     height: 90px;
@@ -334,7 +339,7 @@ main {
       border: 2px solid #00B8B0; }
     .rewards__image--movement {
       border: 2px solid #7352A2; }
-    .rewards__image--goal {
+    .rewards__image--reward {
       border: 2px solid #EE2A7B;
       background-image: url("../imgs/two-kids.png"); }
   .rewards__reward {

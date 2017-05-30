@@ -56,10 +56,11 @@ function config($routeProvider, $httpProvider) {
 	$httpProvider.interceptors.push(function($q, $location, $cookies, $rootScope) {
 		return {
 			'responseError': function(response) {
-				console.log('intercepted a bad response, with status ', response.status);
+				console.log('intercepted a bad response, with status so I\'ll send to /login', response.status);
 				if (response.status === 401) {			
 					$cookies.remove('token');
-					$location.path("/");
+					console.log('location.pathing to /login');
+					$location.path("/login");
 					$rootScope.authenticated = false;
 				}
 				return $q.reject(response);

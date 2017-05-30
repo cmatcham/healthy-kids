@@ -9,6 +9,9 @@ import org.springframework.web.util.UrlPathHelper;
 
 import com.tagtheagency.security.exception.JwtTokenMissingException;
 
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -47,8 +50,13 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
 
         String authToken = header.substring(HEADER_START.length());
 
-        UserDetails user = handler.parseUserFromToken(authToken);
-        return new UserAuthentication(user);
+        try {
+	        UserDetails user = handler.parseUserFromToken(authToken);
+	        return new UserAuthentication(user);
+        } catch (ExpiredJwtException | MalformedJwtException e) {
+        	response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        	return null;
+        }
     }
 
     

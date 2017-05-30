@@ -10,7 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
@@ -25,7 +27,7 @@ public final class TokenHandler {
     	this.secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
-    public UserDetails parseUserFromToken(String token) {
+    public UserDetails parseUserFromToken(String token) throws ExpiredJwtException, MalformedJwtException {
         String username = Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)

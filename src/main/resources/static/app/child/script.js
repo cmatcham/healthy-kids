@@ -36,13 +36,16 @@ function ChildController($routeParams, childService, accountService, goalService
 	self.useCustomGoals = false;
 	self.updateDefaultGoals = updateDefaultGoals;
 	self.selectedGoal = selectedGoal;
+	self.updateGoals = updateGoals;
+	
+	self.updateDefaultRewards = updateDefaultRewards;
+	self.defaultRewards = rewardService.predefinedRewards;
 	
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
 	self.editGoal = editGoal;
 	self.editingGoal = {id:-1, target:'MOVEMENT'};
-	self.updateGoals = updateGoals;
 	self.selectedGoalId = selectedGoalId;
 	self.viewGoalsScreen = viewGoalsScreen;
 	self.getSummary = getSummary;
@@ -114,7 +117,6 @@ function ChildController($routeParams, childService, accountService, goalService
 	}
 
 	function selectHeaderButton() {
-		console.log('.header-button--' + self.currentPage)
 		$('.header-button--' + self.currentPage).addClass('header-button--selected')
 		$('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
 	}
@@ -302,6 +304,11 @@ function ChildController($routeParams, childService, accountService, goalService
 	function updateDefaultGoals() {
 		childService.updateChild(self.child);
 	}
+
+	function updateDefaultRewards() {
+		childService.updateChild(self.child);
+	}
+
 	
 	function setGoals(which) {
 		if (which == 'custom') {
@@ -420,6 +427,7 @@ function ChildController($routeParams, childService, accountService, goalService
 		
 		
 	}
+
 	
 	function getCustomGoal(target) {
 		if (self.child == null) {
@@ -471,6 +479,9 @@ function ChildController($routeParams, childService, accountService, goalService
 				}
 				if (self.child.defaultMovementGoal == null) {
 					self.child.defaultMovementGoal = 1;
+				}
+				if (self.child.defaultNutritionReward == null) {
+					self.child.defaultNutritionReward = 1;
 				}
 			});
 

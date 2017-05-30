@@ -1089,6 +1089,10 @@ main {
 		span#sign-in {
 			left: 0;
 		}
+		span.error {
+			left: 0;
+			bottom: 30px;
+		}
 	}
 	&__header {
 		@include center-horizontal;

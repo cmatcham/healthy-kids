@@ -46,14 +46,15 @@
 <div ng-show="vm.showLogin" class="login-form" ng-init="vm.landingScreen()">
     <div class="login-form__header">
     <div class="login-form__text">    	
-        <span>Join</span>
+        <span ng-hide="vm.error">Join</span>
         <span>Already a member?</span>
         <span><a href="#/login">Sign in</a></span>
+        <span ng-show="vm.error" class="error">{{vm.error}}</span>
     </div>
     </div>
     <form>
     	<input type="email" placeholder="Email" ng-model="vm.newAccount.email">
-    	<input type="password" placeholder="Password">
+    	<input type="password" placeholder="Password" ng-model="vm.confirmPassword">
     	<input type="password" placeholder="Confirm Password" ng-model="vm.newAccount.password">
 	    <div class="login-form__submit" ng-click="vm.createAccount()">
 	    	<span>Sign up</span>

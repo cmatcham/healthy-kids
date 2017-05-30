@@ -1,8 +1,8 @@
 angular.module('healthyKids')
-	.factory('accountService', ['$http', '$location', '$rootScope', '$cookies', accountService])
+	.factory('accountService', ['$http', '$location', '$rootScope', '$cookies', '$q', accountService])
 	.factory('childService', ['$http', childService]);
 
-function accountService($http, $location, $rootScope, $cookies) {
+function accountService($http, $location, $rootScope, $cookies, $q) {
 
 	return {
 		createAccount: function(email, password) {
@@ -16,6 +16,8 @@ function accountService($http, $location, $rootScope, $cookies) {
 			}, function(error) {
 				if (error.status === 409) {
 					deferred.reject('An account with that email already exists');
+				} else if (error.status === 400) {
+					deferred.reject('Please use a valid email address');
 				} else {
 					deferred.reject("Error: "+error.data.message);
 				}
@@ -24,6 +26,7 @@ function accountService($http, $location, $rootScope, $cookies) {
 		},
 	
 		authenticate: function(credentials) {
+			var deferred = $q.defer();
 			$http({
 				method:'POST',
 				url: '/login',
@@ -35,9 +38,12 @@ function accountService($http, $location, $rootScope, $cookies) {
 				$cookies.put('token', response.data);
 				$http.defaults.headers.common.token = 'Bearer '+response.data;
 				$location.path("/child-select");
-			}, function() {
+				deferred.resolve(true);
+			}, function(error) {
 				$rootScope.authenticated = false;
+				deferred.resolve(false);
 			});
+			return deferred.promise;
 	
 		},
 		

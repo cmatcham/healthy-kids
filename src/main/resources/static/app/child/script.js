@@ -20,7 +20,8 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
 	self.randomStar = randomStar;
-	
+
+
 	
 	/**
 	 * Goals
@@ -107,10 +108,21 @@ function ChildController($routeParams, childService, accountService, $location) 
 		} 	
 	}
 
-	function selectHeaderButton(event) {
-		console.log(event)
-		$($(event.currentTarget)[0]).addClass('header-button--selected')
-		$($(event.currentTarget)[0]).append("<div class='header-button__selected-bg'></div>")
+	function selectHeaderButton() {
+		console.log('.header-button--' + self.currentPage)
+		$('.header-button--' + self.currentPage).addClass('header-button--selected')
+		$('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
+		// switch(self.currentPage) {
+		//     case 'goals':
+		//         $('.header-button--goals' + self.currentPage).addClass('header-button--selected')
+		//         $('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
+		//         break;
+		//     case n:
+		//         code block
+		//         break;
+		//     default:
+		//         code block
+		// }
 	}
 
 	function randomTrophy() {

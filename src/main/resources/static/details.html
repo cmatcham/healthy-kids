@@ -81,13 +81,13 @@
 		</div>
 		<div class="selected-goals">
 			<div class="selected-goals__goal selected-goals__goal--nutrition">
-				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.useCustomGoals ? vm.customGoals.nutrition.goal : vm.goals.nutrition}}</span>
+				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.selectedGoal('nutrition')}}</span>
 			</div>
 			<div class="selected-goals__goal selected-goals__goal--movement">
-				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.useCustomGoals ? vm.customGoals.movement.goal : vm.goals.movement}}</span>
+				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.selectedGoal('movement')}}</span>
 			</div>
 			<div class="selected-goals__goal selected-goals__goal--sleep">
-				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.useCustomGoals ? vm.customGoals.sleep.goal : vm.goals.sleep}}</span>
+				<span ng-click="vm.viewGoalsScreen()" title="Click to set your goals">{{vm.selectedGoal('sleep')}}</span>
 			</div>
 		</div>
 		<div class="weekdays-column">

@@ -64,7 +64,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	}
 	
 	@Override
-	public Child createChild(Account account, String firstName, int age, String sticker) {
+	public Child createChild(Account account, String firstName, Integer age, String sticker) {
 		Child child = new Child();
 		child.setAccount(account);
 		child.setName(firstName);
@@ -74,7 +74,7 @@ public class HealthyKidsManagerImpl implements HealthyKidsManager {
 	}
 	
 	@Override
-	public Child updateChild(Child child, String firstName, int age, String sticker) {
+	public Child updateChild(Child child, String firstName, Integer age, String sticker) {
 		child.setName(firstName);
 		child.setAge(age);
 		child.setSticker(sticker);

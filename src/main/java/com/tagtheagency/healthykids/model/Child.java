@@ -25,6 +25,14 @@ public class Child {
 	private List<Reward> customRewards;
 	private List<Goal> customGoals;
 	
+	private Integer defaultSleepGoal;
+	private Integer defaultNutritionGoal;
+	private Integer defaultMovementGoal;
+	private Integer defaultSleepReward;
+	private Integer defaultNutritionReward;
+	private Integer defaultMovementReward;
+	
+	
 	@Id
 	@GeneratedValue
 	@Column(name="child_id")
@@ -119,5 +127,61 @@ public class Child {
 	public void setCustomGoals(List<Goal> customGoals) {
 		this.customGoals = customGoals;
 	}
+
+	@Column
+	public Integer getDefaultSleepGoal() {
+		return defaultSleepGoal;
+	}
+
+	public void setDefaultSleepGoal(Integer defaultSleepGoal) {
+		this.defaultSleepGoal = defaultSleepGoal;
+	}
+
+	@Column
+	public Integer getDefaultNutritionGoal() {
+		return defaultNutritionGoal;
+	}
+
+	public void setDefaultNutritionGoal(Integer defaultNutritionGoal) {
+		this.defaultNutritionGoal = defaultNutritionGoal;
+	}
+
+	@Column
+	public Integer getDefaultMovementGoal() {
+		return defaultMovementGoal;
+	}
+
+	public void setDefaultMovementGoal(Integer defaultMovementGoal) {
+		this.defaultMovementGoal = defaultMovementGoal;
+	}
+
+	@Column
+	public Integer getDefaultSleepReward() {
+		return defaultSleepReward;
+	}
+
+	public void setDefaultSleepReward(Integer defaultSleepReward) {
+		this.defaultSleepReward = defaultSleepReward;
+	}
+
+	@Column
+	public Integer getDefaultNutritionReward() {
+		return defaultNutritionReward;
+	}
+
+	public void setDefaultNutritionReward(Integer defaultNutritionReward) {
+		this.defaultNutritionReward = defaultNutritionReward;
+	}
+
+	@Column
+	public Integer getDefaultMovementReward() {
+		return defaultMovementReward;
+	}
+
+	public void setDefaultMovementReward(Integer defaultMovementReward) {
+		this.defaultMovementReward = defaultMovementReward;
+	}
+	
+	
 }
 

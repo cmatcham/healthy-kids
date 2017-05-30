@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tagtheagency.healthykids.dto.AchievementDTO;
@@ -109,6 +110,48 @@ public class ApiController {
 
 		return goal;
 	}
+	
+	@RequestMapping(value="/child/{id}/update/{type}/{target}", method=RequestMethod.POST)
+	public ChildDTO updateGoalsAndRewards(@PathVariable int id, @PathVariable String type, @PathVariable String target, @RequestParam Integer selected) {
+		Child child = findChild(id);
+		if (child == null) {
+			return null;
+		}
+		
+		switch (target) {
+		case "nutrition":
+			if (type.equals("reward")) {
+				child.setDefaultNutritionReward(selected);
+			} else if (type.equals("goal")) {
+				child.setDefaultNutritionGoal(selected);
+			} else {
+				return null;
+			}
+			break;
+		case "movement":
+			if (type.equals("reward")) {
+				child.setDefaultMovementReward(selected);
+			} else if (type.equals("goal")) {
+				child.setDefaultMovementGoal(selected);
+			} else {
+				return null;
+			}
+			break;
+		case "sleep":
+			if (type.equals("reward")) {
+				child.setDefaultSleepReward(selected);
+			} else if (type.equals("goal")) {
+				child.setDefaultSleepGoal(selected);
+			} else {
+				return null;
+			}
+			break;
+			default: return null;
+				
+		}
+		return ChildDTO.convertFrom(child);
+		
+	}
 
 	@RequestMapping(value="/child/{id}/update", method = RequestMethod.POST)
 	public ChildDTO updateChild(@PathVariable int id, @RequestBody ChildDTO dto) throws Exception {
@@ -119,6 +162,14 @@ public class ApiController {
 		if (child == null) {
 			return null;
 		}
+		
+		child.setDefaultMovementGoal(dto.getDefaultMovementGoal());
+		child.setDefaultMovementReward(dto.getDefaultMovementReward());
+		child.setDefaultNutritionGoal(dto.getDefaultNutritionGoal());
+		child.setDefaultNutritionReward(dto.getDefaultNutritionReward());
+		child.setDefaultSleepGoal(dto.getDefaultSleepGoal());
+		child.setDefaultSleepReward(dto.getDefaultSleepReward());
+		
 		return ChildDTO.convertFrom(manager.updateChild(child, dto.getFirstName(), dto.getAge(), dto.getSticker()));
 	}
 	

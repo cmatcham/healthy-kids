@@ -13,7 +13,7 @@
 	</div>
 	<div class="share-text"><p>Do you have family or friends who would love to know how you and your children are doing in your mission for a healthier life? You could just tell them about it in person or you could use Facebook or email.</p></div>
 	<div class="share">
-		<div class="share__button" ng-click="vm.facebookShare(vm.child.firstName)"></div>
+		<div class="share__button" ng-click="vm.facebookShare({{vm.child.firstName}})"></div>
 		<a href="mailto:?subject={{vm.child.firstName}}'s progress&body=Fantastic news! {{vm.child.firstName}} has achieved another goal in our mission to get this family healthier!"><div class="share__button"></div></a>
 	</div>
 	<!-- <div class="fb-share-button" data-href="https://pure-island-83329.herokuapp.com" data-layout="button_count" data-size="large" data-quote="Fantastic news! {{vm.child.firstName}}} has achieved another goal in our mission to get this family healthier!" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpure-island-83329.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div> -->

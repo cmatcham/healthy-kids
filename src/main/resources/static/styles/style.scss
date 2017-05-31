@@ -1,7 +1,7 @@
 
-$red:#EE2A7B;  
+$red:#00B8B0; //actually blue now oops
 $yellow:#FFCB05;
-$blue:#00B8B0;
+$blue:#EE2A7B; //actually pink now oops
 $green:#82C341;
 $purple:#7352A2;
 
@@ -353,7 +353,7 @@ main {
 	bottom: -25px;
 	z-index: 1;
 	border-radius: 25%;
-	width: 60px;
+	width: 80px;
 	height: 40px;
 	position: absolute;
 	background-color: $yellow;
@@ -361,20 +361,13 @@ main {
 	background-position: 50% 120%;
 	cursor: pointer;
 	background-repeat: no-repeat;
-	&:after {
-		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
-		top: -5px;
-		left: 15px;
-		line-height: 60px;
-		text-align: center;
-		color: white;
-		content: '\276E';
-		font-size: 3em;
-		position: absolute;
-		display: inline-block;
-		-ms-transform: rotate(-90deg); /* IE 9 */
-		-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-		transform: rotate(-90deg);
+	span {
+		@include center;
+		position: relative;
+		font-size: 1.3em;
+	}
+	&:hover {
+		color: black;
 	}
 }
 

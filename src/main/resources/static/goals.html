@@ -19,7 +19,7 @@
 			<!-- <span>Play outside for half an hour.</span> -->
 		</div>
 		<div class="rewards__reward rewards__reward--sleep">
-			<div class="rewards__image rewards__image--sleep" style="background-image: url('imgs/Stars-2.png');"></div>
+			<div class="rewards__image rewards__image--sleep" style="background-image: url('imgs/Stars-4.png');"></div>
 			<select ng-model="vm.child.defaultSleepGoal" ng-change="vm.updateDefaultGoals()">
 				<option ng-repeat="goal in vm.defaultGoals.nutrition" value="{{goal.id}}" ng-selected="vm.child.defaultSleepGoal === goal.id">{{goal.goal}}</option>
 			</select>
@@ -38,7 +38,7 @@
 			<textarea placeholder="Click to edit" ng-model="vm.customGoals['movement'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 		<div class="rewards__reward rewards__reward--sleep">
-			<div class="rewards__image rewards__image--sleep"  style="background-image: url('imgs/Stars-2.png');"></div>
+			<div class="rewards__image rewards__image--sleep"  style="background-image: url('imgs/Stars-4.png');"></div>
 			<textarea placeholder="Click to edit" ng-model="vm.customGoals['sleep'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 	</div>

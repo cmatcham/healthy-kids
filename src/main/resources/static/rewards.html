@@ -5,6 +5,7 @@
 	</div>
 	<div class="rewards__recommended">
 		<h2>Possible rewards</h2>
+		<div class="rewards__select"><span>Select</span></div>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
 			<select ng-model="vm.child.defaultNutritionReward" ng-change="vm.updateDefaultRewards()">
@@ -14,6 +15,7 @@
 	</div>
 	<div class="rewards__custom">
 		<h2>Custom reward</h2>
+		<div class="rewards__select"><span>Select</span></div>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
 			<textarea placeholder="Click to edit" ng-model="vm.child.customRewards[0].reward" ng-blur="vm.updateRewards()"></textarea>

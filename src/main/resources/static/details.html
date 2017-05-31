@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="info-container__title">{{vm.current_activity.display}}</div>
-				<div class="info-container__video"></div>
+				<div class="info-container__video"><iframe src="https://www.youtube.com/embed/0vrdgDdPApQ" frameborder="0" allowfullscreen></iframe></div>
 				<div class="info-container__caption" ng-show="vm.current_activity.value=='nutrition'">
 					Meal times in the Amosa household are special family times. Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they enjoy.
 				</div>
@@ -77,7 +77,10 @@
 					</ul>
 				</div>
 			</div>
-			<div class="info-button" ng-click="vm.displayInfoSection(); vm.changeInfoTab(vm.targets[0])"></div>
+			<div class="info-button" ng-click="vm.displayInfoSection(); vm.changeInfoTab(vm.targets[0])">
+				<span ng-hide="vm.infoOpen">Info</span>
+				<span ng-show="vm.infoOpen">Hide</span>
+			</div>
 		</div>
 		<div class="selected-goals">
 			<div class="selected-goals__goal selected-goals__goal--nutrition">

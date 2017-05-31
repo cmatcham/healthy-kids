@@ -143,7 +143,7 @@ function ChildController($routeParams, childService, accountService, goalService
 		        color = '#82C341'
 		        break;
 		    case 'sleep':
-		        color = '#00B8B0'
+		        color = '#EE2A7B'
 		        break;
 		}
 		$('.info-container').css({'background-color': color})

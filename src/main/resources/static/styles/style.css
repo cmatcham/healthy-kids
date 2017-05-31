@@ -63,7 +63,7 @@ span {
 
 header {
   color: white;
-  background-color: #EE2A7B;
+  background-color: #00B8B0;
   z-index: 2;
   height: 7%;
   width: 100%;
@@ -76,7 +76,7 @@ header {
   float: left;
   position: relative; }
   .header-button--selected span {
-    color: #EE2A7B; }
+    color: #00B8B0; }
   .header-button span {
     z-index: 2;
     display: inline-block;
@@ -181,12 +181,12 @@ main {
       left: 50%;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
-      background-color: #00B8B0; }
+      background-color: #EE2A7B; }
     .child-select-button__name:hover {
-      color: #EE2A7B; }
+      color: #00B8B0; }
   .child-select-button--add {
     margin: 0 0 30px 0;
-    background-color: #00B8B0; }
+    background-color: #EE2A7B; }
   .child-select-button__edit {
     width: 60px;
     height: 26px;
@@ -204,7 +204,7 @@ main {
       position: absolute;
       font-size: 0.5em; }
     .child-select-button__edit:hover {
-      color: #EE2A7B; }
+      color: #00B8B0; }
   .child-select-button__delete {
     top: calc(100% - 30px);
     width: 60px;
@@ -223,7 +223,7 @@ main {
       position: absolute;
       font-size: 0.5em; }
     .child-select-button__delete:hover {
-      color: #EE2A7B; }
+      color: #00B8B0; }
 
 .info-inner {
   display: none; }
@@ -242,14 +242,14 @@ main {
       height: 30px;
       width: 100%;
       z-index: 1;
-      background-color: #EE2A7B; }
+      background-color: #00B8B0; }
     .info-tabs__behind-tabs div:nth-child(2) {
       position: absolute;
       width: 100%;
       height: 35px;
       bottom: -10px;
       z-index: 3;
-      background-color: #00B8B0; }
+      background-color: #EE2A7B; }
   .info-tabs__tab {
     padding: 0 5px 0 5px;
     position: relative;
@@ -263,7 +263,7 @@ main {
     .info-tabs__tab--nutrition {
       background-color: #82C341; }
     .info-tabs__tab--sleep {
-      background-color: #00B8B0; }
+      background-color: #EE2A7B; }
   .info-tabs__image {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -292,7 +292,7 @@ main {
   bottom: -25px;
   z-index: 1;
   border-radius: 25%;
-  width: 60px;
+  width: 80px;
   height: 40px;
   position: absolute;
   background-color: #FFCB05;
@@ -300,21 +300,15 @@ main {
   background-position: 50% 120%;
   cursor: pointer;
   background-repeat: no-repeat; }
-  .info-button:after {
-    top: -5px;
-    left: 15px;
-    line-height: 60px;
-    text-align: center;
-    color: white;
-    content: '\276E';
-    font-size: 3em;
-    position: absolute;
-    display: inline-block;
-    -ms-transform: rotate(-90deg);
-    /* IE 9 */
-    -webkit-transform: rotate(-90deg);
-    /* Chrome, Safari, Opera */
-    transform: rotate(-90deg); }
+  .info-button span {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative;
+    font-size: 1.3em; }
+  .info-button:hover {
+    color: black; }
 
 .rewards {
   top: 50%;
@@ -324,7 +318,7 @@ main {
   width: 90%;
   height: 90%;
   position: relative;
-  color: #EE2A7B; }
+  color: #00B8B0; }
   .rewards h2 {
     font-size: 2em;
     margin: 0 0 0 0;
@@ -336,7 +330,7 @@ main {
     margin: 0 0 0 20px;
     height: 40px;
     width: 100px;
-    border: 2px solid #EE2A7B;
+    border: 2px solid #00B8B0;
     display: inline-block;
     border-radius: 5px; }
     .rewards__select span {
@@ -347,10 +341,10 @@ main {
       position: relative;
       font-size: 1.1em; }
     .rewards__select:hover {
-      background-color: #EE2A7B;
+      background-color: #00B8B0;
       color: #F0FFFF; }
     .rewards__select--active {
-      background-color: #EE2A7B;
+      background-color: #00B8B0;
       color: #F0FFFF; }
   .rewards__recommended {
     height: 40%;
@@ -381,11 +375,11 @@ main {
     .rewards__image--nutrition {
       border: 2px solid #82C341; }
     .rewards__image--sleep {
-      border: 2px solid #00B8B0; }
+      border: 2px solid #EE2A7B; }
     .rewards__image--movement {
       border: 2px solid #7352A2; }
     .rewards__image--reward {
-      border: 2px solid #EE2A7B;
+      border: 2px solid #00B8B0;
       background-image: url("../imgs/two-kids.png"); }
   .rewards__reward {
     margin: 10px 0 10px 0;
@@ -411,14 +405,14 @@ main {
     .rewards__reward--nutrition {
       color: #82C341; }
     .rewards__reward--sleep {
-      color: #00B8B0; }
+      color: #EE2A7B; }
     .rewards__reward--movement {
       color: #7352A2; }
 
 .home-bg {
   height: 100%;
   width: 100%;
-  background-color: #EE2A7B;
+  background-color: #00B8B0;
   position: absolute; }
 
 .child-update-bg {
@@ -466,7 +460,7 @@ main {
     .child-form__menu-icon div {
       width: 100%;
       height: 5px;
-      background-color: #EE2A7B;
+      background-color: #00B8B0;
       float: left;
       margin: 0 0 6px 0; }
   .child-form__input {
@@ -493,12 +487,12 @@ main {
         top: 50%;
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
-        color: #EE2A7B;
+        color: #00B8B0;
         display: inline-block;
         position: absolute;
         left: 3px; }
     .child-form__input--submit {
-      color: #EE2A7B;
+      color: #00B8B0;
       margin: 35px 0 0 0;
       padding: 0 0 0 0;
       font-size: 2.5em; }
@@ -514,7 +508,7 @@ main {
   width: 100%;
   position: absolute;
   top: 92%;
-  background-color: #EE2A7B;
+  background-color: #00B8B0;
   left: 0;
   border-radius: 5px;
   height: 0px; }
@@ -692,7 +686,7 @@ main {
     .selected-goals__goal--nutrition {
       background-color: #82C341; }
     .selected-goals__goal--sleep {
-      background-color: #00B8B0; }
+      background-color: #EE2A7B; }
 
 .tick-chart {
   left: 50%;
@@ -728,7 +722,7 @@ main {
   .checkbox--nutrition {
     border-color: #82C341; }
   .checkbox--sleep {
-    border-color: #00B8B0; }
+    border-color: #EE2A7B; }
   .checkbox--weekly-goal {
     background-image: url("../imgs/weekly-goal.png"); }
   .checkbox--daily-goal {
@@ -745,7 +739,7 @@ main {
   display: none; }
   .congrats-popup h1 {
     text-align: center;
-    color: #EE2A7B;
+    color: #00B8B0;
     font-size: 3em;
     margin: 0 0 0 0;
     position: relative;
@@ -801,7 +795,7 @@ main {
   .tick--nutrition {
     background-color: #82C341; }
   .tick--sleep {
-    background-color: #00B8B0; }
+    background-color: #EE2A7B; }
   .tick--goals {
     height: 40px;
     width: 40px;
@@ -832,7 +826,7 @@ main {
   height: 45%; }
   .weekdays-column__weekday {
     font-size: 1.4em;
-    color: #EE2A7B;
+    color: #00B8B0;
     height: calc(100% / 7);
     width: 100%;
     float: left;
@@ -919,7 +913,7 @@ main {
     .activities-row__activity--nutrition {
       color: #82C341; }
     .activities-row__activity--sleep {
-      color: #00B8B0; }
+      color: #EE2A7B; }
 
 .home-intro {
   left: 50%;
@@ -928,9 +922,10 @@ main {
   width: 80%;
   height: 250px;
   position: relative;
-  top: 260px;
+  top: 270px;
   z-index: 3; }
   .home-intro p {
+    line-height: 30px;
     font-size: 1.2em;
     color: white;
     font-family: 'Verdana'; }
@@ -952,10 +947,11 @@ main {
     padding: 50px 10px 0 10px;
     position: absolute;
     top: 280px;
-    width: 430px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background-color: #F0FFFF;
-    border-radius: 5px; }
+    border-radius: 5px;
+    line-height: 27px; }
   .disclaimer-popup p {
     font-size: 1.2em;
     font-family: 'Verdana'; }
@@ -968,6 +964,7 @@ main {
     cursor: pointer;
     z-index: 3; }
     .disclaimer-popup__close span {
+      margin: 5px 0 0 0;
       opacity: 0.5;
       font-size: 2em; }
       .disclaimer-popup__close span:hover {
@@ -1003,7 +1000,7 @@ main {
   .login-form--hidden {
     display: none; }
   .login-form__text {
-    color: #EE2A7B;
+    color: #00B8B0;
     font-size: 1.5em; }
     .login-form__text span {
       display: block;
@@ -1014,7 +1011,7 @@ main {
     .login-form__text span:nth-child(3) {
       right: 120px;
       text-decoration: underline;
-      color: #00B8B0; }
+      color: #EE2A7B; }
     .login-form__text span#sign-in {
       left: 0; }
     .login-form__text span.error {
@@ -1062,11 +1059,11 @@ main {
     text-align: center;
     width: 85%;
     height: 60px;
-    background-color: #00B8B0;
+    background-color: #EE2A7B;
     color: #F0FFFF;
     transition-duration: 1s; }
     .login-form__submit:hover {
-      background-color: #EE2A7B;
+      background-color: #00B8B0;
       color: #FFCB05; }
     .login-form__submit span {
       top: 50%;
@@ -1122,7 +1119,7 @@ main {
   margin: 10px 0px 0 0;
   height: 370px;
   width: 350px;
-  background-color: #EE2A7B;
+  background-color: #00B8B0;
   overflow-y: scroll;
   overflow-x: hidden; }
   .child-menu:after {
@@ -1134,7 +1131,7 @@ main {
     position: absolute;
     top: -7px;
     margin-right: 15px;
-    background-color: #EE2A7B;
+    background-color: #00B8B0;
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
@@ -1196,7 +1193,7 @@ main {
   .homepage-background-squares__square:nth-child(1) {
     background-color: #7352A2; }
   .homepage-background-squares__square:nth-child(2) {
-    background-color: #00B8B0; }
+    background-color: #EE2A7B; }
   .homepage-background-squares__square:nth-child(3) {
     background-color: #82C341; }
   .homepage-background-squares__square:nth-child(4) {
@@ -1206,7 +1203,7 @@ main {
     height: 390px;
     width: 100%;
     top: 100%;
-    background-color: #EE2A7B; }
+    background-color: #00B8B0; }
   .homepage-background-squares__square--splash:nth-child(1) {
     background-image: url("../imgs/movement-white.png"); }
   .homepage-background-squares__square--splash:nth-child(2) {
@@ -1224,7 +1221,7 @@ main {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: #EE2A7B; }
+  background-color: #00B8B0; }
 
 header#progress-page {
   height: 10%; }
@@ -1278,9 +1275,9 @@ footer#progress-page {
     .category-progress__number--nutrition {
       background-color: #82C341; }
     .category-progress__number--sleep {
-      background-color: #00B8B0; }
-    .category-progress__number--total {
       background-color: #EE2A7B; }
+    .category-progress__number--total {
+      background-color: #00B8B0; }
     .category-progress__number span {
       top: 50%;
       left: 50%;
@@ -1378,7 +1375,7 @@ footer#progress-page {
 .week-nav {
   width: 100%;
   height: 5%;
-  background-color: #EE2A7B;
+  background-color: #00B8B0;
   bottom: 0;
   position: absolute; }
   .week-nav span {
@@ -1399,7 +1396,7 @@ footer#progress-page {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: relative;
-      color: #EE2A7B;
+      color: #00B8B0;
       text-decoration: underline; }
 
 .share-text {
@@ -1424,7 +1421,7 @@ footer#progress-page {
     cursor: pointer;
     width: 70px;
     height: 70px;
-    background-color: #EE2A7B;
+    background-color: #00B8B0;
     float: left; }
     .share__button:nth-child(1) {
       margin: 0 5px 0 0; }

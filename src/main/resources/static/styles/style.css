@@ -145,40 +145,85 @@ main {
   transform: translateX(-50%);
   cursor: pointer;
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 10px 0 10px 0;
   height: 60px;
-  background-color: #FFCB05;
-  border-radius: 5px;
   overflow: hidden;
   color: #F0FFFF;
-  font-size: 2em; }
-  .child-select-button span {
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    text-align: center; }
+  font-size: 2em;
+  border-radius: 5px; }
+  .child-select-button__sticker {
+    height: 100%;
+    width: 60px;
+    border: 2px solid #FFCB05;
+    border-radius: 5px;
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    margin: 0 5px 0 0;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.2); }
+  .child-select-button__name {
+    border-radius: 5px;
+    float: left;
+    position: relative;
+    width: 85%;
+    height: 100%;
+    background-color: #FFCB05; }
+    .child-select-button__name span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      text-align: center; }
+    .child-select-button__name--add {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      background-color: #00B8B0; }
+    .child-select-button__name:hover {
+      color: #EE2A7B; }
   .child-select-button--add {
     margin: 0 0 30px 0;
     background-color: #00B8B0; }
   .child-select-button__edit {
-    width: 15%;
-    height: 100%;
+    width: 60px;
+    height: 26px;
     position: absolute;
-    right: 0;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.1); }
+    right: 5px;
+    margin: 2px 0 1px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box; }
     .child-select-button__edit span {
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: absolute;
-      font-size: 0.6em; }
-  .child-select-button:hover {
-    color: #EE2A7B; }
+      font-size: 0.5em; }
+    .child-select-button__edit:hover {
+      color: #EE2A7B; }
+  .child-select-button__delete {
+    top: calc(100% - 30px);
+    width: 60px;
+    height: 26px;
+    position: absolute;
+    right: 5px;
+    margin: 1px 0 2px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box; }
+    .child-select-button__delete span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      font-size: 0.5em; }
+    .child-select-button__delete:hover {
+      color: #EE2A7B; }
 
 .info-inner {
   display: none; }
@@ -436,7 +481,6 @@ main {
     margin: 5px 0 5px 0;
     padding: 0 0 0 10px;
     font-size: 1.6em;
-    line-height: calc(100% / 4);
     width: 90%;
     height: 60px;
     background-color: #FFCB05;
@@ -998,7 +1042,6 @@ main {
     margin: 5px 0 5px 0;
     padding: 0 0 0 10px;
     font-size: 1.6em;
-    line-height: calc(100% / 4);
     width: 85%;
     height: 60px;
     background-color: #FFCB05;
@@ -1215,6 +1258,13 @@ footer#progress-page {
       background-image: url("../imgs/nutrition.png"); }
     .category-progress__image--movement {
       background-image: url("../imgs/movement.png"); }
+  .category-progress__text {
+    color: black;
+    font-size: 1.5em;
+    text-align: center;
+    position: relative;
+    top: 100%;
+    margin: 5px 0 0 0; }
   .category-progress__number {
     width: 130px;
     height: 130px;
@@ -1229,6 +1279,14 @@ footer#progress-page {
       background-color: #00B8B0; }
     .category-progress__number--total {
       background-color: #EE2A7B; }
+    .category-progress__number span {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      color: white;
+      position: relative;
+      font-size: 4em; }
   .category-progress__badge {
     flex: 1;
     position: relative;
@@ -1241,14 +1299,6 @@ footer#progress-page {
       transform: translateX(-50%);
       position: relative;
       margin: 10px 0 0 0; }
-    .category-progress__badge span {
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      color: white;
-      position: relative;
-      font-size: 4em; }
 
 .stickers {
   box-sizing: border-box;
@@ -1349,6 +1399,11 @@ footer#progress-page {
       position: relative;
       color: #EE2A7B;
       text-decoration: underline; }
+
+.facebook-share {
+  height: 50px;
+  width: 50px;
+  background-color: #EE2A7B; }
 
 /**
  * Modal styles 

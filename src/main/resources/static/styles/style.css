@@ -671,6 +671,8 @@ main {
   width: 65%;
   height: 190px; }
   .selected-goals__goal {
+    padding: 5px 5px 5px 5px;
+    box-sizing: border-box;
     background-color: white;
     overflow-y: scroll;
     margin: 5px 0 5px 0;
@@ -684,7 +686,7 @@ main {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: relative;
-      font-size: 1.2em; }
+      font-size: 1.1em; }
     .selected-goals__goal--movement {
       background-color: #7352A2; }
     .selected-goals__goal--nutrition {
@@ -1400,10 +1402,34 @@ footer#progress-page {
       color: #EE2A7B;
       text-decoration: underline; }
 
-.facebook-share {
-  height: 50px;
-  width: 50px;
-  background-color: #EE2A7B; }
+.share-text {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: relative;
+  width: 90%;
+  margin: 60px 0 0 0;
+  line-height: 40px; }
+  .share-text p {
+    font-size: 1.4em; }
+
+.share {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: relative;
+  height: 70px;
+  width: 150px; }
+  .share__button {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    background-color: #EE2A7B;
+    float: left; }
+    .share__button:nth-child(1) {
+      margin: 0 5px 0 0; }
+    .share__button:nth-child(2) {
+      margin: 0 5px 0 0; }
 
 /**
  * Modal styles 

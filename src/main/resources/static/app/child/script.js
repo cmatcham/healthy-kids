@@ -322,6 +322,9 @@ function ChildController($routeParams, childService, accountService, goalService
 	}
 	
 	function getChosenReward() {
+		if (typeof self.child === 'undefined') {
+			return '';
+		}
 		if (self.child.useCustomReward) {
 			return self.child.customReward;
 		}

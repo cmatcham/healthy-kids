@@ -505,12 +505,12 @@ function ChildController($routeParams, childService, accountService, goalService
 		});
 	}
 
-	function facebookShare(name) {
+	function facebookShare(childName) {
 		FB.ui(
 		 {
 		  method: 'share',
 		  href: 'https://pure-island-83329.herokuapp.com',
-		  quote: 'Fantastic news!' + name + 'has achieved another goal in our mission to get this family healthier!'
+		  quote: 'Fantastic news! ' + childName + ' has achieved another goal in our mission to get this family healthier!'
 		}, function(response){});
 	}
 

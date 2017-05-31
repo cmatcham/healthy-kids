@@ -5,20 +5,19 @@
 	</div>
 	<div class="rewards__recommended">
 		<h2>Possible rewards</h2>
-		<div class="rewards__select"><span>Select</span></div>
+		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomRewards}" ng-click="vm.setRewards('default')"><span>Select{{vm.useCustomRewards ? "" : "ed"}}</span></div>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
-			<select ng-model="vm.child.defaultNutritionReward" ng-change="vm.updateDefaultRewards()">
-				<option ng-repeat="reward in vm.defaultRewards" value="{{reward.id}}" ng-selected="vm.child.defaultNutritionReward === reward.id">{{reward.reward}}</option>
+			<select ng-model="vm.child.defaultReward" ng-change="vm.updateDefaultRewards()" ng-options="reward.id as reward.reward for reward in vm.defaultRewards">
 			</select>
 		</div>
 	</div>
 	<div class="rewards__custom">
 		<h2>Custom reward</h2>
-		<div class="rewards__select"><span>Select</span></div>
+		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomRewards}" ng-click="vm.setRewards('custom')"><span>Select{{vm.useCustomRewards ? "ed" : ""}}</span></div>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.child.customRewards[0].reward" ng-blur="vm.updateRewards()"></textarea>
+			<textarea placeholder="Click to edit" ng-model="vm.child.customReward" ng-blur="vm.updateRewards()"></textarea>
 		</div>
 	</div>
 </div>

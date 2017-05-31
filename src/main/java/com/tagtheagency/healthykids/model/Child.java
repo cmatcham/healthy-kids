@@ -28,9 +28,9 @@ public class Child {
 	private Integer defaultSleepGoal;
 	private Integer defaultNutritionGoal;
 	private Integer defaultMovementGoal;
-	private Integer defaultSleepReward;
-	private Integer defaultNutritionReward;
-	private Integer defaultMovementReward;
+	private Integer defaultReward;
+	private String customReward;
+	private Boolean useCustomReward;
 	
 	
 	@Id
@@ -156,31 +156,32 @@ public class Child {
 	}
 
 	@Column
-	public Integer getDefaultSleepReward() {
-		return defaultSleepReward;
+	public Integer getDefaultReward() {
+		return defaultReward;
 	}
 
-	public void setDefaultSleepReward(Integer defaultSleepReward) {
-		this.defaultSleepReward = defaultSleepReward;
-	}
-
-	@Column
-	public Integer getDefaultNutritionReward() {
-		return defaultNutritionReward;
-	}
-
-	public void setDefaultNutritionReward(Integer defaultNutritionReward) {
-		this.defaultNutritionReward = defaultNutritionReward;
+	public void setDefaultReward(Integer defaultReward) {
+		this.defaultReward = defaultReward;
 	}
 
 	@Column
-	public Integer getDefaultMovementReward() {
-		return defaultMovementReward;
+	public String getCustomReward() {
+		return customReward;
+	}
+	
+	public void setCustomReward(String customReward) {
+		this.customReward = customReward;
+	}
+	
+	@Column
+	public Boolean getUseCustomReward() {
+		return useCustomReward;
+	}
+	
+	public void setUseCustomReward(Boolean useCustomReward) {
+		this.useCustomReward = useCustomReward;
 	}
 
-	public void setDefaultMovementReward(Integer defaultMovementReward) {
-		this.defaultMovementReward = defaultMovementReward;
-	}
 	
 	
 }

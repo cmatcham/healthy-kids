@@ -120,27 +120,21 @@ public class ApiController {
 		
 		switch (target) {
 		case "nutrition":
-			if (type.equals("reward")) {
-				child.setDefaultNutritionReward(selected);
-			} else if (type.equals("goal")) {
+			if (type.equals("goal")) {
 				child.setDefaultNutritionGoal(selected);
 			} else {
 				return null;
 			}
 			break;
 		case "movement":
-			if (type.equals("reward")) {
-				child.setDefaultMovementReward(selected);
-			} else if (type.equals("goal")) {
+			if (type.equals("goal")) {
 				child.setDefaultMovementGoal(selected);
 			} else {
 				return null;
 			}
 			break;
 		case "sleep":
-			if (type.equals("reward")) {
-				child.setDefaultSleepReward(selected);
-			} else if (type.equals("goal")) {
+			if (type.equals("goal")) {
 				child.setDefaultSleepGoal(selected);
 			} else {
 				return null;
@@ -164,11 +158,11 @@ public class ApiController {
 		}
 		
 		child.setDefaultMovementGoal(dto.getDefaultMovementGoal());
-		child.setDefaultMovementReward(dto.getDefaultMovementReward());
 		child.setDefaultNutritionGoal(dto.getDefaultNutritionGoal());
-		child.setDefaultNutritionReward(dto.getDefaultNutritionReward());
 		child.setDefaultSleepGoal(dto.getDefaultSleepGoal());
-		child.setDefaultSleepReward(dto.getDefaultSleepReward());
+		child.setCustomReward(dto.getCustomReward());
+		child.setDefaultReward(dto.getDefaultReward());
+		child.setUseCustomReward(dto.getUseCustomReward());
 		
 		return ChildDTO.convertFrom(manager.updateChild(child, dto.getFirstName(), dto.getAge(), dto.getSticker()));
 	}

@@ -41,6 +41,9 @@ function ChildController($routeParams, childService, accountService, goalService
 	
 	self.updateDefaultRewards = updateDefaultRewards;
 	self.defaultRewards = rewardService.predefinedRewards;
+	self.useCustomRewards = false;
+	self.setRewards = setRewards;
+	self.getChosenReward = getChosenReward;
 	
 	
 	self.addGoal = addGoal;
@@ -264,15 +267,7 @@ function ChildController($routeParams, childService, accountService, goalService
 	}
 	
 	function updateRewards() {
-		if (self.newCustomReward !== '' && self.child.customRewards.length < 3) {
-			self.child.customRewards.push({id:-1, reward:self.newCustomReward});
-			self.newCustomReward = '';
-		}
-		
-		childService.setRewards(self.child.id, self.child.customRewards).then(function(data) {
-			self.child.customRewards = data.customRewards;
-		});
-
+		childService.updateChild(self.child);
 	}
 	
 	function getSummary(activity) {
@@ -319,6 +314,20 @@ function ChildController($routeParams, childService, accountService, goalService
 		}
 		updateGoals();
 	}
+
+	function setRewards(which) {
+		self.useCustomRewards = which == 'custom';
+		self.child.useCustomReward = self.useCustomRewards;
+		childService.updateChild(self.child);
+	}
+	
+	function getChosenReward() {
+		if (self.child.useCustomReward) {
+			return self.child.customReward;
+		}
+		return self.defaultRewards.find(function(reward){return reward.id === self.child.defaultReward}).reward;
+	}
+
 	
 	function saveGoal() {
 		self.showAddGoalModal = false;
@@ -481,9 +490,12 @@ function ChildController($routeParams, childService, accountService, goalService
 				if (self.child.defaultMovementGoal == null) {
 					self.child.defaultMovementGoal = 1;
 				}
-				if (self.child.defaultNutritionReward == null) {
-					self.child.defaultNutritionReward = 1;
+				console.log('self.child.defaultReward: '+self.child.defaultReward);
+				if (self.child.defaultReward == null) {
+					self.child.defaultReward = 1;
 				}
+				console.log('self.child.defaultReward: '+self.child.defaultReward);
+				self.useCustomRewards = self.child.useCustomReward;
 			});
 
 		childService.getStickers()

@@ -1,4 +1,3 @@
-
 $red:#00B8B0; //actually blue now oops
 $yellow:#FFCB05;
 $blue:#EE2A7B; //actually pink now oops
@@ -1030,9 +1029,10 @@ main {
 	width: 80%;
 	height: 250px;
 	position: relative;
-	top: 260px;
+	top: 270px;
 	z-index: 3;
 	p {
+		line-height: 30px;
 		font-size: 1.2em;
 		color: white;
 		font-family: 'Verdana';
@@ -1055,10 +1055,11 @@ main {
 		padding: 50px 10px 0 10px;
 		position: absolute;
 		top: 280px;
-		width: 430px;
-		height: 400px;
+		width: 450px;
+		height: 450px;
 		background-color: $white;
 		border-radius: 5px;
+		line-height: 27px;
 	}
 	p {
 		font-size: 1.2em;
@@ -1073,6 +1074,7 @@ main {
 		cursor: pointer;
 		z-index: 3;
 		span {
+			margin: 5px 0 0 0;
 			opacity: 0.5;
 			font-size: 2em;
 			&:hover {

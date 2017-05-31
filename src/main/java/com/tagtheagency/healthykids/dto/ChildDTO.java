@@ -29,9 +29,9 @@ public class ChildDTO {
 	private Integer defaultSleepGoal;
 	private Integer defaultNutritionGoal;
 	private Integer defaultMovementGoal;
-	private Integer defaultSleepReward;
-	private Integer defaultNutritionReward;
-	private Integer defaultMovementReward;
+	private Integer defaultReward;
+	private String customReward;
+	private Boolean useCustomReward;
 	
 	public String getFirstName() {
 		return firstName;
@@ -104,11 +104,12 @@ public class ChildDTO {
 			dto.setCustomGoals(child.getCustomGoals());
 		}
 		dto.setDefaultMovementGoal(child.getDefaultMovementGoal());
-		dto.setDefaultMovementReward(child.getDefaultMovementReward());
 		dto.setDefaultNutritionGoal(child.getDefaultNutritionGoal());
-		dto.setDefaultNutritionReward(child.getDefaultNutritionReward());
 		dto.setDefaultSleepGoal(child.getDefaultSleepGoal());
-		dto.setDefaultSleepReward(child.getDefaultSleepReward());
+		dto.setDefaultReward(child.getDefaultReward());
+		dto.setCustomReward(child.getCustomReward());
+		dto.setUseCustomReward(child.getUseCustomReward());
+
 		return dto;
 	}
 	
@@ -193,23 +194,23 @@ public class ChildDTO {
 	public void setDefaultMovementGoal(Integer defaultMovementGoal) {
 		this.defaultMovementGoal = defaultMovementGoal;
 	}
-	public Integer getDefaultSleepReward() {
-		return defaultSleepReward;
+	public void setCustomReward(String customReward) {
+		this.customReward = customReward;
 	}
-	public void setDefaultSleepReward(Integer defaultSleepReward) {
-		this.defaultSleepReward = defaultSleepReward;
+	public String getCustomReward() {
+		return customReward;
 	}
-	public Integer getDefaultNutritionReward() {
-		return defaultNutritionReward;
+	public Integer getDefaultReward() {
+		return defaultReward;
 	}
-	public void setDefaultNutritionReward(Integer defaultNutritionReward) {
-		this.defaultNutritionReward = defaultNutritionReward;
+	public void setDefaultReward(Integer defaultReward) {
+		this.defaultReward = defaultReward;
 	}
-	public Integer getDefaultMovementReward() {
-		return defaultMovementReward;
+	public Boolean getUseCustomReward() {
+		return useCustomReward;
 	}
-	public void setDefaultMovementReward(Integer defaultMovementReward) {
-		this.defaultMovementReward = defaultMovementReward;
+	public void setUseCustomReward(Boolean useCustomReward) {
+		this.useCustomReward = useCustomReward;
 	}
 	
 	

@@ -165,8 +165,8 @@ main {
     background-color: rgba(0, 0, 0, 0.2); }
   .child-select-button__name {
     border-radius: 5px;
-    float: left;
-    position: relative;
+    right: 0;
+    position: absolute;
     width: 85%;
     height: 100%;
     background-color: #FFCB05; }
@@ -744,6 +744,15 @@ main {
     margin: 0 0 0 0;
     position: relative;
     z-index: 2; }
+  .congrats-popup h2 {
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    color: #00B8B0;
+    height: 120px;
+    overflow: scroll;
+    top: 300px;
+    margin: 0 0 0 0; }
   .congrats-popup__image {
     left: 50%;
     -webkit-transform: translateX(-50%);

@@ -2,6 +2,10 @@
 <html>
 <head>
 <title>Healthy Kids Tracker</title>
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Healthy Kids" />
+<meta property="og:description"   content="Are you interested in making some changes that will help you and your family feel better and have more fun together? Then Healthy Kids is for you. It will help you and your children make lots of little changes that will end up making a big change for your whole family. It’s free, easy, and anyone can play" />
+<meta property="og:image"         content="imgs/two-kids.png" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link
 	type="text/css"
@@ -16,7 +20,27 @@
 }
 </style>
 </head>
-<body ng-app="healthyKids" ng-cloak class="ng-cloak"> 
+<body ng-app="healthyKids" ng-cloak class="ng-cloak">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1882392908695158',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 	<div ng-view class="container"></div>
 	<script src="js/angular-bootstrap.js" type="text/javascript"></script>
 	<script src="js/healthykids.js"></script>

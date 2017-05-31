@@ -20,6 +20,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 	self.changeInfoTab = changeInfoTab;
 	self.randomTrophy = randomTrophy;
 	self.randomStar = randomStar;
+	self.facebookShare = facebookShare;
 
 
 	
@@ -458,6 +459,14 @@ function ChildController($routeParams, childService, accountService, $location) 
 			self.children = data;
 			$location.path('/child-select/');
 		});
+	}
+
+	function facebookShare() {
+		FB.ui(
+		 {
+		  method: 'share',
+		  href: 'https://pure-island-83329.herokuapp.com'
+		}, function(response){});
 	}
 
 

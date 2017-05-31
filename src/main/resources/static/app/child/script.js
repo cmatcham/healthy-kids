@@ -1,9 +1,9 @@
 angular.module('healthyKids')
 	.controller('child', ChildController);
 
-ChildController.$inject = ['$routeParams', 'childService', 'accountService', '$location'];
+ChildController.$inject = ['$routeParams', 'childService', 'accountService', 'goalService', 'rewardService', '$location'];
 
-function ChildController($routeParams, childService, accountService, $location) {
+function ChildController($routeParams, childService, accountService, goalService, rewardService,  $location) {
 	var self = this;
 
 	self.displayInfoSection = displayInfoSection
@@ -32,18 +32,21 @@ function ChildController($routeParams, childService, accountService, $location) 
 	 * updateGoals: function to persist changes to database
 	 */
 	self.setGoals = setGoals;
-	self.goals = {nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
+	self.defaultGoals = goalService.predefinedGoals;//{nutrition:"I will eat three sorts of vegetables at dinner time.", movement:"I will go for a walk or a bike ride", sleep:"I will start quiet time one hour before bedtime"};
 	self.customGoals = {nutrition:"", movement:"", sleep:""}
 	self.useCustomGoals = false;
+	self.updateDefaultGoals = updateDefaultGoals;
+	self.selectedGoal = selectedGoal;
+	self.updateGoals = updateGoals;
 	
+	self.updateDefaultRewards = updateDefaultRewards;
+	self.defaultRewards = rewardService.predefinedRewards;
 	
 	
 	self.addGoal = addGoal;
 	self.saveGoal = saveGoal;
 	self.editGoal = editGoal;
 	self.editingGoal = {id:-1, target:'MOVEMENT'};
-	self.updateGoals = updateGoals;
-	self.selectedGoal = selectedGoal;
 	self.selectedGoalId = selectedGoalId;
 	self.viewGoalsScreen = viewGoalsScreen;
 	self.getSummary = getSummary;
@@ -115,7 +118,6 @@ function ChildController($routeParams, childService, accountService, $location) 
 	}
 
 	function selectHeaderButton() {
-		console.log('.header-button--' + self.currentPage)
 		$('.header-button--' + self.currentPage).addClass('header-button--selected')
 		$('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
 	}
@@ -129,7 +131,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		var stars = ['Stars-1.png', 'Stars-2.png', 'Stars-3.png', 'Stars-4.png', 'Stars-5.png']
 		return stars[Math.floor(Math.random() * stars.length)]
 	}
-
+	
 	function changeInfoTab(activity) {
 		self.current_activity = activity
 		var color = ''
@@ -300,6 +302,15 @@ function ChildController($routeParams, childService, accountService, $location) 
 		self.showAddGoalModal = true;
 	}
 
+	function updateDefaultGoals() {
+		childService.updateChild(self.child);
+	}
+
+	function updateDefaultRewards() {
+		childService.updateChild(self.child);
+	}
+
+	
 	function setGoals(which) {
 		if (which == 'custom') {
 			self.useCustomGoals = true;
@@ -323,6 +334,26 @@ function ChildController($routeParams, childService, accountService, $location) 
 		});
 	}
 	
+	function selectedGoal(target) {
+		if (self.child == null) {
+			return '';
+		}
+		if (self.useCustomGoals) {
+			return self.customGoals[target].goal;
+		} else {
+			var selectedIndex = 1;
+			if (target === 'nutrition') {
+				selectedIndex = self.child.defaultNutritionGoal;
+			} else if (target === 'movement') {
+				selectedIndex = self.child.defaultMovementGoal;
+			} else if (target === 'sleep') {
+				selectedIndex = self.child.defaultSleepGoal;
+			}
+			var goal = self.defaultGoals[target].find(function(goal) {return goal.id == selectedIndex});
+			return goal.goal;
+		}
+	}
+	
 	function editGoal(goal) {
 		var edit = self.editingGoal;
 		edit.id= goal.id;
@@ -339,7 +370,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		$location.path('/child/'+self.child.id+'/goals');
 	}
 	
-	function selectedGoal(target) {
+/*	function selectedGoal(target) {
 		if (self.child == null) {
 			return '';
 		}
@@ -350,7 +381,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 			return selectedGoal.goal;
 		}
 	}
-	
+*/	
 	/**
 	 * Return the id of the selected goal for this target, or -1 if there is not one (ie. to use the default).
 	 */
@@ -397,6 +428,7 @@ function ChildController($routeParams, childService, accountService, $location) 
 		
 		
 	}
+
 	
 	function getCustomGoal(target) {
 		if (self.child == null) {
@@ -440,6 +472,18 @@ function ChildController($routeParams, childService, accountService, $location) 
 						self.useCustomGoals = true;
 					}
 				});
+				if (self.child.defaultNutritionGoal == null) {
+					self.child.defaultNutritionGoal = 1;
+				}
+				if (self.child.defaultSleepGoal == null) {
+					self.child.defaultSleepGoal = 1;
+				}
+				if (self.child.defaultMovementGoal == null) {
+					self.child.defaultMovementGoal = 1;
+				}
+				if (self.child.defaultNutritionReward == null) {
+					self.child.defaultNutritionReward = 1;
+				}
 			});
 
 		childService.getStickers()

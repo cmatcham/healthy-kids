@@ -24,9 +24,9 @@ public interface HealthyKidsManager {
 	
 	public void setAchievement(Account account, Child child, Target target, Date date, boolean set) throws UnauthorisedException;
 
-	public Child createChild(Account account, String firstName, int age, String sticker);
+	public Child createChild(Account account, String firstName, Integer age, String sticker);
 
-	public Child updateChild(Child child, String firstName, int age, String sticker);
+	public Child updateChild(Child child, String firstName, Integer age, String sticker);
 
 	List<Achievement> getWeeklyAchievements(Child child, Date date);
 

@@ -1,5 +1,7 @@
 angular.module('healthyKids')
 	.factory('accountService', ['$http', '$location', '$rootScope', '$cookies', '$q', accountService])
+	.factory('goalService', [goalService])
+	.factory('rewardService', [rewardService])
 	.factory('childService', ['$http', childService]);
 
 function accountService($http, $location, $rootScope, $cookies, $q) {
@@ -56,6 +58,88 @@ function accountService($http, $location, $rootScope, $cookies, $q) {
 	}
 	
 } 
+
+function rewardService() {
+
+	/**
+	 * IMPORTANT:  Do not modify these rewards, or their ids.  New rewards can be added with a higher id
+	 * if required.
+	 */
+	var predefinedRewards = [
+			{"id":1,"reward":"Have a picnic at a favourite place."},
+			{"id":2,"reward":"Cook your favourite meal."},
+			{"id":3,"reward":"Choose a new recipe for the family to make together."},
+			{"id":4,"reward":"Go swimming and have an ice cream."},
+			{"id":5,"reward":"Watch a movie together."},
+			{"id":6,"reward":"Go to the skatepark with your scooter or bike."},
+			{"id":7,"reward":"Set up a tenpin bowling alley in the garage and have a family competition."},
+			{"id":8,"reward":"Make an indoor tent and have a family tea party with some favourite toys as guests."},
+			{"id":9,"reward":"Go to a fun childrenâ€™s activity at our local museum, art gallery, church, or marae."},
+			{"id":10,"reward":"Go to the library and bring home books for a family reading session."},
+			{"id":11,"reward":"Invite a friend to play."},
+			{"id":12,"reward":"Choose a new activity or food for the whole family to enjoy together."},
+			{"id":13,"reward":"Choose a small item to buy, like a drawing set or a packet of water balloons."},
+	];
+	
+	return {
+		predefinedRewards : predefinedRewards
+	};
+}
+
+function goalService() {
+
+	/**
+	 * IMPORTANT:  Do not modify these goals, or their ids.  New goals can be added with a higher id
+	 * if required.
+	 * We specify an id on each object rather than just using the array index so that we can delete
+	 * elements if necessary without the index of higher values changing.
+	 */
+	var predefinedGoals = {
+			"nutrition":[
+				{"id":1,"goal":"Eat either wheat biscuits, porridge, or wholegrain toast for breakfast"},
+				{"id":2,"goal":"Try a new porridge topping, like fruit, yoghurt, or nuts"},
+				{"id":3,"goal":"Drink milk with breakfast and dinner"},
+				{"id":4,"goal":"Drink only water between meal times"},
+				{"id":5,"goal":"Try a new type of vegetable or fruit"},
+				{"id":6,"goal":"Try a new sandwich filling, like hummus or avocado with sliced veggies or lean chicken"},
+				{"id":7,"goal":"Choose the vegetables for dinner"},
+				{"id":8,"goal":"Sit together with the family for dinner"},
+				{"id":9,"goal":"Serve my own dinner and eat it all"},
+				{"id":10,"goal":"Eat three sorts of vegetables at dinner time"}
+			],
+			"movement":[
+				{"id":1,"goal":"Play an active game"},
+				{"id":2,"goal":"Learn a new outdoor game"},
+				{"id":3,"goal":"Learn a new indoor game"},
+				{"id":4,"goal":"Go for a walk"},
+				{"id":5,"goal":"Ride a bike or scooter"},
+				{"id":6,"goal":"Play outside"},
+				{"id":7,"goal":"Go to a new place"},
+				{"id":8,"goal":"Make up a new dance"},
+				{"id":9,"goal":"Play at the park"},
+				{"id":10,"goal":"Watch less television"},
+				{"id":11,"goal":"Spend no more than an hour looking at screens, like television or a computer"}
+			],
+			"sleep":[
+				{"id":1,"goal":"Start quiet time one hour before bedtime"},
+				{"id":2,"goal":"Start getting ready for bed at 6:30 pm"},
+				{"id":3,"goal":"Turn off the television and iPad by 6 pm"},
+				{"id":4,"goal":"Plan and keep to a bedtime routine"},
+				{"id":5,"goal":"Use a timer to know when to start getting ready for bed and when it's time to turn off the light"},
+				{"id":6,"goal":"Read two stories and sing one song"},
+				{"id":7,"goal":"Eat crackers or fruit if hungry before bed &mdash; but then brush teeth!"},
+				{"id":8,"goal":"Have a drink of water if thirsty before bed"},
+				{"id":9,"goal":"Put the light out at 7 pm"},
+				{"id":10,"goal":"Stay in bed"}
+			]
+	};
+	
+	return {
+		predefinedGoals : predefinedGoals
+	};
+	
+	
+}
 
 function childService($http) {
 	return {

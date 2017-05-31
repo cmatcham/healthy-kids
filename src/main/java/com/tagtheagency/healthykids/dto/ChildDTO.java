@@ -26,6 +26,12 @@ public class ChildDTO {
 	private Map<Integer, AchievementDTO> dailyAchievements;
 	private Map<Integer, AchievementDTO> lastWeekDailyAchievements;
 	
+	private Integer defaultSleepGoal;
+	private Integer defaultNutritionGoal;
+	private Integer defaultMovementGoal;
+	private Integer defaultSleepReward;
+	private Integer defaultNutritionReward;
+	private Integer defaultMovementReward;
 	
 	public String getFirstName() {
 		return firstName;
@@ -97,6 +103,12 @@ public class ChildDTO {
 			dto.setCustomRewards(child.getCustomRewards());
 			dto.setCustomGoals(child.getCustomGoals());
 		}
+		dto.setDefaultMovementGoal(child.getDefaultMovementGoal());
+		dto.setDefaultMovementReward(child.getDefaultMovementReward());
+		dto.setDefaultNutritionGoal(child.getDefaultNutritionGoal());
+		dto.setDefaultNutritionReward(child.getDefaultNutritionReward());
+		dto.setDefaultSleepGoal(child.getDefaultSleepGoal());
+		dto.setDefaultSleepReward(child.getDefaultSleepReward());
 		return dto;
 	}
 	
@@ -163,5 +175,43 @@ public class ChildDTO {
 	public List<GoalDTO> getCustomGoals() {
 		return customGoals;
 	}
+	public Integer getDefaultSleepGoal() {
+		return defaultSleepGoal;
+	}
+	public void setDefaultSleepGoal(Integer defaultSleepGoal) {
+		this.defaultSleepGoal = defaultSleepGoal;
+	}
+	public Integer getDefaultNutritionGoal() {
+		return defaultNutritionGoal;
+	}
+	public void setDefaultNutritionGoal(Integer defaultNutritionGoal) {
+		this.defaultNutritionGoal = defaultNutritionGoal;
+	}
+	public Integer getDefaultMovementGoal() {
+		return defaultMovementGoal;
+	}
+	public void setDefaultMovementGoal(Integer defaultMovementGoal) {
+		this.defaultMovementGoal = defaultMovementGoal;
+	}
+	public Integer getDefaultSleepReward() {
+		return defaultSleepReward;
+	}
+	public void setDefaultSleepReward(Integer defaultSleepReward) {
+		this.defaultSleepReward = defaultSleepReward;
+	}
+	public Integer getDefaultNutritionReward() {
+		return defaultNutritionReward;
+	}
+	public void setDefaultNutritionReward(Integer defaultNutritionReward) {
+		this.defaultNutritionReward = defaultNutritionReward;
+	}
+	public Integer getDefaultMovementReward() {
+		return defaultMovementReward;
+	}
+	public void setDefaultMovementReward(Integer defaultMovementReward) {
+		this.defaultMovementReward = defaultMovementReward;
+	}
+	
+	
 	
 }

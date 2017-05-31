@@ -7,20 +7,8 @@
 		<h2>Possible rewards</h2>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
-			<select>
-				<option>Have a picnic at a favourite place.</option>
-				<option>Cook your favourite meal.</option>
-				<option>Choose a new recipe for the family to make together.</option>
-				<option>Go swimming and have an ice cream.</option>
-				<option>Watch a movie together.</option>
-				<option>Go to the skatepark with your scooter or bike.</option>
-				<option>Set up a tenpin bowling alley in the garage and have a family competition.</option>
-				<option>Make an indoor tent and have a family tea party with some favourite toys as guests.</option>
-				<option>Go to a fun children’s activity at our local museum, art gallery, church, or marae.</option>
-				<option>Go to the library and bring home books for a family reading session.</option>
-				<option>Invite a friend to play.</option>
-				<option>Choose a new activity or food for the whole family to enjoy together.</option>
-				<option>Choose a small item to buy, like a drawing set or a packet of water balloons.</option>
+			<select ng-model="vm.child.defaultNutritionReward" ng-change="vm.updateDefaultRewards()">
+				<option ng-repeat="reward in vm.defaultRewards" value="{{reward.id}}" ng-selected="vm.child.defaultNutritionReward === reward.id">{{reward.reward}}</option>
 			</select>
 		</div>
 	</div>
@@ -28,7 +16,7 @@
 		<h2>Custom reward</h2>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
-			<textarea placeholder="Click to edit"></textarea>
+			<textarea placeholder="Click to edit" ng-model="vm.child.customRewards[0].reward" ng-blur="vm.updateRewards()"></textarea>
 		</div>
 	</div>
 </div>

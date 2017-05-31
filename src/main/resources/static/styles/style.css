@@ -176,7 +176,9 @@ main {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: absolute;
-      text-align: center; }
+      text-align: center;
+      width: 300px;
+      left: 41%; }
     .child-select-button__name--add {
       left: 50%;
       -webkit-transform: translateX(-50%);

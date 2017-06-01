@@ -9,10 +9,10 @@
 		<div class="child-select-button__name">
 			<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
 		</div>
-		<div class="child-select-button__edit">
+		<div class="child-select-button__action child-select-button__action--edit">
 			<a href="#/child/{{child.id}}/update"><span>Edit</span></a>
 		</div>
-		<div class="child-select-button__delete" ng-click="vm.deleteChild(child.id)">
+		<div class="child-select-button__action child-select-button__action--delete" ng-click="vm.deleteChild(child.id)">
 			<span>Delete</span>
 		</div>
 	</div>

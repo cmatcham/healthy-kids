@@ -1080,12 +1080,15 @@ main {
 			bottom: 0;
 		}
 		span:nth-child(1) {
-			bottom: 30px;
+			top: 30px;
+			left: 35px;
+			font-size: 1.7em;
 		}
 		span:nth-child(2) {
+			left: 170px;
 		}
 		span:nth-child(3) {
-			right: 120px;
+			right: 15px;
 			text-decoration: underline;
 			color: $pink;
 		}
@@ -1099,13 +1102,14 @@ main {
 	}
 	&__header {
 		@include center-horizontal;
-		position: relative;
+		position: absolute;
 		top: 0;
-		width: 85%;
-		height: 20%;
+		width: 100%;
+		height: 100%;
 		clear: both;
 	}
 	form {
+		margin-top: 90px;
 		height: 80%;
 		width: 100%;
 	}

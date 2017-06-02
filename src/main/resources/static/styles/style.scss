@@ -1522,16 +1522,18 @@ footer#progress-page {
 	height: 70px;
 	width: 150px;
 	&__button {
+		@include bg-default;
 		cursor: pointer;
 		width: 70px;
 		height: 70px;
-		background-color: $main-color;
 		float: left;
-		&:nth-child(1) {
+		&--fb {
 			margin: 0 5px 0 0;
+			background-image: url('../imgs/FB.png');
 		}
-		&:nth-child(2) {
-			margin: 0 5px 0 0;
+		&--email {
+			margin: 0 0 0 5px;
+			background-image: url('../imgs/email.png');
 		}
 	}
 }

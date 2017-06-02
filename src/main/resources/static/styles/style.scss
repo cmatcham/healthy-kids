@@ -476,10 +476,10 @@ main {
 }
 
 .home-bg {
+	position: absolute;
 	height: 100%;
 	width: 100%;
 	background-color: $main-color;
-	position: absolute;
 }
 
 .child-update-bg {
@@ -493,17 +493,15 @@ main {
 
 .child-form {
 	@include center-horizontal;
-	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	position: absolute;
 	border-radius: 5px;
 	top: 300px;
-	position: absolute;
 	width: 48%;
 	height: 410px;
 	background-color: $white;
 	&__icon {
 		@include center-horizontal;
-		background-position: center;
-		background-size: contain;
+		@include bg-default;
 		width: 75px;
 		height: 75px;
 		border: 2px solid $yellow;
@@ -513,7 +511,6 @@ main {
 	}
 	input::placeholder {
 		color: white;
-		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 		font-family: 'KGShePersisted';
 	}
 	&__menu-icon {
@@ -533,8 +530,6 @@ main {
 	}
 	&__input {
 		@include center-horizontal;
-		// box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
-		// text-shadow: 0 1px 3px rgba(0,0,0,.3);
 		position: relative;
 		outline: none;
 		box-sizing: border-box;
@@ -543,7 +538,6 @@ main {
 		margin: 5px 0 5px 0;
 		padding: 0 0 0 10px;
 		font-size: 1.6em;
-		// line-height: calc(100% / 4);
 		width: 90%;
 		height: 60px;
 		background-color: $yellow;
@@ -554,9 +548,9 @@ main {
 			z-index: 3;
 			span {
 				@include center-vertical;
+				position: absolute;
 				color: $main-color;
 				display: inline-block;
-				position: absolute;
 				left: 3px;
 			}
 		}
@@ -566,33 +560,33 @@ main {
 			padding: 0 0 0 0;
 			font-size: 2.5em;
 			span {
-				display: inline-block;
-				position: relative;
 				@include center;
+				position: relative;
+				display: inline-block;
 			}
 		}
 	}
 }
 
 .sticker-select {
-		width: 100%;
 		position: absolute;
+		width: 100%;
 		top: 92%;
 		background-color: $main-color;
 		left: 0;
 		border-radius: 5px;
 		height: 0px;
 		&__sticker {
+			position: relative;
 			width: calc(100% / 4);
 			height: calc(100% / 3);
 			float: left;
 			display: none;
-			position: relative;
 			&:after {
 				@include center;
+				position: absolute;
 				content: "";
 				display: block;
-				position: absolute;
 				width: 80%;
 				height: 80%;
 				border-radius: 50%;
@@ -601,8 +595,8 @@ main {
 		}
 		img {
 			@include center;
-			z-index: 2;
 			position: relative;
+			z-index: 2;
 			max-height: 75%;
 			max-width: 75%;
 		}
@@ -610,11 +604,10 @@ main {
 
 .info-container {
 	@include center-horizontal;
-	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	position: absolute;
 	z-index: 2;
 	border-radius: 5px;
 	background-color: $yellow;
-	position: absolute;
 	top: -10px;
 	padding-top: 10px;
 	height: 35px;
@@ -635,8 +628,8 @@ main {
 	}
 	&__title {
 		@include center-horizontal;
-		display: inline-block;
 		position: relative;
+		display: inline-block;
 		margin: 10px 0 0 0;
 		font-size: 4em;
 	}
@@ -656,8 +649,8 @@ main {
 	}
 	&__caption {
 		@include center-horizontal;
-		margin: 10px 0 0 0;
 		position: relative;
+		margin: 10px 0 0 0;
 		font-size: 1.2em;
 		height: 100px;
 		width: 90%;
@@ -675,8 +668,8 @@ main {
 	}
 	&__text {
 		@include center-horizontal;
-		font-family: 'Verdana';
 		position: relative;
+		font-family: 'Verdana';
 		z-index: 2;
 		width: 90%;
 		color: black;
@@ -743,7 +736,6 @@ main {
 		box-sizing: border-box;
 		background-color: white;
 		overflow-y: scroll;
-		// box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		margin: 5px 0 5px 0;
 		height: calc(100% / 3 - 10px);
 		width: 100%;
@@ -754,8 +746,8 @@ main {
 
 .tick-chart {
 	@include center-horizontal;
-	top: 460px;
 	position: absolute;
+	top: 460px;
 	width: 65%;
 	height: $chart-height;
 	&__column {
@@ -771,11 +763,10 @@ main {
 
 .checkbox {
 	@include center;
-	// box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	position: relative;
 	border-radius: 25%;
 	width: 60px;
 	height: 60px;
-	position: relative;
 	background-color: white;
 	background-size: cover;
 	&--day {
@@ -802,10 +793,10 @@ main {
 }
 
 .congrats-popup {
+	position: absolute;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0,0,0,0.6);
-	position: absolute;
 	z-index: 3;
 	display: none;
 	h1 {

@@ -243,6 +243,8 @@ main {
 			@include center;
 			position: absolute;
 			text-align: center;
+			width: 200px;
+			left: 40%;
 		}
 		&--add {
 			@include center-horizontal;
@@ -1096,8 +1098,8 @@ main {
 			left: 0;
 		}
 		span.error {
-			left: 0;
 			bottom: 30px;
+			font-size: 0.8em; 
 		}
 	}
 	&__header {

@@ -5,7 +5,7 @@
 		<div class="child-select-button__name child-select-button__name--add"><span>Add user</span></div>
 	</div></a>
 	<div ng-repeat="child in vm.children" class="child-select-button">
-		<div class="child-select-button__sticker" style="background-image: url('stickers/{{child.sticker || 'sticker1.png'}}');"></div>
+		<div class="child-select-button__sticker" style="background-image: url('stickers/{{child.sticker}}');"></div>
 		<div class="child-select-button__name">
 			<a href="#/child/{{child.id}}"><span>{{child.firstName}} {{child.lastName}}</span></a>
 		</div>

@@ -5,6 +5,8 @@ ChildController.$inject = ['$routeParams', 'childService', 'accountService', 'go
 
 function ChildController($routeParams, childService, accountService, goalService, rewardService,  $location) {
 	var self = this;
+	
+	var randomSeed = 1;
 
 	self.displayInfoSection = displayInfoSection
 	self.displayStickerSelect = displayStickerSelect
@@ -125,14 +127,23 @@ function ChildController($routeParams, childService, accountService, goalService
 		$('.header-button--' + self.currentPage).append("<div class='header-button__selected-bg'></div>")
 	}
 
-	function randomTrophy() {
+	function randomTrophy(seed) {
+		//true randomness in angular causes infinite digest error as the same result will rarely be returned twice
+		//To fix, we actually iterate over them, incrementing the counter whenever we view one.
 		var trophies = ['Trophies-1.png', 'Trophies-2.png', 'Trophies-3.png', 'Trophies-4.png']
-		return trophies[Math.floor(Math.random() * trophies.length)]
+		return trophies[randomSeed % trophies.length]
 	}
 
-	function randomStar() {
+	function randomStar(seed) {
+		//true randomness in angular causes infinite digest error as the same result will rarely be returned twice
+		//To fix, we make the function take a param and random off that, so the same param will always return the same trophy.
 		var stars = ['Stars-1.png', 'Stars-2.png', 'Stars-3.png', 'Stars-4.png', 'Stars-5.png']
-		return stars[Math.floor(Math.random() * stars.length)]
+		return stars[randomSeed % stars.length]
+	}
+	
+	function random(seed) {
+	    var x = Math.sin(seed) * 10000;
+	    return x - Math.floor(x);
 	}
 	
 	function changeInfoTab(activity) {
@@ -205,10 +216,13 @@ function ChildController($routeParams, childService, accountService, goalService
 		self.achievements[weekday.value][activity] = !current;
 		childService.setAchievement(self.child.id, self.achievements[weekday.value]);
 		if (self.isSuperGoal()) {
+			randomSeed++;
 			displayCongrats('super');
 		} else if (self.isWeeklyGoal({'value':activity})) {
+			randomSeed++;
 			displayCongrats('weekly')
 		} else if (self.isDailyGoal(weekday)) {
+			randomSeed++;
 			displayCongrats('daily');
 		}
 	}
@@ -462,6 +476,11 @@ function ChildController($routeParams, childService, accountService, goalService
 	function activate() {
 		childService.getChildren().then(function(data) {
 			self.children = data;
+			self.children.forEach(function(child) {
+				if (child.sticker == null) {
+					child.sticker = 'sticker1.png';
+				}
+			});
 		});
 		if (!$routeParams.id) {
 			return;

@@ -135,7 +135,7 @@
 				<div class="congrats-popup__close" ng-click="vm.displayCongrats()"><span>X</span></div>
 				<h1>Well done, {{vm.child.firstName}}!</h1>
 				<div class="congrats-popup__image" style="background-image: url('imgs/{{vm.randomTrophy()}}')"></div>
-				<h2>{{vm.getChosenReward()}}</h2>
+				<h2 ng-show="vm.congratulations === 'weekly'">{{vm.getChosenReward()}}</h2>
 			</div>
 		</div>
 	</main>

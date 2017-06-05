@@ -8,6 +8,7 @@
     <js>webjar:angularjs/@angularjs.version@/angular-cookies.min.js</js>
    </group>
    <group name="healthykids">
+    <js>file:@project.basedir@/src/main/resources/static/app/polyfill.js</js>
     <js>file:@project.basedir@/src/main/resources/static/app/healthyKids.js</js>
     <js>file:@project.basedir@/src/main/resources/static/app/services/services.js</js>
     <js>file:@project.basedir@/src/main/resources/static/app/child/script.js</js>

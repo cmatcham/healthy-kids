@@ -55,63 +55,63 @@ span {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  position: absolute;
   background-color: #F0FFFF;
   box-sizing: border-box;
-  position: absolute;
   width: 810px;
   height: 100%; }
 
 header {
+  position: relative;
   color: white;
   background-color: #00B8B0;
   z-index: 2;
   height: 7%;
-  width: 100%;
-  position: relative; }
+  width: 100%; }
 
 .header-button {
+  position: relative;
   font-size: 1.5em;
   width: 20%;
   height: 100%;
-  float: left;
-  position: relative; }
+  float: left; }
   .header-button--selected span {
     color: #00B8B0; }
   .header-button span {
-    z-index: 2;
-    display: inline-block;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    position: relative; }
+    position: relative;
+    z-index: 2;
+    display: inline-block; }
   .header-button:nth-child(1):after, .header-button:nth-child(2):after, .header-button:nth-child(3):after {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    position: absolute;
     display: inline-block;
     background-color: white;
     content: "";
     height: 70%;
     width: 4px;
     border-radius: 5px;
-    right: 0;
-    position: absolute; }
+    right: 0; }
   .header-button__selected-bg {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    position: absolute;
     height: 60%;
     width: 80%;
-    position: absolute;
     z-index: 1;
     background-color: #F0FFFF;
     border-radius: 5px; }
 
 main {
-  z-index: 1;
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: block; }
@@ -120,20 +120,20 @@ main {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  position: absolute;
   top: 330px;
   width: 75%;
   height: 150px;
   color: white;
   font-family: 'Verdana';
-  position: absolute;
   font-size: 1.2em; }
 
 .child-select-inner {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 570px;
   position: absolute;
+  top: 570px;
   width: 55%;
   height: 600px;
   border-radius: 5px;
@@ -143,8 +143,8 @@ main {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
   width: 100%;
   margin: 10px 0 10px 0;
   height: 60px;
@@ -153,20 +153,20 @@ main {
   font-size: 2em;
   border-radius: 5px; }
   .child-select-button__sticker {
+    position: relative;
     height: 100%;
     width: 60px;
     border: 2px solid #FFCB05;
     border-radius: 5px;
-    position: relative;
     float: left;
     box-sizing: border-box;
     margin: 0 5px 0 0;
     background-size: contain;
     background-color: rgba(0, 0, 0, 0.2); }
   .child-select-button__name {
+    position: absolute;
     border-radius: 5px;
     right: 0;
-    position: absolute;
     width: 85%;
     height: 100%;
     background-color: #FFCB05; }
@@ -177,8 +177,8 @@ main {
       transform: translate(-50%, -50%);
       position: absolute;
       text-align: center;
-      width: 300px;
-      left: 41%; }
+      width: 200px;
+      left: 40%; }
     .child-select-button__name--add {
       left: 50%;
       -webkit-transform: translateX(-50%);
@@ -189,43 +189,26 @@ main {
   .child-select-button--add {
     margin: 0 0 30px 0;
     background-color: #EE2A7B; }
-  .child-select-button__edit {
+  .child-select-button__action {
+    position: absolute;
     width: 60px;
     height: 26px;
-    position: absolute;
     right: 5px;
     margin: 2px 0 1px 0;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     box-sizing: border-box; }
-    .child-select-button__edit span {
+    .child-select-button__action span {
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: absolute;
       font-size: 0.5em; }
-    .child-select-button__edit:hover {
+    .child-select-button__action:hover {
       color: #00B8B0; }
-  .child-select-button__delete {
-    top: calc(100% - 30px);
-    width: 60px;
-    height: 26px;
-    position: absolute;
-    right: 5px;
-    margin: 1px 0 2px 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    box-sizing: border-box; }
-    .child-select-button__delete span {
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      position: absolute;
-      font-size: 0.5em; }
-    .child-select-button__delete:hover {
-      color: #00B8B0; }
+    .child-select-button__action--delete {
+      top: calc(100% - 30px); }
 
 .info-inner {
   display: none; }
@@ -236,9 +219,9 @@ main {
   height: 125px;
   width: 100%; }
   .info-tabs__behind-tabs {
+    position: absolute;
     width: 100%;
-    height: 125px;
-    position: absolute; }
+    height: 125px; }
     .info-tabs__behind-tabs div:nth-child(1) {
       position: absolute;
       height: 30px;
@@ -253,8 +236,8 @@ main {
       z-index: 3;
       background-color: #EE2A7B; }
   .info-tabs__tab {
-    padding: 0 5px 0 5px;
     position: relative;
+    padding: 0 5px 0 5px;
     z-index: 2;
     height: 100%;
     width: calc(33.3333% - 10px);
@@ -270,16 +253,16 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
+    top: 10px;
     max-width: 70%;
     max-height: 70%;
     height: 70%;
     width: 70%;
-    z-index: 3;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; }
+    z-index: 3; }
     .info-tabs__image--sleep {
       background-image: url("../imgs/sleep-white.png"); }
     .info-tabs__image--nutrition {
@@ -291,12 +274,12 @@ main {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  position: absolute;
   bottom: -25px;
   z-index: 1;
   border-radius: 25%;
   width: 80px;
   height: 40px;
-  position: absolute;
   background-color: #FFCB05;
   background-size: 80%;
   background-position: 50% 120%;
@@ -326,8 +309,8 @@ main {
     margin: 0 0 0 0;
     display: inline-block; }
   .rewards__select {
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
     top: -13px;
     margin: 0 0 0 20px;
     height: 40px;
@@ -366,14 +349,14 @@ main {
       font-size: 1.3em;
       color: black; }
   .rewards__image {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
     margin: 15px 30px 15px 0;
     height: 90px;
     width: 90px;
-    border-radius: 5px;
-    position: absolute;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; }
+    border-radius: 5px; }
     .rewards__image--nutrition {
       border: 2px solid #82C341; }
     .rewards__image--sleep {
@@ -387,6 +370,12 @@ main {
     margin: 10px 0 10px 0;
     height: calc(100% / 3 - 20px);
     width: 100%; }
+    .rewards__reward--movement {
+      color: #7352A2; }
+    .rewards__reward--nutrition {
+      color: #82C341; }
+    .rewards__reward--sleep {
+      color: #EE2A7B; }
     .rewards__reward select, .rewards__reward textarea {
       top: 50%;
       -webkit-transform: translateY(-50%);
@@ -404,18 +393,12 @@ main {
       width: 425px;
       left: 150px;
       font-size: 1.3em; }
-    .rewards__reward--nutrition {
-      color: #82C341; }
-    .rewards__reward--sleep {
-      color: #EE2A7B; }
-    .rewards__reward--movement {
-      color: #7352A2; }
 
 .home-bg {
+  position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #00B8B0;
-  position: absolute; }
+  background-color: #00B8B0; }
 
 .child-update-bg {
   position: absolute;
@@ -429,9 +412,9 @@ main {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  position: absolute;
   border-radius: 5px;
   top: 300px;
-  position: absolute;
   width: 48%;
   height: 410px;
   background-color: #F0FFFF; }
@@ -439,8 +422,9 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    background-position: center;
     background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 75px;
     height: 75px;
     border: 2px solid #FFCB05;
@@ -489,9 +473,9 @@ main {
         top: 50%;
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
+        position: absolute;
         color: #00B8B0;
         display: inline-block;
-        position: absolute;
         left: 3px; }
     .child-form__input--submit {
       color: #00B8B0;
@@ -499,35 +483,35 @@ main {
       padding: 0 0 0 0;
       font-size: 2.5em; }
       .child-form__input--submit span {
-        display: inline-block;
-        position: relative;
         top: 50%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
+        transform: translate(-50%, -50%);
+        position: relative;
+        display: inline-block; }
 
 .sticker-select {
-  width: 100%;
   position: absolute;
+  width: 100%;
   top: 92%;
   background-color: #00B8B0;
   left: 0;
   border-radius: 5px;
   height: 0px; }
   .sticker-select__sticker {
+    position: relative;
     width: calc(100% / 4);
     height: calc(100% / 3);
     float: left;
-    display: none;
-    position: relative; }
+    display: none; }
     .sticker-select__sticker:after {
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+      position: absolute;
       content: "";
       display: block;
-      position: absolute;
       width: 80%;
       height: 80%;
       border-radius: 50%;
@@ -537,8 +521,8 @@ main {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    z-index: 2;
     position: relative;
+    z-index: 2;
     max-height: 75%;
     max-width: 75%; }
 
@@ -546,10 +530,10 @@ main {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  position: absolute;
   z-index: 2;
   border-radius: 5px;
   background-color: #FFCB05;
-  position: absolute;
   top: -10px;
   padding-top: 10px;
   height: 35px;
@@ -570,8 +554,8 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    display: inline-block;
     position: relative;
+    display: inline-block;
     margin: 10px 0 0 0;
     font-size: 4em; }
   .info-container__video {
@@ -592,8 +576,8 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    margin: 10px 0 0 0;
     position: relative;
+    margin: 10px 0 0 0;
     font-size: 1.2em;
     height: 100px;
     width: 90%;
@@ -613,8 +597,8 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    font-family: 'Verdana';
     position: relative;
+    font-family: 'Verdana';
     z-index: 2;
     width: 90%;
     color: black;
@@ -642,13 +626,13 @@ main {
   width: 60px;
   height: 60px; }
   .user-icon--menu {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.2);
     right: 5%;
     top: 15px;
-    z-index: 2;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; }
+    z-index: 2; }
 
 .progress-button {
   position: absolute;
@@ -676,6 +660,12 @@ main {
     width: 100%;
     border-radius: 5px;
     color: white; }
+    .selected-goals__goal--movement {
+      background-color: #7352A2; }
+    .selected-goals__goal--nutrition {
+      background-color: #82C341; }
+    .selected-goals__goal--sleep {
+      background-color: #EE2A7B; }
     .selected-goals__goal span {
       top: 50%;
       left: 50%;
@@ -683,19 +673,13 @@ main {
       transform: translate(-50%, -50%);
       position: relative;
       font-size: 1.1em; }
-    .selected-goals__goal--movement {
-      background-color: #7352A2; }
-    .selected-goals__goal--nutrition {
-      background-color: #82C341; }
-    .selected-goals__goal--sleep {
-      background-color: #EE2A7B; }
 
 .tick-chart {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 460px;
   position: absolute;
+  top: 460px;
   width: 65%;
   height: 45%; }
   .tick-chart__column {
@@ -711,10 +695,10 @@ main {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  position: relative;
   border-radius: 25%;
   width: 60px;
   height: 60px;
-  position: relative;
   background-color: white;
   background-size: cover; }
   .checkbox--day {
@@ -733,10 +717,10 @@ main {
     background-image: url(""); }
 
 .congrats-popup {
+  position: absolute;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
   z-index: 3;
   display: none; }
   .congrats-popup h1 {
@@ -759,13 +743,13 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
     width: 300px;
     height: 300px;
-    top: 70px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; }
+    top: 70px; }
   .congrats-popup__inner {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -799,14 +783,14 @@ main {
   border-radius: 50%;
   height: 30px;
   width: 30px; }
-  .tick--day {
-    border: 2px solid; }
   .tick--movement {
     background-color: #7352A2; }
   .tick--nutrition {
     background-color: #82C341; }
   .tick--sleep {
     background-color: #EE2A7B; }
+  .tick--day {
+    border: 2px solid; }
   .tick--goals {
     height: 40px;
     width: 40px;
@@ -896,11 +880,11 @@ main {
   height: 15%;
   top: 23%; }
   .activities-row__image {
-    height: 60%;
-    width: 100%;
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    height: 60%;
+    width: 100%; }
     .activities-row__image--sleep {
       background-image: url("../imgs/sleep.png"); }
     .activities-row__image--nutrition {
@@ -1018,26 +1002,31 @@ main {
       position: absolute;
       bottom: 0; }
     .login-form__text span:nth-child(1) {
-      bottom: 30px; }
+      top: 30px;
+      left: 35px;
+      font-size: 1.7em; }
+    .login-form__text span:nth-child(2) {
+      left: 170px; }
     .login-form__text span:nth-child(3) {
-      right: 120px;
+      right: 15px;
       text-decoration: underline;
       color: #EE2A7B; }
     .login-form__text span#sign-in {
       left: 0; }
     .login-form__text span.error {
-      left: 0;
-      bottom: 30px; }
+      bottom: 30px;
+      font-size: 0.8em; }
   .login-form__header {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    position: relative;
+    position: absolute;
     top: 0;
-    width: 85%;
-    height: 20%;
+    width: 100%;
+    height: 100%;
     clear: both; }
   .login-form form {
+    margin-top: 90px;
     height: 80%;
     width: 100%; }
   .login-form input {
@@ -1168,10 +1157,11 @@ main {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
-    background-size: contain;
-    background-repeat: no-repeat;
     position: absolute;
     margin-left: 10px;
     width: 75px;
@@ -1255,13 +1245,13 @@ footer#progress-page {
   align-items: center;
   justify-content: space-between; }
   .category-progress__image {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
     height: 70px;
     width: 100%;
-    top: 0;
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; }
+    top: 0; }
     .category-progress__image--sleep {
       background-image: url("../imgs/sleep.png"); }
     .category-progress__image--nutrition {
@@ -1429,15 +1419,19 @@ footer#progress-page {
   height: 70px;
   width: 150px; }
   .share__button {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
     width: 70px;
     height: 70px;
-    background-color: #00B8B0;
     float: left; }
-    .share__button:nth-child(1) {
-      margin: 0 5px 0 0; }
-    .share__button:nth-child(2) {
-      margin: 0 5px 0 0; }
+    .share__button--fb {
+      margin: 0 5px 0 0;
+      background-image: url("../imgs/FB.png"); }
+    .share__button--email {
+      margin: 0 0 0 5px;
+      background-image: url("../imgs/email.png"); }
 
 /**
  * Modal styles 

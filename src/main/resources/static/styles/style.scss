@@ -1093,7 +1093,11 @@ main {
 			color: $pink;
 		}
 		span#sign-in {
-			left: 0;
+			left: 35px;
+			top: 30px;
+			font-size: 1.7em;
+			color: $blue;
+			text-decoration: none;
 		}
 		span.error {
 			left: 0;

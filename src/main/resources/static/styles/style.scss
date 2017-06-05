@@ -620,13 +620,13 @@ main {
 		height: 655px;
 		padding-top: 0px;
 	}
-	&__grey-bg {
+	&__text-bg {
 		width: 100%;
 		height: 365px;
 		bottom: 20px;
 		position: absolute;
 		z-index: 0;
-		background-color: #E6E7E8;
+		background-color: white;
 	}
 	&__title {
 		@include center-horizontal;

@@ -370,7 +370,7 @@ main {
 }
 
 .rewards {
-	@include center;
+	@include center-horizontal;
 	width: 90%;
 	height: 90%;
 	position: relative;
@@ -414,11 +414,15 @@ main {
 		width: 100%;
 	}
 	&__goals {
-		height: 40%;
+		height: 35%;
 		width: 100%;
-		&:nth-child(2) {
-			margin: 80px 0 0 0;
-		}
+		margin: 50px 0 0 0;
+		// &:nth-child(1) {
+		// 	margin: 80px 0 0 0;
+		// }
+		// &:nth-child(2) {
+		// 	margin: 80px 0 0 0;
+		// }
 	}
 	&__text {
 		margin: 0 0 30px 0;

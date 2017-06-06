@@ -13,7 +13,9 @@
 					</div>
 				</div>
 				<div class="info-container__title">{{vm.current_activity.display}}</div>
-				<div class="info-container__video"><iframe src="https://www.youtube.com/embed/0vrdgDdPApQ" frameborder="0" allowfullscreen></iframe></div>
+				<div class="info-container__video" ng-show="vm.current_activity.value=='nutrition'"><iframe src="https://www.youtube.com/embed/vg8B3yztWu0" frameborder="0" allowfullscreen></iframe></div>
+				<div class="info-container__video" ng-show="vm.current_activity.value=='movement'"><iframe src="https://www.youtube.com/embed/TFnGnOaKuSk" frameborder="0" allowfullscreen></iframe></div>
+				<div class="info-container__video" ng-show="vm.current_activity.value=='sleep'"><iframe src="https://www.youtube.com/embed/HJGQ1_9t1lE" frameborder="0" allowfullscreen></iframe></div>
 				<div class="info-container__caption" ng-show="vm.current_activity.value=='nutrition'">
 					Meal times in the Amosa household are special family times. Helen and Amos have put a lot of thought into how to make sure everyone eats a good variety of healthy food that they enjoy.
 				</div>

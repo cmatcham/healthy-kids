@@ -5,8 +5,8 @@
 <div class="login-form login-form--login">
     <div class="login-form__header">
     <div class="login-form__text">      
-        <span class="error" ng-show="vm.error">Invalid username or password</span>
-        <span></span>
+        <span id="error" ng-show="vm.error">Invalid username or password</span>
+        <span id="sign-in">Sign in</span>
     </div>
     </div>
     <form class="login-form__form" ng-submit="vm.login()">

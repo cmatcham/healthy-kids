@@ -298,10 +298,9 @@ main {
     color: black; }
 
 .rewards {
-  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   width: 90%;
   height: 90%;
   position: relative;
@@ -341,10 +340,9 @@ main {
     height: 40%;
     width: 100%; }
   .rewards__goals {
-    height: 40%;
-    width: 100%; }
-    .rewards__goals:nth-child(2) {
-      margin: 80px 0 0 0; }
+    height: 35%;
+    width: 100%;
+    margin: 50px 0 0 0; }
   .rewards__text {
     margin: 0 0 30px 0; }
     .rewards__text p {

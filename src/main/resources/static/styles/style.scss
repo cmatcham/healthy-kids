@@ -1113,8 +1113,9 @@ main {
 			color: $blue;
 			text-decoration: none;
 		}
-		span#error {
+		span.error {
 			top: 10px;
+			margin: 0 0 0 35px;
 			font-size: 0.8em;
 			height: 30px;
 			color: $pink;

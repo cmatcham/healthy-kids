@@ -101,10 +101,7 @@ function goalService() {
 				{"id":3,"goal":"Drink milk with breakfast and dinner"},
 				{"id":4,"goal":"Drink only water between meal times"},
 				{"id":5,"goal":"Try a new type of vegetable or fruit"},
-				{"id":6,"goal":"Try a new sandwich filling, like hummus or avocado with sliced veggies or lean chicken"},
-				{"id":7,"goal":"Choose the vegetables for dinner"},
 				{"id":8,"goal":"Sit together with the family for dinner"},
-				{"id":9,"goal":"Serve my own dinner and eat it all"},
 				{"id":10,"goal":"Eat three sorts of vegetables at dinner time"}
 			],
 			"movement":[

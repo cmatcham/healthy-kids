@@ -685,7 +685,7 @@ main {
 		color: black;
 		font-size: 1.2em;
 		ul {
-			height: 180px;
+			height: 275px;
 			overflow-y: scroll;
 			margin: 0 0 0 0;
 			padding: 0 0 0 20px;
@@ -1001,13 +1001,14 @@ main {
 	z-index: 3;
 	p {
 		line-height: 30px;
-		font-size: 1.2em;
+		font-size: 1.3em;
 		color: white;
 		font-family: 'Verdana';
 	}
 	&__disclaimer {
 		display: inline-block;
 		text-decoration: underline;
+		font-weight: bold;
 	}
 }
 

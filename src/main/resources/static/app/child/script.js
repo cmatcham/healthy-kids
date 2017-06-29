@@ -544,7 +544,7 @@ function ChildController($routeParams, childService, accountService, goalService
 		 {
 		  method: 'share',
 		  href: 'https://pure-island-83329.herokuapp.com',
-		  quote: 'Fantastic news! ' + childName + ' has achieved another goal in our mission to get this family healthier!'
+		  quote: 'Fantastic news! ' + childName + ' has achieved another goal in our mission to improve our family’s health.'
 		}, function(response){});
 	}
 

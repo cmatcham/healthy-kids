@@ -4,6 +4,22 @@
 		<p>Here are some goals you and your child might choose to support healthy eating, moving, and sleeping. You can choose from the list of suggested goals, or you can make up your own.</p>
 	</div>
 	<div class="rewards__goals">
+		<h2>My goals</h2>
+		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomGoals}" ng-click="vm.setGoals('custom')"><span>Select{{vm.useCustomGoals ? "ed" : ""}}</span></div>
+		<div class="rewards__reward rewards__reward--nutrition">
+			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['nutrition'].goal" ng-blur="vm.updateGoals()"></textarea>
+		</div>
+		<div class="rewards__reward rewards__reward--movement">
+			<div class="rewards__image rewards__image--movement"  style="background-image: url('imgs/Stars-3.png');"></div>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['movement'].goal" ng-blur="vm.updateGoals()"></textarea>
+		</div>
+		<div class="rewards__reward rewards__reward--sleep">
+			<div class="rewards__image rewards__image--sleep"  style="background-image: url('imgs/Stars-4.png');"></div>
+			<textarea placeholder="Click to edit" ng-model="vm.customGoals['sleep'].goal" ng-blur="vm.updateGoals()"></textarea>
+		</div>
+	</div>
+	<div class="rewards__goals">
 		<h2>Suggested goals</h2>
 		<!-- <div class="rewards__select"><span>Select</span></div> -->
 		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomGoals}" ng-click="vm.setGoals('default')"><span>Select{{vm.useCustomGoals ? "" : "ed"}}</span></div>
@@ -27,22 +43,6 @@
 				<option ng-repeat="goal in vm.defaultGoals.sleep" value="{{goal.id}}" ng-selected="vm.child.defaultSleepGoal === goal.id">{{goal.goal}}</option>
 			</select>
 			<!-- <span>Be in bed by 7.</span> -->
-		</div>
-	</div>
-	<div class="rewards__goals">
-		<h2>My goals</h2>
-		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomGoals}" ng-click="vm.setGoals('custom')"><span>Select{{vm.useCustomGoals ? "ed" : ""}}</span></div>
-		<div class="rewards__reward rewards__reward--nutrition">
-			<div class="rewards__image rewards__image--nutrition" style="background-image: url('imgs/Stars-5.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.customGoals['nutrition'].goal" ng-blur="vm.updateGoals()"></textarea>
-		</div>
-		<div class="rewards__reward rewards__reward--movement">
-			<div class="rewards__image rewards__image--movement"  style="background-image: url('imgs/Stars-3.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.customGoals['movement'].goal" ng-blur="vm.updateGoals()"></textarea>
-		</div>
-		<div class="rewards__reward rewards__reward--sleep">
-			<div class="rewards__image rewards__image--sleep"  style="background-image: url('imgs/Stars-4.png');"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.customGoals['sleep'].goal" ng-blur="vm.updateGoals()"></textarea>
 		</div>
 	</div>
 </div>

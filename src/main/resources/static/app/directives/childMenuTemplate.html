@@ -1,4 +1,5 @@
 <div ng-click="vm.showChildMenu = !vm.showChildMenu" class="user-icon user-icon--menu" style="background-image: url('stickers/{{vm.child.sticker || 'sticker1.png'}}');">
+<div class="child-name">{{vm.child.firstName}}</div>
 <div class="child-menu" ng-show="vm.showChildMenu">
 	<div class="child-menu__child" ng-repeat="(i, child) in vm.children">
 		<div class="child-menu__profile-pic" style="background-image: url('stickers/{{child.sticker || 'sticker1.png'}}');"></div>

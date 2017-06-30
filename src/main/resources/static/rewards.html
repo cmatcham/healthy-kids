@@ -1,23 +1,23 @@
 <header-partial/>
 <div class="rewards" ng-init="vm.currentPage = 'rewards'">
 	<div class="rewards__text">
-		<p>The best reward for your child is for them to know how proud they make you! A kiss, a cuddle, or a high five makes us all feel good! But sometimes, we all like something a bit more, so here are some ideas for rewarding your child when they have achieved their weekly goal.</p>
+		<p>The best reward for your child is for them to know how proud they make you! A kiss, a cuddle, or a high five makes us all feel good! But sometimes, we all like something a bit more, so here are some ideas for rewarding your child when they have achieved their weekly goal. You could select from the suggested rewards, or you could make up your own.</p>
+	</div>
+	<div class="rewards__custom">
+		<h2>My reward</h2>
+		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomRewards}" ng-click="vm.setRewards('custom')"><span>Select{{vm.useCustomRewards ? "ed" : ""}}</span></div>
+		<div class="rewards__reward">
+			<div class="rewards__image rewards__image--reward"></div>
+			<textarea placeholder="Click to edit" ng-model="vm.child.customReward" ng-blur="vm.updateRewards()"></textarea>
+		</div>
 	</div>
 	<div class="rewards__recommended">
-		<h2>Possible rewards</h2>
+		<h2>Suggested rewards</h2>
 		<div class="rewards__select" ng-class="{'rewards__select--active': !vm.useCustomRewards}" ng-click="vm.setRewards('default')"><span>Select{{vm.useCustomRewards ? "" : "ed"}}</span></div>
 		<div class="rewards__reward">
 			<div class="rewards__image rewards__image--reward"></div>
 			<select ng-model="vm.child.defaultReward" ng-change="vm.updateDefaultRewards()" ng-options="reward.id as reward.reward for reward in vm.defaultRewards">
 			</select>
-		</div>
-	</div>
-	<div class="rewards__custom">
-		<h2>Custom reward</h2>
-		<div class="rewards__select" ng-class="{'rewards__select--active': vm.useCustomRewards}" ng-click="vm.setRewards('custom')"><span>Select{{vm.useCustomRewards ? "ed" : ""}}</span></div>
-		<div class="rewards__reward">
-			<div class="rewards__image rewards__image--reward"></div>
-			<textarea placeholder="Click to edit" ng-model="vm.child.customReward" ng-blur="vm.updateRewards()"></textarea>
 		</div>
 	</div>
 </div>

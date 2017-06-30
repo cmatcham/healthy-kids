@@ -69,16 +69,14 @@ function rewardService() {
 			{"id":1,"reward":"Have a picnic at a favourite place."},
 			{"id":2,"reward":"Cook your favourite meal."},
 			{"id":3,"reward":"Choose a new recipe for the family to make together."},
-			{"id":4,"reward":"Go swimming and have an ice cream."},
-			{"id":5,"reward":"Watch a movie together."},
+			{"id":4,"reward":"Go swimming."},
 			{"id":6,"reward":"Go to the skatepark with your scooter or bike."},
 			{"id":7,"reward":"Set up a tenpin bowling alley in the garage and have a family competition."},
 			{"id":8,"reward":"Make an indoor tent and have a family tea party with some favourite toys as guests."},
-			{"id":9,"reward":"Go to a fun childrenâ€™s activity at our local museum, art gallery, church, or marae."},
+			{"id":9,"reward":"Go to a fun children's activity at our local museum, art gallery, church, or marae."},
 			{"id":10,"reward":"Go to the library and bring home books for a family reading session."},
 			{"id":11,"reward":"Invite a friend to play."},
 			{"id":12,"reward":"Choose a new activity or food for the whole family to enjoy together."},
-			{"id":13,"reward":"Choose a small item to buy, like a drawing set or a packet of water balloons."},
 	];
 	
 	return {

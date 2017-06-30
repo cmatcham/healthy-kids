@@ -405,11 +405,11 @@ main {
 		}
 	}
 	&__recommended {
+		margin: -200px 0 0 0;
 		height: 40%;
 		width: 100%;
 	}
 	&__custom {
-		margin: -200px 0 0 0;
 		height: 40%;
 		width: 100%;
 	}
@@ -714,10 +714,17 @@ main {
 	&--menu {
 		@include bg-default;
 		background-color: rgba(256,256,256,0.2);
-		right: 5%;
+		right: 10%;
 		top: 15px;
 		z-index: 2;
 	}
+}
+
+.child-name {
+	@include center-vertical;
+	position: relative;
+	left: 100%;
+	margin: 0 0 0 10px;
 }
 
 .progress-button {

@@ -333,10 +333,10 @@ main {
       background-color: #00B8B0;
       color: #F0FFFF; }
   .rewards__recommended {
+    margin: -200px 0 0 0;
     height: 40%;
     width: 100%; }
   .rewards__custom {
-    margin: -200px 0 0 0;
     height: 40%;
     width: 100%; }
   .rewards__goals {
@@ -605,7 +605,7 @@ main {
     color: black;
     font-size: 1.2em; }
     .info-container__text ul {
-      height: 180px;
+      height: 275px;
       overflow-y: scroll;
       margin: 0 0 0 0;
       padding: 0 0 0 20px; }
@@ -631,9 +631,17 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.2);
-    right: 5%;
+    right: 10%;
     top: 15px;
     z-index: 2; }
+
+.child-name {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  left: 100%;
+  margin: 0 0 0 10px; }
 
 .progress-button {
   position: absolute;
@@ -922,12 +930,13 @@ main {
   z-index: 3; }
   .home-intro p {
     line-height: 30px;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: white;
     font-family: 'Verdana'; }
   .home-intro__disclaimer {
     display: inline-block;
-    text-decoration: underline; }
+    text-decoration: underline;
+    font-weight: bold; }
 
 .disclaimer-popup {
   top: 0;
@@ -1022,8 +1031,9 @@ main {
       font-size: 1.7em;
       color: #00B8B0;
       text-decoration: none; }
-    .login-form__text span#error {
+    .login-form__text span.error {
       top: 10px;
+      margin: 0 0 0 35px;
       font-size: 0.8em;
       height: 30px;
       color: #EE2A7B; }
@@ -1082,6 +1092,17 @@ main {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: absolute; }
+
+.learn-more {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: black;
+  top: 300px;
+  font-size: 1.2em; }
+  .learn-more a {
+    text-decoration: underline; }
 
 .title-text {
   left: 50%;

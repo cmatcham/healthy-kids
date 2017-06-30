@@ -1187,6 +1187,17 @@ main {
 	}
 }
 
+.learn-more {
+	position: absolute;
+	@include center-horizontal;
+	color: black;
+	top: 300px;
+	font-size: 1.2em;
+	a {
+		text-decoration: underline;
+	}
+}
+
 .title-text {
 	@include center-horizontal;
 	position: absolute;

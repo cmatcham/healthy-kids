@@ -44,6 +44,7 @@
 	</div>
 </div>
 
+<div ng-show="vm.showLogin" class="learn-more"><span>To learn more about the game <a ng-click="vm.showDisclaimer = true">click here.</a></span></div>
 <div ng-show="!vm.showLogin" class="week-nav week-nav--home"><span ng-click="vm.showLogin = !vm.showLogin; vm.scrollTop()">Join now or log in</span></div>
 <div ng-show="vm.showLogin" class="login-form" ng-init="vm.landingScreen()">
     <div class="login-form__header">
